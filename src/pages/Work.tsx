@@ -4,6 +4,39 @@ import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Work() {
+  const projects = [
+    {
+      name: "Solar Power",
+      description:
+        "Designing and optimizing renewable energy solutions with a focus on efficient solar grid integration and sustainability.",
+    },
+    {
+      name: "Artificial Intelligence",
+      description:
+        "Building intelligent systems that leverage machine learning models to automate workflows and enable smarter decision-making.",
+    },
+    {
+      name: "Data Science",
+      description:
+        "Turning raw data into actionable insights using advanced analytics, visualization, and predictive modeling techniques.",
+    },
+    {
+      name: "SAP ABAP",
+      description:
+        "Developing robust custom applications and integrations within SAP ecosystems to streamline enterprise processes.",
+    },
+    {
+      name: "Generative AI",
+      description:
+        "Exploring creative AI solutions for text, image, and media generation to push the boundaries of content innovation.",
+    },
+    {
+      name: "Agentic AI",
+      description:
+        "Designing autonomous agents capable of reasoning, planning, and executing complex tasks with minimal human input.",
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -26,24 +59,22 @@ export default function Work() {
           </div>
         </section>
 
-        {/* Portfolio Grid (placeholder content) */}
+        {/* Portfolio Grid */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
+              {projects.map((project, index) => (
                 <motion.div
-                  key={i}
+                  key={project.name}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
                 >
                   <Card className="h-full">
                     <CardHeader>
-                      <CardTitle>{i}</CardTitle>
-                      <CardDescription>
-                        Coming soon – a brief of goals, stack, and outcomes.
-                      </CardDescription>
+                      <CardTitle>{project.name}</CardTitle>
+                      <CardDescription>{project.description}</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="aspect-video rounded-md bg-muted" aria-hidden />
