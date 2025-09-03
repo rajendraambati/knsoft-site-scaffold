@@ -30,7 +30,7 @@ export default function Work() {
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {['Solar Power', 'SAP ABAP', 'Artificial Intelligence', 'Data Science', 5, 6].map((i) => (
+              {[1, 2, 3, 4, 5, 6].map((i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
