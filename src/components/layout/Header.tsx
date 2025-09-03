@@ -26,7 +26,7 @@ export function Header() {
           {/* Logo */}
 
   <img 
-    src="/images-removebg-preview.png" 
+    src="/knsoftnew.png" 
     alt="KNSOFT Logo" 
     className="h-10 w-auto"
   />
