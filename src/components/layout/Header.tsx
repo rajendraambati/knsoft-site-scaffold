@@ -23,10 +23,15 @@ export function Header() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="images-removebg-preview.png" className="flex items-center space-x-2">
-            <Code2 className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-gradient">KNSOFT</span>
-          </Link>
+          {/* Logo */}
+
+  <img 
+    src="/images-removebg-preview.png" 
+    alt="KNSOFT Logo" 
+    className="h-10 w-auto"
+  />
+
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
