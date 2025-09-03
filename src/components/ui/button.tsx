@@ -21,7 +21,7 @@ const buttonVariants = cva(
         // KNSOFT Custom Variants
         gradient: "btn-gradient shadow-elegant hover:shadow-glow transform transition-all duration-300 hover:scale-105",
         hero: "btn-ghost-glow text-white border-white/20 backdrop-blur-sm hover:bg-white/20 hover:scale-105",
-        cta: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-elegant hover:shadow-glow transform hover:scale-105",
+        cta: "bg-cta text-cta-foreground hover:bg-cta/90 shadow-elegant hover:shadow-glow transform hover:scale-105 font-medium",
       },
       size: {
         default: "h-10 px-4 py-2",
