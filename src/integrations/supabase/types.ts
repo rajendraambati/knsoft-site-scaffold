@@ -14,7 +14,77 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      applications: {
+        Row: {
+          cover_letter: string | null
+          created_at: string
+          email: string
+          id: string
+          job_id: string
+          name: string
+          resume_url: string | null
+        }
+        Insert: {
+          cover_letter?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          job_id: string
+          name: string
+          resume_url?: string | null
+        }
+        Update: {
+          cover_letter?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          job_id?: string
+          name?: string
+          resume_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "applications_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      jobs: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          location: string | null
+          slug: string
+          title: string
+          type: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          location?: string | null
+          slug: string
+          title: string
+          type?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          location?: string | null
+          slug?: string
+          title?: string
+          type?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
