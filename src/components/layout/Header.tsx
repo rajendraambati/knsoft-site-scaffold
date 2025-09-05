@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -10,8 +10,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Products", href: "/work" },
-  { name: "Careers", href: "/careers" },
+  { name: "Work", href: "/work" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
@@ -22,17 +21,17 @@ export function Header() {
   return (
     <header className="fixed top-0 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50 border-b border-border/40">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          {/* Logo */}
-
-  <img 
-    src="/images-removebg-preview.png" 
-    alt="KNSOFT Logo" 
-    className="h-10 w-auto"
-  />
-
-
+        <div className="flex justify-between items-center h-16">
+          {/* Logo on the left */}
+          <img
+            src="/knsoftsizer-removebg-preview.png"
+            alt="KNSOFT Logo"
+            style={{
+              height: "130px", // Bigger logo
+              width: "auto",
+              objectFit: "contain",
+            }}
+          />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
