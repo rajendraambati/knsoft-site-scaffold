@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Loader2, Mail, Send } from "lucide-react";
-import { submitContactForm } from "@/lib/api";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -18,6 +18,7 @@ import { useToast } from "@/hooks/use-toast";
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
+  phone: z.string().optional(),
   subject: z.string().optional(),
   message: z.string().min(10, "Message must be at least 10 characters"),
   consent: z.boolean().refine(val => val === true, "You must agree to the privacy policy"),
@@ -36,6 +37,7 @@ export function ContactForm() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       subject: "",
       message: "",
       consent: false,
@@ -47,19 +49,33 @@ export function ContactForm() {
     setIsSubmitting(true);
     
     try {
-      // Use our local API simulation - cast to ensure type compatibility
-      const result = await submitContactForm(data as any);
-
-      if (result.success) {
-        toast({
-          title: "Message sent successfully!",
-          description: "We'll get back to you within 24 hours.",
-        });
-        form.reset();
-      } else {
-        throw new Error(result.error || 'Something went wrong');
+      // Check honeypot field for spam protection
+      if (data.website && data.website.length > 0) {
+        throw new Error("Invalid submission detected");
       }
+
+      // Insert into Supabase contacts table
+      const { error } = await supabase
+        .from('contacts')
+        .insert({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || null,
+          subject: data.subject || null,
+          message: data.message,
+        });
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you within 24 hours.",
+      });
+      form.reset();
     } catch (error) {
+      console.error('Contact form submission error:', error);
       toast({
         title: "Failed to send message",
         description: "Please try again or contact us directly at info@knsofttech.com",
@@ -128,19 +144,36 @@ export function ContactForm() {
               />
             </div>
 
-            <FormField
-              control={form.control}
-              name="subject"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Subject</FormLabel>
-                  <FormControl>
-                    <Input placeholder="What's this about?" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <div className="grid md:grid-cols-2 gap-4">
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Phone Number</FormLabel>
+                    <FormControl>
+                      <Input placeholder="+1 (555) 123-4567" type="tel" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Subject</FormLabel>
+                    <FormControl>
+                      <Input placeholder="What's this about?" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
 
             <FormField
               control={form.control}
