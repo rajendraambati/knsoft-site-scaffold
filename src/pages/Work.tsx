@@ -2,6 +2,12 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import solarPowerImage from "@/assets/solar-power-project.jpg";
+import aiImage from "@/assets/artificial-intelligence-project.jpg";
+import dataScienceImage from "@/assets/data-science-project.jpg";
+import sapAbapImage from "@/assets/sap-abap-project.jpg";
+import generativeAiImage from "@/assets/generative-ai-project.jpg";
+import agenticAiImage from "@/assets/agentic-ai-project.jpg";
 
 export default function Work() {
   const projects = [
@@ -9,31 +15,37 @@ export default function Work() {
       name: "Solar Power",
       description:
         "Designing and optimizing renewable energy solutions with a focus on efficient solar grid integration and sustainability.",
+      image: solarPowerImage,
     },
     {
       name: "Artificial Intelligence",
       description:
         "Building intelligent systems that leverage machine learning models to automate workflows and enable smarter decision-making.",
+      image: aiImage,
     },
     {
       name: "Data Science",
       description:
         "Turning raw data into actionable insights using advanced analytics, visualization, and predictive modeling techniques.",
+      image: dataScienceImage,
     },
     {
       name: "SAP ABAP",
       description:
         "Developing robust custom applications and integrations within SAP ecosystems to streamline enterprise processes.",
+      image: sapAbapImage,
     },
     {
       name: "Generative AI",
       description:
         "Exploring creative AI solutions for text, image, and media generation to push the boundaries of content innovation.",
+      image: generativeAiImage,
     },
     {
       name: "Agentic AI",
       description:
         "Designing autonomous agents capable of reasoning, planning, and executing complex tasks with minimal human input.",
+      image: agenticAiImage,
     },
   ];
 
@@ -77,7 +89,11 @@ export default function Work() {
                       <CardDescription>{project.description}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="aspect-video rounded-md bg-muted" aria-hidden />
+                      <img 
+                        src={project.image} 
+                        alt={`${project.name} project showcase`}
+                        className="aspect-video rounded-md object-cover w-full"
+                      />
                     </CardContent>
                   </Card>
                 </motion.div>
