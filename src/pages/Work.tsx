@@ -3,6 +3,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HospitalManagementArticle } from "@/components/articles/HospitalManagementArticle";
 import { PathologyLabArticle } from "@/components/articles/PathologyLabArticle";
+import { DirectoryListingArticle } from "@/components/articles/DirectoryListingArticle";
 import { useState } from "react";
 import { 
   Hospital, 
@@ -229,6 +230,8 @@ export default function Work() {
                         setSelectedArticle("hospital");
                       } else if (project.name === "Pathology Lab Management Software") {
                         setSelectedArticle("pathology");
+                      } else if (project.name === "Directory Listing Software") {
+                        setSelectedArticle("directory");
                       }
                     }}
                   >
@@ -263,6 +266,10 @@ export default function Work() {
       />
       <PathologyLabArticle 
         isOpen={selectedArticle === "pathology"} 
+        onClose={() => setSelectedArticle(null)} 
+      />
+      <DirectoryListingArticle 
+        isOpen={selectedArticle === "directory"} 
         onClose={() => setSelectedArticle(null)} 
       />
     </div>
