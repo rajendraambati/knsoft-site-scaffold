@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { HospitalManagementArticle } from "@/components/articles/HospitalManagementArticle";
+import { useState } from "react";
 import { 
   Hospital, 
   TestTube, 
@@ -59,6 +61,8 @@ interface Project {
 }
 
 export default function Work() {
+  const [selectedArticle, setSelectedArticle] = useState<string | null>(null);
+  
   const projects: Project[] = [
     { name: "Hospital Management Software Pro", icon: Hospital, featured: true },
     { name: "Pathology Lab Management Software", icon: TestTube, featured: true },
@@ -219,6 +223,7 @@ export default function Work() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.02 }}
                     className="flex flex-col items-center text-center p-6 rounded-lg bg-card hover:shadow-lg transition-all duration-300 group cursor-pointer"
+                    onClick={() => project.name === "Hospital Management Software Pro" ? setSelectedArticle("hospital") : undefined}
                   >
                     <div className="mb-4 p-4 rounded-full bg-orange-50 dark:bg-orange-950/20 group-hover:scale-110 transition-transform duration-300">
                       <IconComponent 
@@ -243,6 +248,12 @@ export default function Work() {
       </main>
 
       <Footer />
+      
+      {/* Article Modals */}
+      <HospitalManagementArticle 
+        isOpen={selectedArticle === "hospital"} 
+        onClose={() => setSelectedArticle(null)} 
+      />
     </div>
   );
 }
