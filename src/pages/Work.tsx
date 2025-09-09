@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HospitalManagementArticle } from "@/components/articles/HospitalManagementArticle";
+import { PathologyLabArticle } from "@/components/articles/PathologyLabArticle";
 import { useState } from "react";
 import { 
   Hospital, 
@@ -223,7 +224,13 @@ export default function Work() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.02 }}
                     className="flex flex-col items-center text-center p-6 rounded-lg bg-card hover:shadow-lg transition-all duration-300 group cursor-pointer"
-                    onClick={() => project.name === "Hospital Management Software Pro" ? setSelectedArticle("hospital") : undefined}
+                    onClick={() => {
+                      if (project.name === "Hospital Management Software Pro") {
+                        setSelectedArticle("hospital");
+                      } else if (project.name === "Pathology Lab Management Software") {
+                        setSelectedArticle("pathology");
+                      }
+                    }}
                   >
                     <div className="mb-4 p-4 rounded-full bg-orange-50 dark:bg-orange-950/20 group-hover:scale-110 transition-transform duration-300">
                       <IconComponent 
@@ -252,6 +259,10 @@ export default function Work() {
       {/* Article Modals */}
       <HospitalManagementArticle 
         isOpen={selectedArticle === "hospital"} 
+        onClose={() => setSelectedArticle(null)} 
+      />
+      <PathologyLabArticle 
+        isOpen={selectedArticle === "pathology"} 
         onClose={() => setSelectedArticle(null)} 
       />
     </div>
