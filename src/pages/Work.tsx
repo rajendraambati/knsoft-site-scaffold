@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { HospitalManagementArticle } from "@/components/articles/HospitalManagementArticle";
 import { PathologyLabArticle } from "@/components/articles/PathologyLabArticle";
 import { DirectoryListingArticle } from "@/components/articles/DirectoryListingArticle";
+import { CityTravelCMSArticle } from "@/components/articles/CityTravelCMSArticle";
 import { useState } from "react";
 import { 
   Hospital, 
@@ -232,6 +233,8 @@ export default function Work() {
                         setSelectedArticle("pathology");
                       } else if (project.name === "Directory Listing Software") {
                         setSelectedArticle("directory");
+                      } else if (project.name === "Directory & Listing, City Travel CMS Software") {
+                        setSelectedArticle("citytravel");
                       }
                     }}
                   >
@@ -270,6 +273,10 @@ export default function Work() {
       />
       <DirectoryListingArticle 
         isOpen={selectedArticle === "directory"} 
+        onClose={() => setSelectedArticle(null)} 
+      />
+      <CityTravelCMSArticle 
+        isOpen={selectedArticle === "citytravel"} 
         onClose={() => setSelectedArticle(null)} 
       />
     </div>
