@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin, Users, Utensils, Smartphone, Search, Star, DollarSign, Clock, TrendingUp, CheckCircle, Calendar, Target } from "lucide-react";
+import cityTravelCmsImage from "@/assets/city-travel-cms-restaurant.jpg";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -137,17 +138,18 @@ export function CityTravelCMSArticle({ isOpen, onClose }: CityTravelCMSArticlePr
         </DialogHeader>
 
         <div className="space-y-8">
-          {/* Image Placeholder */}
+          {/* Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-full h-64 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-950/20 dark:to-red-950/20 rounded-lg flex items-center justify-center"
+            className="w-full h-64 rounded-lg overflow-hidden"
           >
-            <div className="text-center">
-              <Utensils size={48} className="text-[#FF6600] mx-auto mb-4" />
-              <p className="text-muted-foreground">Restaurant Discovery Platform Image</p>
-            </div>
+            <img 
+              src={cityTravelCmsImage} 
+              alt="City Travel CMS Restaurant Discovery Platform"
+              className="w-full h-full object-cover"
+            />
           </motion.div>
 
           {/* Executive Summary */}
