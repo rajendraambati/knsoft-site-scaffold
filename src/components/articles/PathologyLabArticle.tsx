@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { X, TestTube, Clock, Shield, Users, BarChart3, CheckCircle, TrendingUp } from "lucide-react";
+import pathologyLabImage from "@/assets/pathology-lab-system.jpg";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -72,6 +73,20 @@ export function PathologyLabArticle({ isOpen, onClose }: PathologyLabArticleProp
         </DialogHeader>
 
         <div className="space-y-8">
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-full h-64 rounded-lg overflow-hidden"
+          >
+            <img 
+              src={pathologyLabImage} 
+              alt="Pathology Lab Management System"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
           {/* Overview */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Building, Search, Users, DollarSign, BarChart3, Star, Smartphone, CheckCircle, TrendingUp, Clock } from "lucide-react";
+import directoryListingImage from "@/assets/directory-listing-software.jpg";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -89,6 +90,20 @@ export function DirectoryListingArticle({ isOpen, onClose }: DirectoryListingArt
         </DialogHeader>
 
         <div className="space-y-8">
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-full h-64 rounded-lg overflow-hidden"
+          >
+            <img 
+              src={directoryListingImage} 
+              alt="Directory Listing Software Platform"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
           {/* Client Background */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}

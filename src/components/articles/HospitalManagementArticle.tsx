@@ -18,6 +18,7 @@ import {
   Target,
   Zap
 } from "lucide-react";
+import hospitalManagementImage from "@/assets/hospital-management-system.jpg";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -100,6 +101,20 @@ export function HospitalManagementArticle({ isOpen, onClose }: HospitalManagemen
         </DialogHeader>
 
         <div className="space-y-8 p-6">
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-full h-64 rounded-lg overflow-hidden"
+          >
+            <img 
+              src={hospitalManagementImage} 
+              alt="Hospital Management System Interface"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
           {/* Overview Section */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
