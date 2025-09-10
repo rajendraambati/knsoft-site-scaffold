@@ -204,9 +204,9 @@ export default function Work() {
               transition={{ duration: 0.8 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Software Solutions & Projects</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Knsoft Tech Products</h1>
               <p className="text-white/90 text-lg">
-                Comprehensive software solutions across various industries and business domains.
+                Comprehensive software products across various industries and business domains.
               </p>
             </motion.div>
           </div>
