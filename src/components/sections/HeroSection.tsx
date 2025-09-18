@@ -174,44 +174,6 @@ export function HeroSection() {
             </Button>
           </motion.div>
 
-          {/* Feature highlights */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="grid md:grid-cols-3 gap-8"
-          >
-            {heroSlides.map((slide, index) => (
-              <motion.div 
-                key={index} 
-                className="card-elegant p-6 text-center cursor-pointer"
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px -12px rgba(0, 150, 136, 0.25)",
-                }}
-                whileTap={{ scale: 0.98 }}
-                animate={{
-                  y: Math.sin((mousePosition.x + index * 50) * 0.01) * 5,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.div
-                  animate={{
-                    rotate: isHovered ? index * 10 : 0,
-                  }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <slide.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
-                </motion.div>
-                <h3 className="text-lg font-semibold mb-3 text-foreground">
-                  {slide.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {slide.subtitle}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </div>
 
