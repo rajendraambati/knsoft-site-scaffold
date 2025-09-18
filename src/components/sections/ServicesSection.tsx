@@ -65,7 +65,7 @@ export function ServicesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Services We <span className="text-gradient">Offered</span>
+            Services We <span className="text-gradient">Offer</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Comprehensive IT solutions tailored to meet your business needs and drive digital transformation.
@@ -84,7 +84,7 @@ export function ServicesSection() {
               <Card className="h-full card-glow hover:shadow-glow transition-all duration-500 group">
                 <CardHeader>
                   <div className="h-12 w-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="h-6 w-6 text-white" />
+                    <service.icon className="h-6 w-6 text-white" aria-hidden="true" />
                   </div>
                   <CardTitle className="text-xl group-hover:text-primary transition-colors">
                     {service.title}

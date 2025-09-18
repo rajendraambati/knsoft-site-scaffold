@@ -61,7 +61,7 @@ export function AboutSection() {
                 className="text-center p-6 card-elegant"
               >
                 <div className="h-12 w-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="h-6 w-6 text-white" />
+                  <stat.icon className="h-6 w-6 text-white" aria-hidden="true" />
                 </div>
                 <div className="text-2xl font-bold text-foreground mb-2">
                   {stat.value}

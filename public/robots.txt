@@ -12,3 +12,25 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://knsoft.dev/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Block access to admin areas
+User-agent: *
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# Allow access to important pages
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /work
+Allow: /careers
+Allow: /contact
+Allow: /blog

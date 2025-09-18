@@ -28,8 +28,11 @@ export function Header() {
 
   <img 
     src="/knsoftnewone.png" 
-    alt="KNSOFT Logo" 
+    alt="KNSOFT Technologies - Leading IT Solutions & Software Development Company Logo" 
     className="h-10 w-auto"
+    width="120"
+    height="40"
+    loading="eager"
   />
 
 

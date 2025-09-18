@@ -164,7 +164,7 @@ export default function About() {
                   <Card className="h-full text-center p-6 card-glow hover:shadow-glow transition-all duration-500">
                     <CardContent className="p-0">
                       <div className="h-12 w-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <value.icon className="h-6 w-6 text-white" />
+                        <value.icon className="h-6 w-6 text-white" aria-hidden="true" />
                       </div>
                       <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
                       <p className="text-muted-foreground text-sm leading-relaxed">
