@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Code, Smartphone, Globe, Users } from "lucide-react";
+import { ArrowRight, Code, Smartphone, Globe, Users, Sparkles, Zap, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 
 const heroSlides = [
   {
@@ -24,12 +25,98 @@ const heroSlides = [
 ];
 
 export function HeroSection() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
-      {/* Background decorative elements */}
+      {/* Interactive Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-white/5 rounded-full animate-float" />
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-white/3 rounded-full animate-float" style={{ animationDelay: '2s' }} />
+        {/* Floating orbs that respond to mouse movement */}
+        <motion.div 
+          className="absolute w-96 h-96 bg-gradient-to-r from-accent/20 to-primary-glow/20 rounded-full blur-3xl"
+          animate={{
+            x: mousePosition.x * 2,
+            y: mousePosition.y * 1.5,
+          }}
+          transition={{ type: "spring", stiffness: 50, damping: 30 }}
+          style={{ 
+            left: '-10%', 
+            top: '-10%',
+          }}
+        />
+        
+        <motion.div 
+          className="absolute w-80 h-80 bg-gradient-to-r from-primary-glow/15 to-accent/15 rounded-full blur-2xl"
+          animate={{
+            x: -mousePosition.x * 1.5,
+            y: -mousePosition.y * 2,
+          }}
+          transition={{ type: "spring", stiffness: 40, damping: 25 }}
+          style={{ 
+            right: '-10%', 
+            bottom: '-10%',
+          }}
+        />
+
+        {/* Floating geometric shapes */}
+        <motion.div
+          className="absolute top-1/4 left-1/4"
+          animate={{
+            rotate: mousePosition.x * 0.5,
+            scale: isHovered ? 1.2 : 1,
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <Sparkles className="w-8 h-8 text-accent/60 animate-pulse" />
+        </motion.div>
+
+        <motion.div
+          className="absolute top-3/4 right-1/4"
+          animate={{
+            rotate: -mousePosition.y * 0.3,
+            x: mousePosition.x * 0.1,
+          }}
+          transition={{ duration: 0.4 }}
+        >
+          <Zap className="w-12 h-12 text-primary-glow/50" />
+        </motion.div>
+
+        <motion.div
+          className="absolute top-1/2 right-1/6"
+          animate={{
+            y: Math.sin(mousePosition.x * 0.01) * 20,
+            rotate: mousePosition.y * 0.2,
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          <Cpu className="w-10 h-10 text-accent/40" />
+        </motion.div>
+
+        {/* Grid pattern that shifts with mouse */}
+        <motion.div 
+          className="absolute inset-0 opacity-10"
+          animate={{
+            backgroundPosition: `${mousePosition.x * 0.5}px ${mousePosition.y * 0.5}px`,
+          }}
+          transition={{ duration: 0.1 }}
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)',
+            backgroundSize: '50px 50px',
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -39,14 +126,36 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="mb-8"
+            onHoverStart={() => setIsHovered(true)}
+            onHoverEnd={() => setIsHovered(false)}
           >
-            <Code className="h-16 w-16 mx-auto mb-6 text-white/80" />
-            <h1 className="hero-text mb-6">
+            <motion.div
+              animate={{
+                scale: isHovered ? 1.1 : 1,
+                rotate: isHovered ? 5 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <Code className="h-16 w-16 mx-auto mb-6 text-white/80" />
+            </motion.div>
+            <motion.h1 
+              className="hero-text mb-6"
+              animate={{
+                scale: mousePosition.x > 50 ? 1.02 : 1,
+              }}
+              transition={{ duration: 0.2 }}
+            >
               KNSOFT TECHNOLOGIES
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+            </motion.h1>
+            <motion.p 
+              className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed"
+              animate={{
+                opacity: isHovered ? 1 : 0.9,
+              }}
+              transition={{ duration: 0.3 }}
+            >
               Innovative IT Solutions, Software Development & Digital Transformation
-            </p>
+            </motion.p>
           </motion.div>
 
           <motion.div
@@ -73,15 +182,34 @@ export function HeroSection() {
             className="grid md:grid-cols-3 gap-8"
           >
             {heroSlides.map((slide, index) => (
-              <div key={index} className="card-elegant p-6 text-center">
-                <slide.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
+              <motion.div 
+                key={index} 
+                className="card-elegant p-6 text-center cursor-pointer"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px -12px rgba(0, 150, 136, 0.25)",
+                }}
+                whileTap={{ scale: 0.98 }}
+                animate={{
+                  y: Math.sin((mousePosition.x + index * 50) * 0.01) * 5,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div
+                  animate={{
+                    rotate: isHovered ? index * 10 : 0,
+                  }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <slide.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
+                </motion.div>
                 <h3 className="text-lg font-semibold mb-3 text-foreground">
                   {slide.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {slide.subtitle}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
