@@ -262,7 +262,7 @@ export default function Work() {
                 <h2 className="text-3xl font-bold mb-8 text-foreground border-b-2 border-[#FF6600] pb-4 inline-block">
                   {category.name}
                 </h2>
-                <div className="grid gap-6 md:grid-cols-2">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {category.projects.map((project, index) => {
                     const IconComponent = project.icon;
                     return (
@@ -274,15 +274,15 @@ export default function Work() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className="flex items-center p-6 rounded-xl bg-white dark:bg-gray-800 hover:shadow-lg transition-all duration-300 group border border-gray-200 dark:border-gray-700 hover:border-[#FF6600]/30"
                       >
-                        <div className="flex-shrink-0 mr-4">
+                        <div className="flex-shrink-0 mr-3">
                           <IconComponent 
-                            size={40} 
+                            size={32} 
                             className="text-[#FF6600]" 
                             strokeWidth={1.5}
                           />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300 group-hover:text-[#FF6600] transition-colors duration-300 leading-snug">
+                          <h3 className="text-base font-medium text-gray-700 dark:text-gray-300 group-hover:text-[#FF6600] transition-colors duration-300 leading-snug">
                             {project.name}
                           </h3>
                         </div>
