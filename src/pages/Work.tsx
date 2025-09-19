@@ -50,7 +50,6 @@ import {
   Truck, 
   UserCheck, 
   Calendar,
-  // Solar & Energy Icons
   Sun,
   Battery,
   Lightbulb,
@@ -60,7 +59,7 @@ import {
   TreePine,
   TrendingDown,
   Zap,
-  LucideIcon
+  type LucideIcon
 } from "lucide-react";
 
 interface Project {
