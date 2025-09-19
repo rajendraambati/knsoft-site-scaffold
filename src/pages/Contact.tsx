@@ -18,10 +18,16 @@ const contactInfo = [
     description: "Come say hello at our office HQ."
   },
   {
-    icon: Phone,
-    title: "Call Us", 
-    content: "+91 (040) 1234-5678",
-    description: "Mon-Fri from 9am to 6pm IST."
+    icon: MapPin,
+    title: "Branches",
+    content: "6250, westpark dr. Houston TX 77057",
+    description: "Houston Office Location"
+  },
+  {
+    icon: MapPin,
+    title: "Branches",
+    content: "No:36 Pillar No:1680, 2-293/82/a/787, Road, Jubilee Hills, Hyderabad, Telangana 500033",
+    description: "Hyderabad Office Location"
   },
   {
     icon: Clock,
