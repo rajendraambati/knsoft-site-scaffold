@@ -27,7 +27,7 @@ export function Header() {
           {/* Logo */}
 
   <img 
-    src="/images-removebg-preview.png" 
+    src="/images.png" 
     alt="KNSOFT Technologies - Leading IT Solutions & Software Development Company Logo" 
     className="h-10 w-auto"
     width="120"
