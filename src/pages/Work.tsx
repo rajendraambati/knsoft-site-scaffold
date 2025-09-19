@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SEOHead } from "@/components/SEO/SEOHead";
 import { 
   Hospital, 
   TestTube, 
@@ -48,7 +49,17 @@ import {
   Bus, 
   Truck, 
   UserCheck, 
-  Calendar, 
+  Calendar,
+  // Solar & Energy Icons
+  Sun,
+  Battery,
+  Lightbulb,
+  Leaf,
+  Factory,
+  Warehouse,
+  TreePine,
+  TrendingDown,
+  Zap,
   LucideIcon
 } from "lucide-react";
 
@@ -64,7 +75,56 @@ interface Category {
 }
 
 export default function Work() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KNSOFT Technologies",
+    "url": "https://knsoft.dev",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Software Products & Solar Solutions Portfolio",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Commercial Solar Power Systems",
+            "description": "Complete solar energy solutions for commercial buildings and industrial facilities"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product", 
+            "name": "Hospital Management Software",
+            "description": "Comprehensive healthcare management solutions for hospitals and clinics"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "E-Commerce Platforms",
+            "description": "Multi-vendor and single vendor e-commerce solutions with payment integration"
+          }
+        }
+      ]
+    }
+  };
+
   const projects: Project[] = [
+    // Solar Energy & Renewable Solutions
+    { name: "Commercial Rooftop Solar Installation - 500kW", icon: Sun, category: "Solar Energy & Renewable Solutions" },
+    { name: "Industrial Solar Power Plant - 2MW", icon: Factory, category: "Solar Energy & Renewable Solutions" },
+    { name: "Residential Solar System with Battery Storage", icon: Battery, category: "Solar Energy & Renewable Solutions" },
+    { name: "Smart Solar Grid Integration System", icon: Zap, category: "Solar Energy & Renewable Solutions" },
+    { name: "Solar Farm Development Project - 10MW", icon: TreePine, category: "Solar Energy & Renewable Solutions" },
+    { name: "Warehouse Solar Installation - 1.5MW", icon: Warehouse, category: "Solar Energy & Renewable Solutions" },
+    { name: "Solar ROI Calculator & Management Platform", icon: Calculator, category: "Solar Energy & Renewable Solutions" },
+    { name: "Green Energy Monitoring Dashboard", icon: Leaf, category: "Solar Energy & Renewable Solutions" },
+    { name: "Solar Installation Cost Estimator Tool", icon: TrendingDown, category: "Solar Energy & Renewable Solutions" },
+    { name: "Community Solar Project Management System", icon: Home, category: "Solar Energy & Renewable Solutions" },
+    
     // Healthcare & Medical
     { name: "Hospital Management Software Pro", icon: Hospital, category: "Healthcare & Medical" },
     { name: "Pathology Lab Management Software", icon: TestTube, category: "Healthcare & Medical" },
@@ -227,6 +287,13 @@ export default function Work() {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Software Products & Solar Solutions Portfolio | KNSOFT Technologies"
+        description="Browse our comprehensive portfolio of software products and solar energy solutions. From hospital management systems to commercial solar installations - see our completed projects across multiple industries."
+        keywords="software products portfolio, solar energy projects, hospital management software, e-commerce platforms, solar installation, renewable energy solutions, IT portfolio, software development projects"
+        canonical="https://knsoft.dev/products"
+        structuredData={structuredData}
+      />
       <Header />
 
       <main className="pt-20">
@@ -239,9 +306,9 @@ export default function Work() {
               transition={{ duration: 0.8 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Knsoft Tech Products</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Software Products & Solar Solutions Portfolio</h1>
               <p className="text-white/90 text-lg">
-                Comprehensive software products across various industries and business domains.
+                Comprehensive software products and renewable energy solutions across various industries and business domains.
               </p>
             </motion.div>
           </div>

@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://knsoft.dev/</loc>
-    <lastmod>2024-12-24</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://knsoft.dev/about</loc>
-    <lastmod>2024-12-24</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://knsoft.dev/services</loc>
-    <lastmod>2024-12-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://knsoft.dev/work</loc>
-    <lastmod>2024-12-24</lastmod>
+    <loc>https://knsoft.dev/products</loc>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://knsoft.dev/careers</loc>
-    <lastmod>2024-12-24</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://knsoft.dev/contact</loc>
-    <lastmod>2024-12-24</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://knsoft.dev/blog</loc>
-    <lastmod>2024-12-24</lastmod>
+    <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

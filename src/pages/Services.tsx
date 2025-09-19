@@ -12,12 +12,16 @@ import {
   Zap,
   Shield,
   MessageCircle,
-  Bot
+  Bot,
+  Sun,
+  Battery,
+  Home
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { SEOHead } from "@/components/SEO/SEOHead";
 
 const mainServices = [
   {
@@ -29,6 +33,17 @@ const mainServices = [
       "Technology Assessment & Planning",
       "IT Infrastructure Optimization",
       "Process Improvement Consulting"
+    ]
+  },
+  {
+    icon: Sun,
+    title: "Solar Power Solutions",
+    description: "Comprehensive solar energy services from consultation to installation. We design and implement commercial and residential solar systems that reduce energy costs and environmental impact while ensuring optimal performance and ROI.",
+    features: [
+      "Solar System Design & Engineering",
+      "Commercial Solar Installation",
+      "Residential Solar Solutions",
+      "Solar Performance Monitoring"
     ]
   },
   {
@@ -90,6 +105,16 @@ const mainServices = [
 
 const specializedServices = [
   {
+    icon: Battery,
+    title: "Solar Energy Storage",
+    description: "Advanced battery storage solutions to maximize solar energy utilization and provide backup power."
+  },
+  {
+    icon: Home,
+    title: "Smart Solar Integration",
+    description: "IoT-enabled solar systems with intelligent monitoring and automated energy management."
+  },
+  {
     icon: Zap,
     title: "Agile Software Development",
     description: "Collaborative, adaptive, and efficient development approach focused on delivering working software quickly."
@@ -112,8 +137,60 @@ const specializedServices = [
 ];
 
 export default function Services() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KNSOFT Technologies",
+    "url": "https://knsoft.dev",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "IT Solutions & Solar Energy Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "IT Consulting",
+            "description": "Professional IT consulting services for digital transformation and infrastructure optimization"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Solar Power Solutions",
+            "description": "Complete solar energy services including design, installation, and monitoring for commercial and residential properties"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Software Development",
+            "description": "Custom software development and enterprise application solutions"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Application Development",
+            "description": "Full-stack web development and progressive web applications"
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="IT Solutions & Solar Energy Services | KNSOFT Technologies"
+        description="Expert IT consulting, software development, web applications & solar power solutions. Transform your business with advanced technology and renewable energy services. Get consultation today."
+        keywords="IT solutions, software development, solar power installation, solar energy systems, IT consulting, web development, ERP systems, renewable energy, commercial solar, residential solar"
+        canonical="https://knsoft.dev/services"
+        structuredData={structuredData}
+      />
       <Header />
       
       <main className="pt-20">
@@ -127,10 +204,10 @@ export default function Services() {
               className="text-center max-w-4xl mx-auto"
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Our Services
+                IT Solutions & Solar Energy Services
               </h1>
               <p className="text-xl text-white/90 leading-relaxed">
-                Comprehensive IT solutions designed to accelerate your business growth and digital transformation journey.
+                Comprehensive technology solutions and renewable energy services designed to accelerate your business growth and sustainability goals.
               </p>
             </motion.div>
           </div>
@@ -150,7 +227,7 @@ export default function Services() {
                 Core <span className="text-gradient">Services</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                End-to-end technology services tailored to meet your specific business requirements.
+                End-to-end technology and renewable energy services tailored to meet your business and sustainability requirements.
               </p>
             </motion.div>
 
@@ -213,7 +290,7 @@ export default function Services() {
                 Specialized <span className="text-gradient">Expertise</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Advanced technology solutions for modern business challenges.
+                Advanced technology and energy solutions for modern business challenges and sustainability goals.
               </p>
             </motion.div>
 
