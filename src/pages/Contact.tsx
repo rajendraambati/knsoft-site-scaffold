@@ -13,13 +13,19 @@ const contactInfo = [
   },
   {
     icon: MapPin,
-    title: "Branches",
-    content: "6250, westpark dr. Houston TX 77057\nHouston Office Location\n\nNo:36 Pillar No:1680, 2-293/82/a/787, Road, Jubilee Hills",
-    description: "Our office locations worldwide"
+    title: "Visit Us",
+    content: "6th Floor, Sanvi Yamuna Pride, Plot#20 & 21, Krithika Layout, Opp: Image Gardens, Madhapur, Hyderabad - 500081",
+    description: "Come say hello at our office HQ."
+  },
+  {
+    icon: Phone,
+    title: "Call Us", 
+    content: "+91 (040) 1234-5678",
+    description: "Mon-Fri from 9am to 6pm IST."
   },
   {
     icon: Clock,
-    title: "Response Time", 
+    title: "Response Time",
     content: "Within 24 hours",
     description: "We'll get back to you quickly."
   }
@@ -67,7 +73,7 @@ export default function Contact() {
                     <info.icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
-                  <p className="text-foreground font-medium mb-1 whitespace-pre-line">{info.content}</p>
+                  <p className="text-foreground font-medium mb-1">{info.content}</p>
                   <p className="text-sm text-muted-foreground">{info.description}</p>
                 </motion.div>
               ))}
