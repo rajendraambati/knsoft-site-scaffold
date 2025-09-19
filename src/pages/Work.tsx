@@ -1,11 +1,6 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { HospitalManagementArticle } from "@/components/articles/HospitalManagementArticle";
-import { PathologyLabArticle } from "@/components/articles/PathologyLabArticle";
-import { DirectoryListingArticle } from "@/components/articles/DirectoryListingArticle";
-import { CityTravelCMSArticle } from "@/components/articles/CityTravelCMSArticle";
 import { 
   Hospital, 
   TestTube, 
@@ -69,8 +64,6 @@ interface Category {
 }
 
 export default function Work() {
-  const [selectedArticle, setSelectedArticle] = useState<string | null>(null);
-  
   const projects: Project[] = [
     // Healthcare & Medical
     { name: "Hospital Management Software Pro", icon: Hospital, category: "Healthcare & Medical" },
@@ -279,18 +272,7 @@ export default function Work() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: index * 0.05 }}
-                        className="flex items-center p-4 rounded-lg bg-card hover:shadow-lg transition-all duration-300 group border border-border cursor-pointer"
-                        onClick={() => {
-                          if (project.name === "Hospital Management Software Pro") {
-                            setSelectedArticle("hospital");
-                          } else if (project.name === "Pathology Lab Management Software") {
-                            setSelectedArticle("pathology");
-                          } else if (project.name === "Directory Listing Software") {
-                            setSelectedArticle("directory");
-                          } else if (project.name === "Directory & Listing, City Travel CMS Software") {
-                            setSelectedArticle("citytravel");
-                          }
-                        }}
+                        className="flex items-center p-4 rounded-lg bg-card hover:shadow-lg transition-all duration-300 group border border-border"
                       >
                         <div className="flex-shrink-0 mr-4 p-3 rounded-full bg-orange-50 dark:bg-orange-950/20 group-hover:scale-110 transition-transform duration-300">
                           <IconComponent 
@@ -315,24 +297,6 @@ export default function Work() {
       </main>
 
       <Footer />
-      
-      {/* Article Modals */}
-      <HospitalManagementArticle 
-        isOpen={selectedArticle === "hospital"} 
-        onClose={() => setSelectedArticle(null)} 
-      />
-      <PathologyLabArticle 
-        isOpen={selectedArticle === "pathology"} 
-        onClose={() => setSelectedArticle(null)} 
-      />
-      <DirectoryListingArticle 
-        isOpen={selectedArticle === "directory"} 
-        onClose={() => setSelectedArticle(null)} 
-      />
-      <CityTravelCMSArticle 
-        isOpen={selectedArticle === "citytravel"} 
-        onClose={() => setSelectedArticle(null)} 
-      />
     </div>
   );
 }
