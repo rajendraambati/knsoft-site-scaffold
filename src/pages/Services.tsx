@@ -15,7 +15,9 @@ import {
   Bot,
   Sun,
   Battery,
-  Home
+  Home,
+  Calendar,
+  Phone
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -159,15 +161,72 @@ export default function Services() {
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 IT Solutions & Solar Energy Services
               </h1>
-              <p className="text-xl text-white/90 leading-relaxed">
+              <p className="text-xl text-white/90 leading-relaxed mb-8">
                 Comprehensive technology solutions and renewable energy services designed to accelerate your business growth and sustainability goals.
               </p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <Button asChild variant="cta" size="xl" className="text-lg">
+                  <Link to="/contact" className="flex items-center">
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Book a Call
+                  </Link>
+                </Button>
+                <Button asChild variant="hero" size="xl" className="text-lg">
+                  <Link to="#services" className="flex items-center">
+                    View Services
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Top CTA Banner */}
+        <section className="py-12 bg-secondary/30 border-b">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center bg-gradient-card rounded-2xl p-8 shadow-elegant"
+            >
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex-1 text-left md:text-left">
+                  <h3 className="text-2xl font-bold mb-2">
+                    Ready to Transform Your Business?
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Schedule a free consultation to discuss your project requirements and get expert recommendations.
+                  </p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button asChild variant="gradient" size="lg" className="whitespace-nowrap">
+                    <Link to="/contact" className="flex items-center">
+                      <Phone className="mr-2 h-4 w-4" />
+                      Book a Call
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg" className="whitespace-nowrap">
+                    <Link to="/contact" className="flex items-center">
+                      Get Quote
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
 
         {/* Main Services */}
-        <section className="py-20 bg-background">
+        <section id="services" className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -268,7 +327,7 @@ export default function Services() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-background">
+        <section className="py-20 bg-gradient-hero text-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -280,16 +339,23 @@ export default function Services() {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Ready to Get Started?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-xl text-white/90 mb-8 leading-relaxed">
                 Let's discuss your project requirements and create a custom solution that drives your business forward.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild variant="gradient" size="lg">
-                  <Link to="/contact">
-                    Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
+                <Button asChild variant="cta" size="xl" className="bg-white text-primary hover:bg-white/90 shadow-elegant hover:shadow-glow">
+                  <Link to="/contact" className="flex items-center">
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Book a Call
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="hero" size="xl">
+                  <Link to="/contact" className="flex items-center">
+                    Start Your Project
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button asChild variant="hero" size="xl">
                   <Link to="/about">Learn About Us</Link>
                 </Button>
               </div>
