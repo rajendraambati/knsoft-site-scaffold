@@ -129,15 +129,6 @@ export function HeroSection() {
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
           >
-            <motion.div
-              animate={{
-                scale: isHovered ? 1.1 : 1,
-                rotate: isHovered ? 5 : 0,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <Code className="h-16 w-16 mx-auto mb-6 text-white/80" />
-            </motion.div>
             <motion.h1 
               className="hero-text mb-6"
               animate={{
