@@ -6,6 +6,11 @@ import { ArrowRight, Code, Smartphone, Globe, Users, Sparkles, Zap, Cpu } from "
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 
+// Import certification logos
+import iso9001Logo from "@/assets/iso-9001-logo.png";
+import iso27001Logo from "@/assets/iso-27001-logo.png";
+import cmmiLogo from "@/assets/cmmi-level3-logo.png";
+
 const heroSlides = [
   {
     title: "Experience in staff Augmentation",
@@ -163,6 +168,58 @@ export function HeroSection() {
             <Button asChild variant="outline" size="xl" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
               <Link to="/services" aria-label="Explore KNSOFT Technologies services and solutions">Our Services</Link>
             </Button>
+          </motion.div>
+
+          {/* Certification Logos */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mb-12"
+          >
+            <motion.p 
+              className="text-sm text-white/70 mb-6 font-medium tracking-wide uppercase"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              Certified Excellence
+            </motion.p>
+            <div className="flex flex-row gap-8 justify-center items-center">
+              <motion.div
+                whileHover={{ scale: 1.1, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:border-white/40"
+              >
+                <img 
+                  src={iso9001Logo} 
+                  alt="ISO 9001 Certified - Quality Management System" 
+                  className="h-16 w-16 object-contain"
+                />
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:border-white/40"
+              >
+                <img 
+                  src={iso27001Logo} 
+                  alt="ISO 27001 Certified - Information Security Management" 
+                  className="h-16 w-16 object-contain"
+                />
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:border-white/40"
+              >
+                <img 
+                  src={cmmiLogo} 
+                  alt="CMMI Level 3 Certified - Software Development Maturity" 
+                  className="h-16 w-16 object-contain"
+                />
+              </motion.div>
+            </div>
           </motion.div>
 
         </div>
