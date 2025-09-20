@@ -23,83 +23,36 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEO/SEOHead";
 
-const mainServices = [
+const coreServices = [
   {
-    icon: Settings,
-    title: "IT Consulting",
-    description: "KNSoft IT consulting division provides assistance to the Clients for their changing IT Environments to improve their Effectiveness and efficiency by adopting advanced technologies and Methodologies.",
-    features: [
-      "Digital Transformation Strategy",
-      "Technology Assessment & Planning",
-      "IT Infrastructure Optimization",
-      "Process Improvement Consulting"
-    ]
-  },
-  {
-    icon: Sun,
-    title: "Solar Power Solutions",
-    description: "Comprehensive solar energy services from consultation to installation. We design and implement commercial and residential solar systems that reduce energy costs and environmental impact while ensuring optimal performance and ROI.",
-    features: [
-      "Solar System Design & Engineering",
-      "Commercial Solar Installation",
-      "Residential Solar Solutions",
-      "Solar Performance Monitoring"
-    ]
-  },
-  {
-    icon: ShoppingCart,
-    title: "Ecommerce",
-    description: "KNSoft will bring together a professional team of experts in Ecommerce and Web Development to develop an Ecommerce website that will grab the growing market. Create a presence for your business on internet with software applications to support online transactions, Advertising, Product procurement and order management.",
-    features: [
-      "Custom Ecommerce Development",
-      "Payment Gateway Integration",
-      "Inventory Management Systems",
-      "Mobile Commerce Solutions"
-    ]
+    icon: Code,
+    title: "Web & Mobile Development",
+    description: "Transform your digital presence with cutting-edge web and mobile applications. Full-stack development, progressive web apps, and responsive design solutions that drive business growth.",
+    url: "/services/web-mobile-development"
   },
   {
     icon: Database,
-    title: "ERP Application Development",
-    description: "We can modernize your existing SAP application infrastructure, build SAP-based solutions from scratch or seamlessly integrate applications with your current enterprise systems and SAP products.",
-    features: [
-      "SAP Implementation & Customization",
-      "ERP System Integration",
-      "Business Process Automation",
-      "Data Migration & Analytics"
-    ]
+    title: "SAP Modernization & ERP",
+    description: "Modernize your SAP infrastructure and streamline business processes with comprehensive ERP solutions. S/4HANA migration, system integration, and custom implementations.",
+    url: "/services/sap-modernization"
   },
   {
-    icon: Code,
-    title: "Software Development",
-    description: "KNSoft want to reach optimal efficiency in the organization of your your system projects? is a complete end-to-end suite developed and delivered by us, or there is a need to further develop the capabilities for your systems, our team of experience locally-based system analysts and developers will be able to meet your various needs ranging from Enterprise Software, Consumer Facing Web Applications to Mobile Applications.",
-    features: [
-      "Custom Software Solutions",
-      "Enterprise Application Development",
-      "API Development & Integration",
-      "Cloud-Native Applications"
-    ]
+    icon: ShoppingCart,
+    title: "Ecommerce Portals",
+    description: "Build powerful online stores and marketplaces that drive sales. Custom ecommerce development, payment integration, and mobile commerce solutions for business growth.",
+    url: "/services/ecommerce-portals"
   },
   {
-    icon: TestTube,
-    title: "Software Testing Service",
-    description: "Our team of experienced locally-based system analysts and developers will be able to meet your various needs ranging from Enterprise Software, Consumer Facing Web Applications to Mobile Applications with comprehensive testing services.",
-    features: [
-      "Automated Testing Solutions", 
-      "Performance & Load Testing",
-      "Security Testing & Audits",
-      "Quality Assurance Consulting"
-    ]
+    icon: Bot,
+    title: "AI & Automation",
+    description: "Harness the power of artificial intelligence and automation to streamline operations. Chatbots, RPA, machine learning, and intelligent process automation solutions.",
+    url: "/services/ai-automation"
   },
   {
-    icon: Globe,
-    title: "Web Application",
-    description: "We work on business models our clients want us to. We have unparalleled expertise at developing web solutions any technology platform our clients want us to. Our adroitly talented web app developers have clear-cut understanding of various framework or technologies such as PHP Framework, Zend PHP Framework, Symfony, Phalcon, CodeIgniter, .NET Framework, Ruby on Rails, Django etc.",
-    features: [
-      "Full-Stack Web Development",
-      "Progressive Web Applications",
-      "Responsive Design & UX/UI",
-      "Web Application Maintenance"
-    ]
+    icon: Settings,
+    title: "IT Consulting",
+    description: "Navigate digital transformation with expert IT consulting services. Strategic planning, technology assessment, infrastructure optimization, and ongoing strategic support.",
+    url: "/services/it-consulting"
   }
 ];
 
@@ -231,8 +184,8 @@ export default function Services() {
               </p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
-              {mainServices.map((service, index) => (
+            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+              {coreServices.map((service, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
@@ -250,22 +203,14 @@ export default function Services() {
                           {service.title}
                         </CardTitle>
                       </div>
-                      <CardDescription className="text-muted-foreground leading-relaxed">
+                      <CardDescription className="text-muted-foreground leading-relaxed mb-6">
                         {service.description}
                       </CardDescription>
                     </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2 mb-4">
-                        {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center text-sm">
-                            <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                            <span className="text-muted-foreground">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                    <CardContent className="pt-0">
                       <Button asChild variant="ghost" className="p-0 h-auto text-primary hover:text-primary-glow">
-                        <Link to="/contact" className="flex items-center">
-                          Get Started <ArrowRight className="ml-1 h-4 w-4" />
+                        <Link to={service.url} className="flex items-center">
+                          Learn More <ArrowRight className="ml-1 h-4 w-4" />
                         </Link>
                       </Button>
                     </CardContent>

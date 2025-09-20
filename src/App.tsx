@@ -14,6 +14,12 @@ import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
 import NotFound from "./pages/NotFound";
+// Service subpages
+import WebMobileDevelopment from "./pages/services/WebMobileDevelopment";
+import SapModernization from "./pages/services/SapModernization";
+import EcommercePortals from "./pages/services/EcommercePortals";
+import AiAutomation from "./pages/services/AiAutomation";
+import ItConsulting from "./pages/services/ItConsulting";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +34,11 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/web-mobile-development" element={<WebMobileDevelopment />} />
+          <Route path="/services/sap-modernization" element={<SapModernization />} />
+          <Route path="/services/ecommerce-portals" element={<EcommercePortals />} />
+          <Route path="/services/ai-automation" element={<AiAutomation />} />
+          <Route path="/services/it-consulting" element={<ItConsulting />} />
           <Route path="/solar-services" element={<SolarServices />} />
           <Route path="/products" element={<Work />} />
           <Route path="/blog" element={<Blog />} />
