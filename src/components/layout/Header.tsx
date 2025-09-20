@@ -33,6 +33,7 @@ const productsDropdown = [
   { name: "🍽️ Restaurant & Food Ordering Systems", href: "/products/restaurant-food" },
   { name: "💼 Job Portals & Classifieds", href: "/products/job-portals-classifieds" },
   { name: "🗳️ Civic, Social & Miscellaneous", href: "/products/civic-social" },
+  { name: "☀️ Solar Energy & Renewable Solutions", href: "/products/solar-renewable" },
 ];
 
 export function Header() {

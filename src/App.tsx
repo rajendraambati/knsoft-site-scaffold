@@ -27,6 +27,7 @@ import BusinessErpCrm from "./pages/products/BusinessErpCrm";
 import EcommerceRetail from "./pages/products/EcommerceRetail";
 import NgoCrowdfunding from "./pages/products/NgoCrowdfunding";
 import FinanceMicrofinance from "./pages/products/FinanceMicrofinance";
+import SolarRenewable from "./pages/products/SolarRenewable";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const App = () => (
           <Route path="/products/ecommerce-retail" element={<EcommerceRetail />} />
           <Route path="/products/ngo-crowdfunding" element={<NgoCrowdfunding />} />
           <Route path="/products/finance-microfinance" element={<FinanceMicrofinance />} />
+          <Route path="/products/solar-renewable" element={<SolarRenewable />} />
           <Route path="/solar-services" element={<SolarServices />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
