@@ -117,7 +117,21 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      applications_with_jobs: {
+        Row: {
+          cover_letter: string | null
+          created_at: string | null
+          email: string | null
+          id: string | null
+          job_location: string | null
+          job_slug: string | null
+          job_title: string | null
+          job_type: string | null
+          name: string | null
+          resume_url: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
