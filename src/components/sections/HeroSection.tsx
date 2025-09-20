@@ -156,8 +156,8 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
             <Button asChild variant="hero" size="xl">
-              <Link to="/contact" aria-label="Get started with KNSOFT Technologies IT solutions">
-                Get Started <ArrowRight className="ml-2 h-5 w-5" />
+              <Link to="/contact" aria-label="Get in touch with KNSOFT Technologies">
+                Get In Touch <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button asChild variant="outline" size="xl" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
