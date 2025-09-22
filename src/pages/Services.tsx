@@ -368,11 +368,17 @@ export default function Services() {
                 <Button asChild variant="hero" size="xl">
                   <Link to="/about">Learn About Us</Link>
                 </Button>
-                <Button asChild variant="outline" size="xl" className="bg-white/10 text-white border-white/20 hover:bg-white/20">
-                  <a href="https://knsofttech.com/products" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                    <Hospital className="mr-2 h-5 w-5" />
-                    Hospital Management Pro
-                  </a>
+                <Button 
+                  variant="outline" 
+                  size="xl" 
+                  className="bg-white/10 text-white border-white/20 hover:bg-white/20"
+                  onClick={() => {
+                    window.open("https://knsofttech.com/products", "_blank", "noopener,noreferrer");
+                    window.location.href = "/products/hospital-management-pro";
+                  }}
+                >
+                  <Hospital className="mr-2 h-5 w-5" />
+                  Hospital Management Pro
                 </Button>
               </div>
             </motion.div>
