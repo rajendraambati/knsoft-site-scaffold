@@ -94,7 +94,7 @@ export function Header() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <img 
-            src="/images-removebg-preview.png" 
+            src="/fun.png" 
             alt="KNSOFT Technologies - Leading IT Solutions & Software Development Company Logo" 
             className="h-10 w-auto"
             width="120"
