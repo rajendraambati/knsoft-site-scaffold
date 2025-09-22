@@ -102,7 +102,7 @@ export function Header() {
             loading="eager"
           />
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Moved to right */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
@@ -241,13 +241,6 @@ export function Header() {
             >
               Contact
             </Link>
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex">
-            <Button asChild variant="gradient" size="sm">
-              <Link to="/contact">Get Started</Link>
-            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -406,9 +399,7 @@ export function Header() {
               Contact
             </Link>
             
-            <Button asChild variant="gradient" size="sm" className="mt-4 w-full">
-              <Link to="/contact">Get Started</Link>
-            </Button>
+            {/* Remove mobile CTA button */}
           </div>
         </div>
       </nav>
