@@ -24,6 +24,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+// Certification logo imports
+import iso27001Logo from "@/assets/iso-27001-certification.jpg";
+import iso9001Logo from "@/assets/iso-9001-certification.jpg";
+import cmmiLevel3Logo from "@/assets/cmmi-level3-certification.jpg";
+
 const cultureValues = [
   {
     icon: Handshake,
@@ -112,19 +117,19 @@ const certifications = [
   {
     name: "ISO 9001:2015",
     description: "Quality Management Systems",
-    icon: "/iso-9001-logo.png", // Using existing asset
+    icon: iso9001Logo,
     category: "Quality"
   },
   {
     name: "ISO 27001:2013", 
     description: "Information Security Management",
-    icon: "/iso-27001-logo.png", // Using existing asset
+    icon: iso27001Logo,
     category: "Security"
   },
   {
     name: "CMMI Level 3",
     description: "Capability Maturity Model Integration",
-    icon: "/cmmi-level3-logo.png", // Using existing asset
+    icon: cmmiLevel3Logo,
     category: "Process"
   },
   {
@@ -420,8 +425,12 @@ export default function About() {
                 >
                   <Card className="h-full text-center p-6 card-elegant hover:shadow-glow transition-all duration-500">
                     <CardContent className="p-0">
-                      <div className="h-16 w-16 bg-background rounded-lg flex items-center justify-center mx-auto mb-4 border">
-                        <Award className="h-8 w-8 text-primary" />
+                      <div className="h-20 w-20 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 border p-2">
+                        <img 
+                          src={cert.icon} 
+                          alt={`${cert.name} certification logo`}
+                          className="max-h-16 max-w-16 object-contain"
+                        />
                       </div>
                       <Badge variant="secondary" className="mb-2">
                         {cert.category}
