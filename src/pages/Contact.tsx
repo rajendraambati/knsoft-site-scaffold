@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    content: "6th Floor, Sanvi Yamuna Pride, Plot#20 & 21, Krithika Layout, Opp: Image Gardens, Madhapur, Hyderabad - 500081",
+    content: "H.No 8, Apurupa Turbo Tower, No:36 Pillar No:1680, 2-293/82/a/787, Road, Jubilee Hills, Hyderabad, Telangana 500033",
     description: "Come say hello at our office HQ."
   },
   {
@@ -91,48 +91,6 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* Calendar Booking Section */}
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl font-bold mb-4">
-                Book a <span className="text-gradient">Call</span>
-              </h2>
-              <p className="text-muted-foreground">
-                Schedule a consultation with our experts
-              </p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto"
-            >
-              <div className="aspect-[4/3] w-full rounded-lg overflow-hidden shadow-elegant bg-background border">
-                <iframe
-                  src="https://calendly.com/your-calendly-link"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  title="Schedule a Meeting"
-                  className="w-full h-full"
-                />
-              </div>
-              <p className="text-center text-sm text-muted-foreground mt-4">
-                Can't see the calendar? <a href="https://calendly.com/your-calendly-link" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Click here to book directly</a>
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
         {/* Map Section */}
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,7 +105,7 @@ export default function Contact() {
                 Find Us <span className="text-gradient">Here</span>
               </h2>
               <p className="text-muted-foreground">
-                Located in the heart of Hyderabad's tech hub
+                Located in the prestigious Jubilee Hills area
               </p>
             </motion.div>
             
@@ -159,7 +117,7 @@ export default function Contact() {
               className="aspect-video w-full rounded-lg overflow-hidden shadow-elegant"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.613906991717!2d78.3912!3d17.4483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5d69df%3A0x19688beb557fa0ee!2sMadhapur%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1638360644021!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2886!2d78.4089!3d17.4239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96f8a5b1e8ef%3A0x1234567890abcdef!2sH.No%208%2C%20Apurupa%20Turbo%20Tower%2C%20Jubilee%20Hills%2C%20Hyderabad%2C%20Telangana%20500033!5e0!3m2!1sen!2sin!4v1638360644021!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -185,10 +143,10 @@ export default function Contact() {
                   Office Address
                 </h3>
                 <p className="text-foreground leading-relaxed">
-                  6th Floor, Sanvi Yamuna Pride<br/>
-                  Plot#20 & 21, Krithika Layout<br/>
-                  Opp: Image Gardens, Madhapur<br/>
-                  Hyderabad - 500081, Telangana, India
+                  H.No 8, Apurupa Turbo Tower<br/>
+                  No:36 Pillar No:1680, 2-293/82/a/787, Road<br/>
+                  Jubilee Hills, Hyderabad<br/>
+                  Telangana 500033, India
                 </p>
               </div>
             </motion.div>
