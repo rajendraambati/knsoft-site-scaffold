@@ -124,6 +124,8 @@ export default function HealthcareMedical() {
                               ? "/products/hospital-management-pro" 
                               : product.name === "Pathology Lab Management Software"
                               ? "/products/pathology-lab-management"
+                              : product.name === "The Pharma - Pharmacy Management System TSF"
+                              ? "/products/pharmacy-management-tsf"
                               : "/contact"
                           }>
                             Learn More

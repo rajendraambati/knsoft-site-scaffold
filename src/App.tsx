@@ -27,6 +27,7 @@ import ItConsulting from "./pages/services/ItConsulting";
 import HealthcareMedical from "./pages/products/HealthcareMedical";
 import HospitalManagementPro from "./pages/products/HospitalManagementPro";
 import PathologyLabManagement from "./pages/products/PathologyLabManagement";
+import PharmacyManagementTSF from "./pages/products/PharmacyManagementTSF";
 import EducationLearning from "./pages/products/EducationLearning";
 import BusinessErpCrm from "./pages/products/BusinessErpCrm";
 import EcommerceRetail from "./pages/products/EcommerceRetail";
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/products/healthcare-medical" element={<HealthcareMedical />} />
           <Route path="/products/hospital-management-pro" element={<HospitalManagementPro />} />
           <Route path="/products/pathology-lab-management" element={<PathologyLabManagement />} />
+          <Route path="/products/pharmacy-management-tsf" element={<PharmacyManagementTSF />} />
           <Route path="/products/education-learning" element={<EducationLearning />} />
           <Route path="/products/business-erp-crm" element={<BusinessErpCrm />} />
           <Route path="/products/ecommerce-retail" element={<EcommerceRetail />} />
