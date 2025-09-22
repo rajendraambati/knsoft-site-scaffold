@@ -17,7 +17,8 @@ import {
   Battery,
   Home,
   Calendar,
-  Phone
+  Phone,
+  Hospital
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -366,6 +367,12 @@ export default function Services() {
                 </Button>
                 <Button asChild variant="hero" size="xl">
                   <Link to="/about">Learn About Us</Link>
+                </Button>
+                <Button asChild variant="outline" size="xl" className="bg-white/10 text-white border-white/20 hover:bg-white/20">
+                  <Link to="/products/hospital-management-pro">
+                    <Hospital className="mr-2 h-5 w-5" />
+                    Hospital Management Pro
+                  </Link>
                 </Button>
               </div>
             </motion.div>
