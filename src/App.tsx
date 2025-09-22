@@ -11,6 +11,7 @@ import SolarServices from "./pages/SolarServices";
 import Work from "./pages/Work";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import CaseStudies from "./pages/CaseStudies";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
 import NotFound from "./pages/NotFound";
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/products/solar-renewable" element={<SolarRenewable />} />
           <Route path="/solar-services" element={<SolarServices />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/careers/:slug" element={<CareerDetail />} />
