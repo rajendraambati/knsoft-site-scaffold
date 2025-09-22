@@ -193,7 +193,7 @@ export function Header() {
               {/* Dropdown Menu */}
               <div
                 className={cn(
-                  "absolute top-full left-0 mt-2 w-80 bg-background/95 backdrop-blur-sm border border-border/40 rounded-lg shadow-lg z-50 transition-all duration-200 origin-top max-h-96 overflow-y-auto",
+                  "absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-sm border border-border/40 rounded-lg shadow-lg z-50 transition-all duration-200 origin-top max-h-96 overflow-y-auto",
                   isProductsOpen 
                     ? "opacity-100 scale-100 translate-y-0" 
                     : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
