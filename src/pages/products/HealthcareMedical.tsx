@@ -119,7 +119,13 @@ export default function HealthcareMedical() {
                           </Link>
                         </Button>
                         <Button asChild variant="ghost" size="sm">
-                          <Link to={product.name === "Hospital Management Software Pro" ? "/products/hospital-management-pro" : "/contact"}>
+                          <Link to={
+                            product.name === "Hospital Management Software Pro" 
+                              ? "/products/hospital-management-pro" 
+                              : product.name === "Pathology Lab Management Software"
+                              ? "/products/pathology-lab-management"
+                              : "/contact"
+                          }>
                             Learn More
                           </Link>
                         </Button>
