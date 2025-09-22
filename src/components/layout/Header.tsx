@@ -23,17 +23,17 @@ const servicesDropdown = [
 ];
 
 const productsDropdown = [
-  { name: "🏥 Healthcare & Medical Software", href: "/products/healthcare-medical" },
-  { name: "🏫 Education & Learning Systems", href: "/products/education-learning" },
-  { name: "🏢 Business, ERP & CRM Solutions", href: "/products/business-erp-crm" },
-  { name: "🛒 E-Commerce & Retail Platforms", href: "/products/ecommerce-retail" },
-  { name: "🧑‍🤝‍🧑 NGO & Crowdfunding Platforms", href: "/products/ngo-crowdfunding" },
-  { name: "💳 Finance & Microfinance Systems", href: "/products/finance-microfinance" },
-  { name: "🏨 Hospitality, Travel & Booking Systems", href: "/products/hospitality-travel" },
-  { name: "🍽️ Restaurant & Food Ordering Systems", href: "/products/restaurant-food" },
-  { name: "💼 Job Portals & Classifieds", href: "/products/job-portals-classifieds" },
-  { name: "🗳️ Civic, Social & Miscellaneous", href: "/products/civic-social" },
-  { name: "☀️ Solar Energy & Renewable Solutions", href: "/products/solar-renewable" },
+  { name: "Healthcare & Medical", href: "/products/healthcare-medical" },
+  { name: "Education & Learning", href: "/products/education-learning" },
+  { name: "Business, ERP & CRM", href: "/products/business-erp-crm" },
+  { name: "E-Commerce & Retail", href: "/products/ecommerce-retail" },
+  { name: "NGO & Crowdfunding", href: "/products/ngo-crowdfunding" },
+  { name: "Finance & Microfinance", href: "/products/finance-microfinance" },
+  { name: "Hospitality, Travel & Booking", href: "/products/hospitality-travel" },
+  { name: "Restaurant & Food Ordering", href: "/products/restaurant-food" },
+  { name: "Job Portals & Classifieds", href: "/products/job-portals-classifieds" },
+  { name: "Civic, Social & Miscellaneous", href: "/products/civic-social" },
+  { name: "Solar Energy & Renewable", href: "/products/solar-renewable" },
 ];
 
 export function Header() {
