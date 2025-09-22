@@ -117,7 +117,7 @@ export default function Contact() {
               className="aspect-video w-full rounded-lg overflow-hidden shadow-elegant"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2886!2d78.4089!3d17.4239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96f8a5b1e8ef%3A0x1234567890abcdef!2sH.No%208%2C%20Apurupa%20Turbo%20Tower%2C%20Jubilee%20Hills%2C%20Hyderabad%2C%20Telangana%20500033!5e0!3m2!1sen!2sin!4v1638360644021!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=H.No+8,+Apurupa+Turbo+Tower,+Jubilee+Hills,+Hyderabad,+Telangana+500033&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
