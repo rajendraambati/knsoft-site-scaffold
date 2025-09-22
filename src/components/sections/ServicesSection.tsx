@@ -19,37 +19,37 @@ const services = [
     icon: Settings,
     title: "IT Consulting",
     description: "KNSoft IT consulting division provides assistance to the Clients for their changing IT Environments to improve their Effectiveness and efficiency by adopting advanced technologies and Methodologies.",
-    href: "/services#it-consulting"
+    href: "/services/it-consulting"
   },
   {
     icon: ShoppingCart,
     title: "Ecommerce",
     description: "KNSoft will bring together a professional team of experts in Ecommerce and Web Development to develop an Ecommerce website that will grab the growing market. Create a presence for your business on internet with software applications to support online transactions, Advertising, Product procurement and order management.",
-    href: "/services#ecommerce"
+    href: "/services/ecommerce-portals"
   },
   {
     icon: Database,
     title: "ERP Application Development",
     description: "We can modernize your existing SAP application infrastructure, build SAP-based solutions from scratch or seamlessly integrate applications with your current enterprise systems and SAP products.",
-    href: "/services#erp-development"
+    href: "/services/sap-modernization"
   },
   {
     icon: Code,
     title: "Software Development",
     description: "KNSoft want to reach optimal efficiency in the organization of your your system projects? is a complete end-to-end suite developed and delivered by us, or there is a need to further develop the capabilities for your systems, our team of experience locally-based system analysts and developers will be able to meet your various needs ranging from Enterprise Software, Consumer Facing Web Applications to Mobile Applications.",
-    href: "/services#software-development"
+    href: "/services/web-mobile-development"
   },
   {
     icon: TestTube,
     title: "Software testing service",
     description: "Our team of experienced locally-based system analysts and developers will be able to meet your various needs ranging from Enterprise Software, Consumer Facing Web Applications to Mobile Applications with comprehensive testing services.",
-    href: "/services#software-testing"
+    href: "/services/web-mobile-development"
   },
   {
     icon: Globe,
     title: "Web application",
     description: "We work on business models our clients want us to. We have unparalleled expertise at developing web solutions any technology platform our clients want us to. Our adroitly talented web app developers have clear-cut understanding of various framework or technologies such as PHP Framework, Zend PHP Framework, Symfony, Phalcon, CodeIgniter, .NET Framework, Ruby on Rails, Django etc.",
-    href: "/services#web-application"
+    href: "/services/web-mobile-development"
   },
 ];
 
