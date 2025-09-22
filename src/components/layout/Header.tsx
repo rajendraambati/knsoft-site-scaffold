@@ -11,7 +11,6 @@ const navigation = [
   { name: "About", href: "/about" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Careers", href: "/careers" },
-  /*{ name: "Blog", href: "/blog" },*/
   { name: "Contact", href: "/contact" },
 ];
 
@@ -105,15 +104,18 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-              >
-                {item.name}
-              </Link>
-            ))}
+            <Link
+              to="/"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+            >
+              About
+            </Link>
             
             {/* Services Dropdown */}
             <div 
@@ -220,6 +222,25 @@ export function Header() {
                 </div>
               </div>
             </div>
+
+            <Link
+              to="/case-studies"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+            >
+              Case Studies
+            </Link>
+            <Link
+              to="/careers"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+            >
+              Careers
+            </Link>
+            <Link
+              to="/contact"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+            >
+              Contact
+            </Link>
           </div>
 
           {/* CTA Button */}
@@ -250,16 +271,20 @@ export function Header() {
           )}
         >
           <div className="flex flex-col space-y-4">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            <Link
+              to="/"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              About
+            </Link>
             
             {/* Mobile Services Dropdown */}
             <div className="flex flex-col">
@@ -358,6 +383,28 @@ export function Header() {
                 </div>
               </div>
             </div>
+
+            <Link
+              to="/case-studies"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Case Studies
+            </Link>
+            <Link
+              to="/careers"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Careers
+            </Link>
+            <Link
+              to="/contact"
+              className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </Link>
             
             <Button asChild variant="gradient" size="sm" className="mt-4 w-full">
               <Link to="/contact">Get Started</Link>
