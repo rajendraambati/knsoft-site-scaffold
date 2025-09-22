@@ -25,9 +25,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 // Certification logo imports
-import iso27001Logo from "@/assets/iso-27001-certification.jpg";
-import iso9001Logo from "@/assets/iso-9001-certification.jpg";
-import cmmiLevel3Logo from "@/assets/cmmi-level3-certification.jpg";
+import iso27001Logo from "@/assets/iso-27001-new.png";
+import iso9001Logo from "@/assets/iso-9001-new.png";
+import cmmiLevel3Logo from "@/assets/cmmi-level3-new.png";
 
 const cultureValues = [
   {
@@ -135,19 +135,19 @@ const certifications = [
   {
     name: "SAP Partnership",
     description: "Certified SAP Solutions Partner",
-    icon: "/sapabap.png", // Using existing asset
+    icon: null,
     category: "Technology"
   },
   {
     name: "AWS Partner",
     description: "Amazon Web Services Technology Partner",
-    icon: "/aws-partner.png", // Placeholder
+    icon: null,
     category: "Cloud"
   },
   {
     name: "Microsoft Partner",
     description: "Microsoft Certified Partner",
-    icon: "/microsoft-partner.png", // Placeholder  
+    icon: null,
     category: "Technology"
   }
 ];
@@ -426,11 +426,15 @@ export default function About() {
                   <Card className="h-full text-center p-6 card-elegant hover:shadow-glow transition-all duration-500">
                     <CardContent className="p-0">
                       <div className="h-20 w-20 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 border p-2">
-                        <img 
-                          src={cert.icon} 
-                          alt={`${cert.name} certification logo`}
-                          className="max-h-16 max-w-16 object-contain"
-                        />
+                        {cert.icon ? (
+                          <img 
+                            src={cert.icon} 
+                            alt={`${cert.name} certification logo`}
+                            className="max-h-16 max-w-16 object-contain"
+                          />
+                        ) : (
+                          <Award className="h-8 w-8 text-primary" />
+                        )}
                       </div>
                       <Badge variant="secondary" className="mb-2">
                         {cert.category}
