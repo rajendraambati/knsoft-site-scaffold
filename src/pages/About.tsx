@@ -98,12 +98,12 @@ const officeLocations = [
     mapEmbed: null
   },
   {
-    city: "Bangalore",
+    city: "Guntur",
     country: "India",
     type: "Development Center",
-    address: "Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane",
-    email: "bangalore@knsofttech.com",
-    phone: "+91 80 4567 8901",
+    address: "Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane, Gorantla, Guntur, Andhra Pradesh – 522034",
+    email: "guntur@knsofttech.com",
+    phone: "+91 863 4567 8901",
     mapEmbed: null
   }
 ];
