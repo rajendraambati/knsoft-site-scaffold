@@ -369,10 +369,10 @@ export default function Services() {
                   <Link to="/about">Learn About Us</Link>
                 </Button>
                 <Button asChild variant="outline" size="xl" className="bg-white/10 text-white border-white/20 hover:bg-white/20">
-                  <Link to="/products/hospital-management-pro">
+                  <a href="https://knsofttech.com/products" target="_blank" rel="noopener noreferrer" className="flex items-center">
                     <Hospital className="mr-2 h-5 w-5" />
                     Hospital Management Pro
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </motion.div>
