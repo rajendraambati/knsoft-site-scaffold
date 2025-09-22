@@ -24,6 +24,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEO/SEOHead";
 import { Badge } from "@/components/ui/badge";
+import hospitalManagementImage from "@/assets/hospital-management-software-pro.jpg";
 
 const modules = [
   { name: "Patient Registration", icon: Users, description: "Automated appointment scheduling and patient registration" },
@@ -112,6 +113,16 @@ export default function HospitalManagementPro() {
                   Hospital Management Software Pro
                 </h1>
               </div>
+              
+              {/* Product Image */}
+              <div className="mb-8">
+                <img 
+                  src={hospitalManagementImage} 
+                  alt="Hospital Management Software Pro Dashboard Interface"
+                  className="w-full max-w-4xl mx-auto rounded-lg shadow-2xl"
+                />
+              </div>
+              
               <p className="text-xl text-white/90 leading-relaxed mb-8">
                 Comprehensive, integrated Hospital Management System (HMS) supporting a broad spectrum of hospital functions, 
                 including reception, billing, inpatient and outpatient management, diagnostics, pharmacy, radiology, and reporting.

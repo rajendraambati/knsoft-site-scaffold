@@ -119,12 +119,9 @@ export default function HealthcareMedical() {
                           </Link>
                         </Button>
                         <Button asChild variant="ghost" size="sm">
-                          <a href={product.name === "Hospital Management Software Pro" ? "https://knsofttech.com/products" : "/contact"} 
-                             target={product.name === "Hospital Management Software Pro" ? "_blank" : "_self"}
-                             rel={product.name === "Hospital Management Software Pro" ? "noopener noreferrer" : undefined}
-                             className="flex items-center">
+                          <Link to={product.name === "Hospital Management Software Pro" ? "/products/hospital-management-pro" : "/contact"}>
                             Learn More
-                          </a>
+                          </Link>
                         </Button>
                       </div>
                     </CardContent>
