@@ -251,6 +251,10 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  id={service.title.toLowerCase().includes('it consulting') ? 'it-consulting' : 
+                      service.title.toLowerCase().includes('web') ? 'web-applications' : 
+                      service.title.toLowerCase().includes('sap') ? 'erp-development' : 
+                      service.title.toLowerCase().includes('ecommerce') ? 'software-development' : ''}
                 >
                   <Card className="h-full card-glow hover:shadow-glow transition-all duration-500 group">
                     <CardHeader>
@@ -276,6 +280,11 @@ export default function Services() {
                   </Card>
                 </motion.div>
               ))}
+            </div>
+
+            {/* Anchor sections for footer links */}
+            <div className="hidden">
+              <div id="software-development"></div>
             </div>
           </div>
         </section>

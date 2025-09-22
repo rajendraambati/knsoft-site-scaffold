@@ -15,6 +15,8 @@ import CaseStudies from "./pages/CaseStudies";
 import Careers from "./pages/Careers";
 import CareerDetail from "./pages/CareerDetail";
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 // Service subpages
 import WebMobileDevelopment from "./pages/services/WebMobileDevelopment";
 import SapModernization from "./pages/services/SapModernization";
@@ -62,6 +64,8 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/careers/:slug" element={<CareerDetail />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

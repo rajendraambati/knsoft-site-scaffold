@@ -40,10 +40,10 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <div className="text-sm text-muted-foreground">
-                  <p>6th Floor, Sanvi Yamuna Pride,</p>
-                  <p>Plot#20 & 21, Krithika Layout,</p>
-                  <p>Opp: Image Gardens, Madhapur,</p>
-                  <p>Hyderabad - 500081</p>
+                  <p>H.No 8, Apurupa Turbo Tower,</p>
+                  <p>No:36 Pillar No:1680, 2-293/82/a/787, Road,</p>
+                  <p>Jubilee Hills, Hyderabad,</p>
+                  <p>Telangana 500033, India</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
