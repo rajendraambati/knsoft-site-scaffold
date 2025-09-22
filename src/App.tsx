@@ -60,7 +60,8 @@ const App = () => (
           <Route path="/products/solar-renewable" element={<SolarRenewable />} />
           <Route path="/solar-services" element={<SolarServices />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/success-stories" element={<CaseStudies />} />
+          <Route path="/case-studies" element={<CaseStudies />} /> {/* Backward compatibility */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/careers/:slug" element={<CareerDetail />} />

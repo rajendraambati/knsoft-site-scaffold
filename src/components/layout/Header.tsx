@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Case Studies", href: "/case-studies" },
+  { name: "Success Stories", href: "/success-stories" },
   { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
@@ -140,7 +140,7 @@ export function Header() {
               {/* Dropdown Menu */}
               <div
                 className={cn(
-                  "absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-sm border border-border/40 rounded-lg shadow-lg z-50 transition-all duration-200 origin-top",
+                  "absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-sm border border-border/40 rounded-lg shadow-lg z-50 transition-all duration-200 origin-top",
                   isServicesOpen 
                     ? "opacity-100 scale-100 translate-y-0" 
                     : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
@@ -224,10 +224,10 @@ export function Header() {
             </div>
 
             <Link
-              to="/case-studies"
+              to="/success-stories"
               className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
             >
-              Case Studies
+              Success Stories
             </Link>
             <Link
               to="/careers"
@@ -385,11 +385,11 @@ export function Header() {
             </div>
 
             <Link
-              to="/case-studies"
+              to="/success-stories"
               className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
               onClick={() => setIsOpen(false)}
             >
-              Case Studies
+              Success Stories
             </Link>
             <Link
               to="/careers"
