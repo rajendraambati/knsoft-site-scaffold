@@ -1,35 +1,8 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Clock } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/forms/ContactForm";
-
-const contactInfo = [
-  {
-    icon: Mail,
-    title: "Email Us",
-    content: "info@knsofttech.com",
-    description: "Send us an email anytime!"
-  },
-  {
-    icon: MapPin,
-    title: "Visit Us",
-    content: "H.No 8, Apurupa Turbo Tower\nNo:36 Pillar No:1680, 2-293/82/a/787, Road\nJubilee Hills, Hyderabad\nTelangana 500033, India",
-    description: "Come say hello at our office HQ."
-  },
-  {
-    icon: Phone,
-    title: "Branches",
-    content: "6250, westpark dr.\nHouston\nTX 77057\n\nFlat No - TF-2,\nVenkateswara Arcade,\nAnnapurna Nagar 6th lane",
-    description: "Our office locations"
-  },
-  {
-    icon: Clock,
-    title: "Response Time",
-    content: "Within 24 hours",
-    description: "We'll get back to you quickly."
-  }
-];
 
 export default function Contact() {
   return (
@@ -56,30 +29,9 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* Contact Information */}
+        {/* Contact Form */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center p-6 card-elegant"
-                >
-                  <div className="h-12 w-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <info.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
-                  <p className="text-foreground font-medium mb-1 whitespace-pre-line">{info.content}</p>
-                  <p className="text-sm text-muted-foreground">{info.description}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
