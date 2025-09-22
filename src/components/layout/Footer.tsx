@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { Mail, MapPin, Code2, Linkedin, Twitter, Github } from "lucide-react";
 
 const services = [
-  { name: "IT Consulting", href: "/services#it-consulting" },
-  { name: "Software Development", href: "/services#software-development" },
-  { name: "Web Applications", href: "/services#web-applications" },
-  { name: "ERP Development", href: "/services#erp-development" },
+  { name: "IT Consulting", href: "/services/it-consulting" },
+  { name: "Software Development", href: "/services/web-mobile-development" },
+  { name: "Web Applications", href: "/services/web-mobile-development" },
+  { name: "ERP Development", href: "/services/sap-modernization" },
 ];
 
 const company = [
