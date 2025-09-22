@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    content: "H.No 8, Apurupa Turbo Tower, No:36 Pillar No:1680, 2-293/82/a/787, Road, Jubilee Hills, Hyderabad, Telangana 500033",
+    content: "H.No 8, Apurupa Turbo Tower\nNo:36 Pillar No:1680, 2-293/82/a/787, Road\nJubilee Hills, Hyderabad\nTelangana 500033, India",
     description: "Come say hello at our office HQ."
   },
   {
@@ -117,7 +117,7 @@ export default function Contact() {
               className="aspect-video w-full rounded-lg overflow-hidden shadow-elegant"
             >
               <iframe
-                src="https://maps.google.com/maps?q=H.No+8,+Apurupa+Turbo+Tower,+Jubilee+Hills,+Hyderabad,+Telangana+500033&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=H.No+8,+Apurupa+Turbo+Tower,+No:36+Pillar+No:1680,+2-293/82/a/787,+Road,+Jubilee+Hills,+Hyderabad,+Telangana+500033,+India&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
