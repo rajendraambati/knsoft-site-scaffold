@@ -68,14 +68,14 @@ const leadership = [
     experience: "12+ years"
   },
   {
-    name: "MoRajesh",
+    name: "Rajesh",
     title: "Head of Operations",
     image: "/images/leadership/coo.jpg", // Placeholder - replace with actual images
     bio: "Amit oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
     experience: "10+ years"
   },
   {
-    name: "Karunasree",
+    name: "Karuna Sree",
     title: "Head of Business Development",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
     bio: "Deepika drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
