@@ -90,7 +90,7 @@ const officeLocations = [
     type: "Headquarters",
     address: "H.No 8, Apurupa Turbo Tower, No:36 Pillar No:1680, 2-293/82/a/787, Road, Jubilee Hills, Hyderabad, Telangana 500033",
     email: "info@knsofttech.com",
-    phone: "+91 40 4012 3456",
+    /*phone: "+91 40 4012 3456",*/
     mapEmbed: "https://maps.google.com/maps?q=H.No+8,+Apurupa+Turbo+Tower,+Jubilee+Hills,+Hyderabad,+Telangana+500033&t=&z=16&ie=UTF8&iwloc=&output=embed"
   },
   {
@@ -99,7 +99,7 @@ const officeLocations = [
     type: "Branch Office",
     address: "6250, Westpark Dr., Houston, TX 77057",
     email: "usa@knsofttech.com", 
-    phone: "+1 (713) 555-0123",
+    /*phone: "+1 (713) 555-0123",*/
     mapEmbed: null
   },
   {
@@ -108,7 +108,7 @@ const officeLocations = [
     type: "Development Center",
     address: "Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane, Gorantla, Guntur, Andhra Pradesh – 522034",
     email: "guntur@knsofttech.com",
-    phone: "+91 863 4567 8901",
+    /*phone: "+91 863 4567 8901",*/
     mapEmbed: null
   }
 ];
