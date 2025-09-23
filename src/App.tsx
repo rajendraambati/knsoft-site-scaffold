@@ -35,6 +35,7 @@ import HospitalManagementSoftware2 from "./pages/products/HospitalManagementSoft
 import HospitalManagementSoftware3 from "./pages/products/HospitalManagementSoftware3";
 import ClinicManagementSoftwarePro from "./pages/products/ClinicManagementSoftwarePro";
 import PharmacyManagementProGD from "./pages/products/PharmacyManagementProGD";
+import HospitalManagementSystemTSF from "./pages/products/HospitalManagementSystemTSF";
 import EducationLearning from "./pages/products/EducationLearning";
 import BusinessErpCrm from "./pages/products/BusinessErpCrm";
 import EcommerceRetail from "./pages/products/EcommerceRetail";
@@ -72,6 +73,7 @@ const App = () => (
           <Route path="/products/hospital-management-software-3" element={<HospitalManagementSoftware3 />} />
           <Route path="/products/clinic-management-software-pro" element={<ClinicManagementSoftwarePro />} />
           <Route path="/products/pharmacy-management-pro-gd" element={<PharmacyManagementProGD />} />
+          <Route path="/products/hospital-management-system-tsf" element={<HospitalManagementSystemTSF />} />
           <Route path="/products/education-learning" element={<EducationLearning />} />
           <Route path="/products/business-erp-crm" element={<BusinessErpCrm />} />
           <Route path="/products/ecommerce-retail" element={<EcommerceRetail />} />

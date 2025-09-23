@@ -140,6 +140,8 @@ export default function HealthcareMedical() {
                               ? "/products/clinic-management-software-pro"
                               : product.name === "Pharmacy Management Software Pro GD"
                               ? "/products/pharmacy-management-pro-gd"
+                              : product.name === "Hospital Management System TSF"
+                              ? "/products/hospital-management-system-tsf"
                               : "/contact"
                           }>
                             Learn More
