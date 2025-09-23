@@ -136,6 +136,8 @@ export default function HealthcareMedical() {
                               ? "/products/hospital-management-software-2"
                               : product.name === "Hospital Management Software 3"
                               ? "/products/hospital-management-software-3"
+                              : product.name === "Clinic Management Software Pro"
+                              ? "/products/clinic-management-software-pro"
                               : "/contact"
                           }>
                             Learn More
