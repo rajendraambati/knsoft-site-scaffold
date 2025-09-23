@@ -130,6 +130,8 @@ export default function HealthcareMedical() {
                               ? "/products/pharmacy-management-software"
                               : product.name === "Clinic Management Software"
                               ? "/products/clinic-management-software"
+                              : product.name === "Diagnostic Lab Management Software"
+                              ? "/products/diagnostic-lab-management"
                               : "/contact"
                           }>
                             Learn More

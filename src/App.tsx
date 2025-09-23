@@ -30,6 +30,7 @@ import PathologyLabManagement from "./pages/products/PathologyLabManagement";
 import PharmacyManagementTSF from "./pages/products/PharmacyManagementTSF";
 import PharmacyManagementSoftware from "./pages/products/PharmacyManagementSoftware";
 import ClinicManagementSoftware from "./pages/products/ClinicManagementSoftware";
+import DiagnosticLabManagement from "./pages/products/DiagnosticLabManagement";
 import EducationLearning from "./pages/products/EducationLearning";
 import BusinessErpCrm from "./pages/products/BusinessErpCrm";
 import EcommerceRetail from "./pages/products/EcommerceRetail";
@@ -62,6 +63,7 @@ const App = () => (
           <Route path="/products/pharmacy-management-tsf" element={<PharmacyManagementTSF />} />
           <Route path="/products/pharmacy-management-software" element={<PharmacyManagementSoftware />} />
           <Route path="/products/clinic-management-software" element={<ClinicManagementSoftware />} />
+          <Route path="/products/diagnostic-lab-management" element={<DiagnosticLabManagement />} />
           <Route path="/products/education-learning" element={<EducationLearning />} />
           <Route path="/products/business-erp-crm" element={<BusinessErpCrm />} />
           <Route path="/products/ecommerce-retail" element={<EcommerceRetail />} />

@@ -83,7 +83,17 @@ const leadership = [
   }
 ];
 
-const officeLocations = [
+interface OfficeLocation {
+  city: string;
+  country: string;
+  type: string;
+  address: string;
+  email: string;
+  phone?: string;
+  mapEmbed: string | null;
+}
+
+const officeLocations: OfficeLocation[] = [
   {
     city: "Hyderabad",
     country: "India",
@@ -364,12 +374,14 @@ export default function About() {
                             {office.email}
                           </a>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <Phone className="h-4 w-4 text-primary" />
-                          <a href={`tel:${office.phone}`} className="text-primary hover:underline">
-                            {office.phone}
-                          </a>
-                        </div>
+                        {office.phone && (
+                          <div className="flex items-center gap-2">
+                            <Phone className="h-4 w-4 text-primary" />
+                            <a href={`tel:${office.phone}`} className="text-primary hover:underline">
+                              {office.phone}
+                            </a>
+                          </div>
+                        )}
                       </div>
 
                       {/* Embed map for headquarters */}
