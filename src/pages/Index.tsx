@@ -5,6 +5,7 @@ import { FeaturesSection } from "@/components/sections/FeaturesSection";
 import { CapabilitiesSection } from "@/components/sections/CapabilitiesSection";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import ChatBot from "@/components/chat/ChatBot";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
         <CapabilitiesSection />
       </main>
       <Footer />
+      <ChatBot />
     </div>
   );
 };
