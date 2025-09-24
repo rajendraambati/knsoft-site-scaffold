@@ -139,13 +139,13 @@ export function HeroSection() {
               KNSOFT TECHNOLOGIES
             </motion.h1>
             <motion.p 
-              className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed"
+              className="text-xl md:text-2xl mb-8 leading-relaxed bg-gradient-to-r from-white to-red-400 bg-clip-text text-transparent font-semibold"
               animate={{
                 opacity: isHovered ? 1 : 0.9,
               }}
               transition={{ duration: 0.3 }}
             >
-              Innovative IT Solutions, Software Development & Digital Transformation
+              Driving Digital Transformation with Innovative IT Solutions, Software Development & Solar-Powered Sustainability
             </motion.p>
           </motion.div>
 
