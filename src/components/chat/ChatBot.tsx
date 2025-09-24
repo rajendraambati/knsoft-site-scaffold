@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, User, Sparkles, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
-import { findResponse, getGreeting } from './ChatKnowledge';
+import { generateAIResponse } from './AIResponseGenerator';
+import { getGreeting } from './ChatKnowledge';
 
 interface Message {
   id: string;
@@ -39,8 +40,8 @@ const ChatBot = () => {
     setMessages(prev => [...prev, newMessage]);
   };
 
-  const generateBotResponse = (userMessage: string): string => {
-    return findResponse(userMessage);
+  const generateBotResponse = async (userMessage: string): Promise<string> => {
+    return await generateAIResponse(userMessage);
   };
 
   const handleSendMessage = async () => {
@@ -51,12 +52,24 @@ const ChatBot = () => {
     setInputValue('');
     setIsTyping(true);
 
-    // Simulate typing delay
-    setTimeout(() => {
-      const botResponse = generateBotResponse(userMessage);
-      addMessage(botResponse, 'bot');
-      setIsTyping(false);
-    }, 1500);
+    try {
+      // Generate AI response with enhanced knowledge
+      const botResponse = await generateBotResponse(userMessage);
+      
+      // Simulate realistic typing delay based on response length
+      const typingDelay = Math.min(Math.max(botResponse.length * 20, 1000), 4000);
+      
+      setTimeout(() => {
+        addMessage(botResponse, 'bot');
+        setIsTyping(false);
+      }, typingDelay);
+    } catch (error) {
+      console.error('Error generating response:', error);
+      setTimeout(() => {
+        addMessage("I apologize, but I'm having trouble processing your request right now. Please try again or contact our team directly for assistance.", 'bot');
+        setIsTyping(false);
+      }, 1500);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -87,21 +100,52 @@ const ChatBot = () => {
             className="mb-4 w-96 h-[500px] bg-background border border-border rounded-2xl shadow-2xl overflow-hidden"
           >
             {/* Chat Header */}
-            <div className="flex items-center justify-between p-4 bg-gradient-to-r from-primary to-primary-glow text-white">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+            <div className="flex items-center justify-between p-4 bg-gradient-to-r from-primary via-primary-glow to-accent text-white relative overflow-hidden">
+              {/* Animated background elements */}
+              <motion.div
+                className="absolute inset-0 opacity-20"
+                animate={{
+                  background: [
+                    "radial-gradient(circle at 0% 0%, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                    "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                    "radial-gradient(circle at 0% 0%, rgba(255,255,255,0.1) 0%, transparent 50%)"
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
+              
+              <div className="flex items-center gap-3 relative z-10">
+                <motion.div 
+                  className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                >
                   <Bot className="w-4 h-4" />
-                </div>
+                </motion.div>
                 <div>
-                  <h3 className="font-semibold">KNSOFT Assistant</h3>
-                  <p className="text-sm opacity-90">Online now</p>
+                  <h3 className="font-semibold flex items-center gap-2">
+                    KNSOFT Assistant
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      <Sparkles className="w-3 h-3" />
+                    </motion.div>
+                  </h3>
+                  <motion.p 
+                    className="text-sm opacity-90"
+                    animate={{ opacity: [0.7, 1, 0.7] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    AI-Powered • Always Learning
+                  </motion.p>
                 </div>
               </div>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-white/20"
+                className="text-white hover:bg-white/20 relative z-10"
               >
                 <X className="w-4 h-4" />
               </Button>
@@ -162,12 +206,31 @@ const ChatBot = () => {
                     <div className="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
                       <Bot className="w-4 h-4 text-muted-foreground" />
                     </div>
-                    <div className="bg-muted rounded-2xl px-4 py-3">
+                    <div className="bg-muted rounded-2xl px-4 py-3 relative">
                       <div className="flex gap-1">
-                        <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" />
-                        <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce delay-100" />
-                        <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce delay-200" />
+                        <motion.div 
+                          className="w-2 h-2 bg-primary rounded-full"
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 0.8, repeat: Infinity, delay: 0 }}
+                        />
+                        <motion.div 
+                          className="w-2 h-2 bg-primary rounded-full"
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 0.8, repeat: Infinity, delay: 0.2 }}
+                        />
+                        <motion.div 
+                          className="w-2 h-2 bg-primary rounded-full"
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 0.8, repeat: Infinity, delay: 0.4 }}
+                        />
                       </div>
+                      <motion.div
+                        className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                      >
+                        <Sparkles className="w-2 h-2 text-white" />
+                      </motion.div>
                     </div>
                   </motion.div>
                 )}
@@ -206,8 +269,22 @@ const ChatBot = () => {
       >
         <Button
           onClick={isOpen ? () => setIsOpen(false) : openChat}
-          className="w-14 h-14 rounded-full bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300"
+          className="w-14 h-14 rounded-full bg-gradient-to-r from-primary via-primary-glow to-accent hover:from-accent hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
         >
+          {/* Animated background pulse */}
+          <motion.div
+            className="absolute inset-0 bg-white rounded-full"
+            animate={{ 
+              scale: [0, 1.5, 0],
+              opacity: [0.3, 0, 0]
+            }}
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity,
+              repeatDelay: 1
+            }}
+          />
+          
           <AnimatePresence mode="wait">
             {isOpen ? (
               <motion.div
@@ -216,6 +293,7 @@ const ChatBot = () => {
                 animate={{ rotate: 0, opacity: 1 }}
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
+                className="relative z-10"
               >
                 <X className="w-6 h-6" />
               </motion.div>
@@ -226,8 +304,16 @@ const ChatBot = () => {
                 animate={{ rotate: 0, opacity: 1 }}
                 exit={{ rotate: -90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
+                className="relative z-10 flex items-center justify-center"
               >
                 <MessageCircle className="w-6 h-6" />
+                <motion.div
+                  className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full"
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <Zap className="w-2 h-2 text-white" />
+                </motion.div>
               </motion.div>
             )}
           </AnimatePresence>
