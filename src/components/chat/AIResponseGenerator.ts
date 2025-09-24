@@ -9,13 +9,13 @@ interface AIResponse {
 
 // Fallback responses for when no relevant content is found
 const fallbackResponses = [
-  "That's an interesting question! While I don't have that specific information in my knowledge base yet, I can tell you that KNSOFT Technologies specializes in comprehensive IT solutions. Would you like to know more about our core services or perhaps get in touch with our team for detailed information?",
+  "I don't have that specific information available right now. Could you try asking about our services, company info, or contact details instead?",
   
-  "I'd love to help with that! Though I don't have those exact details, KNSOFT Technologies has been delivering innovative solutions since 2010. You might find what you're looking for on our Contact page, or I can tell you about our main services - which would interest you most?",
+  "I'm not sure about that particular detail. I can help you with information about KNSOFT Technologies' services, locations, or how to get in touch with our team.",
   
-  "Great question! I don't have that particular information available, but I can share that we're experts in digital transformation, software development, and solar-powered sustainability solutions. Is there a specific service or capability you'd like to explore?",
+  "I don't have those exact details in my knowledge base. Would you like to know about our core services, company background, or contact information instead?",
   
-  "I appreciate your question! While that specific information isn't in my current knowledge base, I can tell you about KNSOFT's 13+ years of experience serving 500+ clients across 25+ countries. Would you like to know more about our achievements or perhaps explore our services?"
+  "That specific information isn't available to me. I can provide details about our services, company history, or help you connect with our team for more information."
 ];
 
 export class AIResponseGenerator {
@@ -54,53 +54,151 @@ export class AIResponseGenerator {
   ): string {
     const query = userMessage.toLowerCase();
     
-    // Check for specific location questions
+    // Direct question matching for accurate responses
+    if (this.isWhatIsKnsoft(query)) {
+      return this.generateWhatIsKnsoftResponse(relevantContent);
+    }
+    
     if (this.isLocationQuery(query)) {
       return this.generateLocationResponse(query, relevantContent, companyInfo);
-    }
-
-    // Check for specific contact questions  
-    if (this.isSpecificContactQuery(query)) {
-      return this.generateSpecificContactResponse(query, relevantContent, companyInfo);
-    }
-
-    // Check for specific service questions
-    if (this.isSpecificServiceQuery(query)) {
-      return this.generateSpecificServiceResponse(query, relevantContent);
-    }
-
-    // Check for company info questions
-    if (this.isSpecificCompanyQuery(query)) {
-      return this.generateSpecificCompanyResponse(query, relevantContent, companyInfo);
-    }
-
-    // Determine response type based on query intent
-    if (this.isGreeting(query)) {
-      return this.generateGreetingResponse(companyInfo);
-    }
-
-    if (this.isAboutCompany(query)) {
-      return this.generateAboutResponse(relevantContent, companyInfo);
     }
 
     if (this.isServicesQuery(query)) {
       return this.generateServicesResponse(relevantContent);
     }
-
-    if (this.isContactQuery(query)) {
-      return this.generateContactResponse(relevantContent, companyInfo);
+    
+    if (this.isBusinessDurationQuery(query)) {
+      return this.generateBusinessDurationResponse(relevantContent);
     }
-
-    if (this.isTechnologyQuery(query)) {
-      return this.generateTechnologyResponse(relevantContent);
+    
+    if (this.isClientsQuery(query)) {
+      return this.generateClientsResponse(relevantContent);
     }
-
+    
+    if (this.isSpecificContactQuery(query)) {
+      return this.generateSpecificContactResponse(query, relevantContent, companyInfo);
+    }
+    
+    if (this.isDifferencesQuery(query)) {
+      return this.generateDifferencesResponse(relevantContent);
+    }
+    
+    if (this.isSoftwareDevelopmentQuery(query)) {
+      return this.generateSoftwareDevelopmentResponse(relevantContent);
+    }
+    
+    if (this.isMobileAppsQuery(query)) {
+      return this.generateMobileAppsResponse(relevantContent);
+    }
+    
+    if (this.isWebDevelopmentQuery(query)) {
+      return this.generateWebDevelopmentResponse(relevantContent);
+    }
+    
+    if (this.isCloudSolutionsQuery(query)) {
+      return this.generateCloudSolutionsResponse(relevantContent);
+    }
+    
+    if (this.isIndustriesQuery(query)) {
+      return this.generateIndustriesResponse(relevantContent);
+    }
+    
+    if (this.isDigitalTransformationQuery(query)) {
+      return this.generateDigitalTransformationResponse(relevantContent);
+    }
+    
+    if (this.isERPCRMQuery(query)) {
+      return this.generateERPCRMResponse(relevantContent);
+    }
+    
+    if (this.isAIMLQuery(query)) {
+      return this.generateAIMLResponse(relevantContent);
+    }
+    
     if (this.isCareersQuery(query)) {
       return this.generateCareersResponse(relevantContent);
     }
+    
+    if (this.isPricingQuery(query)) {
+      return this.generatePricingResponse(relevantContent);
+    }
+    
+    if (this.isSupportQuery(query)) {
+      return this.generateSupportResponse(relevantContent);
+    }
 
-    // General focused response
-    return this.generateFocusedGeneralResponse(userMessage, relevantContent[0]);
+    // Fallback for general queries
+    return this.generateDirectResponse(userMessage, relevantContent);
+  }
+
+  private isWhatIsKnsoft(query: string): boolean {
+    const keywords = ['what is knsoft', 'what is knsoft technologies', 'about knsoft', 'tell me about knsoft'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isBusinessDurationQuery(query: string): boolean {
+    const keywords = ['how long', 'years in business', 'experience', 'how many years', 'when founded'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isClientsQuery(query: string): boolean {
+    const keywords = ['clients', 'customers', 'who are your clients', 'client base'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isDifferencesQuery(query: string): boolean {
+    const keywords = ['what makes', 'different', 'competitors', 'why choose', 'advantages'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isSoftwareDevelopmentQuery(query: string): boolean {
+    const keywords = ['software development', 'custom software', 'develop software'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isMobileAppsQuery(query: string): boolean {
+    const keywords = ['mobile app', 'mobile development', 'android', 'ios', 'app development'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isWebDevelopmentQuery(query: string): boolean {
+    const keywords = ['web development', 'website', 'web design', 'web app'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isCloudSolutionsQuery(query: string): boolean {
+    const keywords = ['cloud solutions', 'cloud services', 'aws', 'azure', 'cloud migration'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isIndustriesQuery(query: string): boolean {
+    const keywords = ['industries', 'sectors', 'specialize in', 'work with'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isDigitalTransformationQuery(query: string): boolean {
+    const keywords = ['digital transformation', 'it consulting', 'consulting'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isERPCRMQuery(query: string): boolean {
+    const keywords = ['erp', 'crm', 'enterprise resource', 'customer relationship'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isAIMLQuery(query: string): boolean {
+    const keywords = ['ai', 'artificial intelligence', 'machine learning', 'ml', 'data analytics'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isPricingQuery(query: string): boolean {
+    const keywords = ['cost', 'price', 'pricing', 'how much', 'quote', 'billing'];
+    return keywords.some(keyword => query.includes(keyword));
+  }
+
+  private isSupportQuery(query: string): boolean {
+    const keywords = ['support', 'maintenance', 'technical support', '24/7', 'help'];
+    return keywords.some(keyword => query.includes(keyword));
   }
 
   private isGreeting(query: string): boolean {
@@ -153,16 +251,98 @@ export class AIResponseGenerator {
     return companyKeywords.some(keyword => query.includes(keyword));
   }
 
-  private generateGreetingResponse(companyInfo: any): string {
-    const greetings = [
-      `Hello! Welcome to ${companyInfo.name}! 🚀 I'm here to help you discover our innovative IT solutions and solar-powered sustainability initiatives. With ${companyInfo.experience} of experience serving ${companyInfo.clients} worldwide, we're passionate about driving digital transformation. What would you like to know about our services?`,
-      
-      `Hi there! Great to meet you! I'm the ${companyInfo.name} assistant, ready to help you explore our cutting-edge technology solutions. Since ${companyInfo.founded}, we've been transforming businesses with our expertise in software development, SAP modernization, and renewable energy. How can I assist you today?`,
-      
-      `Hey! Welcome to the world of ${companyInfo.name}! 🌟 I'm excited to share how we're revolutionizing businesses through our comprehensive IT solutions and sustainable technology. With our global presence and ${companyInfo.projects}, there's so much to discover. What interests you most?`
-    ];
+  private generateWhatIsKnsoftResponse(relevantContent: ContentSection[]): string {
+    const companyInfo = relevantContent.find(c => c.section === 'company_overview');
+    if (companyInfo) {
+      return companyInfo.content;
+    }
+    return "KNSOFT Technologies is an IT solutions company that provides software development, web and mobile app development, cloud solutions, and digital transformation services for businesses worldwide.";
+  }
+
+  private generateBusinessDurationResponse(relevantContent: ContentSection[]): string {
+    const statsInfo = relevantContent.find(c => c.section === 'company_stats');
+    if (statsInfo) {
+      return "KNSOFT Technologies has been delivering IT solutions for over 13 years since being founded in 2010.";
+    }
+    return "KNSOFT Technologies has been delivering IT solutions for over 13 years, helping businesses of all sizes with technology-driven growth.";
+  }
+
+  private generateClientsResponse(relevantContent: ContentSection[]): string {
+    const clientInfo = relevantContent.find(c => c.section === 'target_clients' || c.section === 'company_stats');
+    if (clientInfo) {
+      return "We work with startups, SMEs, and large enterprises across industries like healthcare, finance, retail, and education. We have served 500+ satisfied clients across 25+ countries.";
+    }
+    return "We work with startups, SMEs, and large enterprises across industries like healthcare, finance, retail, and education.";
+  }
+
+  private generateDifferencesResponse(relevantContent: ContentSection[]): string {
+    return "Our focus is on delivering customized, scalable, and secure IT solutions while ensuring timely delivery and long-term support. We combine deep technical expertise with industry knowledge and hold certifications like ISO 9001, ISO 27001, and CMMI Level 3.";
+  }
+
+  private generateSoftwareDevelopmentResponse(relevantContent: ContentSection[]): string {
+    return "Yes, we specialize in custom software development tailored to your business needs. We build enterprise-grade solutions with focus on reliability, compliance, and scalability.";
+  }
+
+  private generateMobileAppsResponse(relevantContent: ContentSection[]): string {
+    return "Yes, we develop Android, iOS, and cross-platform mobile apps with modern UI/UX and robust performance. We use technologies like React Native, Flutter, and native development.";
+  }
+
+  private generateWebDevelopmentResponse(relevantContent: ContentSection[]): string {
+    return "Absolutely! We create responsive, SEO-friendly, and visually appealing websites that enhance your online presence. We use modern frameworks like React, Angular, and Vue.js.";
+  }
+
+  private generateCloudSolutionsResponse(relevantContent: ContentSection[]): string {
+    return "Yes, we offer cloud migration, deployment, and management services for platforms like AWS, Azure, and Google Cloud. We help modernize your infrastructure for better scalability and efficiency.";
+  }
+
+  private generateIndustriesResponse(relevantContent: ContentSection[]): string {
+    const industryInfo = relevantContent.find(c => c.section === 'target_clients');
+    if (industryInfo) {
+      return industryInfo.content;
+    }
+    return "We work across multiple industries including healthcare, retail, finance, education, logistics, and e-commerce.";
+  }
+
+  private generateDigitalTransformationResponse(relevantContent: ContentSection[]): string {
+    return "Yes, we help businesses modernize operations through digital solutions, process automation, and technology consulting. Our IT consulting services include strategic planning, technology assessment, and infrastructure optimization.";
+  }
+
+  private generateERPCRMResponse(relevantContent: ContentSection[]): string {
+    return "Yes, we build and customize ERP & CRM systems to streamline your business processes. We specialize in SAP modernization, S/4HANA migration, and custom ERP implementations.";
+  }
+
+  private generateAIMLResponse(relevantContent: ContentSection[]): string {
+    return "Yes, we provide AI, machine learning, and advanced analytics to help businesses make data-driven decisions. Our AI & automation services include chatbots, RPA, and intelligent process automation.";
+  }
+
+  private generatePricingResponse(relevantContent: ContentSection[]): string {
+    const pricingInfo = relevantContent.find(c => c.section === 'pricing_model');
+    if (pricingInfo) {
+      return pricingInfo.content;
+    }
+    return "The cost depends on project complexity, features, and duration. We provide a free quote after consultation and offer both fixed-price and hourly billing models.";
+  }
+
+  private generateSupportResponse(relevantContent: ContentSection[]): string {
+    const supportInfo = relevantContent.find(c => c.section === 'support_services');
+    if (supportInfo) {
+      return supportInfo.content;
+    }
+    return "Yes, we provide ongoing support and updates to ensure smooth operations. Our typical response time is within a few hours, and 24/7 support is available for premium plans.";
+  }
+
+  private generateDirectResponse(userMessage: string, relevantContent: ContentSection[]): string {
+    if (!relevantContent || relevantContent.length === 0) {
+      return this.generateFallbackResponse(userMessage);
+    }
     
-    return greetings[Math.floor(Math.random() * greetings.length)];
+    // Return the most relevant content directly
+    const primaryContent = relevantContent[0];
+    return primaryContent.content;
+  }
+
+  private generateGreetingResponse(companyInfo: any): string {
+    return `Hello! I'm here to help you learn about KNSOFT Technologies. We're an IT solutions company founded in 2010, providing software development, web & mobile applications, SAP modernization, and digital transformation services. How can I assist you today?`;
   }
 
   private generateAboutResponse(relevantContent: ContentSection[], companyInfo: any): string {
@@ -188,32 +368,13 @@ Would you like to know more about our leadership team, office locations, or spec
   }
 
   private generateServicesResponse(relevantContent: ContentSection[]): string {
-    const servicesContent = relevantContent.filter(c => 
-      c.section === 'core_services' || c.section === 'services_offered' || c.section === 'specialized_services'
-    );
-
-    if (servicesContent.length > 0) {
-      return `🛠️ **KNSOFT Technologies Services**
-
-We offer a comprehensive suite of technology solutions designed to accelerate your business growth:
-
-**Core Services:**
-${servicesContent[0]?.content || 'Complete IT solutions tailored to your needs'}
-
-${servicesContent.length > 1 ? `**Specialized Expertise:**
-${servicesContent[1]?.content || 'Advanced technology solutions'}` : ''}
-
-**Why Choose Us:**
-• End-to-end solution delivery
-• Industry-certified professionals  
-• Agile development methodologies
-• 24/7 global support
-• Proven track record with 1000+ projects
-
-Ready to transform your business? I can provide more details about any specific service or connect you with our expert team!`;
+    const servicesContent = relevantContent.find(c => c.section === 'core_services');
+    
+    if (servicesContent) {
+      return servicesContent.content;
     }
 
-    return this.generateFallbackResponse("services");
+    return "We provide end-to-end IT services including custom software development, web & mobile development, SAP modernization & ERP, ecommerce portals, AI & automation, and IT consulting services.";
   }
 
   private generateContactResponse(relevantContent: ContentSection[], companyInfo: any): string {
@@ -268,34 +429,13 @@ We stay ahead of technology trends to ensure your solutions are built for tomorr
   }
 
   private generateCareersResponse(relevantContent: ContentSection[]): string {
-    const careerContent = relevantContent.find(c => c.section === 'why_work_with_us');
+    const careerContent = relevantContent.find(c => c.section === 'career_opportunities');
     
     if (careerContent) {
-      return `🚀 **Join the KNSOFT Team!**
-
-${careerContent.content}
-
-**What We Offer:**
-• Competitive compensation & benefits
-• Flexible work arrangements
-• Cutting-edge technology projects
-• Global collaboration opportunities
-• Continuous learning & development
-• Innovation-driven culture
-
-**Current Focus Areas:**
-• Software Development
-• AI & Automation
-• Cloud Technologies  
-• Solar Energy Solutions
-• Digital Transformation
-
-We're always looking for passionate professionals who want to make a meaningful impact. Visit our Careers page to explore current openings or send your resume to start a conversation!
-
-What type of role interests you most?`;
+      return careerContent.content;
     }
 
-    return this.generateFallbackResponse("careers");
+    return "You can apply for jobs at KNSOFT Technologies through our Careers page or by sending your resume to hr@knsoft.com. We offer opportunities in software development, testing, UI/UX design, and project management.";
   }
 
   private generateLocationResponse(query: string, relevantContent: ContentSection[], companyInfo: any): string {
@@ -421,18 +561,7 @@ Is there anything specific about this you'd like me to clarify?`;
 
   private generateFallbackResponse(userMessage: string): string {
     const response = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
-    
-    // Add some contextual suggestions based on the query
-    const suggestions = this.generateSuggestions(userMessage);
-    
-    const enhancedResponse = `${response}
-
-**Here are some things I can help you with:**
-${suggestions.map(s => `• ${s}`).join('\n')}
-
-${getResponseVariation()}`;
-
-    return enhanceWithPersonality(enhancedResponse, userMessage);
+    return response;
   }
 
   private generateSuggestions(query: string): string[] {
