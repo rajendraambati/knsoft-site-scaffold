@@ -139,7 +139,7 @@ export function HeroSection() {
               KNSOFT TECHNOLOGIES
             </motion.h1>
             <motion.p 
-              className="text-xl md:text-2xl mb-8 leading-relaxed bg-gradient-to-r from-violet-500 via-indigo-500 via-blue-500 via-green-500 via-yellow-500 via-orange-500 to-red-500 bg-clip-text text-transparent font-semibold animate-pulse"
+              className="text-xl md:text-2xl mb-8 leading-relaxed bg-gradient-to-r from-white via-red-300 to-red-500 bg-clip-text text-transparent font-semibold"
               animate={{
                 opacity: isHovered ? 1 : 0.9,
               }}
