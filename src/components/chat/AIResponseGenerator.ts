@@ -38,25 +38,41 @@ export class AIResponseGenerator {
         return this.generateFallbackResponse(userMessage);
       }
 
-      // Generate contextual response based on relevant content
-      const response = this.generateContextualResponse(userMessage, relevantContent, companyInfo);
-      
-      // Add personality and engagement
-      return enhanceWithPersonality(response, userMessage);
+      // Generate focused response based on specific query
+      const response = this.generateFocusedResponse(userMessage, relevantContent, companyInfo);
+      return response;
     } catch (error) {
       console.error('Error generating AI response:', error);
       return this.generateFallbackResponse(userMessage);
     }
   }
 
-  private generateContextualResponse(
+  private generateFocusedResponse(
     userMessage: string, 
     relevantContent: ContentSection[], 
     companyInfo: any
   ): string {
     const query = userMessage.toLowerCase();
-    const primaryContent = relevantContent[0];
-    const additionalContext = relevantContent.slice(1, 3);
+    
+    // Check for specific location questions
+    if (this.isLocationQuery(query)) {
+      return this.generateLocationResponse(query, relevantContent, companyInfo);
+    }
+
+    // Check for specific contact questions  
+    if (this.isSpecificContactQuery(query)) {
+      return this.generateSpecificContactResponse(query, relevantContent, companyInfo);
+    }
+
+    // Check for specific service questions
+    if (this.isSpecificServiceQuery(query)) {
+      return this.generateSpecificServiceResponse(query, relevantContent);
+    }
+
+    // Check for company info questions
+    if (this.isSpecificCompanyQuery(query)) {
+      return this.generateSpecificCompanyResponse(query, relevantContent, companyInfo);
+    }
 
     // Determine response type based on query intent
     if (this.isGreeting(query)) {
@@ -83,8 +99,8 @@ export class AIResponseGenerator {
       return this.generateCareersResponse(relevantContent);
     }
 
-    // General response based on content
-    return this.generateGeneralResponse(userMessage, primaryContent, additionalContext);
+    // General focused response
+    return this.generateFocusedGeneralResponse(userMessage, relevantContent[0]);
   }
 
   private isGreeting(query: string): boolean {
@@ -115,6 +131,26 @@ export class AIResponseGenerator {
   private isCareersQuery(query: string): boolean {
     const careerKeywords = ['career', 'job', 'hiring', 'work', 'employment', 'position', 'opportunity'];
     return careerKeywords.some(keyword => query.includes(keyword));
+  }
+
+  private isLocationQuery(query: string): boolean {
+    const locationKeywords = ['where is', 'where are', 'located', 'location', 'address', 'office'];
+    return locationKeywords.some(keyword => query.includes(keyword));
+  }
+
+  private isSpecificContactQuery(query: string): boolean {
+    const contactKeywords = ['email', 'phone', 'contact number', 'how to contact', 'reach'];
+    return contactKeywords.some(keyword => query.includes(keyword));
+  }
+
+  private isSpecificServiceQuery(query: string): boolean {
+    const serviceKeywords = ['what services', 'what do you offer', 'services list', 'what can you do'];
+    return serviceKeywords.some(keyword => query.includes(keyword));
+  }
+
+  private isSpecificCompanyQuery(query: string): boolean {
+    const companyKeywords = ['when founded', 'how many years', 'experience', 'clients', 'projects'];
+    return companyKeywords.some(keyword => query.includes(keyword));
   }
 
   private generateGreetingResponse(companyInfo: any): string {
@@ -262,41 +298,125 @@ What type of role interests you most?`;
     return this.generateFallbackResponse("careers");
   }
 
-  private generateGeneralResponse(
-    userMessage: string, 
-    primaryContent: ContentSection, 
-    additionalContext: ContentSection[]
-  ): string {
-    const responses = [
-      `Based on your question about "${userMessage}", here's what I can share:
+  private generateLocationResponse(query: string, relevantContent: ContentSection[], companyInfo: any): string {
+    if (query.includes('hyderabad') || query.includes('headquarters') || query.includes('main office')) {
+      return `KNSOFT Technologies is headquartered in Hyderabad, India at:
 
-**${primaryContent.context}:**
-${primaryContent.content}
+📍 **Headquarters:**
+H.No 8, Apurupa Turbo Tower, No:36 Pillar No:1680, 2-293/82/a/787, Road, Jubilee Hills, Hyderabad, Telangana 500033, India
 
-${additionalContext.length > 0 ? `**Additional Information:**
-${additionalContext[0].content}` : ''}
+Email: info@knsofttech.com`;
+    }
 
-Is there a specific aspect you'd like me to elaborate on? I'm here to help you understand how KNSOFT Technologies can support your needs!`,
+    if (query.includes('houston') || query.includes('usa') || query.includes('america')) {
+      return `Our USA branch office is located in Houston:
 
-      `Great question! Let me provide you with relevant information:
+📍 **USA Branch Office:**
+6250, Westpark Dr., Houston, TX 77057
 
-✨ **${primaryContent.context}**
-${primaryContent.content}
+Email: usa@knsofttech.com`;
+    }
 
-${additionalContext.length > 1 ? `🔍 **Related Info:**
-${additionalContext[1].content}` : ''}
+    if (query.includes('guntur') || query.includes('development center')) {
+      return `Our development center is in Guntur:
 
-Would you like more details about any particular aspect, or can I help you with something else about KNSOFT Technologies?`,
+📍 **Development Center:**
+Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane, Gorantla, Guntur, Andhra Pradesh – 522034
 
-      `I'd be happy to help with that! Here's what I know about "${userMessage}":
+Email: guntur@knsofttech.com`;
+    }
 
-📋 **${primaryContent.context}:**
-${primaryContent.content}
+    // General location response
+    return `KNSOFT Technologies has offices in multiple locations:
 
-This is part of how we deliver comprehensive solutions to our clients. Want to know more about how this applies to your specific needs, or would you like to explore other aspects of our services?`
+📍 **Headquarters:** Hyderabad, India
+H.No 8, Apurupa Turbo Tower, Jubilee Hills, Hyderabad, Telangana 500033
+Email: info@knsofttech.com
+
+📍 **USA Branch:** Houston, Texas
+6250, Westpark Dr., Houston, TX 77057  
+Email: usa@knsofttech.com
+
+📍 **Development Center:** Guntur, India
+Flat No - TF-2, Venkateswara Arcade, Gorantla, Guntur, Andhra Pradesh – 522034
+Email: guntur@knsofttech.com`;
+  }
+
+  private generateSpecificContactResponse(query: string, relevantContent: ContentSection[], companyInfo: any): string {
+    if (query.includes('email')) {
+      return `📧 **Email Contacts:**
+• General inquiries: info@knsofttech.com
+• USA office: usa@knsofttech.com  
+• Guntur office: guntur@knsofttech.com`;
+    }
+
+    if (query.includes('phone') || query.includes('contact number')) {
+      return `📞 We provide 24/7 support services. For specific phone numbers, please contact us via email:
+• General: info@knsofttech.com
+• USA: usa@knsofttech.com`;
+    }
+
+    return `📞 **Contact Information:**
+• Email: info@knsofttech.com
+• USA office: usa@knsofttech.com
+• Guntur office: guntur@knsofttech.com
+• Support: 24/7 dedicated support available`;
+  }
+
+  private generateSpecificServiceResponse(query: string, relevantContent: ContentSection[]): string {
+    const coreServices = [
+      "IT Consulting & Digital Transformation",
+      "Software Development & Web Applications", 
+      "Mobile App Development",
+      "SAP Modernization & ERP Solutions",
+      "E-commerce Portal Development",
+      "AI & Automation Solutions",
+      "Solar Power & Renewable Energy Solutions"
     ];
 
-    return responses[Math.floor(Math.random() * responses.length)];
+    return `🛠️ **KNSOFT Technologies Services:**
+
+${coreServices.map(service => `• ${service}`).join('\n')}
+
+**Additional Specializations:**
+• Blockchain Development
+• RPA Solutions  
+• Chatbot Development
+• Cloud Solutions (AWS, Azure)
+• Testing & Quality Assurance`;
+  }
+
+  private generateSpecificCompanyResponse(query: string, relevantContent: ContentSection[], companyInfo: any): string {
+    if (query.includes('founded') || query.includes('when')) {
+      return `🏢 KNSOFT Technologies was founded in 2010, giving us 13+ years of industry experience.`;
+    }
+
+    if (query.includes('clients') || query.includes('how many clients')) {
+      return `👥 We have served 500+ satisfied clients across 25+ countries worldwide.`;
+    }
+
+    if (query.includes('projects')) {
+      return `📊 KNSOFT Technologies has successfully completed 1000+ projects with our experienced team.`;
+    }
+
+    if (query.includes('experience') || query.includes('years')) {
+      return `⭐ We have 13+ years of industry experience since our founding in 2010, delivering innovative IT solutions and serving clients globally.`;
+    }
+
+    return `📈 **Company Overview:**
+• Founded: 2010 (13+ years experience)
+• Clients: 500+ across 25+ countries  
+• Projects: 1000+ successful deliveries
+• Support: 24/7 dedicated services`;
+  }
+
+  private generateFocusedGeneralResponse(userMessage: string, primaryContent: ContentSection): string {
+    // Extract the key information without extra fluff
+    const content = primaryContent.content;
+    
+    return `${content}
+
+Is there anything specific about this you'd like me to clarify?`;
   }
 
   private generateFallbackResponse(userMessage: string): string {

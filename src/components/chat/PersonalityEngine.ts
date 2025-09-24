@@ -5,8 +5,27 @@ export class PersonalityEngine {
   private static currentMood = 'enthusiastic';
 
   public static enhanceResponse(response: string, userMessage: string): string {
+    // For specific factual queries, return response as-is without too much enhancement
+    if (this.isFactualQuery(userMessage)) {
+      return this.addMinimalFormatting(response);
+    }
+    
     const enhanced = this.addPersonality(response, userMessage);
     return this.addEmojisAndFormatting(enhanced);
+  }
+
+  private static isFactualQuery(userMessage: string): boolean {
+    const factualKeywords = [
+      'where is', 'where are', 'located', 'address', 'email', 'phone',
+      'when founded', 'how many', 'founded in', 'contact', 'office'
+    ];
+    const message = userMessage.toLowerCase();
+    return factualKeywords.some(keyword => message.includes(keyword));
+  }
+
+  private static addMinimalFormatting(response: string): string {
+    // Just add basic formatting without personality touches
+    return response.replace(/• /g, '• ');
   }
 
   private static addPersonality(response: string, userMessage: string): string {
