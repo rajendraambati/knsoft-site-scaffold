@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEO/SEOHead";
 import { OnlineLearningArticle } from "@/components/articles/OnlineLearningArticle";
+import { LibraryManagementArticle } from "@/components/articles/LibraryManagementArticle";
 
 const products = [
   { name: "Online Learning and Examination Management Software", icon: GraduationCap, type: "Standard", description: "Comprehensive e-learning platform with course management, online exams, and student tracking." },
@@ -26,6 +27,7 @@ const products = [
 
 export default function EducationLearning() {
   const [isOnlineLearningArticleOpen, setIsOnlineLearningArticleOpen] = useState(false);
+  const [isLibraryManagementArticleOpen, setIsLibraryManagementArticleOpen] = useState(false);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProductCategory",
@@ -130,6 +132,14 @@ export default function EducationLearning() {
                           >
                             Learn More
                           </Button>
+                        ) : product.name.includes("Library Management Software") ? (
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => setIsLibraryManagementArticleOpen(true)}
+                          >
+                            Learn More
+                          </Button>
                         ) : (
                           <Button asChild variant="ghost" size="sm">
                             <Link to="/contact">
@@ -180,6 +190,11 @@ export default function EducationLearning() {
       <OnlineLearningArticle 
         isOpen={isOnlineLearningArticleOpen}
         onClose={() => setIsOnlineLearningArticleOpen(false)}
+      />
+
+      <LibraryManagementArticle 
+        isOpen={isLibraryManagementArticleOpen}
+        onClose={() => setIsLibraryManagementArticleOpen(false)}
       />
 
       <Footer />
