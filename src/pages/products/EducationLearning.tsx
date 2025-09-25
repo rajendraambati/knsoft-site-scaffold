@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, GraduationCap, BookOpen, FileText, School, UserCheck, ExternalLink } from "lucide-react";
@@ -6,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEO/SEOHead";
+import { OnlineLearningArticle } from "@/components/articles/OnlineLearningArticle";
 
 const products = [
   { name: "Online Learning and Examination Management Software", icon: GraduationCap, type: "Standard", description: "Comprehensive e-learning platform with course management, online exams, and student tracking." },
@@ -23,6 +25,7 @@ const products = [
 ];
 
 export default function EducationLearning() {
+  const [isOnlineLearningArticleOpen, setIsOnlineLearningArticleOpen] = useState(false);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProductCategory",
@@ -119,11 +122,21 @@ export default function EducationLearning() {
                             Request Demo <ExternalLink className="ml-1 h-3 w-3" />
                           </Link>
                         </Button>
-                        <Button asChild variant="ghost" size="sm">
-                          <Link to="/contact">
+                        {product.name === "Online Learning and Examination Management Software" ? (
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => setIsOnlineLearningArticleOpen(true)}
+                          >
                             Learn More
-                          </Link>
-                        </Button>
+                          </Button>
+                        ) : (
+                          <Button asChild variant="ghost" size="sm">
+                            <Link to="/contact">
+                              Learn More
+                            </Link>
+                          </Button>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
@@ -163,6 +176,11 @@ export default function EducationLearning() {
           </div>
         </section>
       </main>
+
+      <OnlineLearningArticle 
+        isOpen={isOnlineLearningArticleOpen}
+        onClose={() => setIsOnlineLearningArticleOpen(false)}
+      />
 
       <Footer />
     </div>
