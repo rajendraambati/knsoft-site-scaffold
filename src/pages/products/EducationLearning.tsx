@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { SEOHead } from "@/components/SEO/SEOHead";
 import { OnlineLearningArticle } from "@/components/articles/OnlineLearningArticle";
 import { LibraryManagementArticle } from "@/components/articles/LibraryManagementArticle";
+import { ProSchoolManagementArticle } from "@/components/articles/ProSchoolManagementArticle";
 
 const products = [
   { name: "Online Learning and Examination Management Software", icon: GraduationCap, type: "Standard", description: "Comprehensive e-learning platform with course management, online exams, and student tracking." },
@@ -28,6 +29,7 @@ const products = [
 export default function EducationLearning() {
   const [isOnlineLearningArticleOpen, setIsOnlineLearningArticleOpen] = useState(false);
   const [isLibraryManagementArticleOpen, setIsLibraryManagementArticleOpen] = useState(false);
+  const [isProSchoolManagementArticleOpen, setIsProSchoolManagementArticleOpen] = useState(false);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProductCategory",
@@ -140,6 +142,14 @@ export default function EducationLearning() {
                           >
                             Learn More
                           </Button>
+                        ) : product.name === "Pro School Management Software" ? (
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => setIsProSchoolManagementArticleOpen(true)}
+                          >
+                            Learn More
+                          </Button>
                         ) : (
                           <Button asChild variant="ghost" size="sm">
                             <Link to="/contact">
@@ -195,6 +205,11 @@ export default function EducationLearning() {
       <LibraryManagementArticle 
         isOpen={isLibraryManagementArticleOpen}
         onClose={() => setIsLibraryManagementArticleOpen(false)}
+      />
+
+      <ProSchoolManagementArticle 
+        isOpen={isProSchoolManagementArticleOpen}
+        onClose={() => setIsProSchoolManagementArticleOpen(false)}
       />
 
       <Footer />
