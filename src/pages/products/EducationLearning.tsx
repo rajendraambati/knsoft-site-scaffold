@@ -11,6 +11,7 @@ import { OnlineLearningArticle } from "@/components/articles/OnlineLearningArtic
 import { LibraryManagementArticle } from "@/components/articles/LibraryManagementArticle";
 import { ProSchoolManagementArticle } from "@/components/articles/ProSchoolManagementArticle";
 import { SchoolManagementArticle } from "@/components/articles/SchoolManagementArticle";
+import { AcademyLearningArticle } from "@/components/articles/AcademyLearningArticle";
 
 const products = [
   { name: "Online Learning and Examination Management Software", icon: GraduationCap, type: "Standard", description: "Comprehensive e-learning platform with course management, online exams, and student tracking." },
@@ -32,6 +33,7 @@ export default function EducationLearning() {
   const [isLibraryManagementArticleOpen, setIsLibraryManagementArticleOpen] = useState(false);
   const [isProSchoolManagementArticleOpen, setIsProSchoolManagementArticleOpen] = useState(false);
   const [isSchoolManagementArticleOpen, setIsSchoolManagementArticleOpen] = useState(false);
+  const [isAcademyLearningArticleOpen, setIsAcademyLearningArticleOpen] = useState(false);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProductCategory",
@@ -160,6 +162,14 @@ export default function EducationLearning() {
                           >
                             Learn More
                           </Button>
+                        ) : product.name === "Academy Learning Management System" ? (
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => setIsAcademyLearningArticleOpen(true)}
+                          >
+                            Learn More
+                          </Button>
                         ) : (
                           <Button asChild variant="ghost" size="sm">
                             <Link to="/contact">
@@ -225,6 +235,11 @@ export default function EducationLearning() {
       <SchoolManagementArticle 
         isOpen={isSchoolManagementArticleOpen}
         onClose={() => setIsSchoolManagementArticleOpen(false)}
+      />
+
+      <AcademyLearningArticle 
+        isOpen={isAcademyLearningArticleOpen}
+        onClose={() => setIsAcademyLearningArticleOpen(false)}
       />
 
       <Footer />
