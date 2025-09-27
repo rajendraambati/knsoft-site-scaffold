@@ -12,6 +12,7 @@ import { LibraryManagementArticle } from "@/components/articles/LibraryManagemen
 import { ProSchoolManagementArticle } from "@/components/articles/ProSchoolManagementArticle";
 import { SchoolManagementArticle } from "@/components/articles/SchoolManagementArticle";
 import { AcademyLearningArticle } from "@/components/articles/AcademyLearningArticle";
+import { OnlineExamArticle } from "@/components/articles/OnlineExamArticle";
 
 const products = [
   { name: "Online Learning and Examination Management Software", icon: GraduationCap, type: "Standard", description: "Comprehensive e-learning platform with course management, online exams, and student tracking." },
@@ -34,6 +35,7 @@ export default function EducationLearning() {
   const [isProSchoolManagementArticleOpen, setIsProSchoolManagementArticleOpen] = useState(false);
   const [isSchoolManagementArticleOpen, setIsSchoolManagementArticleOpen] = useState(false);
   const [isAcademyLearningArticleOpen, setIsAcademyLearningArticleOpen] = useState(false);
+  const [isOnlineExamArticleOpen, setIsOnlineExamArticleOpen] = useState(false);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProductCategory",
@@ -170,6 +172,14 @@ export default function EducationLearning() {
                           >
                             Learn More
                           </Button>
+                        ) : product.name === "Online Exam System" ? (
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => setIsOnlineExamArticleOpen(true)}
+                          >
+                            Learn More
+                          </Button>
                         ) : (
                           <Button asChild variant="ghost" size="sm">
                             <Link to="/contact">
@@ -240,6 +250,11 @@ export default function EducationLearning() {
       <AcademyLearningArticle 
         isOpen={isAcademyLearningArticleOpen}
         onClose={() => setIsAcademyLearningArticleOpen(false)}
+      />
+
+      <OnlineExamArticle 
+        isOpen={isOnlineExamArticleOpen}
+        onClose={() => setIsOnlineExamArticleOpen(false)}
       />
 
       <Footer />
