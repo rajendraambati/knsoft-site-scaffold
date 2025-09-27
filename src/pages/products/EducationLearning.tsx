@@ -13,6 +13,7 @@ import { ProSchoolManagementArticle } from "@/components/articles/ProSchoolManag
 import { SchoolManagementArticle } from "@/components/articles/SchoolManagementArticle";
 import { AcademyLearningArticle } from "@/components/articles/AcademyLearningArticle";
 import { OnlineExamArticle } from "@/components/articles/OnlineExamArticle";
+import { OnlineElectionArticle } from "@/components/articles/OnlineElectionArticle";
 
 const products = [
   { name: "Online Learning and Examination Management Software", icon: GraduationCap, type: "Standard", description: "Comprehensive e-learning platform with course management, online exams, and student tracking." },
@@ -36,6 +37,7 @@ export default function EducationLearning() {
   const [isSchoolManagementArticleOpen, setIsSchoolManagementArticleOpen] = useState(false);
   const [isAcademyLearningArticleOpen, setIsAcademyLearningArticleOpen] = useState(false);
   const [isOnlineExamArticleOpen, setIsOnlineExamArticleOpen] = useState(false);
+  const [isOnlineElectionArticleOpen, setIsOnlineElectionArticleOpen] = useState(false);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProductCategory",
@@ -180,6 +182,14 @@ export default function EducationLearning() {
                           >
                             Learn More
                           </Button>
+                        ) : product.name === "Online Election System TSF" ? (
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => setIsOnlineElectionArticleOpen(true)}
+                          >
+                            Learn More
+                          </Button>
                         ) : (
                           <Button asChild variant="ghost" size="sm">
                             <Link to="/contact">
@@ -255,6 +265,11 @@ export default function EducationLearning() {
       <OnlineExamArticle 
         isOpen={isOnlineExamArticleOpen}
         onClose={() => setIsOnlineExamArticleOpen(false)}
+      />
+
+      <OnlineElectionArticle 
+        isOpen={isOnlineElectionArticleOpen}
+        onClose={() => setIsOnlineElectionArticleOpen(false)}
       />
 
       <Footer />
