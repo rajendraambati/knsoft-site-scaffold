@@ -10,6 +10,7 @@ import { SEOHead } from "@/components/SEO/SEOHead";
 import { OnlineLearningArticle } from "@/components/articles/OnlineLearningArticle";
 import { LibraryManagementArticle } from "@/components/articles/LibraryManagementArticle";
 import { ProSchoolManagementArticle } from "@/components/articles/ProSchoolManagementArticle";
+import { SchoolManagementArticle } from "@/components/articles/SchoolManagementArticle";
 
 const products = [
   { name: "Online Learning and Examination Management Software", icon: GraduationCap, type: "Standard", description: "Comprehensive e-learning platform with course management, online exams, and student tracking." },
@@ -30,6 +31,7 @@ export default function EducationLearning() {
   const [isOnlineLearningArticleOpen, setIsOnlineLearningArticleOpen] = useState(false);
   const [isLibraryManagementArticleOpen, setIsLibraryManagementArticleOpen] = useState(false);
   const [isProSchoolManagementArticleOpen, setIsProSchoolManagementArticleOpen] = useState(false);
+  const [isSchoolManagementArticleOpen, setIsSchoolManagementArticleOpen] = useState(false);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProductCategory",
@@ -150,6 +152,14 @@ export default function EducationLearning() {
                           >
                             Learn More
                           </Button>
+                        ) : product.name === "School Management Software 1" ? (
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => setIsSchoolManagementArticleOpen(true)}
+                          >
+                            Learn More
+                          </Button>
                         ) : (
                           <Button asChild variant="ghost" size="sm">
                             <Link to="/contact">
@@ -210,6 +220,11 @@ export default function EducationLearning() {
       <ProSchoolManagementArticle 
         isOpen={isProSchoolManagementArticleOpen}
         onClose={() => setIsProSchoolManagementArticleOpen(false)}
+      />
+
+      <SchoolManagementArticle 
+        isOpen={isSchoolManagementArticleOpen}
+        onClose={() => setIsSchoolManagementArticleOpen(false)}
       />
 
       <Footer />
