@@ -14,6 +14,7 @@ import { SchoolManagementArticle } from "@/components/articles/SchoolManagementA
 import { AcademyLearningArticle } from "@/components/articles/AcademyLearningArticle";
 import { OnlineExamArticle } from "@/components/articles/OnlineExamArticle";
 import { OnlineElectionArticle } from "@/components/articles/OnlineElectionArticle";
+import { ProjectManagementArticle } from "@/components/articles/ProjectManagementArticle";
 
 const products = [
   { name: "Online Learning and Examination Management Software", icon: GraduationCap, type: "Standard", description: "Comprehensive e-learning platform with course management, online exams, and student tracking." },
@@ -27,7 +28,8 @@ const products = [
   { name: "Online Exam System", icon: FileText, type: "Standard", description: "Robust online examination platform with secure test delivery and real-time monitoring." },
   { name: "Online Election System TSF", icon: UserCheck, type: "TSF", description: "Secure digital election platform for student councils and organizational voting." },
   { name: "Online Exam System TSF", icon: FileText, type: "TSF", description: "TSF certified examination system with enhanced security and compliance features." },
-  { name: "College Management System TSF", icon: GraduationCap, type: "TSF", description: "Comprehensive college management platform with academic and administrative modules." }
+  { name: "College Management System TSF", icon: GraduationCap, type: "TSF", description: "Comprehensive college management platform with academic and administrative modules." },
+  { name: "Project Management, Finance, CRM & Task Management Software", icon: UserCheck, type: "Pro", description: "Unified business management platform combining project planning, financial tracking, CRM, and team collaboration." }
 ];
 
 export default function EducationLearning() {
@@ -38,6 +40,7 @@ export default function EducationLearning() {
   const [isAcademyLearningArticleOpen, setIsAcademyLearningArticleOpen] = useState(false);
   const [isOnlineExamArticleOpen, setIsOnlineExamArticleOpen] = useState(false);
   const [isOnlineElectionArticleOpen, setIsOnlineElectionArticleOpen] = useState(false);
+  const [isProjectManagementArticleOpen, setIsProjectManagementArticleOpen] = useState(false);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProductCategory",
@@ -190,6 +193,14 @@ export default function EducationLearning() {
                           >
                             Learn More
                           </Button>
+                        ) : product.name === "Project Management, Finance, CRM & Task Management Software" ? (
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => setIsProjectManagementArticleOpen(true)}
+                          >
+                            Learn More
+                          </Button>
                         ) : (
                           <Button asChild variant="ghost" size="sm">
                             <Link to="/contact">
@@ -270,6 +281,11 @@ export default function EducationLearning() {
       <OnlineElectionArticle 
         isOpen={isOnlineElectionArticleOpen}
         onClose={() => setIsOnlineElectionArticleOpen(false)}
+      />
+
+      <ProjectManagementArticle 
+        isOpen={isProjectManagementArticleOpen}
+        onClose={() => setIsProjectManagementArticleOpen(false)}
       />
 
       <Footer />
