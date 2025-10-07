@@ -42,6 +42,10 @@ import EcommerceRetail from "./pages/products/EcommerceRetail";
 import NgoCrowdfunding from "./pages/products/NgoCrowdfunding";
 import FinanceMicrofinance from "./pages/products/FinanceMicrofinance";
 import SolarRenewable from "./pages/products/SolarRenewable";
+import HospitalityTravel from "./pages/products/HospitalityTravel";
+import RestaurantFood from "./pages/products/RestaurantFood";
+import JobPortalsClassifieds from "./pages/products/JobPortalsClassifieds";
+import CivicSocial from "./pages/products/CivicSocial";
 
 const queryClient = new QueryClient();
 
@@ -80,6 +84,10 @@ const App = () => (
           <Route path="/products/ngo-crowdfunding" element={<NgoCrowdfunding />} />
           <Route path="/products/finance-microfinance" element={<FinanceMicrofinance />} />
           <Route path="/products/solar-renewable" element={<SolarRenewable />} />
+          <Route path="/products/hospitality-travel" element={<HospitalityTravel />} />
+          <Route path="/products/restaurant-food" element={<RestaurantFood />} />
+          <Route path="/products/job-portals-classifieds" element={<JobPortalsClassifieds />} />
+          <Route path="/products/civic-social" element={<CivicSocial />} />
           <Route path="/solar-services" element={<SolarServices />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/success-stories" element={<CaseStudies />} />
