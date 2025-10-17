@@ -57,7 +57,7 @@ export default function Contact() {
                 Find Us <span className="text-gradient">Here</span>
               </h2>
               <p className="text-muted-foreground">
-                Located in the prestigious Jubilee Hills area
+                Located in Pearland, Texas
               </p>
             </motion.div>
             
@@ -69,7 +69,7 @@ export default function Contact() {
               className="aspect-video w-full rounded-lg overflow-hidden shadow-elegant"
             >
               <iframe
-                src="https://maps.google.com/maps?q=H.No+8,+Apurupa+Turbo+Tower,+No:36+Pillar+No:1680,+2-293/82/a/787,+Road,+Jubilee+Hills,+Hyderabad,+Telangana+500033,+India&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=1812+High+Falls+Lane,+Pearland,+Texas,+77581&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -95,10 +95,9 @@ export default function Contact() {
                   Office Address
                 </h3>
                 <p className="text-foreground leading-relaxed">
-                  H.No 8, Apurupa Turbo Tower<br/>
-                  No:36 Pillar No:1680, 2-293/82/a/787, Road<br/>
-                  Jubilee Hills, Hyderabad<br/>
-                  Telangana 500033, India
+                  1812 High Falls Lane<br/>
+                  Pearland, Texas, 77581<br/>
+                  United States
                 </p>
               </div>
             </motion.div>
