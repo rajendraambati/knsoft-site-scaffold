@@ -63,7 +63,7 @@ const leadership = [
   {
     name: "Uday Kiran",
     title: "Chief Operations Officer",
-    image: "/images/leadership/cto.jpg", // Placeholder - replace with actual images  
+    image: "coo.jpg", // Placeholder - replace with actual images  
     bio: "Venkata Uday Kiran leads our technical strategy and innovation initiatives. He brings extensive experience in cloud architecture, AI automation, and enterprise system integration across multiple industries.",
     experience: "20+ years"
   },
