@@ -108,7 +108,7 @@ const officeLocations: OfficeLocation[] = [
     country: "USA",
     type: "Branch Office",
     address: "6250, Westpark Dr., Houston, TX 77057",
-    email: "usa@knsofttech.com", 
+    email: "info@knsofttech.com", 
     /*phone: "+1 (713) 555-0123",*/
     mapEmbed: null
   },
@@ -117,7 +117,7 @@ const officeLocations: OfficeLocation[] = [
     country: "India",
     type: "Development Center",
     address: "Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane, Gorantla, Guntur, Andhra Pradesh – 522034",
-    email: "guntur@knsofttech.com",
+    email: "info@knsofttech.com",
     /*phone: "+91 863 4567 8901",*/
     mapEmbed: null
   }
