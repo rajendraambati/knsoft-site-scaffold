@@ -28,6 +28,8 @@ import { Badge } from "@/components/ui/badge";
 import iso27001Logo from "@/assets/iso-27001-new.png";
 import iso9001Logo from "@/assets/iso-9001-new.png";
 import cmmiLevel3Logo from "@/assets/cmmi-level3-new.png";
+import ceoImage from "@/assets/ceo.jpg";
+import cooImage from "@/assets/coo.png";
 
 const cultureValues = [
   {
@@ -56,14 +58,14 @@ const leadership = [
   {
     name: "Dasaradh Ram",
     title: "Chief Executive Officer & Founder",
-    image: "src/assets/ceo.jpg", // Placeholder - replace with actual images
+    image: ceoImage,
     bio: "With over 15 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years"
   },
   {
     name: "Uday Kiran",
     title: "COO/CTO",
-    image: "src/assets/coo.png", // Placeholder - replace with actual images  
+    image: cooImage,  
     bio: "With over two decades of leadership at the intersection of technology and operations,  brings unmatched expertise in scaling systems, optimizing workflows, and driving digital transformation. From enterprise platforms to agile innovation, we architect solutions that deliver measurable impact, resilience, and growth.",
     experience: "20+ years"
   },
@@ -302,8 +304,16 @@ export default function About() {
                 >
                   <Card className="h-full text-center card-elegant hover:shadow-glow transition-all duration-500">
                     <CardContent className="p-6">
-                      <div className="w-24 h-24 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Users className="h-12 w-12 text-white" />
+                      <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 bg-gradient-primary flex items-center justify-center">
+                        {typeof leader.image === 'string' && leader.image.startsWith('/') ? (
+                          <Users className="h-12 w-12 text-white" />
+                        ) : (
+                          <img 
+                            src={leader.image} 
+                            alt={`${leader.name} - ${leader.title}`}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
                       </div>
                       <h3 className="text-xl font-semibold mb-1">{leader.name}</h3>
                       <p className="text-primary font-medium mb-2">{leader.title}</p>
