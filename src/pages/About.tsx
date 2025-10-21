@@ -69,14 +69,14 @@ const leadership = [
   },
   {
     name: "Rajesh",
-    title: "Head of Operations",
+    title: "Head of Operations(Usa)",
     image: "/images/leadership/coo.jpg", // Placeholder - replace with actual images
     bio: "Rajesh Mora oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
     experience: "18+ years"
   },
   {
     name: "Karuna Sree",
-    title: "Head of Business Development",
+    title: "Head of Business Development(Usa)",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
     bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
     experience: "15+ years"
