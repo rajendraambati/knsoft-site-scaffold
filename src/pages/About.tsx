@@ -64,7 +64,7 @@ const leadership = [
     name: "Uday Kiran",
     title: "COO/CTO",
     image: "src/assets/coo.png", // Placeholder - replace with actual images  
-    bio: "Venkata Uday Kiran leads our technical strategy and innovation initiatives. He brings extensive experience in cloud architecture, AI automation, and enterprise system integration across multiple industries.",
+    bio: "With over two decades of leadership at the intersection of technology and operations,  brings unmatched expertise in scaling systems, optimizing workflows, and driving digital transformation. From enterprise platforms to agile innovation, we architect solutions that deliver measurable impact, resilience, and growth.",
     experience: "20+ years"
   },
   {
