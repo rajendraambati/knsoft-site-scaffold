@@ -56,8 +56,8 @@ const cultureValues = [
 
 const leadership = [
   {
-    name: "Dasaradh Ram (Usa)",
-    title: "Chief Executive Officer & Founder",
+    name: "Dasaradh Ramaiah (Usa)",
+    title: "Ceo",
     image: "ceo.jpg",
     bio: "With over 15 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years"
@@ -70,25 +70,25 @@ const leadership = [
     experience: "20+ years"
   },
   {
-    name: "Rajesh",
-    title: "Head of Operations(Usa)",
+    name: "Rajesh Mora (Usa)",
+    title: "Head of Operations",
     image: "/images/leadership/coo.jpg", // Placeholder - replace with actual images
     bio: "Rajesh Mora oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
     experience: "18+ years"
   },
   {
-    name: "Karuna Sree",
-    title: "Head of Business Development(Usa)",
+    name: "Karuna Sree (Usa)",
+    title: "Head of Business Development",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
     bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
     experience: "15+ years"
   },
   {
-    name: "Swapna Chowdary",
-    title: "Vice President (India)",
+    name: "Swapna Chowdary (India)",
+    title: "Vice President",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
-    bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
-    experience: "15+ years"
+    bio: "With over 16 years of sales leadership, our Vice President brings a proven track record of driving revenue growth, building high-performance teams, and expanding market share across competitive industries. Armed with strategic insight and deep customer understanding, we deliver scalable sales systems, trusted partnerships, and consistent top-line results.",
+    experience: "16+ years"
   }
 ];
 
