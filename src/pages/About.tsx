@@ -56,16 +56,16 @@ const cultureValues = [
 
 const leadership = [
   {
-    name: "Dasaradh Ram",
+    name: "Dasaradh Ram (Usa)",
     title: "Chief Executive Officer & Founder",
-    image: ceoImage,
+    image: "ceo.jpg",
     bio: "With over 15 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years"
   },
   {
-    name: "Uday Kiran",
-    title: "COO/CTO",
-    image: cooImage,  
+    name: "Uday Kiran (India)",
+    title: "COO / CTO",
+    image: "coo.png",  
     bio: "With over two decades of leadership at the intersection of technology and operations,  brings unmatched expertise in scaling systems, optimizing workflows, and driving digital transformation. From enterprise platforms to agile innovation, we architect solutions that deliver measurable impact, resilience, and growth.",
     experience: "20+ years"
   },
@@ -79,6 +79,13 @@ const leadership = [
   {
     name: "Karuna Sree",
     title: "Head of Business Development(Usa)",
+    image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
+    bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
+    experience: "15+ years"
+  },
+  {
+    name: "Swapna Chowdary",
+    title: "Vice President (India)",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
     bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
     experience: "15+ years"
