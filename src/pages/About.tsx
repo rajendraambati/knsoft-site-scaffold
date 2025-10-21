@@ -56,7 +56,7 @@ const leadership = [
   {
     name: "Dasaradh Ram",
     title: "Chief Executive Officer & Founder",
-    image: "/images/leadership/ceo.jpg", // Placeholder - replace with actual images
+    image: "ceo.jpg", // Placeholder - replace with actual images
     bio: "With over 15 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years"
   },
