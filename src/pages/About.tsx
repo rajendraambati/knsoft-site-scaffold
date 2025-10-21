@@ -56,14 +56,14 @@ const leadership = [
   {
     name: "Dasaradh Ram",
     title: "Chief Executive Officer & Founder",
-    image: "ceo.jpg", // Placeholder - replace with actual images
+    image: "src/assets/ceo.jpg", // Placeholder - replace with actual images
     bio: "With over 15 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years"
   },
   {
     name: "Uday Kiran",
     title: "COO/CTO",
-    image: "coo.jpg", // Placeholder - replace with actual images  
+    image: "src/assets/coo.png", // Placeholder - replace with actual images  
     bio: "Venkata Uday Kiran leads our technical strategy and innovation initiatives. He brings extensive experience in cloud architecture, AI automation, and enterprise system integration across multiple industries.",
     experience: "20+ years"
   },
