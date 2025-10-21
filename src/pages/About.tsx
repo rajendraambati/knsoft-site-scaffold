@@ -57,28 +57,28 @@ const leadership = [
     name: "Dasaradh Ram",
     title: "Chief Executive Officer & Founder",
     image: "/images/leadership/ceo.jpg", // Placeholder - replace with actual images
-    bio: "With over 15 years in enterprise software development, Rajesh founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
+    bio: "With over 15 years in enterprise software development, Dasaradh Ramayya founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years"
   },
   {
     name: "Uday Kiran",
     title: "Chief Technology Officer",
     image: "/images/leadership/cto.jpg", // Placeholder - replace with actual images  
-    bio: "Priya leads our technical strategy and innovation initiatives. She brings extensive experience in cloud architecture, AI automation, and enterprise system integration across multiple industries.",
+    bio: "Venkata Uday Kiran leads our technical strategy and innovation initiatives. She brings extensive experience in cloud architecture, AI automation, and enterprise system integration across multiple industries.",
     experience: "20+ years"
   },
   {
     name: "Rajesh",
     title: "Head of Operations",
     image: "/images/leadership/coo.jpg", // Placeholder - replace with actual images
-    bio: "Amit oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
+    bio: "Rajesh Mora oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
     experience: "18+ years"
   },
   {
     name: "Karuna Sree",
     title: "Head of Business Development",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
-    bio: "Deepika drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
+    bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
     experience: "15+ years"
   }
 ];
