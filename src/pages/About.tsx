@@ -61,7 +61,7 @@ const cultureValues = [
 const leadership = [
   {
     name: "Dasaradh Ramaiah (USA)",
-    title: "Ceo",
+    title: "CEO",
     image: "ceo.jpg",
     bio: "With over 15 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years",
