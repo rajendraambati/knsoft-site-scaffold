@@ -43,7 +43,7 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* Map Section */}
+        {/* Global Presence Section */}
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -54,53 +54,92 @@ export default function Contact() {
               className="text-center mb-12"
             >
               <h2 className="text-3xl font-bold mb-4">
-                Find Us <span className="text-gradient">Here</span>
+                Global <span className="text-gradient">Presence</span>
               </h2>
-              <p className="text-muted-foreground">
-                Located in Pearland, Texas
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Our strategically located offices enable us to serve clients across different time zones and markets.
               </p>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="aspect-video w-full rounded-lg overflow-hidden shadow-elegant"
-            >
-              <iframe
-                src="https://maps.google.com/maps?q=1812+High+Falls+Lane,+Pearland,+Texas,+77581&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="KNSOFT Technologies Office Location"
-                className="w-full h-full"
-              />
-            </motion.div>
-            
-            {/* Office Address Details */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="mt-8 text-center"
-            >
-              <div className="card-elegant p-6 max-w-2xl mx-auto">
-                <h3 className="text-lg font-semibold mb-4 flex items-center justify-center gap-2">
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Hyderabad - Headquarters */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="card-elegant p-6"
+              >
+                <div className="flex items-center gap-2 mb-3">
                   <MapPin className="h-5 w-5 text-primary" />
-                  Office Address
-                </h3>
-                <p className="text-foreground leading-relaxed">
-                  1812 High Falls Lane<br/>
-                  Pearland, Texas, 77581<br/>
-                  United States
+                  <h3 className="text-xl font-bold">Hyderabad, India</h3>
+                </div>
+                <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
+                  Headquarters
+                </div>
+                <p className="text-foreground leading-relaxed mb-4">
+                  H.No 8, Apurupa Turbo Tower, No:36 Pillar No:1680, 2-293/82/a/787, Road, Jubilee Hills, Hyderabad, Telangana 500033
                 </p>
-              </div>
-            </motion.div>
+                <div className="flex items-center gap-2 text-primary">
+                  <Mail className="h-4 w-4" />
+                  <a href="mailto:info@knsofttech.com" className="hover:underline">
+                    info@knsofttech.com
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Houston - Branch Office */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="card-elegant p-6"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <h3 className="text-xl font-bold">Houston, USA</h3>
+                </div>
+                <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
+                  Branch Office
+                </div>
+                <p className="text-foreground leading-relaxed mb-4">
+                  6250, Westpark Dr., Houston, TX 77057
+                </p>
+                <div className="flex items-center gap-2 text-primary">
+                  <Mail className="h-4 w-4" />
+                  <a href="mailto:info@knsofttech.com" className="hover:underline">
+                    info@knsofttech.com
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Guntur - Development Center */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="card-elegant p-6"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <h3 className="text-xl font-bold">Guntur, India</h3>
+                </div>
+                <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
+                  Development Center
+                </div>
+                <p className="text-foreground leading-relaxed mb-4">
+                  Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane, Gorantla, Guntur, Andhra Pradesh – 522034
+                </p>
+                <div className="flex items-center gap-2 text-primary">
+                  <Mail className="h-4 w-4" />
+                  <a href="mailto:info@knsofttech.com" className="hover:underline">
+                    info@knsofttech.com
+                  </a>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
