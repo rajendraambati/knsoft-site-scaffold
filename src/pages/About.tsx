@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
-import { 
-  Building2, 
-  Users, 
-  Target, 
-  Award, 
-  CheckCircle, 
-  ArrowRight, 
-  MapPin, 
-  Mail, 
+import {
+  Building2,
+  Users,
+  Target,
+  Award,
+  CheckCircle,
+  ArrowRight,
+  MapPin,
+  Mail,
   Phone,
   Heart,
   Lightbulb,
   Handshake,
   Shield,
   Globe,
-  Calendar
+  Calendar,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
@@ -35,61 +35,65 @@ const cultureValues = [
   {
     icon: Handshake,
     title: "Collaboration",
-    description: "We believe in the power of teamwork and open communication to achieve extraordinary results together."
+    description:
+      "We believe in the power of teamwork and open communication to achieve extraordinary results together.",
   },
   {
     icon: Lightbulb,
     title: "Innovation",
-    description: "We constantly evolve and adopt cutting-edge technologies to deliver innovative solutions that drive progress."
+    description:
+      "We constantly evolve and adopt cutting-edge technologies to deliver innovative solutions that drive progress.",
   },
   {
     icon: Heart,
     title: "Client Focus",
-    description: "Our clients' success is our priority. We work closely to understand and exceed their expectations every time."
+    description:
+      "Our clients' success is our priority. We work closely to understand and exceed their expectations every time.",
   },
   {
     icon: Shield,
     title: "Integrity",
-    description: "We conduct business with honesty, transparency, and accountability in every interaction and decision."
-  }
+    description:
+      "We conduct business with honesty, transparency, and accountability in every interaction and decision.",
+  },
 ];
 
 const leadership = [
   {
-    name: "Dasaradh Ramaiah (Usa)",
+    name: "Dasaradh Ramaiah (USA)",
     title: "Ceo",
     image: "ceo.jpg",
     bio: "With over 15 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
-    experience: "25+ years"
+    experience: "25+ years",
   },
   {
     name: "Uday Kiran (India)",
     title: "COO / CTO",
-    image: "coo.png",  
+    image: "coo.png",
     bio: "With over two decades of leadership at the intersection of technology and operations,  brings unmatched expertise in scaling systems, optimizing workflows, and driving digital transformation. From enterprise platforms to agile innovation, we architect solutions that deliver measurable impact, resilience, and growth.",
-    experience: "20+ years"
+    experience: "20+ years",
   },
   {
-    name: "Rajesh Mora (Usa)",
+    name: "Rajesh Mora (USA)",
     title: "Head of Operations",
     image: "/images/leadership/coo.jpg", // Placeholder - replace with actual images
     bio: "Rajesh Mora oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
-    experience: "18+ years"
+    experience: "18+ years",
   },
   {
-    name: "Karuna Sree (Usa)",
+    name: "Karuna Sree (USA)",
     title: "Head of Business Development",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
     bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
-    experience: "15+ years"
+    experience: "15+ years",
   },
   {
     name: "Swapna Chowdary (India)",
     title: "Vice President",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
     bio: "With over 16 years of sales leadership, our Vice President brings a proven track record of driving revenue growth, building high-performance teams, and expanding market share across competitive industries. Armed with strategic insight and deep customer understanding, we deliver scalable sales systems, trusted partnerships, and consistent top-line results.",
-    experience: "16+ years"
-  }
+    experience: "16+ years",
+  },
 ];
 
 interface OfficeLocation {
@@ -107,19 +111,21 @@ const officeLocations: OfficeLocation[] = [
     city: "Hyderabad",
     country: "India",
     type: "Headquarters",
-    address: "H.No 8, Apurupa Turbo Tower, No:36 Pillar No:1680, 2-293/82/a/787, Road, Jubilee Hills, Hyderabad, Telangana 500033",
+    address:
+      "H.No 8, Apurupa Turbo Tower, No:36 Pillar No:1680, 2-293/82/a/787, Road, Jubilee Hills, Hyderabad, Telangana 500033",
     email: "info@knsofttech.com",
     /*phone: "+91 40 4012 3456",*/
-    mapEmbed: "https://maps.google.com/maps?q=H.No+8,+Apurupa+Turbo+Tower,+Jubilee+Hills,+Hyderabad,+Telangana+500033&t=&z=16&ie=UTF8&iwloc=&output=embed"
+    mapEmbed:
+      "https://maps.google.com/maps?q=H.No+8,+Apurupa+Turbo+Tower,+Jubilee+Hills,+Hyderabad,+Telangana+500033&t=&z=16&ie=UTF8&iwloc=&output=embed",
   },
   {
     city: "Houston",
     country: "USA",
     type: "Branch Office",
     address: "6250, Westpark Dr., Houston, TX 77057",
-    email: "info@knsofttech.com", 
+    email: "info@knsofttech.com",
     /*phone: "+1 (713) 555-0123",*/
-    mapEmbed: null
+    mapEmbed: null,
   },
   {
     city: "Guntur",
@@ -128,8 +134,8 @@ const officeLocations: OfficeLocation[] = [
     address: "Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane, Gorantla, Guntur, Andhra Pradesh – 522034",
     email: "info@knsofttech.com",
     /*phone: "+91 863 4567 8901",*/
-    mapEmbed: null
-  }
+    mapEmbed: null,
+  },
 ];
 
 const certifications = [
@@ -137,60 +143,60 @@ const certifications = [
     name: "ISO 9001:2015",
     description: "Quality Management Systems",
     icon: iso9001Logo,
-    category: "Quality"
+    category: "Quality",
   },
   {
-    name: "ISO 27001:2013", 
+    name: "ISO 27001:2013",
     description: "Information Security Management",
     icon: iso27001Logo,
-    category: "Security"
+    category: "Security",
   },
   {
     name: "CMMI Level 3",
     description: "Capability Maturity Model Integration",
     icon: cmmiLevel3Logo,
-    category: "Process"
+    category: "Process",
   },
   {
     name: "SAP Partnership",
     description: "Certified SAP Solutions Partner",
     icon: null,
-    category: "Technology"
+    category: "Technology",
   },
   {
     name: "AWS Partner",
     description: "Amazon Web Services Technology Partner",
     icon: null,
-    category: "Cloud"
+    category: "Cloud",
   },
   {
     name: "Microsoft Partner",
     description: "Microsoft Certified Partner",
     icon: null,
-    category: "Technology"
-  }
+    category: "Technology",
+  },
 ];
 
 const achievements = [
   "Founded in 2010 with 13+ years of industry experience",
   "500+ satisfied clients across 25+ countries",
-  "1000+ successful project deliveries", 
+  "1000+ successful project deliveries",
   "24/7 dedicated support services",
   "Certified professionals & domain experts",
-  "Agile development methodologies"
+  "Agile development methodologies",
 ];
 
 export default function About() {
   return (
     <div className="min-h-screen">
-      <SEOHead 
+      <SEOHead
         title="About Us - KNSOFT Technologies Leadership & Company Info"
         description="Learn about KNSOFT Technologies - Founded in 2010, delivering enterprise software solutions with SAP integration, custom development, and automation. Meet our leadership team and office locations."
         keywords="about KNSOFT Technologies, company leadership, office locations, certifications, company culture, enterprise software development"
       />
-      
+
       <Header />
-      
+
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-16 bg-gradient-hero text-white">
@@ -201,9 +207,7 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="text-center max-w-4xl mx-auto"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                About KNSOFT Technologies
-              </h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">About KNSOFT Technologies</h1>
               <p className="text-xl text-white/90 leading-relaxed">
                 Empowering businesses through innovative technology solutions and digital transformation expertise.
               </p>
@@ -224,18 +228,23 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">
                   <span className="text-gradient">Who We Are</span>
                 </h2>
-                
+
                 <div className="space-y-6 text-muted-foreground leading-relaxed">
                   <p>
-                    Founded in 2010, KNSoft Technologies delivers enterprise software solutions with a focus on reliability, compliance, and speed. Our teams specialize in SAP integration, custom development, and automation.
-                  </p>
-                  
-                  <p>
-                    We earnestly believe that innovativeness in business operations can be brought in only through reliable software systems, web apps and enterprise mobile apps which eventually can create long-term sustainable, competitive advantage in the marketplace.
+                    Founded in 2010, KNSoft Technologies delivers enterprise software solutions with a focus on
+                    reliability, compliance, and speed. Our teams specialize in SAP integration, custom development, and
+                    automation.
                   </p>
 
                   <p>
-                    Our team of experienced professionals combines deep technical expertise with industry knowledge to deliver solutions that not only meet current needs but also scale for future growth.
+                    We earnestly believe that innovativeness in business operations can be brought in only through
+                    reliable software systems, web apps and enterprise mobile apps which eventually can create long-term
+                    sustainable, competitive advantage in the marketplace.
+                  </p>
+
+                  <p>
+                    Our team of experienced professionals combines deep technical expertise with industry knowledge to
+                    deliver solutions that not only meet current needs but also scale for future growth.
                   </p>
                 </div>
 
@@ -257,9 +266,7 @@ export default function About() {
               >
                 <Card className="p-8 card-glow">
                   <CardContent className="p-0">
-                    <h3 className="text-2xl font-bold mb-6 text-center text-gradient">
-                      Our Achievements
-                    </h3>
+                    <h3 className="text-2xl font-bold mb-6 text-center text-gradient">Our Achievements</h3>
                     <ul className="space-y-4">
                       {achievements.map((achievement, index) => (
                         <motion.li
@@ -312,11 +319,11 @@ export default function About() {
                   <Card className="h-full text-center card-elegant hover:shadow-glow transition-all duration-500">
                     <CardContent className="p-6">
                       <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 bg-gradient-primary flex items-center justify-center">
-                        {typeof leader.image === 'string' && leader.image.startsWith('/') ? (
+                        {typeof leader.image === "string" && leader.image.startsWith("/") ? (
                           <Users className="h-12 w-12 text-white" />
                         ) : (
-                          <img 
-                            src={leader.image} 
+                          <img
+                            src={leader.image}
                             alt={`${leader.name} - ${leader.title}`}
                             className="w-full h-full object-cover"
                           />
@@ -328,9 +335,7 @@ export default function About() {
                         <Calendar className="w-3 h-3 mr-1" />
                         {leader.experience}
                       </Badge>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {leader.bio}
-                      </p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{leader.bio}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -379,7 +384,7 @@ export default function About() {
                           </Badge>
                         </div>
                       </div>
-                      
+
                       <div className="space-y-3 text-sm">
                         <div className="flex items-start gap-2">
                           <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
@@ -439,7 +444,8 @@ export default function About() {
                 Certifications & <span className="text-gradient">Partnerships</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Our industry certifications and strategic partnerships demonstrate our commitment to excellence and innovation.
+                Our industry certifications and strategic partnerships demonstrate our commitment to excellence and
+                innovation.
               </p>
             </motion.div>
 
@@ -456,8 +462,8 @@ export default function About() {
                     <CardContent className="p-0">
                       <div className="h-20 w-20 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 border p-2">
                         {cert.icon ? (
-                          <img 
-                            src={cert.icon} 
+                          <img
+                            src={cert.icon}
                             alt={`${cert.name} certification logo`}
                             className="max-h-16 max-w-16 object-contain"
                           />
@@ -469,9 +475,7 @@ export default function About() {
                         {cert.category}
                       </Badge>
                       <h3 className="text-lg font-semibold mb-2">{cert.name}</h3>
-                      <p className="text-muted-foreground text-sm">
-                        {cert.description}
-                      </p>
+                      <p className="text-muted-foreground text-sm">{cert.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -494,7 +498,8 @@ export default function About() {
                 Culture & <span className="text-gradient">Values</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Our core values shape our company culture and guide every decision we make, ensuring we deliver exceptional results while maintaining the highest ethical standards.
+                Our core values shape our company culture and guide every decision we make, ensuring we deliver
+                exceptional results while maintaining the highest ethical standards.
               </p>
             </motion.div>
 
@@ -513,9 +518,7 @@ export default function About() {
                         <value.icon className="h-6 w-6 text-white" aria-hidden="true" />
                       </div>
                       <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {value.description}
-                      </p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -534,11 +537,10 @@ export default function About() {
               viewport={{ once: true }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Transform Your Business?
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Let's discuss how our expertise can help you achieve your goals and drive sustainable growth through innovative technology solutions.
+                Let's discuss how our expertise can help you achieve your goals and drive sustainable growth through
+                innovative technology solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild variant="gradient" size="lg">
