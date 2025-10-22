@@ -61,7 +61,7 @@ export default function Contact() {
               </p>
             </motion.div>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Hyderabad - Headquarters */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -131,6 +131,32 @@ export default function Contact() {
                 </div>
                 <p className="text-foreground leading-relaxed mb-4">
                   Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane, Gorantla, Guntur, Andhra Pradesh – 522034
+                </p>
+                <div className="flex items-center gap-2 text-primary">
+                  <Mail className="h-4 w-4" />
+                  <a href="mailto:info@knsofttech.com" className="hover:underline">
+                    info@knsofttech.com
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Pearland - Office */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="card-elegant p-6"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <h3 className="text-xl font-bold">Pearland, USA</h3>
+                </div>
+                <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
+                  Office
+                </div>
+                <p className="text-foreground leading-relaxed mb-4">
+                  1812 High Falls Lane, Pearland, Texas 77581, USA
                 </p>
                 <div className="flex items-center gap-2 text-primary">
                   <Mail className="h-4 w-4" />
