@@ -126,7 +126,7 @@ const officeLocations: OfficeLocation[] = [
     address: "6250, Westpark Dr., Houston, TX 77057",
     email: "info@knsofttech.com",
     /*phone: "+1 (713) 555-0123",*/
-    mapEmbed: null,
+    mapEmbed: "https://www.google.com/maps/place/6250+Westpark+Dr,+Houston,+TX+77057,+USA/@29.7240818,-95.4969785,17z/data=!3m1!4b1!4m6!3m5!1s0x8640c3cb76a2f049:0x4b00a840f21f76c1!8m2!3d29.7240772!4d-95.4944036!16s%2Fg%2F11b8v47hcp?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D",
   },
   {
     city: "Guntur",
@@ -135,7 +135,7 @@ const officeLocations: OfficeLocation[] = [
     address: "Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane, Gorantla, Guntur, Andhra Pradesh – 522034",
     email: "info@knsofttech.com",
     /*phone: "+91 863 4567 8901",*/
-    mapEmbed: null,
+    mapEmbed: "https://www.google.com/maps/search/Flat+No+-+TF-2,+Venkateswara+Arcade,+Annapurna+Nagar+6th+lane,+Gorantla,+Guntur,+Andhra+Pradesh+%E2%80%93+522034/@16.3216949,80.4102929,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D",
   },
 ];
 
