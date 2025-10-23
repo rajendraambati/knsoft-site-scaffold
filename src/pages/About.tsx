@@ -117,7 +117,7 @@ const officeLocations: OfficeLocation[] = [
     email: "info@knsofttech.com",
     /*phone: "+91 40 4012 3456",*/
     mapEmbed:
-      "https://maps.google.com/maps?q=H.No+8,+Apurupa+Turbo+Tower,+Jubilee+Hills,+Hyderabad,+Telangana+500033&t=&z=16&ie=UTF8&iwloc=&output=embed",
+      "https://www.google.com/maps/place/Nest+Vault+Coworking+space/@17.4353448,78.3988657,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9177b8e748bf:0x65432d6fc2820c1e!8m2!3d17.4353397!4d78.4014406!16s%2Fg%2F11w4446209?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D",
   },
   {
     city: "Houston",
