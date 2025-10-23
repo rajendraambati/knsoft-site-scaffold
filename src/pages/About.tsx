@@ -28,7 +28,7 @@ import { Badge } from "@/components/ui/badge";
 import iso27001Logo from "@/assets/iso-27001-new.png";
 import iso9001Logo from "@/assets/iso-9001-new.png";
 import cmmiLevel3Logo from "@/assets/cmmi-level3-new.png";
-import ceoImage from "@/assets/ceocrop.png";
+import ceoImage from "@/assets/ceo.png";
 import cooImage from "@/assets/coo.png";
 import rajeshMoraImage from "@/assets/rajesh-mora.png";
 
@@ -63,7 +63,7 @@ const leadership = [
   {
     name: "Dasaradha Ramaiah Kosana (USA)",
     title: "CEO",
-    image: "ceocrop.png",
+    image: ceoImage,
     bio: "With over 20 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years",
   },
