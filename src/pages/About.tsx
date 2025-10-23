@@ -30,6 +30,7 @@ import iso9001Logo from "@/assets/iso-9001-new.png";
 import cmmiLevel3Logo from "@/assets/cmmi-level3-new.png";
 import ceoImage from "@/assets/ceo.jpg";
 import cooImage from "@/assets/coo.png";
+import rajeshMoraImage from "@/assets/rajesh-mora.png";
 
 const cultureValues = [
   {
@@ -76,7 +77,7 @@ const leadership = [
   {
     name: "Rajesh Mora (USA)",
     title: "Head of HR Operations",
-    image: "/images/leadership/coo.jpg", // Placeholder - replace with actual images
+    image: rajeshMoraImage,
     bio: "Rajesh Mora oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
     experience: "18+ years",
   },
