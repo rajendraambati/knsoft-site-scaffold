@@ -28,7 +28,7 @@ import { Badge } from "@/components/ui/badge";
 import iso27001Logo from "@/assets/iso-27001-new.png";
 import iso9001Logo from "@/assets/iso-9001-new.png";
 import cmmiLevel3Logo from "@/assets/cmmi-level3-new.png";
-import ceoImage from "@/assets/ceo.png";
+import ceoImage from "@/assets/ceo.jpg";
 import cooImage from "@/assets/coo.png";
 import rajeshMoraImage from "@/assets/rajesh-mora.png";
 
