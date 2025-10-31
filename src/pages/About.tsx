@@ -31,6 +31,7 @@ import cmmiLevel3Logo from "@/assets/cmmi-level3-new.png";
 import ceoImage from "@/assets/ceo.jpg";
 import cooImage from "@/assets/coo.png";
 import rajeshMoraImage from "@/assets/rajesh-mora.png";
+import swapnaChowdaryImage from "@/assets/swapna-chowdary.png";
 
 const cultureValues = [
   {
@@ -91,7 +92,7 @@ const leadership = [
   {
     name: "Swapna Chowdary (India)",
     title: "Vice President",
-    image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
+    image: swapnaChowdaryImage,
     bio: "With over 16 years of sales leadership, our Vice President brings a proven track record of driving revenue growth, building high-performance teams, and expanding market share across competitive industries. Armed with strategic insight and deep customer understanding, we deliver scalable sales systems, trusted partnerships, and consistent top-line results.",
     experience: "16+ years",
   },
