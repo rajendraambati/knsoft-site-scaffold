@@ -308,7 +308,7 @@ export default function About() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
               {leadership.map((leader, index) => (
                 <motion.div
                   key={index}
@@ -317,26 +317,45 @@ export default function About() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="h-full text-center card-elegant hover:shadow-glow transition-all duration-500">
+                  <Card className="h-full card-elegant hover:shadow-glow transition-all duration-500">
                     <CardContent className="p-6">
-                      <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 bg-gradient-primary flex items-center justify-center">
-                        {typeof leader.image === "string" && leader.image.startsWith("/") ? (
-                          <Users className="h-12 w-12 text-white" />
-                        ) : (
-                          <img
-                            src={leader.image}
-                            alt={`${leader.name} - ${leader.title}`}
-                            className="w-full h-full object-cover"
-                          />
-                        )}
+                      <div className="flex flex-col sm:flex-row gap-6 items-start">
+                        {/* Profile Image */}
+                        <div className="flex-shrink-0">
+                          <div 
+                            className="w-32 h-32 rounded-full overflow-hidden border-2 mx-auto sm:mx-0"
+                            style={{ 
+                              borderColor: '#e0e0e0',
+                              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+                            }}
+                          >
+                            {typeof leader.image === "string" && leader.image.startsWith("/") ? (
+                              <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
+                                <Users className="h-16 w-16 text-white" />
+                              </div>
+                            ) : (
+                              <img
+                                src={leader.image}
+                                alt={`${leader.name} - ${leader.title}`}
+                                className="w-full h-full object-cover"
+                              />
+                            )}
+                          </div>
+                          <div className="flex justify-center sm:justify-start mt-3">
+                            <Badge variant="secondary" className="text-xs">
+                              <Calendar className="w-3 h-3 mr-1" />
+                              {leader.experience}
+                            </Badge>
+                          </div>
+                        </div>
+                        
+                        {/* Text Content */}
+                        <div className="flex-1 text-center sm:text-left">
+                          <h3 className="text-xl font-semibold mb-1">{leader.name}</h3>
+                          <p className="text-primary font-medium mb-3">{leader.title}</p>
+                          <p className="text-muted-foreground text-sm leading-relaxed">{leader.bio}</p>
+                        </div>
                       </div>
-                      <h3 className="text-xl font-semibold mb-1">{leader.name}</h3>
-                      <p className="text-primary font-medium mb-2">{leader.title}</p>
-                      <Badge variant="secondary" className="mb-4">
-                        <Calendar className="w-3 h-3 mr-1" />
-                        {leader.experience}
-                      </Badge>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{leader.bio}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
