@@ -329,7 +329,7 @@ export default function About() {
                               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                             }}
                           >
-                            {typeof leader.image === "string" && leader.image.startsWith("/") ? (
+                            {typeof leader.image === "string" && leader.image.includes("/images/leadership/") ? (
                               <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
                                 <Users className="h-16 w-16 text-white" />
                               </div>
