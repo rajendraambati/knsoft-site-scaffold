@@ -6,20 +6,24 @@ import { CapabilitiesSection } from "@/components/sections/CapabilitiesSection";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import ChatBot from "@/components/chat/ChatBot";
+import { ThreeScene } from "@/components/three/ThreeScene";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <FeaturesSection />
-        <CapabilitiesSection />
-      </main>
-      <Footer />
-      <ChatBot />
+    <div className="min-h-screen relative">
+      <ThreeScene />
+      <div className="relative" style={{ zIndex: 1 }}>
+        <Header />
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <ServicesSection />
+          <FeaturesSection />
+          <CapabilitiesSection />
+        </main>
+        <Footer />
+        <ChatBot />
+      </div>
     </div>
   );
 };
