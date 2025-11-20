@@ -8,13 +8,13 @@
   :root {
     /* Blue-Teal Theme with High Contrast */
     --background: 0 0% 100%;
-    --foreground: 200 50% 20%;
+    --foreground: 210 60% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 200 50% 20%;
+    --card-foreground: 210 70% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 50% 20%;
+    --popover-foreground: 210 70% 12%;
 
     /* Primary - Bright Cyan Blue */
     --primary: 190 85% 55%;
@@ -26,7 +26,7 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 20% 92%;
-    --muted-foreground: 210 30% 40%;
+    --muted-foreground: 210 50% 35%;
 
     /* Accent - Coral Pink */
     --accent: 340 85% 70%;
