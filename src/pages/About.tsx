@@ -15,6 +15,8 @@ import {
   Shield,
   Globe,
   Calendar,
+  Linkedin,
+  Twitter,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
@@ -68,6 +70,8 @@ const leadership = [
     image: ceoImage,
     bio: "With over 20 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years",
+    email: "dasaradh@knsoft.com",
+    linkedin: "https://www.linkedin.com/in/dasaradharamaiahkosana",
   },
   {
     name: "Uday Kiran Bandaru (India)",
@@ -75,6 +79,8 @@ const leadership = [
     image: cooImage,
     bio: "With over two decades of leadership at the intersection of technology and operations,  brings unmatched expertise in scaling systems, optimizing workflows, and driving digital transformation. From enterprise platforms to agile innovation, we architect solutions that deliver measurable impact, resilience, and growth.",
     experience: "20+ years",
+    email: "uday@knsoft.com",
+    linkedin: "https://www.linkedin.com/in/udaykiranbandaru",
   },
   {
     name: "Rajesh Mora (USA)",
@@ -82,6 +88,8 @@ const leadership = [
     image: rajeshMoraImage,
     bio: "Rajesh Mora oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
     experience: "18+ years",
+    email: "rajesh@knsoft.com",
+    linkedin: "https://www.linkedin.com/in/rajeshmora",
   },
   {
     name: "Karuna Sree (USA)",
@@ -89,6 +97,8 @@ const leadership = [
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
     bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
     experience: "15+ years",
+    email: "karuna@knsoft.com",
+    linkedin: "https://www.linkedin.com/in/karunasree",
   },
   {
     name: "Swapna Chowdary (India)",
@@ -96,6 +106,8 @@ const leadership = [
     image: swapnaChowdaryImage,
     bio: "With over 16 years of sales leadership, our Vice President brings a proven track record of driving revenue growth, building high-performance teams, and expanding market share across competitive industries. Armed with strategic insight and deep customer understanding, we deliver scalable sales systems, trusted partnerships, and consistent top-line results.",
     experience: "16+ years",
+    email: "swapna@knsoft.com",
+    linkedin: "https://www.linkedin.com/in/swapnachowdary",
   },
   {
     name: "Vijaya Bhanu",
@@ -103,6 +115,8 @@ const leadership = [
     image: vijayaBhanuImage,
     bio: "With over 20 years of training excellence, Vijaya Bhanu delivers impactful learning experiences that elevate communication, customer service, and leadership capabilities across diverse industries. Backed by 5000+ sessions for brands like Infosys, Amazon, ICICI, and L'Oréal, she brings a proven ability to engage teams, build skills, and drive professional growth through customized, results-focused programs.",
     experience: "20+ years",
+    email: "vijaya@knsoft.com",
+    linkedin: "https://www.linkedin.com/in/vijayabhanu",
   },
 ];
 
@@ -362,7 +376,33 @@ export default function About() {
                         <div className="flex-1 text-center sm:text-left">
                           <h3 className="text-xl font-semibold mb-1">{leader.name}</h3>
                           <p className="text-primary font-medium mb-3">{leader.title}</p>
-                          <p className="text-muted-foreground text-sm leading-relaxed">{leader.bio}</p>
+                          <p className="text-muted-foreground text-sm leading-relaxed mb-4">{leader.bio}</p>
+                          
+                          {/* Contact Links */}
+                          <div className="flex gap-3 justify-center sm:justify-start">
+                            {leader.email && (
+                              <a
+                                href={`mailto:${leader.email}`}
+                                className="inline-flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors"
+                                aria-label={`Email ${leader.name}`}
+                              >
+                                <Mail className="h-4 w-4" />
+                                <span>Email</span>
+                              </a>
+                            )}
+                            {leader.linkedin && (
+                              <a
+                                href={leader.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors"
+                                aria-label={`${leader.name}'s LinkedIn profile`}
+                              >
+                                <Linkedin className="h-4 w-4" />
+                                <span>LinkedIn</span>
+                              </a>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </CardContent>
