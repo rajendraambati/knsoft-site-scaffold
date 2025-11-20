@@ -101,7 +101,7 @@ const leadership = [
     name: "Vijaya Bhanu",
     title: "Certified Soft Skills & Business Communication Trainer",
     image: vijayaBhanuImage,
-    bio: "With over 20 years of experience and 5000+ training sessions delivered, Vijaya Bhanu is a dynamic and versatile trainer specializing in soft skills, business communication, and corporate development. She has trained professionals across top companies like Infosys, Amazon, ICICI, L'Oréal, and more. Her sessions are known for being interactive, customized, and results-driven—empowering beauty advisors, corporate teams, and rural youth alike. Expertise includes Communication & Accentuation, Customer Service & Selling Skills, Leadership & Team Building, Campus to Corporate & Train the Trainer, and Retail, Product & POS Training. Languages: English, Hindi, Telugu, Tamil. Training Modes: Online & Offline with Customized Programs. Awards: Best Trainer – RAYE, Excellence in Training – PMKVY, Outstanding Contribution – DDU-GKY.",
+    bio: "With over 20 years of training excellence, Vijaya Bhanu delivers impactful learning experiences that elevate communication, customer service, and leadership capabilities across diverse industries. Backed by 5000+ sessions for brands like Infosys, Amazon, ICICI, and L'Oréal, she brings a proven ability to engage teams, build skills, and drive professional growth through customized, results-focused programs.",
     experience: "20+ years",
   },
 ];
