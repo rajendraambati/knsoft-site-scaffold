@@ -51,12 +51,12 @@ export function FloatingShape({ position, color, shape, speed = 1 }: FloatingSha
 
 export function FloatingShapes() {
   const shapes: Array<{ pos: [number, number, number]; color: string; shape: 'box' | 'sphere' | 'torus' | 'octahedron'; speed: number }> = [
-    { pos: [-4, 2, -5], color: '#00B4D8', shape: 'box', speed: 0.8 },
-    { pos: [4, -1, -4], color: '#E63946', shape: 'sphere', speed: 1.2 },
-    { pos: [-3, -2, -6], color: '#3D2E7C', shape: 'torus', speed: 1.0 },
-    { pos: [5, 3, -7], color: '#00B4D8', shape: 'octahedron', speed: 0.9 },
-    { pos: [2, 0, -5], color: '#E63946', shape: 'box', speed: 1.1 },
-    { pos: [-5, -1, -8], color: '#3D2E7C', shape: 'sphere', speed: 0.7 },
+    { pos: [-4, 2, -5], color: '#3FA8B8', shape: 'box', speed: 0.8 },
+    { pos: [4, -1, -4], color: '#E57B9C', shape: 'sphere', speed: 1.2 },
+    { pos: [-3, -2, -6], color: '#1A5570', shape: 'torus', speed: 1.0 },
+    { pos: [5, 3, -7], color: '#3FA8B8', shape: 'octahedron', speed: 0.9 },
+    { pos: [2, 0, -5], color: '#E57B9C', shape: 'box', speed: 1.1 },
+    { pos: [-5, -1, -8], color: '#1A5570', shape: 'sphere', speed: 0.7 },
   ];
 
   return (
@@ -108,7 +108,7 @@ export function Particles() {
       </bufferGeometry>
       <pointsMaterial 
         size={0.05} 
-        color="#00B4D8" 
+        color="#3FA8B8" 
         transparent 
         opacity={0.6}
         sizeAttenuation
