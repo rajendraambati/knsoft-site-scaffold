@@ -127,7 +127,7 @@ export function ServicesSection() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <Button asChild variant="gradient" size="lg">
+          <Button asChild variant="destructive" size="lg">
             <Link to="/services">
               View All Services <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
