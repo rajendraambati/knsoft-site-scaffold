@@ -17,6 +17,7 @@ import {
   Calendar,
   Linkedin,
   Twitter,
+  Quote,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/layout/Header";
@@ -117,6 +118,51 @@ const leadership = [
     experience: "20+ years",
     email: "vijaya@knsoft.com",
     linkedin: "https://www.linkedin.com/in/vijayabhanu",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Dr. Rajesh Kumar",
+    position: "Director, Apollo Healthcare",
+    company: "Apollo Healthcare",
+    content: "KNSOFT's Hospital Management System transformed our operations completely. The seamless integration and intuitive interface have significantly improved our efficiency and patient care quality.",
+    rating: 5,
+  },
+  {
+    name: "Priya Sharma",
+    position: "Principal",
+    company: "Delhi Public School",
+    content: "The School Management Software has revolutionized how we handle administration. From attendance to fee collection, everything is now automated and error-free. Highly recommend KNSOFT!",
+    rating: 5,
+  },
+  {
+    name: "Amit Patel",
+    position: "CEO",
+    company: "MedCare Diagnostics",
+    content: "Excellent service and support from KNSOFT. Their Diagnostic Lab Management software helped us scale our operations across multiple locations with ease. The team is always responsive and helpful.",
+    rating: 5,
+  },
+  {
+    name: "Sarah Johnson",
+    position: "IT Manager",
+    company: "Global Retail Solutions",
+    content: "Working with KNSOFT has been a game-changer for our business. Their custom software solutions are robust, scalable, and perfectly aligned with our requirements. Outstanding technical expertise!",
+    rating: 5,
+  },
+  {
+    name: "Mohammed Ali",
+    position: "Operations Head",
+    company: "PharmaCare Chain",
+    content: "The Pharmacy Management System by KNSOFT has streamlined our inventory and billing processes. Real-time reporting and analytics have given us valuable insights into our business performance.",
+    rating: 5,
+  },
+  {
+    name: "Lakshmi Reddy",
+    position: "Director",
+    company: "Sunrise Educational Institute",
+    content: "KNSOFT's dedication to quality and customer satisfaction is unmatched. They understood our unique needs and delivered a solution that exceeded our expectations. Professional team with great expertise!",
+    rating: 5,
   },
 ];
 
@@ -590,6 +636,64 @@ export default function About() {
                       <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
                     </CardContent>
                   </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                What Our <span className="text-gradient">Clients Say</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Don't just take our word for it - hear from some of our satisfied clients about their experience working with KNSOFT
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="card-elegant p-6 relative"
+                >
+                  <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/20" aria-hidden="true" />
+                  
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="h-5 w-5 text-yellow-500 fill-current"
+                        viewBox="0 0 20 20"
+                        aria-hidden="true"
+                      >
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                      </svg>
+                    ))}
+                  </div>
+
+                  <p className="text-muted-foreground mb-6 italic">
+                    "{testimonial.content}"
+                  </p>
+
+                  <div className="border-t border-border pt-4">
+                    <p className="font-semibold text-foreground">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.position}</p>
+                    <p className="text-sm text-primary">{testimonial.company}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
