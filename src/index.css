@@ -6,58 +6,59 @@
 
 @layer base {
   :root {
-    /* New Brand Colors - Blue to Pink Gradient Theme */
-    --background: 270 100% 98%;
-    --foreground: 240 10% 20%;
+    /* KNSOFT Logo Colors - Cyan, Red, Purple Theme */
+    --background: 0 0% 99%;
+    --foreground: 257 48% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 20%;
+    --card-foreground: 257 48% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 20%;
+    --popover-foreground: 257 48% 25%;
 
-    /* Primary - Vibrant Blue */
-    --primary: 225 100% 68%;
+    /* Primary - Bright Cyan (from logo) */
+    --primary: 193 100% 56%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 290 100% 65%;
+    --primary-glow: 193 100% 70%;
 
-    /* Secondary - Soft Purple */
-    --secondary: 270 100% 95%;
-    --secondary-foreground: 240 10% 20%;
+    /* Secondary - Deep Purple (from logo) */
+    --secondary: 257 48% 25%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 270 30% 92%;
-    --muted-foreground: 240 10% 45%;
+    --muted: 193 20% 95%;
+    --muted-foreground: 257 30% 45%;
 
-    /* Accent - Pink/Magenta */
-    --accent: 290 100% 65%;
+    /* Accent - Vibrant Red (from logo) */
+    --accent: 354 82% 57%;
     --accent-foreground: 0 0% 100%;
 
-    /* CTA - Vibrant Blue */
-    --cta: 225 100% 68%;
+    /* CTA - Bright Cyan */
+    --cta: 193 100% 56%;
     --cta-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 270 30% 90%;
-    --input: 270 30% 90%;
-    --ring: 225 100% 68%;
+    --border: 193 20% 90%;
+    --input: 193 20% 90%;
+    --ring: 193 100% 56%;
 
     --radius: 0.75rem;
 
-    /* Custom Design Tokens - Blue to Pink Gradient System */
-    --gradient-primary: linear-gradient(135deg, hsl(225 100% 68%), hsl(290 100% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(270 100% 98%) 0%, hsl(280 100% 96%) 50%, hsl(290 100% 94%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(270 100% 99%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(225 100% 68%), hsl(290 100% 65%));
-    --gradient-mesh: radial-gradient(at 40% 20%, hsl(225 100% 68% / 0.15) 0px, transparent 50%),
-                     radial-gradient(at 80% 0%, hsl(290 100% 65% / 0.12) 0px, transparent 50%),
-                     radial-gradient(at 0% 50%, hsl(270 100% 75% / 0.1) 0px, transparent 50%),
-                     radial-gradient(at 80% 50%, hsl(225 100% 75% / 0.1) 0px, transparent 50%);
-    --shadow-elegant: 0 10px 30px -10px hsl(225 100% 68% / 0.3);
-    --shadow-glow: 0 0 40px hsl(290 100% 65% / 0.4);
-    --shadow-card: 0 4px 20px hsl(225 100% 68% / 0.1);
-    --shadow-hover: 0 20px 40px hsl(290 100% 65% / 0.3);
+    /* Custom Design Tokens - KNSOFT Brand Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(193 100% 56%), hsl(354 82% 57%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 99%) 0%, hsl(193 50% 97%) 50%, hsl(193 40% 95%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(193 30% 98%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(193 100% 56%), hsl(257 48% 45%));
+    --gradient-accent: linear-gradient(135deg, hsl(354 82% 57%), hsl(257 48% 45%));
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(193 100% 56% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(354 82% 57% / 0.12) 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, hsl(257 48% 45% / 0.1) 0px, transparent 50%),
+                     radial-gradient(at 80% 50%, hsl(193 100% 70% / 0.1) 0px, transparent 50%);
+    --shadow-elegant: 0 10px 30px -10px hsl(193 100% 56% / 0.3);
+    --shadow-glow: 0 0 40px hsl(354 82% 57% / 0.4);
+    --shadow-card: 0 4px 20px hsl(193 100% 56% / 0.1);
+    --shadow-hover: 0 20px 40px hsl(354 82% 57% / 0.3);
     
     /* Animation Tokens */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,45 +67,46 @@
   }
 
   .dark {
-    --background: 240 20% 10%;
+    --background: 257 48% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 240 20% 12%;
+    --card: 257 40% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 20% 12%;
+    --popover: 257 40% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 225 100% 68%;
+    --primary: 193 100% 56%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 290 100% 65%;
+    --primary-glow: 193 100% 70%;
 
-    --secondary: 240 20% 18%;
+    --secondary: 257 48% 18%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 20% 20%;
+    --muted: 257 30% 20%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 290 100% 65%;
-    --accent-foreground: 240 20% 10%;
+    --accent: 354 82% 57%;
+    --accent-foreground: 0 0% 100%;
 
-    --cta: 225 100% 68%;
+    --cta: 193 100% 56%;
     --cta-foreground: 0 0% 100%;
 
     --destructive: 0 75% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 20% 25%;
-    --input: 240 20% 25%;
-    --ring: 225 100% 68%;
+    --border: 257 30% 25%;
+    --input: 257 30% 25%;
+    --ring: 193 100% 56%;
 
     /* Dark Mode Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(225 100% 68%), hsl(290 100% 65%));
-    --gradient-hero: linear-gradient(135deg, hsl(240 20% 10%) 0%, hsl(250 30% 15%) 50%, hsl(280 40% 20%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(240 20% 14%) 0%, hsl(240 20% 10%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(225 100% 68%), hsl(290 100% 65%));
-    --shadow-elegant: 0 20px 50px -12px hsl(225 100% 68% / 0.3);
-    --shadow-glow: 0 0 60px hsl(290 100% 65% / 0.4);
+    --gradient-primary: linear-gradient(135deg, hsl(193 100% 56%), hsl(354 82% 57%));
+    --gradient-hero: linear-gradient(135deg, hsl(257 48% 8%) 0%, hsl(257 40% 12%) 50%, hsl(257 35% 15%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(257 40% 14%) 0%, hsl(257 40% 10%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(193 100% 56%), hsl(257 48% 45%));
+    --gradient-accent: linear-gradient(135deg, hsl(354 82% 57%), hsl(257 48% 45%));
+    --shadow-elegant: 0 20px 50px -12px hsl(193 100% 56% / 0.3);
+    --shadow-glow: 0 0 60px hsl(354 82% 57% / 0.4);
   }
 }
 
@@ -162,11 +164,11 @@
 
   .hero-text {
     @apply text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading;
-    background: linear-gradient(135deg, white 0%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.9) 100%);
+    background: linear-gradient(135deg, hsl(193 100% 56%) 0%, hsl(354 82% 57%) 50%, hsl(257 48% 45%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 80px rgba(255,255,255,0.1);
+    text-shadow: 0 0 80px hsl(193 100% 56% / 0.2);
   }
 
   /* Modern Card Styles */
