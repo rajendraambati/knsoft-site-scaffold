@@ -6,59 +6,59 @@
 
 @layer base {
   :root {
-    /* Blue-Teal Theme from Screenshot */
-    --background: 210 25% 95%;
-    --foreground: 200 50% 15%;
+    /* Blue-Teal Theme with High Contrast */
+    --background: 0 0% 100%;
+    --foreground: 200 50% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 200 50% 15%;
+    --card-foreground: 200 50% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 50% 15%;
+    --popover-foreground: 200 50% 20%;
 
-    /* Primary - Deep Ocean Blue */
-    --primary: 200 70% 35%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 190 80% 50%;
+    /* Primary - Bright Cyan Blue */
+    --primary: 190 85% 55%;
+    --primary-foreground: 210 100% 15%;
+    --primary-glow: 185 90% 60%;
 
-    /* Secondary - Rich Teal */
-    --secondary: 190 60% 45%;
+    /* Secondary - Deep Navy Blue */
+    --secondary: 210 60% 25%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 200 20% 90%;
-    --muted-foreground: 200 30% 40%;
+    --muted: 210 20% 92%;
+    --muted-foreground: 210 30% 40%;
 
     /* Accent - Coral Pink */
-    --accent: 350 75% 65%;
+    --accent: 340 85% 70%;
     --accent-foreground: 0 0% 100%;
 
-    /* CTA - Bright Teal */
-    --cta: 185 70% 50%;
-    --cta-foreground: 0 0% 100%;
+    /* CTA - Vibrant Teal */
+    --cta: 180 75% 55%;
+    --cta-foreground: 210 100% 15%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 20% 85%;
-    --input: 200 20% 85%;
-    --ring: 185 70% 50%;
+    --border: 210 20% 85%;
+    --input: 210 20% 90%;
+    --ring: 185 85% 55%;
 
     --radius: 0.75rem;
 
-    /* Custom Design Tokens - Blue-Teal Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(200 70% 35%), hsl(185 70% 50%));
-    --gradient-hero: linear-gradient(135deg, hsl(200 60% 25%) 0%, hsl(190 60% 40%) 50%, hsl(180 55% 50%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(200 30% 97%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(185 70% 50%), hsl(190 65% 45%));
-    --gradient-accent: linear-gradient(135deg, hsl(350 75% 65%), hsl(340 70% 60%));
-    --gradient-mesh: radial-gradient(at 40% 20%, hsl(185 70% 50% / 0.15) 0px, transparent 50%),
-                     radial-gradient(at 80% 0%, hsl(350 75% 65% / 0.12) 0px, transparent 50%),
-                     radial-gradient(at 0% 50%, hsl(200 60% 35% / 0.1) 0px, transparent 50%),
-                     radial-gradient(at 80% 50%, hsl(190 70% 45% / 0.1) 0px, transparent 50%);
-    --shadow-elegant: 0 10px 30px -10px hsl(185 70% 50% / 0.3);
-    --shadow-glow: 0 0 40px hsl(350 75% 65% / 0.4);
-    --shadow-card: 0 4px 20px hsl(185 70% 50% / 0.1);
-    --shadow-hover: 0 20px 40px hsl(350 75% 65% / 0.3);
+    /* Custom Design Tokens - High Contrast Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(190 85% 55%), hsl(180 75% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 60% 20%) 0%, hsl(195 60% 35%) 50%, hsl(185 60% 45%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 30% 98%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(180 75% 55%), hsl(185 80% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(340 85% 70%), hsl(350 80% 65%));
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(185 80% 55% / 0.12) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(340 85% 70% / 0.1) 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, hsl(210 60% 30% / 0.08) 0px, transparent 50%),
+                     radial-gradient(at 80% 50%, hsl(190 75% 50% / 0.1) 0px, transparent 50%);
+    --shadow-elegant: 0 10px 30px -10px hsl(185 80% 55% / 0.35);
+    --shadow-glow: 0 0 40px hsl(340 85% 70% / 0.45);
+    --shadow-card: 0 4px 20px hsl(185 80% 55% / 0.15);
+    --shadow-hover: 0 20px 40px hsl(340 85% 70% / 0.35);
     
     /* Animation Tokens */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -164,11 +164,8 @@
 
   .hero-text {
     @apply text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading;
-    background: linear-gradient(135deg, hsl(185 70% 50%) 0%, hsl(350 75% 65%) 50%, hsl(200 60% 35%) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 80px hsl(185 70% 50% / 0.2);
+    color: hsl(0 0% 100%);
+    text-shadow: 0 4px 20px hsl(0 0% 0% / 0.3), 0 0 60px hsl(185 80% 55% / 0.4);
   }
 
   /* Modern Card Styles */
@@ -188,17 +185,17 @@
 
   /* Modern Button Variants */
   .btn-gradient {
-    background: var(--gradient-primary);
+    background: var(--gradient-cta);
     box-shadow: var(--shadow-elegant);
-    @apply text-white border-none transition-all duration-500 hover:shadow-glow hover:scale-105 font-medium rounded-xl;
+    @apply text-secondary border-none transition-all duration-500 hover:shadow-glow hover:scale-105 font-semibold rounded-xl;
   }
 
   .btn-ghost-glow {
-    @apply bg-white/10 text-white border-2 border-white/30 backdrop-blur-sm transition-all duration-500 rounded-xl font-medium;
+    @apply bg-white/15 text-white border-2 border-white/40 backdrop-blur-md transition-all duration-500 rounded-xl font-semibold;
   }
 
   .btn-ghost-glow:hover {
-    @apply bg-white/20 border-white/50 shadow-elegant scale-105;
+    @apply bg-white/25 border-white/60 shadow-elegant scale-105;
   }
 
   /* Modern Section Backgrounds */
