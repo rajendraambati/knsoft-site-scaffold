@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Building2, Users, Award, Target, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRef } from "react";
 
 const stats = [
   { icon: Users, label: "Happy Clients", value: "500+" },
@@ -13,8 +14,17 @@ const stats = [
 ];
 
 export function AboutSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
   return (
-    <section className="py-24 bg-background section-mesh">
+    <section ref={sectionRef} className="py-24 bg-background section-mesh overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -23,6 +33,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            style={{ y: useTransform(scrollYProgress, [0, 1], [50, -50]) }}
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -62,6 +73,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
+            style={{ y: useTransform(scrollYProgress, [0, 1], [-50, 50]) }}
             className="grid grid-cols-2 gap-6"
           >
             {stats.map((stat, index) => (

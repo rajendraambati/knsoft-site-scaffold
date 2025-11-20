@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Zap, Shield, MessageCircle, Bot, CheckCircle } from "lucide-react";
+import { useRef } from "react";
 
 const features = [
   {
@@ -52,9 +53,15 @@ const features = [
 ];
 
 export function FeaturesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="py-20 bg-background relative overflow-hidden section-mesh">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,51 +78,79 @@ export function FeaturesSection() {
         </motion.div>
 
         <div className="space-y-16">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`grid lg:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-              }`}
-            >
-              {/* Content */}
-              <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                <div className="flex items-center mb-6">
-                  <div className="h-12 w-12 bg-gradient-primary rounded-lg flex items-center justify-center mr-4">
-                    <feature.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold">{feature.title}</h3>
-                </div>
-                
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {feature.description}
-                </p>
+          {features.map((feature, index) => {
+            const featureY = useTransform(
+              scrollYProgress,
+              [0, 0.5, 1],
+              [index % 2 === 0 ? 80 : -80, 0, index % 2 === 0 ? -80 : 80]
+            );
 
-                <ul className="space-y-3">
-                  {feature.points.map((point, pointIndex) => (
-                    <li key={pointIndex} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Image/Icon placeholder */}
-              <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                <div className="card-elegant p-12 text-center">
-                  <feature.icon className="h-24 w-24 mx-auto text-primary mb-4" />
-                  <div className="text-lg font-semibold text-gradient">
-                    {feature.title}
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                style={{ y: featureY }}
+                className={`grid lg:grid-cols-2 gap-12 items-center ${
+                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+                }`}
+              >
+                {/* Content */}
+                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                  <div className="flex items-center mb-6">
+                    <div className="h-12 w-12 bg-gradient-primary rounded-lg flex items-center justify-center mr-4">
+                      <feature.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold">{feature.title}</h3>
                   </div>
+                  
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {feature.description}
+                  </p>
+
+                  <ul className="space-y-3">
+                    {feature.points.map((point, pointIndex) => (
+                      <li key={pointIndex} className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="text-muted-foreground">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Image/Icon placeholder */}
+                <motion.div 
+                  className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="relative">
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-20"
+                      animate={{
+                        scale: [1, 1.1, 1],
+                        opacity: [0.2, 0.3, 0.2],
+                      }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                    <div className="relative card-elegant p-12 text-center">
+                      <motion.div
+                        animate={{ rotate: [0, 5, -5, 0] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        <feature.icon className="h-24 w-24 mx-auto text-primary mb-4" />
+                      </motion.div>
+                      <div className="text-lg font-semibold text-gradient">
+                        {feature.title}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
