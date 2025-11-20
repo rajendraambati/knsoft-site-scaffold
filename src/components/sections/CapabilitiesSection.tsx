@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Cloud, Settings, Headphones, CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useRef } from "react";
 
 const capabilities = [
   {
@@ -44,9 +45,15 @@ const capabilities = [
 ];
 
 export function CapabilitiesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
   return (
-    <section className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="py-20 bg-secondary/30 relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,36 +70,56 @@ export function CapabilitiesSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {capabilities.map((capability, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <Card className="h-full card-glow hover:shadow-glow transition-all duration-500">
-                <CardHeader>
-                  <div className="h-12 w-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4">
-                    <capability.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <CardTitle className="text-xl">
-                    {capability.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {capability.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start">
-                        <CheckCircle className="h-4 w-4 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+          {capabilities.map((capability, index) => {
+            const cardY = useTransform(
+              scrollYProgress,
+              [0, 0.5, 1],
+              [60 + index * 20, 0, -60 - index * 20]
+            );
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                style={{ y: cardY }}
+              >
+                <Card className="h-full card-glow hover:shadow-glow transition-all duration-500 group">
+                  <CardHeader>
+                    <motion.div 
+                      className="h-12 w-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+                      whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <capability.icon className="h-6 w-6 text-white" />
+                    </motion.div>
+                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                      {capability.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      {capability.items.map((item, itemIndex) => (
+                        <motion.li 
+                          key={itemIndex} 
+                          className="flex items-start"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: itemIndex * 0.05 }}
+                          viewport={{ once: true }}
+                        >
+                          <CheckCircle className="h-4 w-4 text-primary mr-3 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-muted-foreground">{item}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
