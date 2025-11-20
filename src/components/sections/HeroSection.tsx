@@ -1,32 +1,34 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Code, Smartphone, Globe, Users, Sparkles, Zap, Cpu } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Rocket, Stars } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 
 const heroSlides = [
   {
-    title: "Experience in staff Augmentation",
-    subtitle: "We, KNSoft Technologies, are highly regarded for our innovation in stream of value-added staffing or recruiting services.",
-    icon: Users,
+    title: "Transform Your Digital Vision",
+    subtitle: "Cutting-edge technology solutions that propel your business into the future",
+    icon: Rocket,
   },
   {
-    title: "We Bring your app concepts to life",
-    subtitle: "It is time to explore endless possibilities with our unique APP Development Services.",
-    icon: Smartphone,
+    title: "Innovation Meets Excellence",
+    subtitle: "We craft exceptional digital experiences that drive growth and innovation",
+    icon: Sparkles,
   },
   {
-    title: "Ideally business-centric it solutions",
-    subtitle: "We provide avant-garde software, web and mobile app services which best reflect our client's requirements.",
-    icon: Globe,
+    title: "Power Your Business Growth",
+    subtitle: "Enterprise-grade solutions designed for tomorrow's challenges",
+    icon: Zap,
   },
 ];
 
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const { scrollY } = useScroll();
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -36,149 +38,176 @@ export function HeroSection() {
       });
     };
 
+    const slideInterval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      clearInterval(slideInterval);
+    };
   }, []);
 
+  const currentHero = heroSlides[currentSlide];
+  const Icon = currentHero.icon;
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
-      {/* Interactive Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Floating orbs that respond to mouse movement */}
-        <motion.div 
-          className="absolute w-96 h-96 bg-gradient-to-r from-accent/20 to-primary-glow/20 rounded-full blur-3xl"
-          animate={{
-            x: mousePosition.x * 2,
-            y: mousePosition.y * 1.5,
-          }}
-          transition={{ type: "spring", stiffness: 50, damping: 30 }}
-          style={{ 
-            left: '-10%', 
-            top: '-10%',
-          }}
-        />
-        
-        <motion.div 
-          className="absolute w-80 h-80 bg-gradient-to-r from-primary-glow/15 to-accent/15 rounded-full blur-2xl"
-          animate={{
-            x: -mousePosition.x * 1.5,
-            y: -mousePosition.y * 2,
-          }}
-          transition={{ type: "spring", stiffness: 40, damping: 25 }}
-          style={{ 
-            right: '-10%', 
-            bottom: '-10%',
-          }}
-        />
+    <motion.section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient"
+      style={{ opacity }}
+    >
+      {/* Animated Mesh Background */}
+      <div className="absolute inset-0 bg-gradient-mesh opacity-60" />
+      
+      {/* Floating Gradient Orbs */}
+      <motion.div 
+        className="absolute w-[600px] h-[600px] rounded-full blur-3xl opacity-30"
+        style={{
+          background: `radial-gradient(circle, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, transparent 70%)`,
+          left: `${mousePosition.x}%`,
+          top: `${mousePosition.y}%`,
+        }}
+        animate={{
+          x: [-100, 100, -100],
+          y: [-50, 50, -50],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      />
 
-        {/* Floating geometric shapes */}
-        <motion.div
-          className="absolute top-1/4 left-1/4"
-          animate={{
-            rotate: mousePosition.x * 0.5,
-            scale: isHovered ? 1.2 : 1,
-          }}
-          transition={{ duration: 0.3 }}
-        >
-          <Sparkles className="w-8 h-8 text-accent/60 animate-pulse" />
-        </motion.div>
+      <motion.div 
+        className="absolute w-[500px] h-[500px] rounded-full blur-3xl opacity-20"
+        style={{
+          background: `radial-gradient(circle, hsl(var(--accent)) 0%, hsl(var(--primary-glow)) 50%, transparent 70%)`,
+          right: `${100 - mousePosition.x}%`,
+          bottom: `${100 - mousePosition.y}%`,
+        }}
+        animate={{
+          x: [100, -100, 100],
+          y: [50, -50, 50],
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+      />
 
-        <motion.div
-          className="absolute top-3/4 right-1/4"
-          animate={{
-            rotate: -mousePosition.y * 0.3,
-            x: mousePosition.x * 0.1,
-          }}
-          transition={{ duration: 0.4 }}
-        >
-          <Zap className="w-12 h-12 text-primary-glow/50" />
-        </motion.div>
+      {/* Floating Icons */}
+      <motion.div
+        className="absolute top-20 left-[10%] hidden lg:block"
+        animate={{
+          y: [0, -30, 0],
+          rotate: [0, 180, 360],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <Sparkles className="w-12 h-12 text-primary/40" />
+      </motion.div>
 
-        <motion.div
-          className="absolute top-1/2 right-1/6"
-          animate={{
-            y: Math.sin(mousePosition.x * 0.01) * 20,
-            rotate: mousePosition.y * 0.2,
-          }}
-          transition={{ duration: 0.5 }}
-        >
-          <Cpu className="w-10 h-10 text-accent/40" />
-        </motion.div>
+      <motion.div
+        className="absolute bottom-20 right-[10%] hidden lg:block"
+        animate={{
+          y: [0, 30, 0],
+          rotate: [0, -180, -360],
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <Stars className="w-16 h-16 text-accent/30" />
+      </motion.div>
 
-        {/* Grid pattern that shifts with mouse */}
-        <motion.div 
-          className="absolute inset-0 opacity-10"
-          animate={{
-            backgroundPosition: `${mousePosition.x * 0.5}px ${mousePosition.y * 0.5}px`,
-          }}
-          transition={{ duration: 0.1 }}
-          style={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)',
-            backgroundSize: '50px 50px',
-          }}
-        />
-      </div>
-
+      {/* Main Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Icon Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
-            onHoverStart={() => setIsHovered(true)}
-            onHoverEnd={() => setIsHovered(false)}
+            key={currentSlide}
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ duration: 0.8, type: "spring" }}
+            className="inline-flex items-center justify-center mb-8"
           >
-            <motion.h1 
-              className="hero-text mb-6"
-              animate={{
-                scale: mousePosition.x > 50 ? 1.02 : 1,
-              }}
-              transition={{ duration: 0.2 }}
-            >
-              KNSOFT TECHNOLOGIES
-            </motion.h1>
-            <motion.p 
-              className="text-xl md:text-2xl mb-8 leading-relaxed bg-gradient-to-r from-white via-red-300 to-red-500 bg-clip-text text-transparent font-semibold"
-              animate={{
-                opacity: isHovered ? 1 : 0.9,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              Driving Digital Transformation with Innovative IT Solutions, Software Development & Solar-Powered Sustainability
-            </motion.p>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-2xl opacity-50 animate-glow" />
+              <div className="relative h-20 w-20 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Icon className="h-10 w-10 text-white" />
+              </div>
+            </div>
           </motion.div>
 
-          <motion.div
+          {/* Title */}
+          <motion.h1
+            key={`title-${currentSlide}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading mb-6 leading-tight text-gradient-hero"
           >
-            <Button asChild variant="hero" size="xl">
-              <Link to="/contact" aria-label="Get in touch with KNSOFT Technologies">
-                Get In Touch <ArrowRight className="ml-2 h-5 w-5" />
+            {currentHero.title}
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            key={`subtitle-${currentSlide}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed font-medium"
+          >
+            {currentHero.subtitle}
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <Button 
+              asChild 
+              size="lg" 
+              className="btn-gradient text-base md:text-lg px-8 py-6 group"
+            >
+              <Link to="/contact" className="flex items-center gap-2">
+                Start Your Project
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="xl" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-              <Link to="/services" aria-label="Explore KNSOFT Technologies services and solutions">Our Services</Link>
+            
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg"
+              className="btn-ghost-glow text-base md:text-lg px-8 py-6"
+            >
+              <Link to="/services">
+                Explore Services
+              </Link>
             </Button>
           </motion.div>
 
+          {/* Slide Indicators */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="flex gap-2 justify-center mt-12"
+          >
+            {heroSlides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2 rounded-full transition-all duration-500 ${
+                  index === currentSlide 
+                    ? 'w-12 bg-gradient-primary' 
+                    : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full animate-bounce mt-2" />
-        </div>
-      </motion.div>
-    </section>
+      {/* Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+    </motion.section>
   );
 }

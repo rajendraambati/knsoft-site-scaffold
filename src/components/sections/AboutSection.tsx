@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Building2, Users, Award, Target } from "lucide-react";
+import { Building2, Users, Award, Target, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const stats = [
@@ -14,9 +14,9 @@ const stats = [
 
 export function AboutSection() {
   return (
-    <section className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="py-24 bg-background section-mesh">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -24,22 +24,35 @@ export function AboutSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              <span className="text-gradient">Who We Are</span>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="inline-block mb-4"
+            >
+              <span className="text-sm font-semibold text-primary tracking-wider uppercase">Who We Are</span>
+            </motion.div>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6">
+              Empowering Innovation <span className="text-gradient">Through Technology</span>
             </h2>
             
-            <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
-              <p>
-                We, <strong className="text-foreground">KNSOFT TECHNOLOGIES PVT LTD</strong>, as an IT Services, Software Development, Web and Mobile App Development Firm, are here to help clients reach their goal the easy way through our unique IT, Software, Web & Mobile App Solutions, replete in quality.
+            <div className="space-y-5 text-lg text-muted-foreground leading-relaxed mb-8">
+              <p className="font-medium">
+                <strong className="text-foreground font-semibold">KNSOFT TECHNOLOGIES PVT LTD</strong> delivers cutting-edge IT services, software development, and innovative digital solutions that transform businesses.
               </p>
               
               <p>
-                We earnestly believe that innovativeness in business operations can be brought in only through reliable software systems, web apps and enterprise mobile apps which eventually can create long-term sustainable, competitive advantage in the marketplace.
+                We believe that true innovation comes from reliable, intelligent systems—web applications, mobile apps, and enterprise solutions that create sustainable competitive advantages in today's digital marketplace.
               </p>
             </div>
 
-            <Button asChild variant="gradient" size="lg">
-              <Link to="/about">Learn More About Us</Link>
+            <Button asChild size="lg" className="btn-gradient group">
+              <Link to="/about" className="flex items-center gap-2">
+                Discover Our Story
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
           </motion.div>
 
@@ -54,20 +67,26 @@ export function AboutSection() {
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center p-6 card-elegant"
+                className="relative group"
               >
-                <div className="h-12 w-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="h-6 w-6 text-white" aria-hidden="true" />
-                </div>
-                <div className="text-2xl font-bold text-foreground mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {stat.label}
+                <div className="absolute inset-0 bg-gradient-primary rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500" />
+                <div className="relative card-elegant p-8 text-center hover:-translate-y-2 transition-all duration-500">
+                  <div className="relative inline-flex items-center justify-center mb-4">
+                    <div className="absolute inset-0 bg-gradient-primary rounded-xl opacity-20 blur-md" />
+                    <div className="relative h-14 w-14 bg-gradient-primary rounded-xl flex items-center justify-center">
+                      <stat.icon className="h-7 w-7 text-white" aria-hidden="true" />
+                    </div>
+                  </div>
+                  <div className="text-3xl lg:text-4xl font-bold font-heading text-gradient mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm font-medium text-muted-foreground">
+                    {stat.label}
+                  </div>
                 </div>
               </motion.div>
             ))}

@@ -62,17 +62,20 @@ export default {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-card': 'var(--gradient-card)',
-				'gradient-cta': 'var(--gradient-cta)'
+				'gradient-accent': 'var(--gradient-accent)',
+				'gradient-glow': 'var(--gradient-glow)',
+				'gradient-mesh': 'var(--gradient-mesh)'
 			},
 			boxShadow: {
 				'elegant': 'var(--shadow-elegant)',
 				'glow': 'var(--shadow-glow)',
-				'card': 'var(--shadow-card)'
+				'card': 'var(--shadow-card)',
+				'hover': 'var(--shadow-hover)'
 			},
 			fontFamily: {
-				sans: ['Lato', 'system-ui', 'sans-serif'],
-				heading: ['Montserrat', 'system-ui', 'sans-serif'],
-				display: ['Playfair Display', 'serif']
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				heading: ['Sora', 'system-ui', 'sans-serif'],
+				display: ['Space Grotesk', 'monospace']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
