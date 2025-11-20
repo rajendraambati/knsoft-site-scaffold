@@ -26,6 +26,13 @@ import { SEOHead } from "@/components/SEO/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 // Certification logo imports
 import iso27001Logo from "@/assets/iso-27001-new.png";
@@ -660,43 +667,60 @@ export default function About() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="card-elegant p-6 relative"
-                >
-                  <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/20" aria-hidden="true" />
-                  
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="h-5 w-5 text-yellow-500 fill-current"
-                        viewBox="0 0 20 20"
-                        aria-hidden="true"
-                      >
-                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                      </svg>
-                    ))}
-                  </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="max-w-6xl mx-auto"
+            >
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-4">
+                  {testimonials.map((testimonial, index) => (
+                    <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                      <div className="h-full">
+                        <Card className="card-elegant h-full">
+                          <CardContent className="p-6 relative flex flex-col h-full">
+                            <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/20" aria-hidden="true" />
+                            
+                            <div className="flex gap-1 mb-4">
+                              {[...Array(testimonial.rating)].map((_, i) => (
+                                <svg
+                                  key={i}
+                                  className="h-5 w-5 text-yellow-500 fill-current"
+                                  viewBox="0 0 20 20"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                                </svg>
+                              ))}
+                            </div>
 
-                  <p className="text-muted-foreground mb-6 italic">
-                    "{testimonial.content}"
-                  </p>
+                            <p className="text-muted-foreground mb-6 italic flex-grow">
+                              "{testimonial.content}"
+                            </p>
 
-                  <div className="border-t border-border pt-4">
-                    <p className="font-semibold text-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.position}</p>
-                    <p className="text-sm text-primary">{testimonial.company}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                            <div className="border-t border-border pt-4 mt-auto">
+                              <p className="font-semibold text-foreground">{testimonial.name}</p>
+                              <p className="text-sm text-muted-foreground">{testimonial.position}</p>
+                              <p className="text-sm text-primary">{testimonial.company}</p>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="hidden md:flex -left-12" />
+                <CarouselNext className="hidden md:flex -right-12" />
+              </Carousel>
+            </motion.div>
           </div>
         </section>
 
