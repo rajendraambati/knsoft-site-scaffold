@@ -32,6 +32,7 @@ import ceoImage from "@/assets/ceo.jpg";
 import cooImage from "@/assets/coo.png";
 import rajeshMoraImage from "@/assets/rajesh-mora.png";
 import swapnaChowdaryImage from "@/assets/swapna-chowdary.png";
+import vijayaBhanuImage from "@/assets/vijaya-bhanu.jpg";
 
 const cultureValues = [
   {
@@ -93,8 +94,15 @@ const leadership = [
     name: "Swapna Chowdary (India)",
     title: "Vice President",
     image: swapnaChowdaryImage,
-    bio: "With over 16 years of sales leadership, our Vice President brings a proven track record of driving revenue growth, building high-performance teams, and expanding market share across competitive industries. Armed with strategic insight and deep customer understanding, we deliver scalable sales systems, trusted partnerships, and consistent top-line results.",
+    bio: "With over 16 years of sales leadership, our Vice President brings a proven track record of driving revenue growth, building high-performance teams, and expanding market share across competitive industries. Armed with strategic insight and deep customer understanding, we deliver scalable sales systems, trusted partnerships, and consistent top-line results.",
     experience: "16+ years",
+  },
+  {
+    name: "Vijaya Bhanu",
+    title: "Certified Soft Skills & Business Communication Trainer",
+    image: vijayaBhanuImage,
+    bio: "With over 20 years of experience and 5000+ training sessions delivered, Vijaya Bhanu is a dynamic and versatile trainer specializing in soft skills, business communication, and corporate development. She has trained professionals across top companies like Infosys, Amazon, ICICI, L'Oréal, and more. Her sessions are known for being interactive, customized, and results-driven—empowering beauty advisors, corporate teams, and rural youth alike. Expertise includes Communication & Accentuation, Customer Service & Selling Skills, Leadership & Team Building, Campus to Corporate & Train the Trainer, and Retail, Product & POS Training. Languages: English, Hindi, Telugu, Tamil. Training Modes: Online & Offline with Customized Programs. Awards: Best Trainer – RAYE, Excellence in Training – PMKVY, Outstanding Contribution – DDU-GKY.",
+    experience: "20+ years",
   },
 ];
 
