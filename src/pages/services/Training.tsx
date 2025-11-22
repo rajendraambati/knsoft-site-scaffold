@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEO/SEOHead";
-import vijayaBhanuImage from "@/assets/vijaya-bhanu.png";
+import vijayaBhanuImage from "@/assets/vijaya-bhanu.jpg";
 
 const keyBenefits = [
   "Expert-led training programs",
