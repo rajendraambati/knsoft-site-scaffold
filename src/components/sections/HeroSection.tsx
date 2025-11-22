@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Zap, Rocket, Stars } from "lucide-react";
+import { ArrowRight, Power, Stars } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 
@@ -10,17 +10,17 @@ const heroSlides = [
   {
     title: "Transform Your Digital Vision",
     subtitle: "Cutting-edge technology solutions that propel your business into the future",
-    icon: Rocket,
+    icon: Power,
   },
   {
     title: "Innovation Meets Excellence",
     subtitle: "We craft exceptional digital experiences that drive growth and innovation",
-    icon: Sparkles,
+    icon: Power,
   },
   {
     title: "Power Your Business Growth",
     subtitle: "Enterprise-grade solutions designed for tomorrow's challenges",
-    icon: Zap,
+    icon: Power,
   },
 ];
 
@@ -98,7 +98,7 @@ export function HeroSection() {
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       >
-        <Sparkles className="w-12 h-12 text-primary/40" />
+        <Power className="w-12 h-12 text-primary/40" />
       </motion.div>
 
       <motion.div
@@ -175,7 +175,7 @@ export function HeroSection() {
               asChild 
               variant="outline" 
               size="lg"
-              className="btn-ghost-glow text-base md:text-lg px-8 py-6"
+              className="text-base md:text-lg px-8 py-6 bg-primary/10 border-primary text-white hover:bg-primary hover:text-white"
             >
               <Link to="/services">
                 Explore Services
