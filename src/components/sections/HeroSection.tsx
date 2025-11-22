@@ -115,22 +115,6 @@ export function HeroSection() {
       {/* Main Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          {/* Icon Badge */}
-          <motion.div
-            key={currentSlide}
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="inline-flex items-center justify-center mb-8"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-2xl opacity-50 animate-glow" />
-              <div className="relative h-20 w-20 bg-gradient-primary rounded-full flex items-center justify-center">
-                <Icon className="h-10 w-10 text-white" />
-              </div>
-            </div>
-          </motion.div>
-
           {/* Title */}
           <motion.h1
             key={`title-${currentSlide}`}
@@ -175,7 +159,7 @@ export function HeroSection() {
               asChild 
               variant="outline" 
               size="lg"
-              className="text-base md:text-lg px-8 py-6 bg-primary/10 border-primary text-white hover:bg-primary hover:text-white"
+              className="text-base md:text-lg px-8 py-6 bg-primary border-primary text-white"
             >
               <Link to="/services">
                 Explore Services
