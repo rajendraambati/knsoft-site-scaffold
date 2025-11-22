@@ -23,6 +23,7 @@ import SapModernization from "./pages/services/SapModernization";
 import EcommercePortals from "./pages/services/EcommercePortals";
 import AiAutomation from "./pages/services/AiAutomation";
 import ItConsulting from "./pages/services/ItConsulting";
+import Training from "./pages/services/Training";
 // Product category pages
 import HealthcareMedical from "./pages/products/HealthcareMedical";
 import HospitalManagementPro from "./pages/products/HospitalManagementPro";
@@ -65,6 +66,7 @@ const App = () => (
           <Route path="/services/ecommerce-portals" element={<EcommercePortals />} />
           <Route path="/services/ai-automation" element={<AiAutomation />} />
           <Route path="/services/it-consulting" element={<ItConsulting />} />
+          <Route path="/services/training" element={<Training />} />
           <Route path="/products" element={<Work />} />
           <Route path="/products/healthcare-medical" element={<HealthcareMedical />} />
           <Route path="/products/hospital-management-pro" element={<HospitalManagementPro />} />
