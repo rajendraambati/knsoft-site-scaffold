@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, GraduationCap, Users, BookOpen, CheckCircle, Award, Target, TrendingUp, Code } from "lucide-react";
+import { ArrowRight, GraduationCap, Users, BookOpen, CheckCircle, Award, Target, TrendingUp, Code, Star, Globe } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEO/SEOHead";
+import vijayaBhanuImage from "@/assets/vijaya-bhanu.png";
 
 const keyBenefits = [
   "Expert-led training programs",
@@ -23,6 +24,20 @@ const trainingServices = [
   { name: "Corporate Training", icon: Users },
   { name: "Certification Courses", icon: Award },
   { name: "Technology Workshops", icon: Target }
+];
+
+const coreExpertise = [
+  "Communication & Accentuation",
+  "Customer Service & Selling Skills",
+  "Leadership Development & Team Building",
+  "Campus to Corporate & Train-the-Trainer (TTT)",
+  "Retail, Product & POS Training"
+];
+
+const awards = [
+  "Best Trainer – RAYE",
+  "Excellence in Training – PMKVY",
+  "Outstanding Contribution – DDU-GKY"
 ];
 
 export default function Training() {
@@ -119,8 +134,122 @@ export default function Training() {
           </div>
         </section>
 
-        {/* Key Benefits */}
+        {/* Expert Trainer Section */}
         <section className="py-20 bg-secondary/30">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Meet Your <span className="text-gradient">Expert Trainer</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Learn from industry-leading professionals with decades of experience
+              </p>
+            </motion.div>
+
+            <div className="max-w-6xl mx-auto">
+              <Card className="overflow-hidden card-glow">
+                <CardContent className="p-0">
+                  <div className="grid lg:grid-cols-[300px_1fr] gap-8 p-8 md:p-12">
+                    {/* Trainer Image */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6 }}
+                      viewport={{ once: true }}
+                      className="flex flex-col items-center"
+                    >
+                      <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg mb-4">
+                        <img 
+                          src={vijayaBhanuImage} 
+                          alt="Vijaya Bhanu - Certified Soft Skills & Business Communication Trainer"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <h3 className="text-2xl font-bold text-center mb-2">Vijaya Bhanu</h3>
+                      <p className="text-sm text-muted-foreground text-center mb-4">
+                        Certified Soft Skills & Business Communication Trainer
+                      </p>
+                      <div className="flex items-center gap-2 text-primary mb-2">
+                        <Star className="h-5 w-5 fill-current" />
+                        <span className="font-semibold">5000+ Training Sessions</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <Globe className="h-4 w-4" />
+                        <span className="text-sm">English, Hindi, Telugu, Tamil</span>
+                      </div>
+                    </motion.div>
+
+                    {/* Trainer Details */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8 }}
+                      viewport={{ once: true }}
+                      className="space-y-6"
+                    >
+                      <div>
+                        <p className="text-base leading-relaxed text-muted-foreground mb-4">
+                          With a rich career spanning over two decades, Vijaya Bhanu stands out as a highly accomplished trainer who has transformed thousands of careers through her impactful training style. Having conducted <strong>5000+ training sessions</strong> across India, she brings unmatched expertise, energy, and practical insights to every program.
+                        </p>
+                        <p className="text-base leading-relaxed text-muted-foreground">
+                          Vijaya Bhanu has collaborated with leading corporate giants such as <strong>Infosys, Amazon, ICICI, L'Oréal</strong>, and numerous retail and service brands. Her training sessions are known for being interactive, engaging, and tailor-made to meet the unique needs of diverse audiences.
+                        </p>
+                      </div>
+
+                      {/* Core Expertise */}
+                      <div>
+                        <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
+                          <Target className="h-5 w-5 text-primary" />
+                          Core Expertise
+                        </h4>
+                        <div className="grid md:grid-cols-2 gap-3">
+                          {coreExpertise.map((expertise, index) => (
+                            <div key={index} className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                              <span className="text-sm">{expertise}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Awards */}
+                      <div>
+                        <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
+                          <Award className="h-5 w-5 text-primary" />
+                          Awards & Recognition
+                        </h4>
+                        <div className="flex flex-wrap gap-3">
+                          {awards.map((award, index) => (
+                            <div key={index} className="bg-primary/10 px-4 py-2 rounded-full">
+                              <span className="text-sm font-medium">{award}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* What Makes Training Unique */}
+                      <div className="bg-secondary/50 p-6 rounded-lg">
+                        <h4 className="text-lg font-bold mb-3">What Makes Her Training Unique?</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          Vijaya Bhanu's approach blends real-world experience, behavioral insights, and learner-centric methods to ensure measurable outcomes. Every session is designed to build confidence, enhance communication, and elevate professional performance with practical tools that can be applied immediately at work.
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Key Benefits */}
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
