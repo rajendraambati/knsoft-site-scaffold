@@ -268,7 +268,7 @@ export default function Training() {
                       </div>
                       <h3 className="text-2xl font-bold text-center mb-2">Nancy Sevagan</h3>
                       <p className="text-sm text-muted-foreground text-center mb-4">
-                        Assistant Vice President – Head of Relationship Banking, HDFC Bank
+                        Vice President - Sales Division
                       </p>
                       <div className="flex items-center gap-2 text-primary mb-2">
                         <TrendingUp className="h-5 w-5" />
