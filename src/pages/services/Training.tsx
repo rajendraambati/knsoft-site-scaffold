@@ -134,7 +134,7 @@ export default function Training() {
           </div>
         </section>
 
-        {/* Expert Trainer Section */}
+        {/* Expert Trainers Section */}
         <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -145,14 +145,15 @@ export default function Training() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Meet Your <span className="text-gradient">Expert Trainer</span>
+                Meet Your <span className="text-gradient">Expert Trainers</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Learn from industry-leading professionals with decades of experience
               </p>
             </motion.div>
 
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-6xl mx-auto space-y-8">
+              {/* Vijaya Bhanu Profile */}
               <Card className="overflow-hidden card-glow">
                 <CardContent className="p-0">
                   <div className="grid lg:grid-cols-[300px_1fr] gap-8 p-8 md:p-12">
@@ -238,6 +239,126 @@ export default function Training() {
                         <h4 className="text-lg font-bold mb-3">What Makes Her Training Unique?</h4>
                         <p className="text-sm text-muted-foreground leading-relaxed">
                           Vijaya Bhanu's approach blends real-world experience, behavioral insights, and learner-centric methods to ensure measurable outcomes. Every session is designed to build confidence, enhance communication, and elevate professional performance with practical tools that can be applied immediately at work.
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Nancy Sevagan Profile */}
+              <Card className="overflow-hidden card-glow">
+                <CardContent className="p-0">
+                  <div className="grid lg:grid-cols-[300px_1fr] gap-8 p-8 md:p-12">
+                    {/* Trainer Image Placeholder */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6 }}
+                      viewport={{ once: true }}
+                      className="flex flex-col items-center"
+                    >
+                      <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg mb-4 bg-gradient-primary flex items-center justify-center">
+                        <Users className="h-20 w-20 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-center mb-2">Nancy Sevagan</h3>
+                      <p className="text-sm text-muted-foreground text-center mb-4">
+                        Assistant Vice President – Head of Relationship Banking, HDFC Bank
+                      </p>
+                      <div className="flex items-center gap-2 text-primary mb-2">
+                        <TrendingUp className="h-5 w-5" />
+                        <span className="font-semibold">20 Years Experience</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <Award className="h-4 w-4" />
+                        <span className="text-sm">Pan-India #1 Performer</span>
+                      </div>
+                    </motion.div>
+
+                    {/* Trainer Details */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8 }}
+                      viewport={{ once: true }}
+                      className="space-y-6"
+                    >
+                      <div>
+                        <p className="text-base leading-relaxed text-muted-foreground mb-4">
+                          Nancy Sevagan is an accomplished sales and relationship management professional with nearly <strong>20 years of experience</strong> across banking, telecom, FMCG, and HR. She currently serves as Assistant Vice President – Head of Relationship Banking at <strong>HDFC Bank</strong>, where she leads high-value corporate and HNI portfolios.
+                        </p>
+                        <p className="text-base leading-relaxed text-muted-foreground">
+                          Nancy has consistently delivered top results, including being ranked <strong>Pan-India #1 in Internet Payment Gateway</strong> for three consecutive years and managing portfolios worth <strong>INR 1500 Cr</strong>. Her career highlights include leadership roles at Airtel India, Bank of Baroda, ICICI Bank, Oriflame, and Hindustan Unilever.
+                        </p>
+                      </div>
+
+                      {/* Core Expertise */}
+                      <div>
+                        <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
+                          <Target className="h-5 w-5 text-primary" />
+                          Core Expertise
+                        </h4>
+                        <div className="grid md:grid-cols-2 gap-3">
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Sales & Relationship Management</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Corporate & HNI Portfolio Management</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Digital Banking & Adoption</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Client Acquisition & Retention</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Business Development & Growth</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Account Management Excellence</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Career Highlights */}
+                      <div>
+                        <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
+                          <Award className="h-5 w-5 text-primary" />
+                          Career Highlights
+                        </h4>
+                        <div className="flex flex-wrap gap-3">
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">HDFC Bank</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">Airtel India</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">Bank of Baroda</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">ICICI Bank</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">Oriflame</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">Hindustan Unilever</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* What Makes Training Unique */}
+                      <div className="bg-secondary/50 p-6 rounded-lg">
+                        <h4 className="text-lg font-bold mb-3">Professional Strengths</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          Nancy is recognized for her <strong>client-centric approach</strong>, strong account management skills, and ability to build lasting business relationships. Her extensive experience across diverse industries enables her to deliver training that drives growth, enhances client satisfaction, and builds high-performing teams.
                         </p>
                       </div>
                     </motion.div>
