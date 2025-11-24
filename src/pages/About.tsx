@@ -120,7 +120,7 @@ const leadership = [
   },
   {
     name: "Vijaya Bhanu",
-    title: "Certified Soft Skills & Business Communication Trainer",
+    title: "Director",
     image: vijayaBhanuImage,
     bio: "With over 20 years of training excellence, Vijaya Bhanu delivers impactful learning experiences that elevate communication, customer service, and leadership capabilities across diverse industries. Backed by 5000+ sessions for brands like Infosys, Amazon, ICICI, and L'Oréal, she brings a proven ability to engage teams, build skills, and drive professional growth through customized, results-focused programs.",
     experience: "20+ years",
