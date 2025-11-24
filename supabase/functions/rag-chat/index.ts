@@ -147,7 +147,7 @@ Guidelines:
     const chatData = await chatResponse.json();
     console.log('Chat response received successfully');
     
-    if (!chatData.choices || !chatData.choices[0] || !chatData.choices[0].message) {
+    if (!chatData.choices || !Array.isArray(chatData.choices) || chatData.choices.length === 0 || !chatData.choices[0]?.message) {
       console.error('Invalid chat response format:', JSON.stringify(chatData));
       throw new Error('Invalid chat response format from Groq API');
     }
