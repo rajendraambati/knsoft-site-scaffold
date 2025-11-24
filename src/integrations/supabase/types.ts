@@ -115,6 +115,33 @@ export type Database = {
         }
         Relationships: []
       }
+      knowledge_base: {
+        Row: {
+          content: string
+          created_at: string | null
+          embedding: string | null
+          id: string
+          metadata: Json | null
+          updated_at: string | null
+        }
+        Insert: {
+          content: string
+          created_at?: string | null
+          embedding?: string | null
+          id?: string
+          metadata?: Json | null
+          updated_at?: string | null
+        }
+        Update: {
+          content?: string
+          created_at?: string | null
+          embedding?: string | null
+          id?: string
+          metadata?: Json | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       applications_with_jobs: {
@@ -134,7 +161,19 @@ export type Database = {
       }
     }
     Functions: {
-      [_ in never]: never
+      match_knowledge: {
+        Args: {
+          match_count: number
+          match_threshold: number
+          query_embedding: string
+        }
+        Returns: {
+          content: string
+          id: string
+          metadata: Json
+          similarity: number
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
