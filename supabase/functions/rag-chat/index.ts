@@ -59,29 +59,68 @@ serve(async (req) => {
       console.error('Error fetching knowledge base:', fetchError);
     }
 
-    // Simple keyword matching to find relevant content
+    // Enhanced keyword matching with intelligent scoring
     let relevantContent: any[] = [];
     if (allContent && allContent.length > 0) {
       const messageLower = message.toLowerCase();
-      const messageWords = messageLower.split(' ').filter(w => w.length > 3);
+      const messageWords = messageLower.split(/\s+/).filter(w => w.length > 2);
       
       relevantContent = allContent
         .map((item: any) => {
           const contentLower = item.content.toLowerCase();
+          const titleLower = (item.metadata?.title || '').toLowerCase();
           const keywords = item.metadata?.keywords || [];
           
           // Calculate relevance score
           let score = 0;
-          messageWords.forEach((word: string) => {
-            if (contentLower.includes(word)) score += 2;
-            if (keywords.some((k: string) => k.includes(word) || word.includes(k))) score += 3;
+          
+          // High priority: Check for exact keyword matches
+          keywords.forEach((keyword: string) => {
+            const keywordLower = keyword.toLowerCase();
+            if (messageLower.includes(keywordLower)) {
+              score += 5; // Higher weight for exact keyword matches
+            }
           });
+          
+          // Check for matches in title (very important)
+          messageWords.forEach((word: string) => {
+            if (titleLower.includes(word)) score += 4;
+          });
+          
+          // Check for matches in content
+          messageWords.forEach((word: string) => {
+            // Skip common words
+            if (['the', 'and', 'are', 'what', 'who', 'how', 'can', 'you', 'your', 'our', 'for', 'with', 'about'].includes(word)) {
+              return;
+            }
+            if (contentLower.includes(word)) score += 2;
+          });
+          
+          // Boost specific question types
+          if (messageLower.includes('ceo') || messageLower.includes('chief executive') || messageLower.includes('founder')) {
+            if (contentLower.includes('ceo') || contentLower.includes('dasaradha')) score += 15;
+          }
+          if (messageLower.includes('coo') || messageLower.includes('cto') || messageLower.includes('operations')) {
+            if (contentLower.includes('coo') || contentLower.includes('cto') || contentLower.includes('uday')) score += 15;
+          }
+          if (messageLower.includes('services') || messageLower.includes('offer') || messageLower.includes('provide') || messageLower.includes('do you do')) {
+            if (item.metadata?.type === 'services' || item.metadata?.section === 'services') score += 12;
+          }
+          if (messageLower.includes('job') || messageLower.includes('career') || messageLower.includes('hiring') || messageLower.includes('opening') || messageLower.includes('position')) {
+            if (item.metadata?.type === 'careers' || contentLower.includes('career') || contentLower.includes('job')) score += 15;
+          }
+          if (messageLower.includes('contact') || messageLower.includes('location') || messageLower.includes('office') || messageLower.includes('address')) {
+            if (item.metadata?.section === 'contact' || contentLower.includes('contact') || contentLower.includes('office')) score += 15;
+          }
+          if (messageLower.includes('leadership') || messageLower.includes('team') || messageLower.includes('management')) {
+            if (item.metadata?.type === 'leadership' || contentLower.includes('leadership')) score += 12;
+          }
           
           return { ...item, relevance: score };
         })
         .filter((item: any) => item.relevance > 0)
         .sort((a: any, b: any) => b.relevance - a.relevance)
-        .slice(0, 5);
+        .slice(0, 5); // Get top 5 most relevant items
     }
 
     // Build context from relevant content
@@ -99,18 +138,20 @@ serve(async (req) => {
     const messages = [
       {
         role: 'system',
-        content: `You are a helpful AI assistant for KN Soft Tech, a CMMI Level 3 and ISO 27001:2022 certified IT company. 
+        content: `You are a helpful AI assistant for KN Soft Tech (KNSOFT Technologies), a CMMI Level 3 and ISO 27001:2022 certified software development company.
 
-${context ? `Here is relevant information from our website:\n\n${context}\n\n` : ''}
+${context ? `Here is relevant information from our knowledge base:\n\n${context}\n\n` : ''}
 
-Guidelines:
-- Be friendly, professional, and helpful
-- Use the provided context to answer questions accurately
-- If you don't have specific information, say so and offer to connect them with someone who can help
-- For job applications, guide users to the careers page
-- For inquiries, suggest they use the contact form
-- Keep responses concise and relevant (max 3-4 sentences)
-- Focus on what KN Soft Tech can do for the user`
+CRITICAL INSTRUCTIONS:
+- ALWAYS answer questions using ONLY the information provided in the context above
+- Be friendly, professional, and enthusiastic about KN Soft Tech
+- If asked about CEO, COO, leadership, services, products, jobs, or contact info, use the specific details from the context
+- NEVER say "I don't have specifics" or suggest visiting the website if the information IS in the context
+- Keep responses concise but informative (2-4 sentences)
+- If information is genuinely NOT in the context, then politely say so and suggest contacting the team
+- When listing services or products, mention specific ones from the context with details
+- Use actual names, titles, email addresses, and details provided in the context
+- For career inquiries, mention specific job openings if they're in the context`
       },
       ...conversationHistory.map((msg: any) => ({
         role: msg.role,
