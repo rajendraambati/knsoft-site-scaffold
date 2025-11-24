@@ -1,18 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Bot, User, Sparkles, Zap } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, User, Sparkles, Zap, Loader2, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
-import { generateAIResponse } from './AIResponseGenerator';
-import { getGreeting } from './ChatKnowledge';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+import { useNavigate } from 'react-router-dom';
 
 interface Message {
   id: string;
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
+  action?: 'job_application';
+  jobTitle?: string;
+  sources?: Array<{
+    content: string;
+    similarity: number;
+    metadata: any;
+  }>;
 }
 
 const ChatBot = () => {
@@ -20,7 +28,10 @@ const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [isInitializing, setIsInitializing] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
+  const navigate = useNavigate();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -30,22 +41,87 @@ const ChatBot = () => {
     scrollToBottom();
   }, [messages]);
 
-  const addMessage = (text: string, sender: 'user' | 'bot') => {
+  const addMessage = (text: string, sender: 'user' | 'bot', extra?: Partial<Message>) => {
     const newMessage: Message = {
       id: Date.now().toString(),
       text,
       sender,
-      timestamp: new Date()
+      timestamp: new Date(),
+      ...extra
     };
     setMessages(prev => [...prev, newMessage]);
   };
 
-  const generateBotResponse = async (userMessage: string): Promise<string> => {
-    return await generateAIResponse(userMessage);
+  const initializeKnowledgeBase = async () => {
+    try {
+      setIsInitializing(true);
+      console.log('Initializing knowledge base...');
+      
+      const { data, error } = await supabase.functions.invoke('scrape-and-embed');
+      
+      if (error) throw error;
+      
+      console.log('Knowledge base initialized:', data);
+      return true;
+    } catch (error) {
+      console.error('Error initializing knowledge base:', error);
+      return false;
+    } finally {
+      setIsInitializing(false);
+    }
+  };
+
+  const generateBotResponse = async (userMessage: string): Promise<Message> => {
+    try {
+      // Build conversation history
+      const conversationHistory = messages
+        .filter(m => m.sender === 'user' || m.sender === 'bot')
+        .map(m => ({
+          role: m.sender === 'user' ? 'user' : 'assistant',
+          content: m.text
+        }));
+
+      const { data, error } = await supabase.functions.invoke('rag-chat', {
+        body: {
+          message: userMessage,
+          conversationHistory: conversationHistory.slice(-10) // Keep last 10 messages for context
+        }
+      });
+
+      if (error) throw error;
+
+      return {
+        id: Date.now().toString(),
+        text: data.response,
+        sender: 'bot',
+        timestamp: new Date(),
+        action: data.action,
+        jobTitle: data.jobTitle,
+        sources: data.sources
+      };
+    } catch (error) {
+      console.error('Error generating response:', error);
+      return {
+        id: Date.now().toString(),
+        text: "I apologize, but I'm having trouble processing your request right now. Please try again or contact our team directly for assistance.",
+        sender: 'bot',
+        timestamp: new Date()
+      };
+    }
+  };
+
+  const handleJobApplication = (jobTitle: string) => {
+    const jobSlug = jobTitle.toLowerCase().replace(/\s+/g, '-');
+    navigate(`/careers/${jobSlug}`);
+    setIsOpen(false);
+    toast({
+      title: "Redirecting to Application",
+      description: `Opening the ${jobTitle} application form...`,
+    });
   };
 
   const handleSendMessage = async () => {
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() || isTyping) return;
 
     const userMessage = inputValue.trim();
     addMessage(userMessage, 'user');
@@ -53,22 +129,25 @@ const ChatBot = () => {
     setIsTyping(true);
 
     try {
-      // Generate AI response with enhanced knowledge
       const botResponse = await generateBotResponse(userMessage);
       
-      // Simulate realistic typing delay based on response length
-      const typingDelay = Math.min(Math.max(botResponse.length * 20, 1000), 4000);
-      
       setTimeout(() => {
-        addMessage(botResponse, 'bot');
+        setMessages(prev => [...prev, botResponse]);
         setIsTyping(false);
-      }, typingDelay);
+        
+        // Handle job application intent
+        if (botResponse.action === 'job_application' && botResponse.jobTitle) {
+          setTimeout(() => {
+            handleJobApplication(botResponse.jobTitle!);
+          }, 1000);
+        }
+      }, 1000);
     } catch (error) {
       console.error('Error generating response:', error);
       setTimeout(() => {
         addMessage("I apologize, but I'm having trouble processing your request right now. Please try again or contact our team directly for assistance.", 'bot');
         setIsTyping(false);
-      }, 1500);
+      }, 1000);
     }
   };
 
@@ -79,12 +158,15 @@ const ChatBot = () => {
     }
   };
 
-  const openChat = () => {
+  const openChat = async () => {
     setIsOpen(true);
     if (messages.length === 0) {
       setTimeout(() => {
-        addMessage(getGreeting(), 'bot');
+        addMessage("👋 Hi! I'm the KN Soft Tech AI Assistant. I can help you with:\n\n• Information about our services\n• Details about our products\n• Career opportunities\n• General inquiries\n\nHow can I assist you today?", 'bot');
       }, 500);
+      
+      // Initialize knowledge base in background
+      await initializeKnowledgeBase();
     }
   };
 
@@ -182,8 +264,24 @@ const ChatBot = () => {
                       message.sender === 'user'
                         ? 'bg-primary text-white'
                         : 'bg-muted text-foreground'
-                    )}>
+                     )}>
                       <div className="whitespace-pre-line">{message.text}</div>
+                      
+                      {/* Show sources if available */}
+                      {message.sources && message.sources.length > 0 && (
+                        <div className="mt-3 pt-3 border-t border-border/50">
+                          <p className="text-xs font-semibold mb-2 opacity-70">Sources:</p>
+                          <div className="space-y-1">
+                            {message.sources.map((source, idx) => (
+                              <div key={idx} className="text-xs opacity-60 flex items-start gap-1">
+                                <ExternalLink className="w-3 h-3 mt-0.5 flex-shrink-0" />
+                                <span className="line-clamp-2">{source.content}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
                       <div className={cn(
                         'text-xs mt-2 opacity-70',
                         message.sender === 'user' ? 'text-white/70' : 'text-muted-foreground'
@@ -240,6 +338,12 @@ const ChatBot = () => {
 
             {/* Input Area */}
             <div className="p-4 border-t border-border">
+              {isInitializing && (
+                <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
+                  <Loader2 className="w-3 h-3 animate-spin" />
+                  <span>Initializing knowledge base...</span>
+                </div>
+              )}
               <div className="flex gap-2">
                 <Input
                   value={inputValue}
@@ -254,7 +358,7 @@ const ChatBot = () => {
                   disabled={!inputValue.trim() || isTyping}
                   className="bg-primary hover:bg-primary/90"
                 >
-                  <Send className="w-4 h-4" />
+                  {isTyping ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 </Button>
               </div>
             </div>
