@@ -74,7 +74,7 @@ const cultureValues = [
 
 const leadership = [
   {
-    name: "Dasaradha Ramaiah Kosana (USA)",
+    name: "D K Ram (USA)",
     title: "CEO",
     image: ceoImage,
     bio: "With over 20 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
