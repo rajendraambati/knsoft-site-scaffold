@@ -16,6 +16,18 @@ serve(async (req) => {
   }
 
   try {
+    // Validate API key
+    if (!GROQ_API_KEY) {
+      console.error('GROQ_API_KEY is not configured');
+      return new Response(
+        JSON.stringify({ error: 'GROQ_API_KEY is not configured. Please add it to your Supabase secrets.' }),
+        { 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          status: 500 
+        }
+      );
+    }
+
     const { message, conversationHistory = [] } = await req.json();
     console.log('Received message:', message);
 
@@ -37,44 +49,50 @@ serve(async (req) => {
       );
     }
 
-    // Generate embedding for the user's query
-    console.log('Generating query embedding...');
-    const embeddingResponse = await fetch('https://api.groq.com/openai/v1/embeddings', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${GROQ_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'nomic-embed-text-v1.5',
-        input: message,
-      }),
-    });
-
-    const embeddingData = await embeddingResponse.json();
-    const queryEmbedding = embeddingData.data[0].embedding;
-
-    // Search for similar content in the knowledge base
+    // Search for relevant content using keyword matching
     console.log('Searching knowledge base...');
-    const { data: matches, error: matchError } = await supabase.rpc('match_knowledge', {
-      query_embedding: queryEmbedding,
-      match_threshold: 0.5,
-      match_count: 5,
-    });
+    const { data: allContent, error: fetchError } = await supabase
+      .from('knowledge_base')
+      .select('*');
 
-    if (matchError) {
-      console.error('Error searching knowledge base:', matchError);
+    if (fetchError) {
+      console.error('Error fetching knowledge base:', fetchError);
     }
 
-    // Build context from matches
+    // Simple keyword matching to find relevant content
+    let relevantContent: any[] = [];
+    if (allContent && allContent.length > 0) {
+      const messageLower = message.toLowerCase();
+      const messageWords = messageLower.split(' ').filter(w => w.length > 3);
+      
+      relevantContent = allContent
+        .map((item: any) => {
+          const contentLower = item.content.toLowerCase();
+          const keywords = item.metadata?.keywords || [];
+          
+          // Calculate relevance score
+          let score = 0;
+          messageWords.forEach((word: string) => {
+            if (contentLower.includes(word)) score += 2;
+            if (keywords.some((k: string) => k.includes(word) || word.includes(k))) score += 3;
+          });
+          
+          return { ...item, relevance: score };
+        })
+        .filter((item: any) => item.relevance > 0)
+        .sort((a: any, b: any) => b.relevance - a.relevance)
+        .slice(0, 5);
+    }
+
+    // Build context from relevant content
     let context = '';
-    if (matches && matches.length > 0) {
-      console.log(`Found ${matches.length} relevant matches`);
-      context = matches
-        .map((match: any) => `${match.content}\n(Relevance: ${(match.similarity * 100).toFixed(1)}%)`)
+    if (relevantContent.length > 0) {
+      console.log(`Found ${relevantContent.length} relevant content pieces`);
+      context = relevantContent
+        .map((item: any) => item.content)
         .join('\n\n---\n\n');
     } else {
-      console.log('No relevant matches found in knowledge base');
+      console.log('No relevant content found, using general knowledge');
     }
 
     // Build conversation messages
@@ -83,20 +101,21 @@ serve(async (req) => {
         role: 'system',
         content: `You are a helpful AI assistant for KN Soft Tech, a CMMI Level 3 and ISO 27001:2022 certified IT company. 
 
-You have access to the following information about the company:
-
-${context || 'No specific context available. Please provide general information about KN Soft Tech and offer to help with specific questions.'}
+${context ? `Here is relevant information from our website:\n\n${context}\n\n` : ''}
 
 Guidelines:
 - Be friendly, professional, and helpful
-- Use the context provided to answer questions accurately
+- Use the provided context to answer questions accurately
 - If you don't have specific information, say so and offer to connect them with someone who can help
 - For job applications, guide users to the careers page
 - For inquiries, suggest they use the contact form
-- Keep responses concise and relevant
-- If asked about services, products, or company information, use the context provided`
+- Keep responses concise and relevant (max 3-4 sentences)
+- Focus on what KN Soft Tech can do for the user`
       },
-      ...conversationHistory,
+      ...conversationHistory.map((msg: any) => ({
+        role: msg.role,
+        content: msg.content
+      })),
       {
         role: 'user',
         content: message
@@ -119,7 +138,20 @@ Guidelines:
       }),
     });
 
+    if (!chatResponse.ok) {
+      const errorText = await chatResponse.text();
+      console.error('Groq chat API error:', chatResponse.status, errorText);
+      throw new Error(`Failed to generate response: ${chatResponse.status} - ${errorText}`);
+    }
+
     const chatData = await chatResponse.json();
+    console.log('Chat response received successfully');
+    
+    if (!chatData.choices || !chatData.choices[0] || !chatData.choices[0].message) {
+      console.error('Invalid chat response format:', JSON.stringify(chatData));
+      throw new Error('Invalid chat response format from Groq API');
+    }
+    
     const aiResponse = chatData.choices[0].message.content;
 
     console.log('Response generated successfully');
@@ -127,10 +159,9 @@ Guidelines:
     return new Response(
       JSON.stringify({
         response: aiResponse,
-        sources: matches?.slice(0, 3).map((m: any) => ({
-          content: m.content.substring(0, 200) + '...',
-          similarity: m.similarity,
-          metadata: m.metadata
+        sources: relevantContent.slice(0, 2).map((item: any) => ({
+          content: item.content.substring(0, 150) + '...',
+          metadata: item.metadata
         }))
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -139,7 +170,10 @@ Guidelines:
   } catch (error) {
     console.error('Error in rag-chat:', error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ 
+        error: error instanceof Error ? error.message : 'An unexpected error occurred',
+        details: 'Please check the function logs for more information'
+      }),
       { 
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 500 
