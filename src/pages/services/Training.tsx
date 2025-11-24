@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEO/SEOHead";
 import vijayaBhanuImage from "@/assets/vijaya-bhanu.jpg";
+import nancySevaganImage from "@/assets/nancy-sevagan.png";
 
 const keyBenefits = [
   "Expert-led training programs",
@@ -250,7 +251,7 @@ export default function Training() {
               <Card className="overflow-hidden card-glow">
                 <CardContent className="p-0">
                   <div className="grid lg:grid-cols-[300px_1fr] gap-8 p-8 md:p-12">
-                    {/* Trainer Image Placeholder */}
+                    {/* Trainer Image */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
@@ -258,8 +259,12 @@ export default function Training() {
                       viewport={{ once: true }}
                       className="flex flex-col items-center"
                     >
-                      <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg mb-4 bg-gradient-primary flex items-center justify-center">
-                        <Users className="h-20 w-20 text-white" />
+                      <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg mb-4">
+                        <img 
+                          src={nancySevaganImage} 
+                          alt="Nancy Sevagan - Assistant Vice President, Head of Relationship Banking at HDFC Bank"
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                       <h3 className="text-2xl font-bold text-center mb-2">Nancy Sevagan</h3>
                       <p className="text-sm text-muted-foreground text-center mb-4">
