@@ -79,7 +79,7 @@ const leadership = [
     image: ceoImage,
     bio: "With over 20 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years",
-    email: "dasaradh@knsoft.com",
+    email: "dasaradh@knsofttech.com",
     linkedin: "https://www.linkedin.com/in/dasaradharamaiahkosana",
   },
   {
@@ -88,7 +88,7 @@ const leadership = [
     image: cooImage,
     bio: "With over two decades of leadership at the intersection of technology and operations,  brings unmatched expertise in scaling systems, optimizing workflows, and driving digital transformation. From enterprise platforms to agile innovation, we architect solutions that deliver measurable impact, resilience, and growth.",
     experience: "20+ years",
-    email: "uday@knsoft.com",
+    email: "uday@knsofttech.com",
     linkedin: "https://www.linkedin.com/in/udaykiranbandaru",
   },
   {
@@ -97,7 +97,7 @@ const leadership = [
     image: rajeshMoraImage,
     bio: "Rajesh Mora oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
     experience: "18+ years",
-    email: "rajesh@knsoft.com",
+    email: "rajesh@knsofttech.com",
     linkedin: "https://www.linkedin.com/in/rajeshmora",
   },
   {
@@ -106,7 +106,7 @@ const leadership = [
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
     bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
     experience: "15+ years",
-    email: "karuna@knsoft.com",
+    email: "karuna@knsofttech.com",
     linkedin: "https://www.linkedin.com/in/karunasree",
   },
   {
@@ -115,7 +115,7 @@ const leadership = [
     image: swapnaChowdaryImage,
     bio: "With over 16 years of sales leadership, our Vice President brings a proven track record of driving revenue growth, building high-performance teams, and expanding market share across competitive industries. Armed with strategic insight and deep customer understanding, we deliver scalable sales systems, trusted partnerships, and consistent top-line results.",
     experience: "16+ years",
-    email: "swapna@knsoft.com",
+    email: "swapna@knsofttech.com",
     linkedin: "https://www.linkedin.com/in/swapnachowdary",
   },
   {
@@ -124,7 +124,7 @@ const leadership = [
     image: vijayaBhanuImage,
     bio: "With over 20 years of training excellence, Vijaya Bhanu delivers impactful learning experiences that elevate communication, customer service, and leadership capabilities across diverse industries. Backed by 5000+ sessions for brands like Infosys, Amazon, ICICI, and L'Oréal, she brings a proven ability to engage teams, build skills, and drive professional growth through customized, results-focused programs.",
     experience: "20+ years",
-    email: "vijaya@knsoft.com",
+    email: "vijaya@knsofttech.com",
     linkedin: "https://www.linkedin.com/in/vijayabhanu",
   },
 ];
