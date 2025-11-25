@@ -142,6 +142,39 @@ export type Database = {
         }
         Relationships: []
       }
+      training_inquiries: {
+        Row: {
+          course_interest: string
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          team_size: string
+        }
+        Insert: {
+          course_interest: string
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          team_size: string
+        }
+        Update: {
+          course_interest?: string
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          team_size?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       applications_with_jobs: {
