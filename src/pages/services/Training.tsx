@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEO/SEOHead";
 import vijayaBhanuImage from "@/assets/vijaya-bhanu.jpg";
 import nancySevaganImage from "@/assets/nancy-sevagan.png";
-import andleebRizviImage from "@/assets/andleeb-rizvi.jpg";
+import andleebRizviImage from "@/assets/andleeb-rizvi.png";
 
 const keyBenefits = [
   "Expert-led training programs",
