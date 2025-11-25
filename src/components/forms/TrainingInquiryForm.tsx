@@ -85,15 +85,16 @@ export function TrainingInquiryForm() {
       const courseLabel = courseOptions.find(c => c.value === data.courseInterest)?.label || data.courseInterest;
       const teamSizeLabel = teamSizeOptions.find(t => t.value === data.teamSize)?.label || data.teamSize;
 
-      // Insert into Supabase contacts table with training-specific subject
+      // Insert into Supabase training_inquiries table
       const { error } = await supabase
-        .from('contacts')
+        .from('training_inquiries')
         .insert({
           name: data.name,
           email: data.email,
           phone: data.phone || null,
-          subject: `Training Inquiry: ${courseLabel} (Team: ${teamSizeLabel})`,
-          message: `Course Interest: ${courseLabel}\nTeam Size: ${teamSizeLabel}\n\n${data.message}`,
+          course_interest: courseLabel,
+          team_size: teamSizeLabel,
+          message: data.message,
         });
 
       if (error) {
