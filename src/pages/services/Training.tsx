@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEO/SEOHead";
 import vijayaBhanuImage from "@/assets/vijaya-bhanu.jpg";
 import nancySevaganImage from "@/assets/nancy-sevagan.png";
+import andleebRizviImage from "@/assets/andleeb-rizvi.jpg";
 
 const keyBenefits = [
   "Expert-led training programs",
@@ -364,6 +365,166 @@ export default function Training() {
                         <h4 className="text-lg font-bold mb-3">Professional Strengths</h4>
                         <p className="text-sm text-muted-foreground leading-relaxed">
                           Nancy is recognized for her <strong>client-centric approach</strong>, strong account management skills, and ability to build lasting business relationships. Her extensive experience across diverse industries enables her to deliver training that drives growth, enhances client satisfaction, and builds high-performing teams.
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Andleeb Rizvi Profile */}
+              <Card className="overflow-hidden card-glow">
+                <CardContent className="p-0">
+                  <div className="grid lg:grid-cols-[300px_1fr] gap-8 p-8 md:p-12">
+                    {/* Trainer Image */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6 }}
+                      viewport={{ once: true }}
+                      className="flex flex-col items-center"
+                    >
+                      <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg mb-4">
+                        <img 
+                          src={andleebRizviImage} 
+                          alt="Andleeb Rizvi - Communication & Soft Skills Trainer"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <h3 className="text-2xl font-bold text-center mb-2">Andleeb Rizvi</h3>
+                      <p className="text-sm text-muted-foreground text-center mb-4">
+                        Communication & Soft Skills Trainer
+                      </p>
+                      <div className="flex items-center gap-2 text-primary mb-2">
+                        <Award className="h-5 w-5" />
+                        <span className="font-semibold">10+ Years Experience</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <CheckCircle className="h-4 w-4" />
+                        <span className="text-sm">TTT & CST Certified</span>
+                      </div>
+                    </motion.div>
+
+                    {/* Trainer Details */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8 }}
+                      viewport={{ once: true }}
+                      className="space-y-6"
+                    >
+                      <div>
+                        <p className="text-base leading-relaxed text-muted-foreground mb-4">
+                          Andleeb Rizvi is a seasoned Communication & Soft Skills Trainer with over a decade of diversified experience enabling professionals, graduates, and corporate teams to accelerate their communication excellence. With a strong background spanning IT-enabled services, process training, HR facilitation, and content development, she brings a <strong>high-impact training philosophy</strong> anchored in clarity, confidence, and business readiness.
+                        </p>
+                        <p className="text-base leading-relaxed text-muted-foreground">
+                          She has successfully partnered with leading global organizations—including <strong>Accenture, 24/7.ai, R1 RCM, CGI, Hewlett-Packard, Wipro, Axis Bank, Tanishq, Manipal Technologies</strong>, and others—driving large-scale capability-building initiatives across communication, interpersonal skills, and corporate etiquette.
+                        </p>
+                      </div>
+
+                      {/* Core Expertise */}
+                      <div>
+                        <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
+                          <Target className="h-5 w-5 text-primary" />
+                          Core Expertise
+                        </h4>
+                        <div className="grid md:grid-cols-2 gap-3">
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Business Communication</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Email Etiquette</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Campus to Corporate Transformation</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Voice & Accent Neutralization</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Spoken & Written English</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Public Speaking</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Assertive Interpersonal Skills</span>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                            <span className="text-sm">Training Leadership</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Training Impact */}
+                      <div>
+                        <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
+                          <TrendingUp className="h-5 w-5 text-primary" />
+                          Training Impact
+                        </h4>
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="bg-primary/10 p-4 rounded-lg text-center">
+                            <div className="text-2xl font-bold text-primary mb-1">80%</div>
+                            <div className="text-xs text-muted-foreground">Business English Confidence</div>
+                          </div>
+                          <div className="bg-primary/10 p-4 rounded-lg text-center">
+                            <div className="text-2xl font-bold text-primary mb-1">60%</div>
+                            <div className="text-xs text-muted-foreground">Presentation Skills</div>
+                          </div>
+                          <div className="bg-primary/10 p-4 rounded-lg text-center">
+                            <div className="text-2xl font-bold text-primary mb-1">90%</div>
+                            <div className="text-xs text-muted-foreground">Email Writing</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Partner Organizations */}
+                      <div>
+                        <h4 className="text-xl font-bold mb-4 flex items-center gap-2">
+                          <Globe className="h-5 w-5 text-primary" />
+                          Partner Organizations
+                        </h4>
+                        <div className="flex flex-wrap gap-3">
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">Accenture</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">24/7.ai</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">R1 RCM</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">CGI</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">Hewlett-Packard</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">Wipro</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">Axis Bank</span>
+                          </div>
+                          <div className="bg-primary/10 px-4 py-2 rounded-full">
+                            <span className="text-sm font-medium">Tanishq</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* What Makes Training Unique */}
+                      <div className="bg-secondary/50 p-6 rounded-lg">
+                        <h4 className="text-lg font-bold mb-3">Training Philosophy</h4>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          Andleeb's programs are consistently applauded for their <strong>engagement, empathy, and practical applicability</strong>. Trainees describe her as "an exceptional facilitator—patient, encouraging, and transformational in her approach." With strong domain expertise, global exposure, and a learner-centric methodology, she continues to enable organizations to strengthen their workforce communication capabilities and drive professional effectiveness at scale.
                         </p>
                       </div>
                     </motion.div>
