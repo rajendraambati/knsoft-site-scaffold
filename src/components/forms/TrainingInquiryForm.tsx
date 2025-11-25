@@ -100,6 +100,23 @@ export function TrainingInquiryForm() {
         throw error;
       }
 
+      // Send email notification
+      try {
+        await supabase.functions.invoke('send-training-notification', {
+          body: {
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            courseInterest: courseLabel,
+            teamSize: teamSizeLabel,
+            message: data.message,
+          },
+        });
+      } catch (emailError) {
+        console.error('Failed to send notification email:', emailError);
+        // Don't fail the whole submission if email fails
+      }
+
       toast({
         title: "Training inquiry submitted successfully!",
         description: "Our training team will contact you within 24 hours to discuss your requirements.",

@@ -3,6 +3,9 @@ project_id = "bzppoobpjqvzecahihze"
 [functions.send-application-notification]
 verify_jwt = false
 
+[functions.send-training-notification]
+verify_jwt = false
+
 [functions.scrape-and-embed]
 verify_jwt = false
 
