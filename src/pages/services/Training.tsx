@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SEOHead } from "@/components/SEO/SEOHead";
+import { TrainingInquiryForm } from "@/components/forms/TrainingInquiryForm";
 import vijayaBhanuImage from "@/assets/vijaya-bhanu.jpg";
 import nancySevaganImage from "@/assets/nancy-sevagan.png";
 import andleebRizviImage from "@/assets/andleeb-rizvi.png";
@@ -571,6 +572,27 @@ export default function Training() {
           </div>
         </section>
 
+        {/* Training Inquiry Form Section */}
+        <section className="py-20 bg-secondary/30">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Get Started with <span className="text-gradient">Custom Training</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Fill out the form below and our training experts will design a program tailored to your team's needs
+              </p>
+            </motion.div>
+            <TrainingInquiryForm />
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -582,15 +604,15 @@ export default function Training() {
               className="text-center max-w-3xl mx-auto"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Elevate Your Skills?
+                Questions About Our Training Programs?
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Join our training programs and accelerate your career growth with industry-leading expertise.
+                Connect with us to discuss your training needs and explore how we can help your team excel
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild variant="gradient" size="lg">
                   <Link to="/contact">
-                    Enroll Now <ArrowRight className="ml-2 h-5 w-5" />
+                    Contact Us <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
