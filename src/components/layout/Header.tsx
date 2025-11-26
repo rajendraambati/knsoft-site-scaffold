@@ -20,7 +20,7 @@ const servicesDropdown = [
   { name: "eCommerce Portals", href: "/services/ecommerce-portals" },
   { name: "AI & Automation", href: "/services/ai-automation" },
   { name: "IT Consulting", href: "/services/it-consulting" },
-  { name: "Training", href: "/services/training" },
+  { name: "Workforce Upskilling", href: "/services/workforce-upskilling" },
 ];
 
 const productsDropdown = [
