@@ -35,6 +35,7 @@ const productsDropdown = [
   { name: "Job Portals & Classifieds", href: "/products/job-portals-classifieds" },
   { name: "Civic, Social & Miscellaneous", href: "/products/civic-social" },
   { name: "Solar Energy & Renewable", href: "/products/solar-renewable" },
+  { name: "Exam", href: "/products/exam" },
 ];
 
 export function Header() {

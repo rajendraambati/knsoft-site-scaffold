@@ -47,6 +47,7 @@ import HospitalityTravel from "./pages/products/HospitalityTravel";
 import RestaurantFood from "./pages/products/RestaurantFood";
 import JobPortalsClassifieds from "./pages/products/JobPortalsClassifieds";
 import CivicSocial from "./pages/products/CivicSocial";
+import Exam from "./pages/products/Exam";
 
 const queryClient = new QueryClient();
 
@@ -91,6 +92,7 @@ const App = () => (
           <Route path="/products/restaurant-food" element={<RestaurantFood />} />
           <Route path="/products/job-portals-classifieds" element={<JobPortalsClassifieds />} />
           <Route path="/products/civic-social" element={<CivicSocial />} />
+          <Route path="/products/exam" element={<Exam />} />
           <Route path="/solar-services" element={<SolarServices />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/success-stories" element={<CaseStudies />} />
