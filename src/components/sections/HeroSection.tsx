@@ -8,18 +8,18 @@ import { useState, useEffect } from "react";
 
 const heroSlides = [
   {
-    title: "Transform Your Digital Vision",
-    subtitle: "Cutting-edge technology solutions that propel your business into the future",
+    title: "Top Software Company in Hyderabad",
+    subtitle: "Trusted by 500+ businesses across India & USA for custom software development, web apps, and enterprise solutions",
     icon: Power,
   },
   {
-    title: "Innovation Meets Excellence",
-    subtitle: "We craft exceptional digital experiences that drive growth and innovation",
+    title: "Leading IT Company in India",
+    subtitle: "10+ years of excellence in software development, mobile apps, ERP systems & digital transformation",
     icon: Power,
   },
   {
-    title: "Power Your Business Growth",
-    subtitle: "Enterprise-grade solutions designed for tomorrow's challenges",
+    title: "Your Technology Partner",
+    subtitle: "ISO certified software company delivering world-class IT solutions from Hyderabad to the world",
     icon: Power,
   },
 ];

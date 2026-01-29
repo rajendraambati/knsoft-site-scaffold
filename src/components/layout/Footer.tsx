@@ -21,21 +21,32 @@ const legal = [
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-card border-t border-border" itemScope itemType="https://schema.org/Organization">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <Code2 className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-gradient">KNSOFT TECHNOLOGIES</span>
+              <span className="text-xl font-bold text-gradient" itemProp="name">KNSOFT TECHNOLOGIES</span>
             </Link>
-            <p className="text-muted-foreground mb-6 max-w-md">
-              We, KNSOFT TECHNOLOGIES PVT LTD, as an IT Services, Software Development, Web and Mobile App Development Firm, are here to help clients reach their goal the easy way through our unique IT solutions.
+            <p className="text-muted-foreground mb-6 max-w-md" itemProp="description">
+              KNSOFT TECHNOLOGIES PVT LTD is a leading software company in Hyderabad, India, specializing in IT Services, Custom Software Development, Web and Mobile App Development. Trusted by 500+ clients across India and USA for innovative IT solutions.
             </p>
             
-            {/* Contact Information */}
+            {/* Contact Information - India Office */}
             <div className="space-y-3">
+              <h4 className="text-sm font-semibold text-foreground">India Office (Hyderabad)</h4>
+              <div className="flex items-start space-x-3" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                <div className="text-sm text-muted-foreground">
+                  <p itemProp="streetAddress">Hitech City</p>
+                  <p><span itemProp="addressLocality">Hyderabad</span>, <span itemProp="addressRegion">Telangana</span> <span itemProp="postalCode">500081</span></p>
+                  <p itemProp="addressCountry">India</p>
+                </div>
+              </div>
+              
+              <h4 className="text-sm font-semibold text-foreground mt-4">USA Office</h4>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <div className="text-sm text-muted-foreground">
@@ -49,6 +60,7 @@ export function Footer() {
                 <a 
                   href="mailto:info@knsofttech.com" 
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  itemProp="email"
                 >
                   info@knsofttech.com
                 </a>

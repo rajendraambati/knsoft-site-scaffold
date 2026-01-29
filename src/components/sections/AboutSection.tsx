@@ -46,16 +46,16 @@ export function AboutSection() {
             </motion.div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6">
-              Empowering Innovation <span className="text-gradient">Through Technology</span>
+              Best Software Company <span className="text-gradient">in Hyderabad, India</span>
             </h2>
             
             <div className="space-y-5 text-lg text-muted-foreground leading-relaxed mb-8">
               <p className="font-medium">
-                <strong className="text-foreground font-semibold">KNSOFT TECHNOLOGIES PVT LTD</strong> delivers cutting-edge IT services, software development, and innovative digital solutions that transform businesses.
+                <strong className="text-foreground font-semibold">KNSOFT TECHNOLOGIES PVT LTD</strong> is a leading software company in Hyderabad, India, delivering cutting-edge IT services, custom software development, and innovative digital solutions that transform businesses worldwide.
               </p>
               
               <p>
-                We believe that true innovation comes from reliable, intelligent systems—web applications, mobile apps, and enterprise solutions that create sustainable competitive advantages in today's digital marketplace.
+                As one of the top IT companies in India, we specialize in web applications, mobile apps, ERP systems, and enterprise solutions. Our Hyderabad-based team of 50+ skilled developers has successfully delivered 1000+ projects for clients across India, USA, and globally.
               </p>
             </div>
 
