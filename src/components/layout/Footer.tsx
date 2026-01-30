@@ -161,9 +161,31 @@ export function Footer() {
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
                 <div className="text-sm text-white/50 leading-relaxed">
-                  <span itemProp="addressLocality">Hyderabad</span>, <span itemProp="addressRegion">Telangana</span><br />
+                  <span itemProp="streetAddress">H.No 8, Apurupa Turbo Tower, Jubilee Hills</span><br />
+                  <span itemProp="addressLocality">Hyderabad</span>, <span itemProp="addressRegion">Telangana</span> 500033<br />
                   <span itemProp="addressCountry">India</span>
                 </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <MapPin className="w-4 h-4 text-primary" />
+                </div>
+                <div className="text-sm text-white/50 leading-relaxed">
+                  6250, Westpark Dr.<br />
+                  Houston, TX 77057, USA
+                </div>
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-4 h-4 text-primary" />
+                </div>
+                <a 
+                  href="tel:+914040123456" 
+                  className="text-sm text-white/50 hover:text-primary transition-colors duration-300"
+                  itemProp="telephone"
+                >
+                  +91 40 4012 3456
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">

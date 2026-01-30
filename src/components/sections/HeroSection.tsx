@@ -8,7 +8,7 @@ import { useState, useEffect, useRef } from "react";
 
 const trustedBy = [
   "Healthcare", "FinTech", "E-Commerce", "Manufacturing", "Education", "Government",
-  "Healthcare", "FinTech", "E-Commerce", "Manufacturing", "Education", "Government"
+  "Retail", "Logistics", "Real Estate", "Hospitality", "Pharma", "Energy"
 ];
 
 export function HeroSection() {
@@ -83,9 +83,9 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-8"
           >
-            <span className="text-white">Software solutions that</span>
+            <span className="text-white">Transform Your</span>
             <br />
-            <span className="text-gradient">extend beyond the cloud</span>
+            <span className="text-gradient">Digital Vision</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -95,8 +95,8 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.5 }}
             className="text-lg sm:text-xl md:text-2xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            KNSOFT Technologies delivers enterprise-grade software, custom applications, 
-            and digital transformation services to 500+ clients worldwide.
+            Cutting-edge technology solutions that propel your business into the future. 
+            KNSOFT Technologies delivers enterprise-grade software and digital transformation services.
           </motion.p>
 
           {/* CTA Buttons */}
