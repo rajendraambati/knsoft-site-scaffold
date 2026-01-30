@@ -3,6 +3,7 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { FeaturesSection } from "@/components/sections/FeaturesSection";
 import { CapabilitiesSection } from "@/components/sections/CapabilitiesSection";
+import { TrustSignalsSection } from "@/components/sections/TrustSignalsSection";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import ChatBot from "@/components/chat/ChatBot";
@@ -43,6 +44,7 @@ const Index = () => {
         <main>
           <HeroSection />
           <AboutSection />
+          <TrustSignalsSection />
           <ServicesSection />
           <FeaturesSection />
           <CapabilitiesSection />
