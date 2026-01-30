@@ -1,70 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* NVIDIA-Inspired Professional Design System */
+/* Synadia-Inspired Modern Design System */
 
 @layer base {
   :root {
-    /* Background Colors - Deep Dark Theme */
-    --background: 240 10% 4%;
-    --background-secondary: 240 8% 8%;
-    --background-tertiary: 240 6% 11%;
-    --foreground: 0 0% 100%;
+    /* Deep Purple/Violet Dark Theme - Synadia Style */
+    --background: 260 25% 5%;
+    --foreground: 0 0% 98%;
 
-    --card: 240 8% 8%;
-    --card-foreground: 0 0% 100%;
+    --card: 260 20% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 240 8% 8%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 260 20% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Primary - Electric Mint Green */
-    --primary: 155 100% 50%;
-    --primary-foreground: 240 10% 4%;
-    --primary-glow: 155 100% 60%;
+    /* Primary - Vibrant Purple */
+    --primary: 270 95% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 100% 70%;
 
-    /* Secondary - Deep Surface */
-    --secondary: 240 6% 11%;
-    --secondary-foreground: 0 0% 72%;
+    /* Secondary - Deep Violet */
+    --secondary: 260 20% 12%;
+    --secondary-foreground: 0 0% 85%;
 
-    --muted: 240 5% 15%;
-    --muted-foreground: 0 0% 72%;
+    --muted: 260 15% 18%;
+    --muted-foreground: 0 0% 65%;
 
-    /* Accent - Cyan Blue */
-    --accent: 192 100% 50%;
-    --accent-foreground: 240 10% 4%;
+    /* Accent - Electric Blue */
+    --accent: 220 100% 60%;
+    --accent-foreground: 0 0% 100%;
 
-    /* CTA - Bright Gradient Colors */
-    --cta: 155 100% 50%;
-    --cta-foreground: 240 10% 4%;
+    /* CTA - Bright Purple */
+    --cta: 270 95% 65%;
+    --cta-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 15%;
-    --input: 240 6% 15%;
-    --ring: 155 100% 50%;
+    --border: 260 15% 18%;
+    --input: 260 15% 18%;
+    --ring: 270 95% 65%;
 
     --radius: 0.75rem;
 
-    /* Custom Properties */
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --shadow-glow: 0 0 40px hsl(155 100% 50% / 0.15);
-    --shadow-glow-strong: 0 20px 60px hsl(155 100% 50% / 0.3);
+    /* Premium Gradients - Synadia Style */
+    --gradient-hero: linear-gradient(180deg, 
+      hsl(270 40% 8%) 0%, 
+      hsl(260 50% 12%) 30%,
+      hsl(250 45% 15%) 60%,
+      hsl(260 40% 8%) 100%
+    );
+    --gradient-primary: linear-gradient(135deg, hsl(270 95% 65%), hsl(220 100% 60%));
+    --gradient-card: linear-gradient(180deg, hsl(260 20% 10%) 0%, hsl(260 20% 7%) 100%);
+    --gradient-glow: radial-gradient(circle, hsl(270 95% 65% / 0.4) 0%, transparent 70%);
+    --gradient-mesh: radial-gradient(ellipse 80% 50% at 50% 0%, hsl(270 60% 30% / 0.4) 0%, transparent 60%),
+                     radial-gradient(ellipse 60% 40% at 80% 30%, hsl(220 80% 40% / 0.3) 0%, transparent 50%),
+                     radial-gradient(ellipse 50% 30% at 20% 60%, hsl(280 70% 35% / 0.2) 0%, transparent 50%);
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(155 100% 50%), hsl(192 100% 50%));
-    --gradient-hero: linear-gradient(180deg, rgba(10, 10, 15, 0.9) 0%, rgba(10, 10, 15, 0.6) 50%, rgba(10, 10, 15, 0.9) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(240 8% 10%) 0%, hsl(240 8% 7%) 100%);
-    --gradient-mesh: radial-gradient(at 20% 30%, hsl(155 100% 50% / 0.08) 0px, transparent 50%),
-                     radial-gradient(at 80% 20%, hsl(192 100% 50% / 0.06) 0px, transparent 50%),
-                     radial-gradient(at 50% 80%, hsl(155 100% 50% / 0.05) 0px, transparent 50%);
-    
-    /* Shadows */
+    /* Premium Shadows */
+    --shadow-elegant: 0 25px 50px -12px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 80px hsl(270 95% 65% / 0.3);
     --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
-    --shadow-hover: 0 20px 60px hsl(0 0% 0% / 0.5);
+    --shadow-hover: 0 30px 60px hsl(0 0% 0% / 0.5);
   }
 }
 
@@ -81,48 +82,43 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'DM Sans', system-ui, sans-serif;
-    background-color: hsl(240 10% 4%);
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: 'Manrope', system-ui, sans-serif;
     @apply font-bold tracking-tight;
   }
 
-  /* Premium Scrollbar */
+  /* Modern Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(240 10% 6%);
+    background: hsl(260 25% 6%);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, hsl(155 100% 50%), hsl(155 100% 40%));
+    background: linear-gradient(180deg, hsl(270 95% 65%), hsl(270 80% 50%));
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, hsl(155 100% 60%), hsl(155 100% 50%));
+    background: linear-gradient(180deg, hsl(270 100% 70%), hsl(270 95% 60%));
   }
 
   /* Selection */
   ::selection {
-    background: hsl(155 100% 50% / 0.3);
+    background: hsl(270 95% 65% / 0.3);
     color: hsl(0 0% 100%);
   }
 }
 
 @layer components {
-  /* Hero Gradient Background */
+  /* Synadia Hero Gradient */
   .hero-gradient {
-    background: linear-gradient(180deg, 
-      hsl(240 10% 4%) 0%, 
-      hsl(240 8% 6%) 50%, 
-      hsl(240 10% 4%) 100%
-    );
+    background: var(--gradient-hero);
     position: relative;
   }
 
@@ -134,82 +130,58 @@
     opacity: 1;
   }
 
-  /* Grid Pattern */
+  /* Grid Pattern - More subtle */
   .grid-pattern {
     background-image: 
       linear-gradient(hsl(0 0% 100% / 0.02) 1px, transparent 1px),
       linear-gradient(90deg, hsl(0 0% 100% / 0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-size: 80px 80px;
   }
 
-  /* Glassmorphism */
+  /* Glassmorphism - Synadia style */
   .glass {
-    background: hsl(240 10% 4% / 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: hsl(260 20% 12% / 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid hsl(0 0% 100% / 0.08);
   }
 
-  .glass-light {
-    background: hsl(0 0% 100% / 0.05);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid hsl(0 0% 100% / 0.1);
+  .glass-dark {
+    background: hsl(260 25% 5% / 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(0 0% 100% / 0.06);
   }
 
-  /* Premium Cards */
+  /* Premium Cards - Synadia Style */
   .card-premium {
-    background: linear-gradient(135deg, hsl(240 8% 10%) 0%, hsl(240 8% 7%) 100%);
-    border: 1px solid hsl(0 0% 100% / 0.08);
+    background: linear-gradient(180deg, hsl(260 20% 10%) 0%, hsl(260 20% 7%) 100%);
+    border: 1px solid hsl(0 0% 100% / 0.06);
     @apply rounded-2xl transition-all duration-500;
   }
 
   .card-premium:hover {
-    border-color: hsl(155 100% 50% / 0.3);
-    box-shadow: 0 20px 60px hsl(155 100% 50% / 0.15), 0 0 0 1px hsl(155 100% 50% / 0.1);
-    transform: translateY(-12px);
+    border-color: hsl(270 95% 65% / 0.3);
+    box-shadow: 0 20px 40px hsl(0 0% 0% / 0.4), 0 0 80px hsl(270 95% 65% / 0.1);
+    transform: translateY(-4px);
   }
 
-  .card-glow {
-    position: relative;
-    @apply transition-all duration-500;
-  }
-
-  .card-glow::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, hsl(155 100% 50% / 0), hsl(155 100% 50% / 0));
-    z-index: -1;
-    transition: all 0.5s ease;
-  }
-
-  .card-glow:hover::before {
-    background: linear-gradient(135deg, hsl(155 100% 50% / 0.3), hsl(192 100% 50% / 0.2));
-  }
-
-  /* Premium Buttons */
+  /* Premium Buttons - Synadia Style */
   .btn-gradient {
-    background: linear-gradient(135deg, hsl(155 100% 50%), hsl(192 100% 50%));
-    color: hsl(240 10% 4%);
+    background: linear-gradient(135deg, hsl(270 95% 65%), hsl(220 100% 60%));
+    color: hsl(0 0% 100%);
     font-weight: 600;
     border: none;
     position: relative;
     overflow: hidden;
-    @apply transition-all duration-300;
-  }
-
-  .btn-gradient:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px hsl(155 100% 50% / 0.4);
+    @apply transition-all duration-300 hover:shadow-glow hover:scale-[1.02];
   }
 
   .btn-gradient::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, hsl(155 100% 60%), hsl(192 100% 60%));
+    background: linear-gradient(135deg, hsl(270 100% 70%), hsl(220 100% 65%));
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -225,43 +197,51 @@
   }
 
   .btn-outline-glow {
-    background: transparent;
-    border: 2px solid hsl(0 0% 100% / 0.3);
+    background: hsl(0 0% 100% / 0.05);
+    border: 1px solid hsl(0 0% 100% / 0.15);
     color: hsl(0 0% 100%);
     @apply transition-all duration-300;
   }
 
   .btn-outline-glow:hover {
-    background: hsl(0 0% 100%);
-    color: hsl(240 10% 4%);
-    border-color: hsl(0 0% 100%);
-    transform: scale(1.05);
+    background: hsl(0 0% 100% / 0.1);
+    border-color: hsl(0 0% 100% / 0.3);
   }
 
   /* Section Backgrounds */
   .section-dark {
-    background: hsl(240 10% 4%);
-  }
-
-  .section-darker {
-    background: hsl(240 10% 3%);
+    background: hsl(260 25% 5%);
   }
 
   .section-gradient {
-    background: linear-gradient(180deg, hsl(240 10% 4%) 0%, hsl(240 8% 8%) 50%, hsl(240 10% 4%) 100%);
+    background: linear-gradient(180deg, hsl(260 25% 5%) 0%, hsl(260 20% 8%) 50%, hsl(260 25% 5%) 100%);
   }
 
   /* Glow Effects */
-  .glow-primary {
-    box-shadow: 0 0 40px hsl(155 100% 50% / 0.3);
+  .glow-purple {
+    box-shadow: 0 0 80px hsl(270 95% 65% / 0.4);
   }
 
-  .glow-accent {
-    box-shadow: 0 0 40px hsl(192 100% 50% / 0.3);
+  .glow-blue {
+    box-shadow: 0 0 80px hsl(220 100% 60% / 0.4);
   }
 
   .text-glow {
-    text-shadow: 0 0 40px hsl(155 100% 50% / 0.5);
+    text-shadow: 0 0 60px hsl(270 95% 65% / 0.6);
+  }
+
+  /* 3D Sphere Effect */
+  .sphere-3d {
+    background: radial-gradient(circle at 30% 30%, 
+      hsl(270 60% 50%) 0%, 
+      hsl(260 50% 25%) 40%, 
+      hsl(250 40% 10%) 70%,
+      hsl(260 30% 5%) 100%
+    );
+    box-shadow: 
+      inset -20px -20px 60px hsl(260 40% 5% / 0.8),
+      inset 20px 20px 60px hsl(270 60% 50% / 0.3),
+      0 0 120px hsl(270 80% 50% / 0.4);
   }
 
   /* Animations */
@@ -270,7 +250,7 @@
   }
 
   .animate-pulse-glow {
-    animation: pulseGlow 3s ease-in-out infinite;
+    animation: pulseGlow 4s ease-in-out infinite;
   }
 
   .animate-gradient {
@@ -290,60 +270,39 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, hsl(155 100% 50%), hsl(192 100% 50%));
+    background: linear-gradient(135deg, hsl(270 95% 70%), hsl(220 100% 65%));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .text-gradient-white {
-    background: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 75%));
+  .text-gradient-subtle {
+    background: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 70%));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .bg-gradient-radial {
-    background: radial-gradient(circle at center, hsl(155 100% 50% / 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle at center, hsl(270 95% 65% / 0.2) 0%, transparent 70%);
   }
 
   .border-gradient {
     border: 1px solid transparent;
-    background: linear-gradient(hsl(240 8% 8%), hsl(240 8% 8%)) padding-box,
-                linear-gradient(135deg, hsl(155 100% 50% / 0.3), hsl(192 100% 50% / 0.2)) border-box;
-  }
-
-  /* Link hover underline animation */
-  .link-underline {
-    position: relative;
-  }
-
-  .link-underline::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: hsl(155 100% 50%);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-  }
-
-  .link-underline:hover::after {
-    width: 100%;
+    background: linear-gradient(hsl(260 20% 8%), hsl(260 20% 8%)) padding-box,
+                linear-gradient(135deg, hsl(270 95% 65% / 0.3), hsl(220 100% 60% / 0.2)) border-box;
   }
 }
 
 /* Keyframes */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-30px); }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 20px hsl(155 100% 50% / 0.2); }
-  50% { box-shadow: 0 0 60px hsl(155 100% 50% / 0.4); }
+  0%, 100% { box-shadow: 0 0 60px hsl(270 95% 65% / 0.3); }
+  50% { box-shadow: 0 0 120px hsl(270 95% 65% / 0.5); }
 }
 
 @keyframes gradientShift {
@@ -355,51 +314,7 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes countUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -414,14 +329,11 @@
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
-/* Bounce animation for cards */
-.hover-bounce {
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.hover-bounce:hover {
-  transform: translateY(-12px) scale(1.02);
+/* Logo Bar Styling */
+.logo-bar {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
