@@ -8,16 +8,18 @@ import { useRef, useEffect, useState } from "react";
 
 const stats = [
   { icon: Users, label: "Happy Clients", value: 500, suffix: "+" },
-  { icon: Building2, label: "Projects Delivered", value: 1000, suffix: "+" },
-  { icon: Award, label: "Years Experience", value: 10, suffix: "+" },
+  { icon: Building2, label: "Projects Completed", value: 1000, suffix: "+" },
+  { icon: Award, label: "Years Experience", value: 13, suffix: "+" },
   { icon: Target, label: "Success Rate", value: 99, suffix: "%" },
 ];
 
 const highlights = [
   "ISO 27001 & ISO 9001 Certified",
   "CMMI Level 3 Appraised",
-  "24/7 Support & Maintenance",
-  "Agile Development Process"
+  "24/7 Dedicated Support",
+  "Agile Development Methodologies",
+  "Certified Professionals & Domain Experts",
+  "25+ Countries Served"
 ];
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
@@ -100,17 +102,17 @@ export function AboutSection() {
             </motion.div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-              <span className="text-white">Enterprise-Grade</span>
+              <span className="text-white">Empowering Innovation</span>
               <br />
-              <span className="text-gradient">Software Solutions</span>
+              <span className="text-gradient">Through Technology</span>
             </h2>
             
             <div className="space-y-6 text-lg text-white/60 leading-relaxed mb-10">
               <p>
-                <strong className="text-white">KNSOFT Technologies</strong> is a leading software company delivering cutting-edge IT services, custom software development, and innovative digital solutions that transform businesses worldwide.
+                Founded in 2010, <strong className="text-white">KNSOFT Technologies Pvt Ltd</strong> delivers cutting-edge IT services, software development, and innovative digital solutions that transform businesses worldwide.
               </p>
               <p>
-                Our Hyderabad-based team of 50+ skilled developers has successfully delivered 1000+ projects for clients across India, USA, and globally. We specialize in web applications, mobile apps, ERP systems, and enterprise solutions.
+                We earnestly believe that true innovation comes from reliable, intelligent systems—web applications, mobile apps, and enterprise solutions that create sustainable competitive advantages in today's digital marketplace.
               </p>
             </div>
 

@@ -6,12 +6,12 @@ import { Code, Smartphone, Database, Cpu, ShoppingCart, Headphones, ArrowRight }
 import { useRef } from "react";
 
 const services = [
-  { icon: Code, title: "Custom Software", description: "Tailored software solutions designed to meet your unique business requirements.", href: "/services/web-mobile-development" },
-  { icon: Smartphone, title: "Mobile Applications", description: "Native and cross-platform mobile apps for iOS and Android platforms.", href: "/services/web-mobile-development" },
-  { icon: Database, title: "ERP & SAP Solutions", description: "Enterprise resource planning and SAP modernization services.", href: "/services/sap-modernization" },
-  { icon: Cpu, title: "AI & Automation", description: "Intelligent automation solutions powered by machine learning and AI.", href: "/services/ai-automation" },
-  { icon: ShoppingCart, title: "E-Commerce Platforms", description: "Full-featured online stores with seamless checkout and payments.", href: "/services/ecommerce-portals" },
-  { icon: Headphones, title: "IT Consulting", description: "Strategic guidance to optimize your IT infrastructure.", href: "/services/it-consulting" },
+  { icon: Headphones, title: "IT Consulting", description: "Expert guidance to improve effectiveness and efficiency by adopting advanced technologies and methodologies.", href: "/services/it-consulting" },
+  { icon: ShoppingCart, title: "Ecommerce Portals", description: "Professional ecommerce development to grab the growing market with online transactions, advertising, and order management.", href: "/services/ecommerce-portals" },
+  { icon: Database, title: "ERP & SAP Solutions", description: "Modernize your SAP infrastructure, build solutions from scratch, or integrate with enterprise systems.", href: "/services/sap-modernization" },
+  { icon: Code, title: "Software Development", description: "End-to-end suite from Enterprise Software, Consumer Web Applications to Mobile Applications.", href: "/services/web-mobile-development" },
+  { icon: Smartphone, title: "Web Applications", description: "Expert development on PHP, .NET, Ruby on Rails, Django, and more with clear-cut understanding of various frameworks.", href: "/services/web-mobile-development" },
+  { icon: Cpu, title: "AI & Automation", description: "Chatbots, RPA with Blue Prism, UiPath, Automation Anywhere, and intelligent process automation.", href: "/services/ai-automation" },
 ];
 
 export function ServicesSection() {
