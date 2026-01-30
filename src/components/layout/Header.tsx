@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, ArrowRight, Sparkles } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,7 +12,6 @@ const navigation = [
   { name: "About", href: "/about" },
   { name: "Success Stories", href: "/success-stories" },
   { name: "Careers", href: "/careers" },
-  { name: "Contact", href: "/contact" },
 ];
 
 const servicesDropdown = [
@@ -52,7 +51,6 @@ export function Header() {
   const productsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
 
-  // Track scroll for header styling
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -61,7 +59,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
@@ -71,12 +68,10 @@ export function Header() {
         setIsProductsOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
     setIsMobileServicesOpen(false);
@@ -106,22 +101,25 @@ export function Header() {
   return (
     <header 
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 w-full z-50 transition-all duration-500",
         isScrolled 
-          ? "bg-background/95 backdrop-blur-lg shadow-lg border-b border-border/50" 
-          : "bg-transparent"
+          ? "glass-dark py-3" 
+          : "bg-transparent py-4"
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+        <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <img 
               src="/fun.png" 
-              alt="KNSOFT Technologies - Leading IT Solutions & Software Development Company Logo" 
-              className="h-10 lg:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+              alt="KNSOFT Technologies" 
+              className={cn(
+                "w-auto transition-all duration-300 group-hover:scale-105",
+                isScrolled ? "h-10" : "h-12"
+              )}
               width="120"
-              height="40"
+              height="48"
               loading="eager"
             />
           </Link>
@@ -131,10 +129,10 @@ export function Header() {
             <Link
               to="/"
               className={cn(
-                "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300",
                 isActive("/") 
-                  ? "text-primary bg-primary/10" 
-                  : isScrolled ? "text-foreground hover:text-primary hover:bg-muted" : "text-white/90 hover:text-white hover:bg-white/10"
+                  ? "text-primary" 
+                  : "text-white/70 hover:text-white hover:bg-white/5"
               )}
             >
               Home
@@ -142,10 +140,10 @@ export function Header() {
             <Link
               to="/about"
               className={cn(
-                "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300",
                 isActive("/about") 
-                  ? "text-primary bg-primary/10" 
-                  : isScrolled ? "text-foreground hover:text-primary hover:bg-muted" : "text-white/90 hover:text-white hover:bg-white/10"
+                  ? "text-primary" 
+                  : "text-white/70 hover:text-white hover:bg-white/5"
               )}
             >
               About
@@ -159,13 +157,10 @@ export function Header() {
               onMouseLeave={handleServicesMouseLeave}
             >
               <button
-                className={cn(
-                  "flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
-                  isScrolled ? "text-foreground hover:text-primary hover:bg-muted" : "text-white/90 hover:text-white hover:bg-white/10"
-                )}
+                className="flex items-center px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
               >
                 Services
-                <ChevronDown className={cn("ml-1 h-4 w-4 transition-transform duration-200", isServicesOpen && "rotate-180")} />
+                <ChevronDown className={cn("ml-1 h-4 w-4 transition-transform duration-300", isServicesOpen && "rotate-180")} />
               </button>
               
               <AnimatePresence>
@@ -175,23 +170,23 @@ export function Header() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-80 bg-background/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl overflow-hidden"
+                    className="absolute top-full left-0 mt-2 w-80 glass-dark rounded-2xl shadow-2xl overflow-hidden"
                   >
                     <div className="p-2">
                       {servicesDropdown.map((service) => (
                         <Link
                           key={service.name}
                           to={service.href}
-                          className="flex flex-col px-4 py-3 rounded-xl hover:bg-muted transition-colors group"
+                          className="flex flex-col px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group"
                           onClick={() => setIsServicesOpen(false)}
                         >
-                          <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                          <span className="font-medium text-white group-hover:text-primary transition-colors">
                             {service.name}
                           </span>
-                          <span className="text-xs text-muted-foreground">{service.description}</span>
+                          <span className="text-xs text-white/50">{service.description}</span>
                         </Link>
                       ))}
-                      <div className="border-t border-border mt-2 pt-2">
+                      <div className="border-t border-white/10 mt-2 pt-2">
                         <Link
                           to="/services"
                           className="flex items-center justify-between px-4 py-3 rounded-xl text-primary hover:bg-primary/10 transition-colors"
@@ -215,13 +210,10 @@ export function Header() {
               onMouseLeave={handleProductsMouseLeave}
             >
               <button
-                className={cn(
-                  "flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
-                  isScrolled ? "text-foreground hover:text-primary hover:bg-muted" : "text-white/90 hover:text-white hover:bg-white/10"
-                )}
+                className="flex items-center px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
               >
                 Products
-                <ChevronDown className={cn("ml-1 h-4 w-4 transition-transform duration-200", isProductsOpen && "rotate-180")} />
+                <ChevronDown className={cn("ml-1 h-4 w-4 transition-transform duration-300", isProductsOpen && "rotate-180")} />
               </button>
               
               <AnimatePresence>
@@ -231,20 +223,20 @@ export function Header() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-72 bg-background/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl max-h-[70vh] overflow-y-auto"
+                    className="absolute top-full left-0 mt-2 w-72 glass-dark rounded-2xl shadow-2xl max-h-[70vh] overflow-y-auto"
                   >
                     <div className="p-2">
                       {productsDropdown.map((product) => (
                         <Link
                           key={product.name}
                           to={product.href}
-                          className="block px-4 py-2.5 rounded-xl text-sm font-medium text-foreground hover:text-primary hover:bg-muted transition-colors"
+                          className="block px-4 py-2.5 rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors"
                           onClick={() => setIsProductsOpen(false)}
                         >
                           {product.name}
                         </Link>
                       ))}
-                      <div className="border-t border-border mt-2 pt-2">
+                      <div className="border-t border-white/10 mt-2 pt-2">
                         <Link
                           to="/products"
                           className="flex items-center justify-between px-4 py-3 rounded-xl text-primary hover:bg-primary/10 transition-colors"
@@ -263,10 +255,10 @@ export function Header() {
             <Link
               to="/success-stories"
               className={cn(
-                "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300",
                 isActive("/success-stories") 
-                  ? "text-primary bg-primary/10" 
-                  : isScrolled ? "text-foreground hover:text-primary hover:bg-muted" : "text-white/90 hover:text-white hover:bg-white/10"
+                  ? "text-primary" 
+                  : "text-white/70 hover:text-white hover:bg-white/5"
               )}
             >
               Success Stories
@@ -274,10 +266,10 @@ export function Header() {
             <Link
               to="/careers"
               className={cn(
-                "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300",
                 isActive("/careers") 
-                  ? "text-primary bg-primary/10" 
-                  : isScrolled ? "text-foreground hover:text-primary hover:bg-muted" : "text-white/90 hover:text-white hover:bg-white/10"
+                  ? "text-primary" 
+                  : "text-white/70 hover:text-white hover:bg-white/5"
               )}
             >
               Careers
@@ -289,20 +281,16 @@ export function Header() {
             <Button 
               asChild 
               variant="ghost"
-              className={cn(
-                "transition-all duration-200",
-                isScrolled ? "text-foreground hover:text-primary" : "text-white hover:bg-white/10"
-              )}
+              className="text-white/70 hover:text-white hover:bg-white/5"
             >
               <Link to="/contact">Contact</Link>
             </Button>
             <Button 
               asChild 
-              className="btn-gradient shadow-elegant group"
+              className="btn-gradient rounded-full px-6 group"
             >
               <Link to="/contact" className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4" />
-                Get a Quote
+                <span>Get a Quote</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </Button>
@@ -314,10 +302,7 @@ export function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className={cn(
-                "transition-colors",
-                isScrolled ? "text-foreground" : "text-white"
-              )}
+              className="text-white hover:bg-white/10"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -333,14 +318,14 @@ export function Header() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden bg-background/95 backdrop-blur-xl rounded-2xl mt-2 mb-4 border border-border shadow-2xl"
+              className="lg:hidden overflow-hidden glass-dark rounded-2xl mt-4 border border-white/10"
             >
               <div className="flex flex-col p-4 space-y-1">
                 <Link
                   to="/"
                   className={cn(
                     "px-4 py-3 rounded-xl font-medium transition-colors",
-                    isActive("/") ? "text-primary bg-primary/10" : "text-foreground hover:bg-muted"
+                    isActive("/") ? "text-primary bg-primary/10" : "text-white hover:bg-white/5"
                   )}
                   onClick={() => setIsOpen(false)}
                 >
@@ -350,7 +335,7 @@ export function Header() {
                   to="/about"
                   className={cn(
                     "px-4 py-3 rounded-xl font-medium transition-colors",
-                    isActive("/about") ? "text-primary bg-primary/10" : "text-foreground hover:bg-muted"
+                    isActive("/about") ? "text-primary bg-primary/10" : "text-white hover:bg-white/5"
                   )}
                   onClick={() => setIsOpen(false)}
                 >
@@ -360,7 +345,7 @@ export function Header() {
                 {/* Mobile Services Accordion */}
                 <div className="flex flex-col">
                   <button
-                    className="flex items-center justify-between px-4 py-3 rounded-xl font-medium text-foreground hover:bg-muted transition-colors"
+                    className="flex items-center justify-between px-4 py-3 rounded-xl font-medium text-white hover:bg-white/5 transition-colors"
                     onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                   >
                     Services
@@ -375,12 +360,12 @@ export function Header() {
                         exit={{ opacity: 0, height: 0 }}
                         className="overflow-hidden"
                       >
-                        <div className="flex flex-col space-y-1 pl-4 mt-1 border-l-2 border-primary/20 ml-4">
+                        <div className="flex flex-col space-y-1 pl-4 mt-1 border-l-2 border-primary/30 ml-4">
                           {servicesDropdown.map((service) => (
                             <Link
                               key={service.name}
                               to={service.href}
-                              className="px-4 py-2.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                              className="px-4 py-2.5 text-sm text-white/60 hover:text-primary transition-colors"
                               onClick={() => setIsOpen(false)}
                             >
                               {service.name}
@@ -402,7 +387,7 @@ export function Header() {
                 {/* Mobile Products Accordion */}
                 <div className="flex flex-col">
                   <button
-                    className="flex items-center justify-between px-4 py-3 rounded-xl font-medium text-foreground hover:bg-muted transition-colors"
+                    className="flex items-center justify-between px-4 py-3 rounded-xl font-medium text-white hover:bg-white/5 transition-colors"
                     onClick={() => setIsMobileProductsOpen(!isMobileProductsOpen)}
                   >
                     Products
@@ -417,12 +402,12 @@ export function Header() {
                         exit={{ opacity: 0, height: 0 }}
                         className="overflow-hidden"
                       >
-                        <div className="flex flex-col space-y-1 pl-4 mt-1 border-l-2 border-primary/20 ml-4 max-h-64 overflow-y-auto">
-                          {productsDropdown.slice(0, 6).map((product) => (
+                        <div className="flex flex-col space-y-1 pl-4 mt-1 border-l-2 border-primary/30 ml-4 max-h-60 overflow-y-auto">
+                          {productsDropdown.map((product) => (
                             <Link
                               key={product.name}
                               to={product.href}
-                              className="px-4 py-2.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                              className="px-4 py-2 text-sm text-white/60 hover:text-primary transition-colors"
                               onClick={() => setIsOpen(false)}
                             >
                               {product.name}
@@ -445,7 +430,7 @@ export function Header() {
                   to="/success-stories"
                   className={cn(
                     "px-4 py-3 rounded-xl font-medium transition-colors",
-                    isActive("/success-stories") ? "text-primary bg-primary/10" : "text-foreground hover:bg-muted"
+                    isActive("/success-stories") ? "text-primary bg-primary/10" : "text-white hover:bg-white/5"
                   )}
                   onClick={() => setIsOpen(false)}
                 >
@@ -455,21 +440,20 @@ export function Header() {
                   to="/careers"
                   className={cn(
                     "px-4 py-3 rounded-xl font-medium transition-colors",
-                    isActive("/careers") ? "text-primary bg-primary/10" : "text-foreground hover:bg-muted"
+                    isActive("/careers") ? "text-primary bg-primary/10" : "text-white hover:bg-white/5"
                   )}
                   onClick={() => setIsOpen(false)}
                 >
                   Careers
                 </Link>
                 
-                {/* Mobile CTA */}
-                <div className="pt-4 border-t border-border mt-2">
+                <div className="pt-4 border-t border-white/10 mt-2">
                   <Button 
                     asChild 
-                    className="w-full btn-gradient"
+                    className="w-full btn-gradient rounded-full"
                   >
                     <Link to="/contact" onClick={() => setIsOpen(false)}>
-                      Get a Free Quote
+                      Get a Quote
                     </Link>
                   </Button>
                 </div>

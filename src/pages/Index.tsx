@@ -7,7 +7,6 @@ import { TrustSignalsSection } from "@/components/sections/TrustSignalsSection";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import ChatBot from "@/components/chat/ChatBot";
-import { ThreeScene } from "@/components/three/ThreeScene";
 import { SEOHead } from "@/components/SEO/SEOHead";
 
 const Index = () => {
@@ -30,7 +29,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen bg-background relative">
       <SEOHead 
         title="KNSOFT Technologies | Top Software Company in Hyderabad, India - Custom Software Development"
         description="KNSOFT Technologies is a leading software company in Hyderabad, India. Custom software development, web applications, mobile apps, ERP systems & IT consulting. 500+ clients | 10+ years | ISO certified."
@@ -38,20 +37,17 @@ const Index = () => {
         canonical="https://knsoft.dev/"
         structuredData={structuredData}
       />
-      <ThreeScene />
-      <div className="relative" style={{ zIndex: 1 }}>
-        <Header />
-        <main>
-          <HeroSection />
-          <AboutSection />
-          <TrustSignalsSection />
-          <ServicesSection />
-          <FeaturesSection />
-          <CapabilitiesSection />
-        </main>
-        <Footer />
-        <ChatBot />
-      </div>
+      <Header />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <TrustSignalsSection />
+        <ServicesSection />
+        <FeaturesSection />
+        <CapabilitiesSection />
+      </main>
+      <Footer />
+      <ChatBot />
     </div>
   );
 };
