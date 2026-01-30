@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Phone, Linkedin, Twitter, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Twitter, ArrowRight, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -31,18 +31,21 @@ const legal = [
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background" itemScope itemType="https://schema.org/Organization">
-      {/* Newsletter Section */}
-      <div className="border-b border-white/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+    <footer className="relative bg-[#030303] border-t border-white/5" itemScope itemType="https://schema.org/Organization">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 grid-pattern opacity-20" />
+      
+      {/* CTA Section */}
+      <div className="relative border-b border-white/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left">
-              <h3 className="text-2xl font-bold mb-2">Ready to Start Your Project?</h3>
-              <p className="text-white/70">Let's discuss how we can help transform your business.</p>
+              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-3">Ready to Start Your Project?</h3>
+              <p className="text-white/50 text-lg">Let's discuss how we can help transform your business.</p>
             </div>
-            <Button asChild size="lg" className="btn-gradient group">
-              <Link to="/contact" className="flex items-center gap-2">
-                Get a Free Quote
+            <Button asChild size="lg" className="btn-gradient rounded-full group">
+              <Link to="/contact" className="flex items-center gap-3">
+                <span>Get a Free Quote</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
@@ -51,18 +54,18 @@ export function Footer() {
       </div>
       
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-12">
           {/* Company Info */}
           <div className="col-span-2">
-            <Link to="/" className="inline-block mb-6">
+            <Link to="/" className="inline-block mb-8">
               <img 
                 src="/fun.png" 
                 alt="KNSOFT Technologies" 
-                className="h-12 brightness-0 invert"
+                className="h-12"
               />
             </Link>
-            <p className="text-white/70 mb-6 max-w-sm leading-relaxed" itemProp="description">
+            <p className="text-white/50 mb-8 max-w-sm leading-relaxed" itemProp="description">
               Leading software company in Hyderabad, India. Delivering innovative IT solutions, custom software, and digital transformation services to 500+ clients worldwide.
             </p>
             
@@ -72,7 +75,7 @@ export function Footer() {
                 href="https://linkedin.com" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-11 h-11 rounded-xl glass flex items-center justify-center text-white/60 hover:text-primary hover:border-primary/30 transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -81,23 +84,32 @@ export function Footer() {
                 href="https://twitter.com" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-11 h-11 rounded-xl glass flex items-center justify-center text-white/60 hover:text-primary hover:border-primary/30 transition-all duration-300"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://github.com" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 rounded-xl glass flex items-center justify-center text-white/60 hover:text-primary hover:border-primary/30 transition-all duration-300"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-3">
+            <h4 className="font-semibold text-white mb-6 text-sm uppercase tracking-wider">Services</h4>
+            <ul className="space-y-4">
               {services.map((item) => (
                 <li key={item.name}>
                   <Link 
                     to={item.href}
-                    className="text-sm text-white/70 hover:text-white transition-colors"
+                    className="text-sm text-white/50 hover:text-primary transition-colors duration-300"
                   >
                     {item.name}
                   </Link>
@@ -108,13 +120,13 @@ export function Footer() {
 
           {/* Products */}
           <div>
-            <h4 className="font-semibold mb-4">Products</h4>
-            <ul className="space-y-3">
+            <h4 className="font-semibold text-white mb-6 text-sm uppercase tracking-wider">Products</h4>
+            <ul className="space-y-4">
               {products.map((item) => (
                 <li key={item.name}>
                   <Link 
                     to={item.href}
-                    className="text-sm text-white/70 hover:text-white transition-colors"
+                    className="text-sm text-white/50 hover:text-primary transition-colors duration-300"
                   >
                     {item.name}
                   </Link>
@@ -125,13 +137,13 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
+            <h4 className="font-semibold text-white mb-6 text-sm uppercase tracking-wider">Company</h4>
+            <ul className="space-y-4">
               {company.map((item) => (
                 <li key={item.name}>
                   <Link 
                     to={item.href}
-                    className="text-sm text-white/70 hover:text-white transition-colors"
+                    className="text-sm text-white/50 hover:text-primary transition-colors duration-300"
                   >
                     {item.name}
                   </Link>
@@ -142,20 +154,24 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
-            <ul className="space-y-4">
+            <h4 className="font-semibold text-white mb-6 text-sm uppercase tracking-wider">Contact</h4>
+            <ul className="space-y-5">
               <li className="flex items-start gap-3" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <div className="text-sm text-white/70">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <MapPin className="w-4 h-4 text-primary" />
+                </div>
+                <div className="text-sm text-white/50 leading-relaxed">
                   <span itemProp="addressLocality">Hyderabad</span>, <span itemProp="addressRegion">Telangana</span><br />
                   <span itemProp="addressCountry">India</span>
                 </div>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-4 h-4 text-primary" />
+                </div>
                 <a 
                   href="mailto:info@knsofttech.com" 
-                  className="text-sm text-white/70 hover:text-white transition-colors"
+                  className="text-sm text-white/50 hover:text-primary transition-colors duration-300"
                   itemProp="email"
                 >
                   info@knsofttech.com
@@ -166,17 +182,17 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-white/60">
+        <div className="border-t border-white/5 mt-16 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-sm text-white/40">
               © {new Date().getFullYear()} KNSOFT Technologies Pvt Ltd. All rights reserved.
             </p>
-            <ul className="flex gap-6">
+            <ul className="flex gap-8">
               {legal.map((item) => (
                 <li key={item.name}>
                   <Link 
                     to={item.href}
-                    className="text-sm text-white/60 hover:text-white transition-colors"
+                    className="text-sm text-white/40 hover:text-primary transition-colors duration-300"
                   >
                     {item.name}
                   </Link>
