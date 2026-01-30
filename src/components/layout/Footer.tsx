@@ -1,16 +1,26 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Code2, Linkedin, Twitter, Github } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Twitter, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const services = [
   { name: "IT Consulting", href: "/services/it-consulting" },
   { name: "Software Development", href: "/services/web-mobile-development" },
   { name: "Web Applications", href: "/services/web-mobile-development" },
   { name: "ERP Development", href: "/services/sap-modernization" },
+  { name: "AI & Automation", href: "/services/ai-automation" },
+];
+
+const products = [
+  { name: "Healthcare & Medical", href: "/products/healthcare-medical" },
+  { name: "Education & Learning", href: "/products/education-learning" },
+  { name: "Business ERP & CRM", href: "/products/business-erp-crm" },
+  { name: "E-Commerce", href: "/products/ecommerce-retail" },
 ];
 
 const company = [
   { name: "About Us", href: "/about" },
-  { name: "Our Work", href: "/products" },
+  { name: "Success Stories", href: "/success-stories" },
+  { name: "Careers", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -21,64 +31,92 @@ const legal = [
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border" itemScope itemType="https://schema.org/Organization">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-foreground text-background" itemScope itemType="https://schema.org/Organization">
+      {/* Newsletter Section */}
+      <div className="border-b border-white/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="text-center lg:text-left">
+              <h3 className="text-2xl font-bold mb-2">Ready to Start Your Project?</h3>
+              <p className="text-white/70">Let's discuss how we can help transform your business.</p>
+            </div>
+            <Button asChild size="lg" className="btn-gradient group">
+              <Link to="/contact" className="flex items-center gap-2">
+                Get a Free Quote
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <Code2 className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-gradient" itemProp="name">KNSOFT TECHNOLOGIES</span>
+          <div className="col-span-2">
+            <Link to="/" className="inline-block mb-6">
+              <img 
+                src="/fun.png" 
+                alt="KNSOFT Technologies" 
+                className="h-12 brightness-0 invert"
+              />
             </Link>
-            <p className="text-muted-foreground mb-6 max-w-md" itemProp="description">
-              KNSOFT TECHNOLOGIES PVT LTD is a leading software company in Hyderabad, India, specializing in IT Services, Custom Software Development, Web and Mobile App Development. Trusted by 500+ clients across India and USA for innovative IT solutions.
+            <p className="text-white/70 mb-6 max-w-sm leading-relaxed" itemProp="description">
+              Leading software company in Hyderabad, India. Delivering innovative IT solutions, custom software, and digital transformation services to 500+ clients worldwide.
             </p>
             
-            {/* Contact Information - India Office */}
-            <div className="space-y-3">
-              <h4 className="text-sm font-semibold text-foreground">India Office (Hyderabad)</h4>
-              <div className="flex items-start space-x-3" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <div className="text-sm text-muted-foreground">
-                  <p itemProp="streetAddress">Hitech City</p>
-                  <p><span itemProp="addressLocality">Hyderabad</span>, <span itemProp="addressRegion">Telangana</span> <span itemProp="postalCode">500081</span></p>
-                  <p itemProp="addressCountry">India</p>
-                </div>
-              </div>
-              
-              <h4 className="text-sm font-semibold text-foreground mt-4">USA Office</h4>
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <div className="text-sm text-muted-foreground">
-                  <p>1812 High Falls Lane,</p>
-                  <p>Pearland, Texas, 77581</p>
-                  <p>United States</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-primary" />
-                <a 
-                  href="mailto:info@knsofttech.com" 
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  itemProp="email"
-                >
-                  info@knsofttech.com
-                </a>
-              </div>
+            {/* Social Links */}
+            <div className="flex gap-3">
+              <a 
+                href="https://linkedin.com" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://twitter.com" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
+                aria-label="Twitter"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Services</h3>
+            <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service.name}>
+              {services.map((item) => (
+                <li key={item.name}>
                   <Link 
-                    to={service.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    to={item.href}
+                    className="text-sm text-white/70 hover:text-white transition-colors"
                   >
-                    {service.name}
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Products */}
+          <div>
+            <h4 className="font-semibold mb-4">Products</h4>
+            <ul className="space-y-3">
+              {products.map((item) => (
+                <li key={item.name}>
+                  <Link 
+                    to={item.href}
+                    className="text-sm text-white/70 hover:text-white transition-colors"
+                  >
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -87,27 +125,13 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Company</h3>
+            <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-3">
               {company.map((item) => (
                 <li key={item.name}>
                   <Link 
                     to={item.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            
-            <h4 className="font-semibold text-foreground mb-3 mt-6">Legal</h4>
-            <ul className="space-y-3">
-              {legal.map((item) => (
-                <li key={item.name}>
-                  <Link 
-                    to={item.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-white/70 hover:text-white transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -115,37 +139,50 @@ export function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-semibold mb-4">Contact</h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <div className="text-sm text-white/70">
+                  <span itemProp="addressLocality">Hyderabad</span>, <span itemProp="addressRegion">Telangana</span><br />
+                  <span itemProp="addressCountry">India</span>
+                </div>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+                <a 
+                  href="mailto:info@knsofttech.com" 
+                  className="text-sm text-white/70 hover:text-white transition-colors"
+                  itemProp="email"
+                >
+                  info@knsofttech.com
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="border-t border-border pt-8 mt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} KNSOFT TECHNOLOGIES PVT LTD. All rights reserved.
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-white/60">
+              © {new Date().getFullYear()} KNSOFT Technologies Pvt Ltd. All rights reserved.
             </p>
-            
-            <div className="flex space-x-4 mt-4 md:mt-0">
-              <a 
-                href="#" 
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-            </div>
+            <ul className="flex gap-6">
+              {legal.map((item) => (
+                <li key={item.name}>
+                  <Link 
+                    to={item.href}
+                    className="text-sm text-white/60 hover:text-white transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

@@ -1,54 +1,57 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Zap, Shield, MessageCircle, Bot, CheckCircle } from "lucide-react";
+import { Zap, Shield, MessageCircle, Bot, CheckCircle, Sparkles } from "lucide-react";
 import { useRef } from "react";
 
 const features = [
   {
     icon: Zap,
-    title: "Agile Software Development",
-    description: "In software development, agile (sometimes written Agile) practices include requirements discovery and solutions improvement through the collaborative effort of self-organizing and cross-functional teams with their customer(s)/end user(s), adaptive planning, evolutionary development, early delivery, continual improvement, and flexible responses to changes in requirements, capacity, and understanding of the problems to be solved.",
+    title: "Agile Development",
+    description: "We embrace agile methodologies for faster delivery, continuous improvement, and flexible responses to changing requirements.",
     points: [
-      "Individuals and interactions over processes and tools",
-      "Working software over comprehensive documentation", 
-      "Customer collaboration over contract negotiation",
-      "Responding to change over following a plan"
-    ]
+      "Iterative development sprints",
+      "Continuous integration & delivery", 
+      "Customer collaboration focus",
+      "Rapid prototyping"
+    ],
+    color: "from-yellow-500 to-orange-500"
   },
   {
     icon: Shield,
-    title: "Blockchain Development",
-    description: "Blockchain development is the process of creating shared, unchangeable, distributed ledger technology (DLT) that securely records transactions and tracks assets—whether those are physical assets, like money or real estate, or nonphysical assets, like copyrights—within a network",
+    title: "Blockchain Solutions",
+    description: "Secure distributed ledger technology for transparent, immutable record-keeping and smart contract development.",
     points: [
-      "Secure distributed ledger technology",
       "Smart contract development",
       "Cryptocurrency solutions",
-      "DeFi applications"
-    ]
+      "DeFi applications",
+      "NFT marketplaces"
+    ],
+    color: "from-blue-500 to-cyan-500"
   },
   {
     icon: MessageCircle,
-    title: "Chatbot Development", 
-    description: "Chatbots are used in dialog systems for various purposes including customer service, request routing, or information gathering. While some chatbot applications use extensive word-classification processes, natural-language processors, and sophisticated AI, others simply scan for general keywords and generate responses using common phrases obtained from an associated library or database.",
+    title: "AI Chatbots", 
+    description: "Intelligent conversational interfaces that enhance customer service and automate routine interactions.",
     points: [
-      "Messaging apps integration",
-      "Company apps and websites", 
+      "Natural language processing",
+      "Multi-platform integration", 
       "Customer service automation",
-      "Healthcare applications"
-    ]
+      "Analytics & insights"
+    ],
+    color: "from-purple-500 to-pink-500"
   },
   {
     icon: Bot,
-    title: "RPA",
-    description: "Robotic process automation (RPA) is a productivity tool that allows a user to configure one or more scripts (which some vendors refer to as \"bots\") to activate specific keystrokes in an automated fashion. RPA is a software technology that makes it easy to build, deploy, and manage software robots that emulate humans actions interacting with digital systems and software.",
+    title: "RPA Automation",
+    description: "Robotic process automation that eliminates repetitive tasks and streamlines business operations.",
     points: [
-      "RPA Blue Prism",
-      "UiPath automation",
-      "Automation Anywhere", 
-      "Kofax Kapow solutions",
-      "NICE RPA tools"
-    ]
+      "UiPath & Blue Prism",
+      "Process optimization", 
+      "Workflow automation",
+      "Cost reduction"
+    ],
+    color: "from-green-500 to-emerald-500"
   }
 ];
 
@@ -60,94 +63,90 @@ export function FeaturesSection() {
   });
 
   return (
-    <section ref={sectionRef} className="py-20 bg-background relative overflow-hidden section-mesh">
+    <section ref={sectionRef} className="py-24 lg:py-32 relative overflow-hidden bg-muted/30">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-mesh opacity-20" />
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Advanced <span className="text-gradient">Features</span>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6"
+          >
+            <Sparkles className="w-4 h-4" />
+            Advanced Capabilities
+          </motion.div>
+          
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading mb-6">
+            Cutting-Edge <span className="text-gradient">Technologies</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Our teams listen, plan with you, and develop solutions to help you succeed.
+            We leverage the latest technologies to build innovative solutions that give your business a competitive edge.
           </p>
         </motion.div>
 
-        <div className="space-y-16">
+        {/* Features Grid - 2x2 */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {features.map((feature, index) => {
-            const featureY = useTransform(
-              scrollYProgress,
-              [0, 0.5, 1],
-              [index % 2 === 0 ? 80 : -80, 0, index % 2 === 0 ? -80 : 80]
-            );
-
+            const isEven = index % 2 === 0;
+            
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
                 viewport={{ once: true }}
-                style={{ y: featureY }}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-                }`}
+                className="group"
               >
-                {/* Content */}
-                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className="flex items-center mb-6">
-                    <div className="h-12 w-12 bg-gradient-primary rounded-lg flex items-center justify-center mr-4">
-                      <feature.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold">{feature.title}</h3>
-                  </div>
+                <div className="relative h-full p-6 lg:p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-xl">
+                  {/* Gradient background on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`} />
                   
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {feature.description}
-                  </p>
-
-                  <ul className="space-y-3">
-                    {feature.points.map((point, pointIndex) => (
-                      <li key={pointIndex} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-primary mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Image/Icon placeholder */}
-                <motion.div 
-                  className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="relative">
-                    <motion.div 
-                      className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-20"
-                      animate={{
-                        scale: [1, 1.1, 1],
-                        opacity: [0.2, 0.3, 0.2],
-                      }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                    <div className="relative card-elegant p-12 text-center">
-                      <motion.div
-                        animate={{ rotate: [0, 5, -5, 0] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                      >
-                        <feature.icon className="h-24 w-24 mx-auto text-primary mb-4" />
-                      </motion.div>
-                      <div className="text-lg font-semibold text-gradient">
+                  <div className="flex flex-col lg:flex-row lg:items-start gap-6">
+                    {/* Icon */}
+                    <div className={`relative inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                      <feature.icon className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1">
+                      <h3 className="text-xl lg:text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
                         {feature.title}
-                      </div>
+                      </h3>
+                      <p className="text-muted-foreground mb-5 leading-relaxed">
+                        {feature.description}
+                      </p>
+                      
+                      {/* Points */}
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {feature.points.map((point, pointIndex) => (
+                          <motion.li 
+                            key={pointIndex}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.3 + pointIndex * 0.1 }}
+                            viewport={{ once: true }}
+                            className="flex items-center gap-2"
+                          >
+                            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">{point}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
             );
           })}
