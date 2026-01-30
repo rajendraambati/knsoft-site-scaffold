@@ -1,18 +1,38 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, ArrowRight, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navigation = [
+  { name: "Home", href: "/" },
   { name: "Products", hasDropdown: true },
   { name: "Solutions", hasDropdown: true },
   { name: "Customers", href: "/success-stories" },
   { name: "Learn", hasDropdown: true },
   { name: "Company", hasDropdown: true },
+];
+
+// Searchable pages data
+const searchablePages = [
+  { name: "Products", href: "/products", keywords: ["products", "software", "solutions", "healthcare", "education", "business"] },
+  { name: "Healthcare & Medical", href: "/products/healthcare-medical", keywords: ["healthcare", "medical", "hospital", "clinic", "pharmacy"] },
+  { name: "Education & Learning", href: "/products/education-learning", keywords: ["education", "learning", "school", "academy", "exam"] },
+  { name: "Business, ERP & CRM", href: "/products/business-erp-crm", keywords: ["business", "erp", "crm", "enterprise"] },
+  { name: "Services", href: "/services", keywords: ["services", "solutions", "consulting"] },
+  { name: "Web & Mobile Development", href: "/services/web-mobile-development", keywords: ["web", "mobile", "development", "app"] },
+  { name: "SAP Modernization", href: "/services/sap-modernization", keywords: ["sap", "modernization", "enterprise"] },
+  { name: "AI & Automation", href: "/services/ai-automation", keywords: ["ai", "automation", "artificial intelligence", "machine learning"] },
+  { name: "IT Consulting", href: "/services/it-consulting", keywords: ["it", "consulting", "technology"] },
+  { name: "Workforce Upskilling", href: "/services/workforce-upskilling", keywords: ["training", "upskilling", "workforce", "learning"] },
+  { name: "Careers", href: "/careers", keywords: ["careers", "jobs", "hiring", "work", "employment"] },
+  { name: "Contact", href: "/contact", keywords: ["contact", "reach", "email", "phone", "support"] },
+  { name: "Success Stories", href: "/success-stories", keywords: ["customers", "success", "stories", "case studies", "testimonials"] },
+  { name: "About Us", href: "/about", keywords: ["about", "company", "team", "who we are"] },
 ];
 
 const servicesDropdown = [
@@ -37,8 +57,40 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<typeof searchablePages>([]);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // Handle search
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    if (query.trim().length > 0) {
+      const filtered = searchablePages.filter(page =>
+        page.name.toLowerCase().includes(query.toLowerCase()) ||
+        page.keywords.some(keyword => keyword.toLowerCase().includes(query.toLowerCase()))
+      );
+      setSearchResults(filtered);
+    } else {
+      setSearchResults([]);
+    }
+  };
+
+  const handleSearchSelect = (href: string) => {
+    setIsSearchOpen(false);
+    setSearchQuery("");
+    setSearchResults([]);
+    navigate(href);
+  };
+
+  useEffect(() => {
+    if (isSearchOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [isSearchOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -230,9 +282,6 @@ export function Header() {
                         className="absolute top-full left-0 mt-2 w-56 glass-dark rounded-2xl shadow-2xl overflow-hidden"
                       >
                         <div className="p-2">
-                          <Link to="/blog" className="block px-4 py-3 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
-                            Blog
-                          </Link>
                           <Link to="/success-stories" className="block px-4 py-3 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
                             Case Studies
                           </Link>
@@ -249,14 +298,57 @@ export function Header() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            <button className="p-2 text-white/60 hover:text-white transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-            <Link to="/contact" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
-              Sign In
-            </Link>
-            <Button asChild className="btn-gradient rounded-xl px-5">
+          <div className="hidden lg:flex items-center gap-3">
+            {/* Search */}
+            <div className="relative">
+              <button 
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                className="p-2 text-white/60 hover:text-white transition-colors"
+              >
+                <Search className="w-5 h-5" />
+              </button>
+              
+              <AnimatePresence>
+                {isSearchOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full right-0 mt-2 w-80 glass-dark rounded-2xl shadow-2xl overflow-hidden"
+                  >
+                    <div className="p-3">
+                      <Input
+                        ref={searchInputRef}
+                        type="text"
+                        placeholder="Search pages..."
+                        value={searchQuery}
+                        onChange={(e) => handleSearch(e.target.value)}
+                        className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
+                      />
+                      {searchResults.length > 0 && (
+                        <div className="mt-2 max-h-64 overflow-y-auto">
+                          {searchResults.map((result) => (
+                            <button
+                              key={result.href}
+                              onClick={() => handleSearchSelect(result.href)}
+                              className="w-full text-left px-3 py-2 rounded-lg text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                            >
+                              {result.name}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                      {searchQuery && searchResults.length === 0 && (
+                        <p className="mt-2 px-3 py-2 text-sm text-white/50">No results found</p>
+                      )}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            
+            <Button asChild size="sm" className="btn-gradient rounded-lg px-4 text-xs">
               <Link to="/contact">Contact us</Link>
             </Button>
           </div>

@@ -104,24 +104,24 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 justify-center items-center"
           >
             <Button 
               asChild 
-              size="lg" 
-              className="btn-gradient text-base px-8 py-6 h-auto rounded-xl group"
+              size="sm" 
+              className="btn-gradient text-sm px-5 py-2 h-auto rounded-lg group"
             >
               <Link to="/contact" className="flex items-center gap-2">
                 <span>Get started for free</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </Button>
             
             <Button 
               asChild 
               variant="outline" 
-              size="lg"
-              className="btn-outline-glow text-base px-8 py-6 h-auto rounded-xl"
+              size="sm"
+              className="btn-outline-glow text-sm px-5 py-2 h-auto rounded-lg"
             >
               <Link to="/about">
                 <span>Learn more</span>
