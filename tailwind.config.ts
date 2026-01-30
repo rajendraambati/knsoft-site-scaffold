@@ -71,8 +71,8 @@ export default {
 				'glow': 'var(--shadow-glow)',
 				'card': 'var(--shadow-card)',
 				'hover': 'var(--shadow-hover)',
-				'glow-sm': '0 0 40px hsl(270 95% 65% / 0.2)',
-				'glow-lg': '0 0 120px hsl(270 95% 65% / 0.4)'
+				'glow-sm': '0 0 40px hsl(4 85% 58% / 0.2)',
+				'glow-lg': '0 0 120px hsl(4 85% 58% / 0.4)'
 			},
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -114,8 +114,8 @@ export default {
 					'100%': { opacity: '1', transform: 'scale(1)' }
 				},
 				'glow-pulse': {
-					'0%, 100%': { boxShadow: '0 0 60px hsl(270 95% 65% / 0.3)' },
-					'50%': { boxShadow: '0 0 120px hsl(270 95% 65% / 0.5)' }
+					'0%, 100%': { boxShadow: '0 0 60px hsl(4 85% 58% / 0.3)' },
+					'50%': { boxShadow: '0 0 120px hsl(4 85% 58% / 0.5)' }
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
