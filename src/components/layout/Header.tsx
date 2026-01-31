@@ -117,10 +117,10 @@ export function Header() {
   return (
     <header 
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500 bg-secondary",
+        "fixed top-0 w-full z-50 transition-all duration-500",
         isScrolled 
-          ? "py-3 shadow-lg" 
-          : "py-4"
+          ? "py-3 glass shadow-lg" 
+          : "py-4 bg-transparent"
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
