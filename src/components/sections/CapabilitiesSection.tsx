@@ -55,16 +55,12 @@ export function CapabilitiesSection() {
   const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <section ref={sectionRef} className="py-32 lg:py-40 bg-[#0a0812] relative overflow-hidden">
+    <section ref={sectionRef} className="py-32 lg:py-40 bg-secondary relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-20" />
-      <motion.div 
-        className="absolute inset-0 bg-gradient-mesh opacity-30"
-        style={{ y }}
-      />
+      <div className="absolute inset-0 grid-pattern opacity-10" />
       
       {/* Glow */}
-      <div className="absolute top-20 left-10 w-80 h-80 bg-primary/10 rounded-full blur-[150px]" />
+      <div className="absolute top-20 left-10 w-80 h-80 bg-primary/15 rounded-full blur-[150px]" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-[150px]" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -81,7 +77,7 @@ export function CapabilitiesSection() {
             <span className="text-white">What Our</span>{" "}
             <span className="text-gradient">Clients Say</span>
           </h2>
-          <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
             Don't just take our word for it — hear from some of our satisfied clients about their experience working with KNSOFT.
           </p>
         </motion.div>
