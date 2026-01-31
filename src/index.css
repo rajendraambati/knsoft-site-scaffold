@@ -12,8 +12,16 @@
     --background: 190 45% 55%;
     --foreground: 0 0% 100%;
 
+    /* Light section background - matches knsofttech.com */
+    --background-light: 210 20% 96%;
+    --foreground-dark: 210 50% 15%;
+
     --card: 190 40% 50%;
     --card-foreground: 0 0% 100%;
+    
+    /* Light card for light sections */
+    --card-light: 0 0% 100%;
+    --card-light-foreground: 210 50% 15%;
 
     --popover: 190 40% 48%;
     --popover-foreground: 0 0% 100%;
@@ -66,6 +74,10 @@
     --shadow-glow: 0 0 80px hsl(12 85% 55% / 0.3);
     --shadow-card: 0 8px 32px hsl(190 50% 25% / 0.25);
     --shadow-hover: 0 30px 60px hsl(190 50% 25% / 0.35);
+    
+    /* Light Section Shadows */
+    --shadow-card-light: 0 4px 20px hsl(210 20% 50% / 0.1);
+    --shadow-hover-light: 0 10px 40px hsl(210 20% 50% / 0.15);
   }
 }
 
@@ -166,6 +178,25 @@
     transform: translateY(-4px);
   }
 
+  /* Light Section Cards - matches knsofttech.com */
+  .card-light {
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(210 20% 90%);
+    box-shadow: 0 4px 20px hsl(210 20% 50% / 0.08);
+    @apply rounded-2xl transition-all duration-500;
+  }
+
+  .card-light:hover {
+    border-color: hsl(190 50% 60% / 0.4);
+    box-shadow: 0 10px 40px hsl(190 50% 50% / 0.15);
+    transform: translateY(-4px);
+  }
+
+  /* Light Section Background */
+  .section-light {
+    background: hsl(210 20% 96%);
+  }
+
   /* Premium Buttons - KNSOFT Style */
   .btn-gradient {
     background: linear-gradient(135deg, hsl(12 85% 55%), hsl(8 80% 50%));
@@ -215,6 +246,19 @@
 
   .section-gradient {
     background: linear-gradient(180deg, hsl(195 50% 58%) 0%, hsl(190 45% 55%) 50%, hsl(185 40% 50%) 100%);
+  }
+
+  /* Text colors for light sections */
+  .text-dark-heading {
+    color: hsl(200 45% 18%);
+  }
+
+  .text-dark-body {
+    color: hsl(210 20% 35%);
+  }
+
+  .text-dark-muted {
+    color: hsl(210 15% 50%);
   }
 
   /* Glow Effects */

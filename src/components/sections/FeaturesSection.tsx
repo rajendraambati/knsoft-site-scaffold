@@ -63,17 +63,12 @@ export function FeaturesSection() {
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
-    <section ref={sectionRef} className="py-32 lg:py-40 relative overflow-hidden bg-background">
-      {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-20" />
-      <motion.div 
-        className="absolute inset-0 bg-gradient-mesh opacity-30"
-        style={{ y }}
-      />
-      
-      {/* Glow */}
-      <div className="absolute top-40 left-1/4 w-80 h-80 bg-accent/10 rounded-full blur-[150px]" />
-      <div className="absolute bottom-40 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px]" />
+    <section ref={sectionRef} className="py-32 lg:py-40 relative overflow-hidden section-light">
+      {/* Subtle Background */}
+      <div className="absolute inset-0 opacity-30" style={{
+        backgroundImage: `radial-gradient(circle at 30% 70%, hsl(190 50% 85% / 0.3) 0%, transparent 50%),
+                          radial-gradient(circle at 70% 30%, hsl(190 50% 90% / 0.2) 0%, transparent 40%)`
+      }} />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -84,13 +79,13 @@ export function FeaturesSection() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <span className="inline-block text-primary font-bold text-sm uppercase tracking-[0.2em] mb-6 drop-shadow-md">Advanced Capabilities</span>
+          <span className="inline-block text-primary font-bold text-sm uppercase tracking-[0.2em] mb-6">Advanced Capabilities</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white drop-shadow-lg [text-shadow:_0_2px_15px_rgb(255_255_255_/_25%)]">Advanced Features</span>
+            <span className="text-dark-heading">Advanced Features</span>
             <br />
-            <span className="text-gradient drop-shadow-lg">That Drive Innovation</span>
+            <span className="text-gradient">That Drive Innovation</span>
           </h2>
-          <p className="text-lg md:text-xl text-white font-medium max-w-3xl mx-auto drop-shadow-sm">
+          <p className="text-lg md:text-xl text-dark-body font-medium max-w-3xl mx-auto">
             Our teams listen, plan with you, and develop solutions to help you succeed with cutting-edge technologies.
           </p>
         </motion.div>
@@ -104,22 +99,22 @@ export function FeaturesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="p-8 lg:p-10 rounded-2xl card-premium hover-bounce group"
+              className="p-8 lg:p-10 rounded-2xl card-light hover-bounce group"
             >
               <div className="flex items-start gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
-                  <feature.icon className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 rounded-2xl bg-accent/20 border border-accent/30 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                  <feature.icon className="w-7 h-7 text-accent" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl lg:text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors drop-shadow-md">{feature.title}</h3>
-                  <p className="text-white/90 mb-6 leading-relaxed font-medium">{feature.description}</p>
+                  <h3 className="text-xl lg:text-2xl font-bold text-dark-heading mb-3 group-hover:text-primary transition-colors">{feature.title}</h3>
+                  <p className="text-dark-body mb-6 leading-relaxed">{feature.description}</p>
                   <ul className="space-y-3">
                     {feature.points.map((point, i) => (
                       <li key={i} className="flex items-center gap-3">
                         <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                           <CheckCircle className="w-3 h-3 text-primary" />
                         </div>
-                        <span className="text-sm text-white font-medium">{point}</span>
+                        <span className="text-sm text-dark-body font-medium">{point}</span>
                       </li>
                     ))}
                   </ul>
