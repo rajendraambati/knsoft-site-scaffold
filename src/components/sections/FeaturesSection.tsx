@@ -84,13 +84,13 @@ export function FeaturesSection() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <span className="inline-block text-primary font-medium text-sm uppercase tracking-[0.2em] mb-6">Advanced Capabilities</span>
+          <span className="inline-block text-primary font-bold text-sm uppercase tracking-[0.2em] mb-6 drop-shadow-md">Advanced Capabilities</span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white">Advanced Features</span>
+            <span className="text-white drop-shadow-lg [text-shadow:_0_2px_15px_rgb(255_255_255_/_25%)]">Advanced Features</span>
             <br />
-            <span className="text-gradient">That Drive Innovation</span>
+            <span className="text-gradient drop-shadow-lg">That Drive Innovation</span>
           </h2>
-          <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-white font-medium max-w-3xl mx-auto drop-shadow-sm">
             Our teams listen, plan with you, and develop solutions to help you succeed with cutting-edge technologies.
           </p>
         </motion.div>
@@ -111,15 +111,15 @@ export function FeaturesSection() {
                   <feature.icon className="w-7 h-7 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl lg:text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{feature.title}</h3>
-                  <p className="text-white/50 mb-6 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl lg:text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors drop-shadow-md">{feature.title}</h3>
+                  <p className="text-white/90 mb-6 leading-relaxed font-medium">{feature.description}</p>
                   <ul className="space-y-3">
                     {feature.points.map((point, i) => (
                       <li key={i} className="flex items-center gap-3">
                         <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                           <CheckCircle className="w-3 h-3 text-primary" />
                         </div>
-                        <span className="text-sm text-white/60">{point}</span>
+                        <span className="text-sm text-white font-medium">{point}</span>
                       </li>
                     ))}
                   </ul>
