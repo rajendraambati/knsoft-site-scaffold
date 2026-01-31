@@ -18,10 +18,10 @@
     --popover: 185 40% 35%;
     --popover-foreground: 0 0% 100%;
 
-    /* Primary - KNSOFT Coral/Orange-Red */
-    --primary: 12 85% 58%;
+    /* Primary - KNSOFT Logo "KN" Red */
+    --primary: 0 85% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 12 90% 62%;
+    --primary-glow: 0 90% 55%;
 
     /* Secondary - Dark Navy Blue */
     --secondary: 200 25% 18%;
@@ -34,8 +34,8 @@
     --accent: 185 50% 50%;
     --accent-foreground: 0 0% 100%;
 
-    /* CTA - KNSOFT Coral */
-    --cta: 12 85% 58%;
+    /* CTA - KNSOFT Logo Red */
+    --cta: 0 85% 50%;
     --cta-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -43,7 +43,7 @@
 
     --border: 185 30% 50%;
     --input: 185 35% 45%;
-    --ring: 12 85% 58%;
+    --ring: 0 85% 50%;
 
     --radius: 0.75rem;
 
@@ -54,16 +54,16 @@
       hsl(180 40% 52%) 70%,
       hsl(175 35% 58%) 100%
     );
-    --gradient-primary: linear-gradient(135deg, hsl(12 85% 58%), hsl(18 80% 52%));
+    --gradient-primary: linear-gradient(135deg, hsl(0 85% 50%), hsl(0 80% 45%));
     --gradient-card: linear-gradient(180deg, hsl(185 40% 40%) 0%, hsl(185 45% 35%) 100%);
-    --gradient-glow: radial-gradient(circle, hsl(12 85% 58% / 0.4) 0%, transparent 70%);
+    --gradient-glow: radial-gradient(circle, hsl(0 85% 50% / 0.4) 0%, transparent 70%);
     --gradient-mesh: radial-gradient(ellipse 80% 50% at 50% 0%, hsl(180 40% 55% / 0.3) 0%, transparent 60%),
                      radial-gradient(ellipse 60% 40% at 80% 30%, hsl(185 45% 50% / 0.3) 0%, transparent 50%),
-                     radial-gradient(ellipse 50% 30% at 20% 60%, hsl(12 70% 55% / 0.1) 0%, transparent 50%);
+                     radial-gradient(ellipse 50% 30% at 20% 60%, hsl(0 70% 50% / 0.1) 0%, transparent 50%);
     
     /* Premium Shadows */
     --shadow-elegant: 0 25px 50px -12px hsl(185 50% 15% / 0.4);
-    --shadow-glow: 0 0 80px hsl(12 85% 58% / 0.3);
+    --shadow-glow: 0 0 80px hsl(0 85% 50% / 0.3);
     --shadow-card: 0 8px 32px hsl(185 50% 15% / 0.3);
     --shadow-hover: 0 30px 60px hsl(185 50% 15% / 0.4);
   }
@@ -100,17 +100,17 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, hsl(12 85% 58%), hsl(12 75% 48%));
+    background: linear-gradient(180deg, hsl(0 85% 50%), hsl(0 75% 45%));
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, hsl(12 90% 62%), hsl(12 85% 55%));
+    background: linear-gradient(180deg, hsl(0 90% 55%), hsl(0 85% 50%));
   }
 
   /* Selection */
   ::selection {
-    background: hsl(12 85% 58% / 0.3);
+    background: hsl(0 85% 50% / 0.3);
     color: hsl(0 0% 100%);
   }
 }
@@ -161,14 +161,14 @@
   }
 
   .card-premium:hover {
-    border-color: hsl(12 85% 58% / 0.3);
-    box-shadow: 0 20px 40px hsl(185 50% 15% / 0.3), 0 0 80px hsl(12 85% 58% / 0.1);
+    border-color: hsl(0 85% 50% / 0.3);
+    box-shadow: 0 20px 40px hsl(185 50% 15% / 0.3), 0 0 80px hsl(0 85% 50% / 0.1);
     transform: translateY(-4px);
   }
 
   /* Premium Buttons - KNSOFT Style */
   .btn-gradient {
-    background: linear-gradient(135deg, hsl(12 85% 58%), hsl(18 80% 52%));
+    background: linear-gradient(135deg, hsl(0 85% 50%), hsl(0 80% 45%));
     color: hsl(0 0% 100%);
     font-weight: 600;
     border: none;
@@ -181,7 +181,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, hsl(12 90% 62%), hsl(18 85% 55%));
+    background: linear-gradient(135deg, hsl(0 90% 55%), hsl(0 85% 50%));
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -219,7 +219,7 @@
 
   /* Glow Effects */
   .glow-red {
-    box-shadow: 0 0 80px hsl(12 85% 58% / 0.4);
+    box-shadow: 0 0 80px hsl(0 85% 50% / 0.4);
   }
 
   .glow-teal {
@@ -227,7 +227,7 @@
   }
 
   .text-glow {
-    text-shadow: 0 0 60px hsl(12 85% 58% / 0.6);
+    text-shadow: 0 0 60px hsl(0 85% 50% / 0.6);
   }
 
   /* 3D Sphere Effect */
@@ -241,7 +241,7 @@
     box-shadow: 
       inset -20px -20px 60px hsl(185 40% 20% / 0.6),
       inset 20px 20px 60px hsl(180 50% 55% / 0.3),
-      0 0 120px hsl(12 80% 55% / 0.3);
+      0 0 120px hsl(0 80% 50% / 0.3);
   }
 
   /* Animations */
@@ -250,7 +250,7 @@
   }
 
   .animate-pulse-glow {
-    animation: pulseGlowCoral 4s ease-in-out infinite;
+    animation: pulseGlowRed 4s ease-in-out infinite;
   }
 
   .animate-gradient {
@@ -270,7 +270,7 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, hsl(12 85% 60%), hsl(180 50% 55%));
+    background: linear-gradient(135deg, hsl(0 85% 55%), hsl(180 50% 55%));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -284,13 +284,13 @@
   }
 
   .bg-gradient-radial {
-    background: radial-gradient(circle at center, hsl(12 85% 58% / 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle at center, hsl(0 85% 50% / 0.2) 0%, transparent 70%);
   }
 
   .border-gradient {
     border: 1px solid transparent;
     background: linear-gradient(hsl(185 40% 42%), hsl(185 40% 42%)) padding-box,
-                linear-gradient(135deg, hsl(12 85% 58% / 0.3), hsl(180 50% 55% / 0.2)) border-box;
+                linear-gradient(135deg, hsl(0 85% 50% / 0.3), hsl(180 50% 55% / 0.2)) border-box;
   }
 }
 
@@ -300,9 +300,9 @@
   50% { transform: translateY(-30px); }
 }
 
-@keyframes pulseGlowCoral {
-  0%, 100% { box-shadow: 0 0 60px hsl(12 85% 58% / 0.3); }
-  50% { box-shadow: 0 0 120px hsl(12 85% 58% / 0.5); }
+@keyframes pulseGlowRed {
+  0%, 100% { box-shadow: 0 0 60px hsl(0 85% 50% / 0.3); }
+  50% { box-shadow: 0 0 120px hsl(0 85% 50% / 0.5); }
 }
 
 @keyframes gradientShift {
