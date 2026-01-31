@@ -8,64 +8,64 @@
 
 @layer base {
   :root {
-    /* KNSOFT Brand Colors - Teal/Blue & Red Theme */
-    --background: 195 60% 12%;
-    --foreground: 0 0% 98%;
+    /* KNSOFT Brand Colors - Light Teal/Cyan & Coral Theme */
+    --background: 185 45% 42%;
+    --foreground: 0 0% 100%;
 
-    --card: 195 55% 15%;
-    --card-foreground: 0 0% 98%;
+    --card: 185 40% 38%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 195 55% 15%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 185 40% 35%;
+    --popover-foreground: 0 0% 100%;
 
-    /* Primary - KNSOFT Red/Coral */
-    --primary: 4 85% 58%;
+    /* Primary - KNSOFT Coral/Orange-Red */
+    --primary: 12 85% 58%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 4 90% 62%;
+    --primary-glow: 12 90% 62%;
 
     /* Secondary - Dark Navy Blue */
-    --secondary: 210 50% 20%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 200 25% 18%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 195 40% 22%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 185 35% 35%;
+    --muted-foreground: 0 0% 90%;
 
-    /* Accent - Teal/Cyan Blue */
-    --accent: 185 60% 45%;
+    /* Accent - Light Teal/Cyan */
+    --accent: 185 50% 50%;
     --accent-foreground: 0 0% 100%;
 
-    /* CTA - KNSOFT Red */
-    --cta: 4 85% 58%;
+    /* CTA - KNSOFT Coral */
+    --cta: 12 85% 58%;
     --cta-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 195 40% 25%;
-    --input: 195 40% 25%;
-    --ring: 4 85% 58%;
+    --border: 185 30% 50%;
+    --input: 185 35% 45%;
+    --ring: 12 85% 58%;
 
     --radius: 0.75rem;
 
-    /* Premium Gradients - KNSOFT Style */
+    /* Premium Gradients - KNSOFT Light Teal Style */
     --gradient-hero: linear-gradient(135deg, 
-      hsl(195 65% 25%) 0%, 
-      hsl(190 55% 35%) 40%,
-      hsl(185 50% 45%) 70%,
-      hsl(180 45% 55%) 100%
+      hsl(190 50% 38%) 0%, 
+      hsl(185 45% 45%) 40%,
+      hsl(180 40% 52%) 70%,
+      hsl(175 35% 58%) 100%
     );
-    --gradient-primary: linear-gradient(135deg, hsl(4 85% 58%), hsl(15 80% 50%));
-    --gradient-card: linear-gradient(180deg, hsl(195 55% 18%) 0%, hsl(195 55% 12%) 100%);
-    --gradient-glow: radial-gradient(circle, hsl(4 85% 58% / 0.4) 0%, transparent 70%);
-    --gradient-mesh: radial-gradient(ellipse 80% 50% at 50% 0%, hsl(185 60% 40% / 0.3) 0%, transparent 60%),
-                     radial-gradient(ellipse 60% 40% at 80% 30%, hsl(195 55% 30% / 0.3) 0%, transparent 50%),
-                     radial-gradient(ellipse 50% 30% at 20% 60%, hsl(4 70% 45% / 0.15) 0%, transparent 50%);
+    --gradient-primary: linear-gradient(135deg, hsl(12 85% 58%), hsl(18 80% 52%));
+    --gradient-card: linear-gradient(180deg, hsl(185 40% 40%) 0%, hsl(185 45% 35%) 100%);
+    --gradient-glow: radial-gradient(circle, hsl(12 85% 58% / 0.4) 0%, transparent 70%);
+    --gradient-mesh: radial-gradient(ellipse 80% 50% at 50% 0%, hsl(180 40% 55% / 0.3) 0%, transparent 60%),
+                     radial-gradient(ellipse 60% 40% at 80% 30%, hsl(185 45% 50% / 0.3) 0%, transparent 50%),
+                     radial-gradient(ellipse 50% 30% at 20% 60%, hsl(12 70% 55% / 0.1) 0%, transparent 50%);
     
     /* Premium Shadows */
-    --shadow-elegant: 0 25px 50px -12px hsl(0 0% 0% / 0.6);
-    --shadow-glow: 0 0 80px hsl(4 85% 58% / 0.3);
-    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
-    --shadow-hover: 0 30px 60px hsl(0 0% 0% / 0.5);
+    --shadow-elegant: 0 25px 50px -12px hsl(185 50% 15% / 0.4);
+    --shadow-glow: 0 0 80px hsl(12 85% 58% / 0.3);
+    --shadow-card: 0 8px 32px hsl(185 50% 15% / 0.3);
+    --shadow-hover: 0 30px 60px hsl(185 50% 15% / 0.4);
   }
 }
 
@@ -96,21 +96,21 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(195 60% 10%);
+    background: hsl(185 45% 35%);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, hsl(4 85% 58%), hsl(4 75% 48%));
+    background: linear-gradient(180deg, hsl(12 85% 58%), hsl(12 75% 48%));
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, hsl(4 90% 62%), hsl(4 85% 55%));
+    background: linear-gradient(180deg, hsl(12 90% 62%), hsl(12 85% 55%));
   }
 
   /* Selection */
   ::selection {
-    background: hsl(4 85% 58% / 0.3);
+    background: hsl(12 85% 58% / 0.3);
     color: hsl(0 0% 100%);
   }
 }
@@ -140,35 +140,35 @@
 
   /* Glassmorphism - KNSOFT style */
   .glass {
-    background: hsl(195 55% 18% / 0.6);
+    background: hsl(185 40% 45% / 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid hsl(0 0% 100% / 0.08);
+    border: 1px solid hsl(0 0% 100% / 0.15);
   }
 
   .glass-dark {
-    background: hsl(195 60% 12% / 0.8);
+    background: hsl(185 45% 38% / 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid hsl(0 0% 100% / 0.06);
+    border: 1px solid hsl(0 0% 100% / 0.1);
   }
 
   /* Premium Cards - KNSOFT Style */
   .card-premium {
-    background: linear-gradient(180deg, hsl(195 55% 18%) 0%, hsl(195 55% 12%) 100%);
-    border: 1px solid hsl(0 0% 100% / 0.06);
+    background: linear-gradient(180deg, hsl(185 40% 42%) 0%, hsl(185 45% 36%) 100%);
+    border: 1px solid hsl(0 0% 100% / 0.1);
     @apply rounded-2xl transition-all duration-500;
   }
 
   .card-premium:hover {
-    border-color: hsl(4 85% 58% / 0.3);
-    box-shadow: 0 20px 40px hsl(0 0% 0% / 0.4), 0 0 80px hsl(4 85% 58% / 0.1);
+    border-color: hsl(12 85% 58% / 0.3);
+    box-shadow: 0 20px 40px hsl(185 50% 15% / 0.3), 0 0 80px hsl(12 85% 58% / 0.1);
     transform: translateY(-4px);
   }
 
   /* Premium Buttons - KNSOFT Style */
   .btn-gradient {
-    background: linear-gradient(135deg, hsl(4 85% 58%), hsl(15 80% 50%));
+    background: linear-gradient(135deg, hsl(12 85% 58%), hsl(18 80% 52%));
     color: hsl(0 0% 100%);
     font-weight: 600;
     border: none;
@@ -181,7 +181,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, hsl(4 90% 62%), hsl(15 85% 55%));
+    background: linear-gradient(135deg, hsl(12 90% 62%), hsl(18 85% 55%));
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -210,38 +210,38 @@
 
   /* Section Backgrounds */
   .section-dark {
-    background: hsl(195 60% 12%);
+    background: hsl(185 45% 38%);
   }
 
   .section-gradient {
-    background: linear-gradient(180deg, hsl(195 60% 12%) 0%, hsl(195 55% 18%) 50%, hsl(195 60% 12%) 100%);
+    background: linear-gradient(180deg, hsl(185 45% 42%) 0%, hsl(185 40% 48%) 50%, hsl(185 45% 42%) 100%);
   }
 
   /* Glow Effects */
   .glow-red {
-    box-shadow: 0 0 80px hsl(4 85% 58% / 0.4);
+    box-shadow: 0 0 80px hsl(12 85% 58% / 0.4);
   }
 
   .glow-teal {
-    box-shadow: 0 0 80px hsl(185 60% 45% / 0.4);
+    box-shadow: 0 0 80px hsl(185 50% 50% / 0.4);
   }
 
   .text-glow {
-    text-shadow: 0 0 60px hsl(4 85% 58% / 0.6);
+    text-shadow: 0 0 60px hsl(12 85% 58% / 0.6);
   }
 
   /* 3D Sphere Effect */
   .sphere-3d {
     background: radial-gradient(circle at 30% 30%, 
-      hsl(185 60% 50%) 0%, 
-      hsl(195 55% 30%) 40%, 
-      hsl(195 50% 15%) 70%,
-      hsl(195 45% 8%) 100%
+      hsl(180 50% 55%) 0%, 
+      hsl(185 45% 45%) 40%, 
+      hsl(185 40% 35%) 70%,
+      hsl(185 35% 25%) 100%
     );
     box-shadow: 
-      inset -20px -20px 60px hsl(195 40% 5% / 0.8),
-      inset 20px 20px 60px hsl(185 60% 50% / 0.3),
-      0 0 120px hsl(4 80% 50% / 0.4);
+      inset -20px -20px 60px hsl(185 40% 20% / 0.6),
+      inset 20px 20px 60px hsl(180 50% 55% / 0.3),
+      0 0 120px hsl(12 80% 55% / 0.3);
   }
 
   /* Animations */
@@ -250,7 +250,7 @@
   }
 
   .animate-pulse-glow {
-    animation: pulseGlowRed 4s ease-in-out infinite;
+    animation: pulseGlowCoral 4s ease-in-out infinite;
   }
 
   .animate-gradient {
@@ -270,7 +270,7 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, hsl(4 85% 60%), hsl(185 60% 50%));
+    background: linear-gradient(135deg, hsl(12 85% 60%), hsl(180 50% 55%));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -284,13 +284,13 @@
   }
 
   .bg-gradient-radial {
-    background: radial-gradient(circle at center, hsl(4 85% 58% / 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle at center, hsl(12 85% 58% / 0.2) 0%, transparent 70%);
   }
 
   .border-gradient {
     border: 1px solid transparent;
-    background: linear-gradient(hsl(195 55% 15%), hsl(195 55% 15%)) padding-box,
-                linear-gradient(135deg, hsl(4 85% 58% / 0.3), hsl(185 60% 45% / 0.2)) border-box;
+    background: linear-gradient(hsl(185 40% 42%), hsl(185 40% 42%)) padding-box,
+                linear-gradient(135deg, hsl(12 85% 58% / 0.3), hsl(180 50% 55% / 0.2)) border-box;
   }
 }
 
@@ -300,9 +300,9 @@
   50% { transform: translateY(-30px); }
 }
 
-@keyframes pulseGlowRed {
-  0%, 100% { box-shadow: 0 0 60px hsl(4 85% 58% / 0.3); }
-  50% { box-shadow: 0 0 120px hsl(4 85% 58% / 0.5); }
+@keyframes pulseGlowCoral {
+  0%, 100% { box-shadow: 0 0 60px hsl(12 85% 58% / 0.3); }
+  50% { box-shadow: 0 0 120px hsl(12 85% 58% / 0.5); }
 }
 
 @keyframes gradientShift {
