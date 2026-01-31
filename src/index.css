@@ -9,11 +9,11 @@
 @layer base {
   :root {
     /* KNSOFT Brand Colors - Sky Blue/Cyan & Coral Theme */
-    --background: 190 45% 55%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 210 50% 15%;
 
-    /* Light section background - matches knsofttech.com */
-    --background-light: 210 20% 96%;
+    /* Light section background - Pure White */
+    --background-light: 0 0% 100%;
     --foreground-dark: 210 50% 15%;
 
     --card: 190 40% 50%;
@@ -192,9 +192,9 @@
     transform: translateY(-4px);
   }
 
-  /* Light Section Background */
+  /* Light Section Background - Pure White */
   .section-light {
-    background: hsl(210 20% 96%);
+    background: hsl(0 0% 100%);
   }
 
   /* Premium Buttons - KNSOFT Style */
