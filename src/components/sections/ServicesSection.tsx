@@ -26,11 +26,11 @@ export function ServicesSection() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8 }} className="text-center mb-20">
-          <span className="inline-block text-primary font-medium text-sm uppercase tracking-[0.2em] mb-6">Our Services</span>
+          <span className="inline-block text-primary font-bold text-sm uppercase tracking-[0.2em] mb-6 drop-shadow-md">Our Services</span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-display-lg font-bold mb-6">
-            <span className="text-white">Solutions That</span> <span className="text-gradient">Drive Growth</span>
+            <span className="text-white drop-shadow-lg [text-shadow:_0_2px_15px_rgb(255_255_255_/_25%)]">Solutions That</span> <span className="text-gradient drop-shadow-lg">Drive Growth</span>
           </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">Comprehensive IT solutions tailored to transform your business.</p>
+          <p className="text-lg text-white font-medium max-w-2xl mx-auto drop-shadow-sm">Comprehensive IT solutions tailored to transform your business.</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -43,8 +43,8 @@ export function ServicesSection() {
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 mb-8 group-hover:scale-110 transition-all duration-500">
                       <service.icon className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors">{service.title}</h3>
-                    <p className="text-base text-white/60 leading-relaxed mb-6">{service.description}</p>
+                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors drop-shadow-md">{service.title}</h3>
+                    <p className="text-base text-white/90 leading-relaxed mb-6 font-medium">{service.description}</p>
                     <div className="flex items-center text-primary font-medium opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <span>Learn More</span>
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

@@ -71,7 +71,7 @@ export function HeroSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            <span className="text-sm font-medium text-white/80">
+            <span className="text-sm font-semibold text-white">
               CMMI Level 3 & ISO Certified Excellence
             </span>
           </motion.div>
@@ -83,9 +83,9 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-8"
           >
-            <span className="text-white">Transform Your</span>
+            <span className="text-white drop-shadow-lg [text-shadow:_0_2px_20px_rgb(255_255_255_/_30%)]">Transform Your</span>
             <br />
-            <span className="text-gradient">Digital Vision</span>
+            <span className="text-gradient drop-shadow-lg">Digital Vision</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -93,7 +93,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="text-lg sm:text-xl md:text-2xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
+            className="text-lg sm:text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md"
           >
             Cutting-edge technology solutions that propel your business into the future. 
             KNSOFT Technologies delivers enterprise-grade software and digital transformation services.
@@ -139,7 +139,7 @@ export function HeroSection() {
         className="relative z-10 py-16"
       >
         <div className="text-center mb-8">
-          <span className="text-sm font-medium text-primary uppercase tracking-widest">
+          <span className="text-sm font-bold text-white uppercase tracking-widest drop-shadow-md">
             Trusted by top companies
           </span>
         </div>
@@ -150,7 +150,7 @@ export function HeroSection() {
             {trustedBy.map((name, index) => (
               <span 
                 key={index} 
-                className="text-lg font-medium text-white/30 hover:text-white/50 transition-colors cursor-default"
+                className="text-lg font-semibold text-white/70 hover:text-white transition-colors cursor-default"
               >
                 {name}
               </span>
