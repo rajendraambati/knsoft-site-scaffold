@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,19 +14,6 @@ const trustedBy = [
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollY } = useScroll();
-  
-  // Hero content fade out
-  const contentOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const contentScale = useTransform(scrollY, [0, 400], [1, 0.95]);
-  
-  // Arc/Sphere animation - moves left and fades out
-  const arcX = useTransform(scrollY, [0, 600], [0, -800]);
-  const arcOpacity = useTransform(scrollY, [200, 600], [1, 0]);
-  const arcScale = useTransform(scrollY, [0, 600], [1, 0.6]);
-  
-  // Background transition - blue to white reveal
-  const bgOpacity = useTransform(scrollY, [300, 700], [1, 0]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -41,10 +28,12 @@ export function HeroSection() {
 
   return (
     <>
-      {/* Fixed Background Arc Layer - moves left on scroll */}
+      {/* Background Arc Layer - animates left and fades out on load */}
       <motion.div 
         className="fixed inset-0 pointer-events-none z-0"
-        style={{ opacity: bgOpacity }}
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
       >
         {/* Gradient Background */}
         <div className="absolute inset-0 hero-gradient" />
@@ -55,26 +44,26 @@ export function HeroSection() {
         {/* Gradient Mesh Overlay */}
         <div className="absolute inset-0 bg-gradient-mesh" />
         
-        {/* Animated Arc/Sphere that moves left */}
+        {/* Animated Arc/Sphere that moves left and disappears */}
         <motion.div 
-          className="absolute bottom-0 left-1/2 w-[800px] h-[800px] md:w-[1200px] md:h-[1200px] rounded-full sphere-3d"
-          style={{
-            x: arcX,
-            opacity: arcOpacity,
-            scale: arcScale,
-            translateX: '-50%',
-            translateY: '50%',
-          }}
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[800px] h-[800px] md:w-[1200px] md:h-[1200px] rounded-full sphere-3d"
+          initial={{ x: 0, scale: 1, opacity: 1 }}
+          animate={{ x: -600, scale: 0.5, opacity: 0 }}
+          transition={{ duration: 2, delay: 1.5, ease: "easeInOut" }}
         />
         
         {/* Glow Effects */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] opacity-50"
-          style={{ x: arcX, opacity: arcOpacity }}
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px]"
+          initial={{ opacity: 0.5 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 1.5, delay: 2 }}
         />
         <motion.div 
-          className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-accent/15 rounded-full blur-[120px] opacity-40"
-          style={{ x: arcX, opacity: arcOpacity }}
+          className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-accent/15 rounded-full blur-[120px]"
+          initial={{ opacity: 0.4 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 1.5, delay: 2 }}
         />
       </motion.div>
 
@@ -82,11 +71,13 @@ export function HeroSection() {
         ref={sectionRef}
         className="relative min-h-screen flex flex-col overflow-hidden"
       >
+        {/* Static Hero Background that stays */}
+        <div className="absolute inset-0 hero-gradient" />
+        <div className="absolute inset-0 grid-pattern opacity-40" />
+        <div className="absolute inset-0 bg-gradient-mesh" />
+
         {/* Main Content */}
-        <motion.div 
-          className="flex-1 flex items-center justify-center container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24"
-          style={{ opacity: contentOpacity, scale: contentScale }}
-        >
+        <div className="flex-1 flex items-center justify-center container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24">
           <div className="max-w-5xl mx-auto text-center">
             {/* Pre-title Badge */}
             <motion.div
@@ -157,7 +148,7 @@ export function HeroSection() {
               </Button>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Trusted By Section */}
         <motion.div
@@ -165,7 +156,6 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
           className="relative z-10 py-16"
-          style={{ opacity: contentOpacity }}
         >
           <div className="text-center mb-8">
             <span className="text-sm font-bold text-white uppercase tracking-widest drop-shadow-md">
@@ -194,7 +184,6 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-          style={{ opacity: contentOpacity }}
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
