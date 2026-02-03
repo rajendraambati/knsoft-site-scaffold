@@ -186,19 +186,19 @@ export function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-72 glass-dark rounded-2xl shadow-2xl overflow-hidden"
+                        className="absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
                       >
                         <div className="p-2">
                           {productsDropdown.map((product) => (
                             <Link
                               key={product.name}
                               to={product.href}
-                              className="block px-4 py-3 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                              className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors"
                             >
                               {product.name}
                             </Link>
                           ))}
-                          <div className="border-t border-white/10 mt-2 pt-2">
+                          <div className="border-t border-gray-100 mt-2 pt-2">
                             <Link
                               to="/products"
                               className="flex items-center justify-between px-4 py-3 rounded-xl text-primary hover:bg-primary/10 transition-colors"
@@ -222,22 +222,22 @@ export function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-80 glass-dark rounded-2xl shadow-2xl overflow-hidden"
+                        className="absolute top-full left-0 mt-2 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
                       >
                         <div className="p-2">
                           {servicesDropdown.map((service) => (
                             <Link
                               key={service.name}
                               to={service.href}
-                              className="flex flex-col px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group"
+                              className="flex flex-col px-4 py-3 rounded-xl hover:bg-gray-50 transition-colors group"
                             >
-                              <span className="font-medium text-white group-hover:text-primary transition-colors">
+                              <span className="font-medium text-gray-700 group-hover:text-primary transition-colors">
                                 {service.name}
                               </span>
-                              <span className="text-xs text-white/50">{service.description}</span>
+                              <span className="text-xs text-gray-500">{service.description}</span>
                             </Link>
                           ))}
-                          <div className="border-t border-white/10 mt-2 pt-2">
+                          <div className="border-t border-gray-100 mt-2 pt-2">
                             <Link
                               to="/services"
                               className="flex items-center justify-between px-4 py-3 rounded-xl text-primary hover:bg-primary/10 transition-colors"
@@ -261,16 +261,16 @@ export function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-56 glass-dark rounded-2xl shadow-2xl overflow-hidden"
+                        className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
                       >
                         <div className="p-2">
-                          <Link to="/about" className="block px-4 py-3 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
+                          <Link to="/about" className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
                             About Us
                           </Link>
-                          <Link to="/careers" className="block px-4 py-3 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
+                          <Link to="/careers" className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
                             Careers
                           </Link>
-                          <Link to="/contact" className="block px-4 py-3 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
+                          <Link to="/contact" className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
                             Contact
                           </Link>
                         </div>
@@ -288,13 +288,13 @@ export function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-56 glass-dark rounded-2xl shadow-2xl overflow-hidden"
+                        className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
                       >
                         <div className="p-2">
-                          <Link to="/success-stories" className="block px-4 py-3 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
+                          <Link to="/success-stories" className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
                             Case Studies
                           </Link>
-                          <Link to="/services/workforce-upskilling" className="block px-4 py-3 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
+                          <Link to="/services/workforce-upskilling" className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
                             Training
                           </Link>
                         </div>
@@ -324,7 +324,7 @@ export function Header() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full right-0 mt-2 w-80 glass-dark rounded-2xl shadow-2xl overflow-hidden"
+                    className="absolute top-full right-0 mt-2 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100"
                   >
                     <div className="p-3">
                       <Input
@@ -333,7 +333,7 @@ export function Header() {
                         placeholder="Search pages..."
                         value={searchQuery}
                         onChange={(e) => handleSearch(e.target.value)}
-                        className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
+                        className="w-full bg-gray-50 border-gray-200 text-gray-800 placeholder:text-gray-400 focus:border-primary"
                       />
                       {searchResults.length > 0 && (
                         <div className="mt-2 max-h-64 overflow-y-auto">
@@ -341,7 +341,7 @@ export function Header() {
                             <button
                               key={result.href}
                               onClick={() => handleSearchSelect(result.href)}
-                              className="w-full text-left px-3 py-2 rounded-lg text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                              className="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors"
                             >
                               {result.name}
                             </button>
@@ -349,7 +349,7 @@ export function Header() {
                         </div>
                       )}
                       {searchQuery && searchResults.length === 0 && (
-                        <p className="mt-2 px-3 py-2 text-sm text-white/50">No results found</p>
+                        <p className="mt-2 px-3 py-2 text-sm text-gray-500">No results found</p>
                       )}
                     </div>
                   </motion.div>
