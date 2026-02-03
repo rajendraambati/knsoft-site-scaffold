@@ -117,14 +117,9 @@ export function Header() {
     dropdownTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
   };
 
-  // Determine text color based on page and scroll state
-  const textColorClass = isHomePage || isScrolled 
-    ? "text-white/80 hover:text-white" 
-    : "text-foreground/80 hover:text-foreground";
-  
-  const iconColorClass = isHomePage || isScrolled
-    ? "text-white/60 hover:text-white"
-    : "text-foreground/60 hover:text-foreground";
+  // Text is always white since navbar always has teal background on sub-pages
+  const textColorClass = "text-white/80 hover:text-white";
+  const iconColorClass = "text-white/60 hover:text-white";
 
   return (
     <header 
@@ -134,7 +129,7 @@ export function Header() {
           ? "py-3 glass shadow-lg" 
           : isHomePage 
             ? "py-4 bg-transparent"
-            : "py-4 bg-white/95 backdrop-blur-sm shadow-sm"
+            : "py-4 section-dark"
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -373,10 +368,7 @@ export function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className={cn(
-                "hover:bg-white/10",
-                isHomePage || isScrolled ? "text-white" : "text-foreground"
-              )}
+              className="text-white hover:bg-white/10"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
