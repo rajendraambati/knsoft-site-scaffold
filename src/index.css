@@ -8,23 +8,23 @@
 
 @layer base {
   :root {
-    /* KNSOFT Brand Colors - Sky Blue/Cyan & Coral Theme */
+    /* KNSOFT Brand Colors - Teal/Cyan & Coral Theme */
     --background: 0 0% 100%;
-    --foreground: 210 50% 15%;
+    --foreground: 200 35% 25%;
 
     /* Light section background - Pure White */
     --background-light: 0 0% 100%;
-    --foreground-dark: 210 50% 15%;
+    --foreground-dark: 200 35% 25%;
 
-    --card: 190 40% 50%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 200 35% 25%;
     
     /* Light card for light sections */
     --card-light: 0 0% 100%;
-    --card-light-foreground: 210 50% 15%;
+    --card-light-foreground: 200 35% 25%;
 
-    --popover: 190 40% 48%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 35% 25%;
 
     /* Primary - KNSOFT Logo "KN" Red/Coral */
     --primary: 12 85% 55%;
@@ -35,11 +35,11 @@
     --secondary: 200 35% 20%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 190 35% 48%;
-    --muted-foreground: 0 0% 95%;
+    --muted: 200 20% 96%;
+    --muted-foreground: 200 30% 35%;
 
-    /* Accent - Sky Blue/Cyan */
-    --accent: 190 50% 60%;
+    /* Accent - Teal/Cyan for headings on white */
+    --accent: 188 55% 38%;
     --accent-foreground: 0 0% 100%;
 
     /* CTA - KNSOFT Coral/Orange-Red */
@@ -49,8 +49,8 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 190 30% 60%;
-    --input: 190 35% 55%;
+    --border: 200 20% 88%;
+    --input: 200 20% 92%;
     --ring: 12 85% 55%;
 
     --radius: 0.75rem;
@@ -248,17 +248,22 @@
     background: linear-gradient(180deg, hsl(188 55% 32%) 0%, hsl(186 50% 38%) 50%, hsl(184 45% 45%) 100%);
   }
 
-  /* Text colors for light sections */
+  /* Text colors for light sections - matching knsofttech.com */
   .text-dark-heading {
-    color: hsl(200 45% 18%);
+    color: hsl(188 60% 35%);
   }
 
   .text-dark-body {
-    color: hsl(210 20% 35%);
+    color: hsl(200 35% 25%);
   }
 
   .text-dark-muted {
-    color: hsl(210 15% 50%);
+    color: hsl(200 25% 40%);
+  }
+
+  /* Accent heading color - teal for white backgrounds */
+  .text-accent-heading {
+    color: hsl(188 55% 38%);
   }
 
   /* Glow Effects */
@@ -314,7 +319,7 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, hsl(12 85% 55%), hsl(190 50% 60%));
+    background: linear-gradient(135deg, hsl(188 55% 38%), hsl(188 50% 45%));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
