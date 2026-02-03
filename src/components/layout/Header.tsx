@@ -64,6 +64,9 @@ export function Header() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
+  
+  // Check if we're on the homepage
+  const isHomePage = location.pathname === "/";
 
   // Handle search
   const handleSearch = (query: string) => {
@@ -114,13 +117,24 @@ export function Header() {
     dropdownTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
   };
 
+  // Determine text color based on page and scroll state
+  const textColorClass = isHomePage || isScrolled 
+    ? "text-white/80 hover:text-white" 
+    : "text-foreground/80 hover:text-foreground";
+  
+  const iconColorClass = isHomePage || isScrolled
+    ? "text-white/60 hover:text-white"
+    : "text-foreground/60 hover:text-foreground";
+
   return (
     <header 
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-500",
         isScrolled 
           ? "py-3 glass shadow-lg" 
-          : "py-4 bg-transparent"
+          : isHomePage 
+            ? "py-4 bg-transparent"
+            : "py-4 bg-white/95 backdrop-blur-sm shadow-sm"
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -152,12 +166,12 @@ export function Header() {
                 {item.href ? (
                   <Link
                     to={item.href}
-                    className="flex items-center px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
+                    className={cn("flex items-center px-4 py-2 text-sm font-medium transition-colors", textColorClass)}
                   >
                     {item.name}
                   </Link>
                 ) : (
-                  <button className="flex items-center px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors">
+                  <button className={cn("flex items-center px-4 py-2 text-sm font-medium transition-colors", textColorClass)}>
                     {item.name}
                     {item.hasDropdown && (
                       <ChevronDown className={cn(
@@ -303,7 +317,7 @@ export function Header() {
             <div className="relative">
               <button 
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="p-2 text-white/60 hover:text-white transition-colors"
+                className={cn("p-2 transition-colors", iconColorClass)}
               >
                 <Search className="w-5 h-5" />
               </button>
@@ -359,7 +373,10 @@ export function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:bg-white/10"
+              className={cn(
+                "hover:bg-white/10",
+                isHomePage || isScrolled ? "text-white" : "text-foreground"
+              )}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
