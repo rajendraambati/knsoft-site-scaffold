@@ -138,9 +138,8 @@ export function HeroSection() {
               
               <Button 
                 asChild 
-                variant="outline" 
                 size="sm"
-                className="btn-outline-glow text-sm px-5 py-2 h-auto rounded-lg"
+                className="btn-gradient text-sm px-5 py-2 h-auto rounded-lg"
               >
                 <Link to="/about">
                   <span>Learn more</span>
