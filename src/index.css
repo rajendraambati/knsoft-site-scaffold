@@ -55,19 +55,19 @@
 
     --radius: 0.75rem;
 
-    /* Premium Gradients - KNSOFT Sky Blue Style */
+    /* Premium Gradients - KNSOFT Teal/Cyan Style */
     --gradient-hero: linear-gradient(180deg, 
-      hsl(195 50% 60%) 0%, 
-      hsl(190 45% 55%) 30%,
-      hsl(185 40% 50%) 70%,
-      hsl(180 38% 45%) 100%
+      hsl(188 55% 32%) 0%, 
+      hsl(186 50% 38%) 30%,
+      hsl(184 45% 45%) 70%,
+      hsl(182 40% 55%) 100%
     );
     --gradient-primary: linear-gradient(135deg, hsl(12 85% 55%), hsl(8 80% 50%));
-    --gradient-card: linear-gradient(180deg, hsl(190 40% 52%) 0%, hsl(190 45% 48%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(188 50% 35%) 0%, hsl(186 45% 40%) 100%);
     --gradient-glow: radial-gradient(circle, hsl(12 85% 55% / 0.4) 0%, transparent 70%);
-    --gradient-mesh: radial-gradient(ellipse 80% 50% at 50% 0%, hsl(195 50% 65% / 0.4) 0%, transparent 60%),
-                     radial-gradient(ellipse 60% 40% at 80% 30%, hsl(190 45% 60% / 0.3) 0%, transparent 50%),
-                     radial-gradient(ellipse 50% 30% at 20% 60%, hsl(185 40% 55% / 0.2) 0%, transparent 50%);
+    --gradient-mesh: radial-gradient(ellipse 80% 50% at 50% 0%, hsl(188 55% 40% / 0.3) 0%, transparent 60%),
+                     radial-gradient(ellipse 60% 40% at 80% 30%, hsl(186 50% 45% / 0.2) 0%, transparent 50%),
+                     radial-gradient(ellipse 50% 30% at 20% 60%, hsl(184 45% 50% / 0.15) 0%, transparent 50%);
     
     /* Premium Shadows */
     --shadow-elegant: 0 25px 50px -12px hsl(190 50% 25% / 0.3);
@@ -108,7 +108,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(190 45% 48%);
+    background: hsl(188 50% 35%);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -152,14 +152,14 @@
 
   /* Glassmorphism - KNSOFT style */
   .glass {
-    background: hsl(190 40% 55% / 0.6);
+    background: hsl(188 50% 38% / 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid hsl(0 0% 100% / 0.2);
   }
 
   .glass-dark {
-    background: hsl(190 45% 50% / 0.8);
+    background: hsl(188 50% 35% / 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid hsl(0 0% 100% / 0.15);
@@ -167,14 +167,14 @@
 
   /* Premium Cards - KNSOFT Style */
   .card-premium {
-    background: linear-gradient(180deg, hsl(190 40% 52%) 0%, hsl(190 45% 48%) 100%);
+    background: linear-gradient(180deg, hsl(188 50% 38%) 0%, hsl(186 45% 35%) 100%);
     border: 1px solid hsl(0 0% 100% / 0.15);
     @apply rounded-2xl transition-all duration-500;
   }
 
   .card-premium:hover {
     border-color: hsl(12 85% 55% / 0.3);
-    box-shadow: 0 20px 40px hsl(190 50% 25% / 0.25), 0 0 80px hsl(12 85% 55% / 0.1);
+    box-shadow: 0 20px 40px hsl(188 50% 20% / 0.25), 0 0 80px hsl(12 85% 55% / 0.1);
     transform: translateY(-4px);
   }
 
@@ -241,11 +241,11 @@
 
   /* Section Backgrounds */
   .section-dark {
-    background: hsl(190 45% 50%);
+    background: hsl(188 50% 35%);
   }
 
   .section-gradient {
-    background: linear-gradient(180deg, hsl(195 50% 58%) 0%, hsl(190 45% 55%) 50%, hsl(185 40% 50%) 100%);
+    background: linear-gradient(180deg, hsl(188 55% 32%) 0%, hsl(186 50% 38%) 50%, hsl(184 45% 45%) 100%);
   }
 
   /* Text colors for light sections */
@@ -277,14 +277,14 @@
   /* 3D Sphere Effect */
   .sphere-3d {
     background: radial-gradient(circle at 30% 30%, 
-      hsl(195 50% 65%) 0%, 
-      hsl(190 45% 55%) 40%, 
-      hsl(185 40% 48%) 70%,
-      hsl(180 38% 40%) 100%
+      hsl(186 50% 50%) 0%, 
+      hsl(186 45% 42%) 40%, 
+      hsl(188 42% 35%) 70%,
+      hsl(188 40% 28%) 100%
     );
     box-shadow: 
-      inset -20px -20px 60px hsl(185 40% 35% / 0.5),
-      inset 20px 20px 60px hsl(195 50% 65% / 0.3),
+      inset -20px -20px 60px hsl(188 40% 25% / 0.5),
+      inset 20px 20px 60px hsl(186 50% 50% / 0.3),
       0 0 120px hsl(12 80% 55% / 0.25);
   }
 
