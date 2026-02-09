@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,8 +12,17 @@ const trustedBy = [
   "Retail", "Logistics", "Real Estate", "Hospitality", "Pharma", "Energy"
 ];
 
+const slidingTexts = [
+  "Transform Your Digital Vision",
+  "Innovate With AI Solutions",
+  "Build Enterprise Software",
+  "Accelerate Business Growth",
+  "Empower Digital Transformation",
+];
+
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -25,6 +34,13 @@ export function HeroSection() {
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % slidingTexts.length);
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -95,17 +111,26 @@ export function HeroSection() {
               </span>
             </motion.div>
 
-            {/* Main Headline */}
-            <motion.h1
+            {/* Main Headline with Sliding Text */}
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-8"
+              className="h-[120px] sm:h-[140px] md:h-[160px] lg:h-[180px] xl:h-[200px] flex items-center justify-center mb-8 overflow-hidden"
             >
-              <span className="text-white drop-shadow-lg [text-shadow:_0_2px_20px_rgb(255_255_255_/_30%)]">Transform Your</span>
-              <br />
-              <span className="text-gradient drop-shadow-lg">Digital Vision</span>
-            </motion.h1>
+              <AnimatePresence mode="wait">
+                <motion.h1
+                  key={currentTextIndex}
+                  initial={{ y: 60, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -60, opacity: 0 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-tight leading-[1.05] text-white drop-shadow-lg [text-shadow:_0_2px_20px_rgb(255_255_255_/_30%)]"
+                >
+                  {slidingTexts[currentTextIndex]}
+                </motion.h1>
+              </AnimatePresence>
+            </motion.div>
 
             {/* Subtitle */}
             <motion.p
