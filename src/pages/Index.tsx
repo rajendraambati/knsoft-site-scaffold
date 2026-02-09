@@ -29,7 +29,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen relative" style={{ backgroundColor: 'hsl(189, 70%, 45%)' }}>
       <SEOHead 
         title="KNSOFT Technologies | Top Software Company in Hyderabad, India - Custom Software Development"
         description="KNSOFT Technologies is a leading software company in Hyderabad, India. Custom software development, web applications, mobile apps, ERP systems & IT consulting. 500+ clients | 10+ years | ISO certified."
