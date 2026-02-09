@@ -83,7 +83,7 @@ export function JobApplicationForm({ jobId, jobTitle }: JobApplicationFormProps)
             applicantName: data.name,
             applicantEmail: data.email,
             coverLetter: data.cover_letter,
-            resumeUrl: publicUrl,
+            resumeUrl: fileName,
           },
         });
       } catch (emailError) {
