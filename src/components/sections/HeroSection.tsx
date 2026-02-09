@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
+import heroBgVideo from "@/assets/hero-bg-video.mp4";
 
 const trustedBy = [
   "Healthcare", "FinTech", "E-Commerce", "Manufacturing", "Education", "Government",
@@ -35,14 +36,18 @@ export function HeroSection() {
         animate={{ opacity: 0 }}
         transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
       >
-        {/* Gradient Background */}
-        <div className="absolute inset-0 hero-gradient" />
-        
-        {/* Subtle Grid */}
-        <div className="absolute inset-0 grid-pattern opacity-40" />
-        
-        {/* Gradient Mesh Overlay */}
-        <div className="absolute inset-0 bg-gradient-mesh" />
+        {/* Video Background for intro */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={heroBgVideo} type="video/mp4" />
+        </video>
+        {/* Teal Gradient Overlay */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, hsl(189 65% 30% / 0.7) 0%, hsl(189 70% 38% / 0.6) 50%, hsl(189 60% 45% / 0.5) 100%)' }} />
         
         {/* Animated Arc/Sphere that moves left and disappears */}
         <motion.div 
@@ -51,30 +56,25 @@ export function HeroSection() {
           animate={{ x: -600, scale: 0.5, opacity: 0 }}
           transition={{ duration: 2, delay: 1.5, ease: "easeInOut" }}
         />
-        
-        {/* Glow Effects */}
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px]"
-          initial={{ opacity: 0.5 }}
-          animate={{ opacity: 0 }}
-          transition={{ duration: 1.5, delay: 2 }}
-        />
-        <motion.div 
-          className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-accent/15 rounded-full blur-[120px]"
-          initial={{ opacity: 0.4 }}
-          animate={{ opacity: 0 }}
-          transition={{ duration: 1.5, delay: 2 }}
-        />
       </motion.div>
 
       <motion.section 
         ref={sectionRef}
         className="relative min-h-screen flex flex-col overflow-hidden"
       >
-        {/* Static Hero Background that stays */}
-        <div className="absolute inset-0 hero-gradient" />
-        <div className="absolute inset-0 grid-pattern opacity-40" />
-        <div className="absolute inset-0 bg-gradient-mesh" />
+        {/* Video Background that stays */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={heroBgVideo} type="video/mp4" />
+        </video>
+        {/* Teal Gradient Overlay matching reference */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, hsl(189 65% 30% / 0.75) 0%, hsl(189 70% 38% / 0.65) 40%, hsl(189 60% 45% / 0.6) 70%, hsl(200 30% 80% / 0.8) 95%, hsl(0 0% 100% / 0.95) 100%)' }} />
+        <div className="absolute inset-0 grid-pattern opacity-20" />
 
         {/* Main Content */}
         <div className="flex-1 flex items-center justify-center container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24">
