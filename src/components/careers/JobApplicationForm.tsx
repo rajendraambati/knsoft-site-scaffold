@@ -61,12 +61,8 @@ export function JobApplicationForm({ jobId, jobTitle }: JobApplicationFormProps)
 
       if (uploadError) throw uploadError;
 
-      // Get the resume URL
-      const { data: { publicUrl } } = supabase.storage
-        .from('resumes')
-        .getPublicUrl(fileName);
-
-      // Save application to database
+      // Store file path (not public URL) since bucket is private
+      // Admin/HR can generate signed URLs on-demand to access resumes
       const { error: dbError } = await supabase
         .from('applications')
         .insert({
@@ -74,7 +70,7 @@ export function JobApplicationForm({ jobId, jobTitle }: JobApplicationFormProps)
           name: data.name,
           email: data.email,
           cover_letter: data.cover_letter,
-          resume_url: publicUrl,
+          resume_url: fileName,
         });
 
       if (dbError) throw dbError;

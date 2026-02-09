@@ -9,6 +9,15 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 interface ApplicationNotificationRequest {
   jobTitle: string;
   applicantName: string;
@@ -18,7 +27,6 @@ interface ApplicationNotificationRequest {
 }
 
 const handler = async (req: Request): Promise<Response> => {
-  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -34,33 +42,40 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log(`Processing job application for ${jobTitle} from ${applicantName}`);
 
+    // Sanitize all user-supplied data before embedding in HTML
+    const safeJobTitle = escapeHtml(jobTitle);
+    const safeName = escapeHtml(applicantName);
+    const safeEmail = escapeHtml(applicantEmail);
+    const safeCoverLetter = escapeHtml(coverLetter).replace(/\n/g, '<br>');
+    const safeResumeUrl = escapeHtml(resumeUrl);
+
     // Send notification email to HR/Recruiting team
     const hrEmailResponse = await resend.emails.send({
       from: "KNSOFT Careers <noreply@resend.dev>",
-      to: ["osaka9449@gmail.com"], // HR email
-      subject: `New Job Application: ${jobTitle}`,
+      to: ["osaka9449@gmail.com"],
+      subject: `New Job Application: ${safeJobTitle}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h1 style="color: #1A2B4C;">New Job Application Received</h1>
           
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h2 style="color: #1A2B4C; margin-top: 0;">Position: ${jobTitle}</h2>
-            <p><strong>Applicant:</strong> ${applicantName}</p>
-            <p><strong>Email:</strong> ${applicantEmail}</p>
+            <h2 style="color: #1A2B4C; margin-top: 0;">Position: ${safeJobTitle}</h2>
+            <p><strong>Applicant:</strong> ${safeName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
             <p><strong>Application Date:</strong> ${new Date().toLocaleDateString()}</p>
           </div>
 
           <div style="margin: 20px 0;">
             <h3 style="color: #1A2B4C;">Cover Letter:</h3>
             <div style="background-color: #fff; padding: 15px; border-left: 4px solid #F9A825; margin: 10px 0;">
-              ${coverLetter.replace(/\n/g, '<br>')}
+              ${safeCoverLetter}
             </div>
           </div>
 
           <div style="margin: 20px 0;">
             <h3 style="color: #1A2B4C;">Resume:</h3>
             <p>The applicant's resume has been uploaded to the system. You can access it through the admin dashboard.</p>
-            <p style="color: #666; font-size: 12px;">Resume URL: ${resumeUrl}</p>
+            <p style="color: #666; font-size: 12px;">Resume path: ${safeResumeUrl}</p>
           </div>
 
           <div style="background-color: #1A2B4C; color: white; padding: 15px; border-radius: 8px; margin: 20px 0;">
@@ -81,14 +96,14 @@ const handler = async (req: Request): Promise<Response> => {
     const applicantEmailResponse = await resend.emails.send({
       from: "KNSOFT Careers <noreply@resend.dev>",
       to: [applicantEmail],
-      subject: `Application Received: ${jobTitle}`,
+      subject: `Application Received: ${safeJobTitle}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h1 style="color: #1A2B4C;">Thank You for Your Application!</h1>
           
-          <p>Dear ${applicantName},</p>
+          <p>Dear ${safeName},</p>
           
-          <p>Thank you for your interest in the <strong>${jobTitle}</strong> position at KNSOFT Technologies. We have successfully received your application and resume.</p>
+          <p>Thank you for your interest in the <strong>${safeJobTitle}</strong> position at KNSOFT Technologies. We have successfully received your application and resume.</p>
 
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h2 style="color: #1A2B4C; margin-top: 0;">What's Next?</h2>
@@ -140,8 +155,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.error("Error in send-application-notification function:", error);
     return new Response(
       JSON.stringify({ 
-        error: "Failed to send notification emails",
-        details: error.message 
+        error: "Failed to send notification emails"
       }),
       {
         status: 500,
