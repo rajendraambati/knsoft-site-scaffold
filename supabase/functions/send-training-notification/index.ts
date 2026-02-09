@@ -8,6 +8,15 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 interface TrainingNotificationRequest {
   name: string;
   email: string;
@@ -18,7 +27,6 @@ interface TrainingNotificationRequest {
 }
 
 const handler = async (req: Request): Promise<Response> => {
-  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -28,20 +36,28 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Processing training inquiry notification:", { name, email, courseInterest, teamSize });
 
+    // Sanitize all user-supplied data before embedding in HTML
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = phone ? escapeHtml(phone) : "";
+    const safeCourseInterest = escapeHtml(courseInterest);
+    const safeTeamSize = escapeHtml(teamSize);
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+
     // Send notification email to the company
     const companyEmailResponse = await resend.emails.send({
       from: "KNSOFT Training <onboarding@resend.dev>",
       to: ["training@knsofttech.com"],
-      subject: `New Training Inquiry: ${courseInterest} - Team of ${teamSize}`,
+      subject: `New Training Inquiry: ${safeCourseInterest} - Team of ${safeTeamSize}`,
       html: `
         <h2>New Training Inquiry Received</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ""}
-        <p><strong>Course Interest:</strong> ${courseInterest}</p>
-        <p><strong>Team Size:</strong> ${teamSize}</p>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
+        ${safePhone ? `<p><strong>Phone:</strong> ${safePhone}</p>` : ""}
+        <p><strong>Course Interest:</strong> ${safeCourseInterest}</p>
+        <p><strong>Team Size:</strong> ${safeTeamSize}</p>
         <h3>Message:</h3>
-        <p>${message.replace(/\n/g, "<br>")}</p>
+        <p>${safeMessage}</p>
         <hr>
         <p><em>Submitted at: ${new Date().toLocaleString()}</em></p>
       `,
@@ -56,8 +72,8 @@ const handler = async (req: Request): Promise<Response> => {
       subject: "We Received Your Training Inquiry - KNSOFT Technologies",
       html: `
         <h2>Thank you for your interest in our training programs!</h2>
-        <p>Dear ${name},</p>
-        <p>We have received your inquiry for <strong>${courseInterest}</strong> training for your team of <strong>${teamSize}</strong>.</p>
+        <p>Dear ${safeName},</p>
+        <p>We have received your inquiry for <strong>${safeCourseInterest}</strong> training for your team of <strong>${safeTeamSize}</strong>.</p>
         <p>Our training team will review your requirements and get back to you within 24 hours to discuss:</p>
         <ul>
           <li>Customized training program structure</li>
@@ -73,9 +89,9 @@ const handler = async (req: Request): Promise<Response> => {
         <hr>
         <p style="font-size: 12px; color: #666;">
           <strong>Your Inquiry Details:</strong><br>
-          Course: ${courseInterest}<br>
-          Team Size: ${teamSize}<br>
-          ${phone ? `Phone: ${phone}<br>` : ""}
+          Course: ${safeCourseInterest}<br>
+          Team Size: ${safeTeamSize}<br>
+          ${safePhone ? `Phone: ${safePhone}<br>` : ""}
           Submitted: ${new Date().toLocaleString()}
         </p>
       `,
@@ -100,7 +116,7 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in send-training-notification function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "Failed to process training inquiry" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
