@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Bot, User, Sparkles, Zap, Loader2, ExternalLink, Headset } from 'lucide-react';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import chatbotAvatar from '@/assets/chatbot-avatar.png';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -412,6 +413,7 @@ const ChatBot = () => {
                 className="relative z-10 flex items-center justify-center"
               >
                 <Avatar className="w-9 h-9 border-2 border-white/30">
+                  <AvatarImage src={chatbotAvatar} alt="Chat assistant" />
                   <AvatarFallback className="bg-white/20 text-white">
                     <Headset className="w-5 h-5" />
                   </AvatarFallback>
