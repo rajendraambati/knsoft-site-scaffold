@@ -412,7 +412,7 @@ const ChatBot = () => {
                 transition={{ duration: 0.2 }}
                 className="relative z-10 flex items-center justify-center"
               >
-                <Avatar className="w-9 h-9 border-2 border-white/30">
+                <Avatar className="w-9 h-9">
                   <AvatarImage src={chatbotAvatar} alt="Chat assistant" />
                   <AvatarFallback className="bg-white/20 text-white">
                     <Headset className="w-5 h-5" />
