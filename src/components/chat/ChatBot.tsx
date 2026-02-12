@@ -416,12 +416,12 @@ const ChatBot = () => {
                 transition={{ duration: 0.2 }}
                 className="relative z-10 flex items-center justify-center"
               >
-                <Avatar className="w-9 h-9">
-                  <AvatarImage src={chatbotAvatar} alt="Chat assistant" />
-                  <AvatarFallback className="bg-white/20 text-white">
-                    <Headset className="w-5 h-5" />
-                  </AvatarFallback>
-                </Avatar>
+                <Avatar className="w-9 h-9 border-0 bg-transparent">
+                   <AvatarImage src={chatbotAvatar} alt="Chat assistant" className="object-cover" />
+                   <AvatarFallback className="bg-white/20 text-white">
+                     <Headset className="w-5 h-5" />
+                   </AvatarFallback>
+                 </Avatar>
                 <motion.div
                   className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full"
                   animate={{ scale: [1, 1.3, 1] }}
