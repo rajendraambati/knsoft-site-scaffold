@@ -68,7 +68,7 @@ const ChatBot = () => {
     }
   };
 
-  // Show welcome popup after 3 seconds
+  // Show welcome popup after 3 seconds (stays until dismissed)
   useEffect(() => {
     const name = AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
     setPopupName(name);
@@ -78,13 +78,8 @@ const ChatBot = () => {
         playNotificationSound();
       }
     }, 3000);
-    // Auto-hide after 10 seconds
-    const hideTimer = setTimeout(() => {
-      setShowPopup(false);
-    }, 13000);
     return () => {
       clearTimeout(timer);
-      clearTimeout(hideTimer);
     };
   }, []);
 
@@ -181,6 +176,7 @@ const ChatBot = () => {
       setTimeout(() => {
         setMessages(prev => [...prev, botResponse]);
         setIsTyping(false);
+        playNotificationSound();
         
         // Handle job application intent
         if (botResponse.action === 'job_application' && botResponse.jobTitle) {
@@ -194,6 +190,7 @@ const ChatBot = () => {
       setTimeout(() => {
         addMessage("I apologize, but I'm having trouble processing your request right now. Please try again or contact our team directly for assistance.", 'bot');
         setIsTyping(false);
+        playNotificationSound();
       }, 1000);
     }
   };
