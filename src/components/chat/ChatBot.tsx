@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, Bot, User, Sparkles, Zap, Loader2, ExternalLink, Headset } from 'lucide-react';
+import { X, Send, Bot, User, Sparkles, Zap, Loader2, ExternalLink, Headset, Brain } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import chatbotAvatar from '@/assets/chatbot-avatar.png';
 import { Button } from '@/components/ui/button';
@@ -17,6 +18,7 @@ interface Message {
   sender: 'user' | 'bot';
   timestamp: Date;
   action?: 'job_application';
+  reasoning?: string;
   jobTitle?: string;
   sources?: Array<{
     content: string;
@@ -139,6 +141,7 @@ const ChatBot = () => {
         timestamp: new Date(),
         action: data.action,
         jobTitle: data.jobTitle,
+        reasoning: data.reasoning,
         sources: data.sources
       };
     } catch (error) {
@@ -310,17 +313,32 @@ const ChatBot = () => {
                         ? 'bg-primary text-white'
                         : 'bg-muted text-foreground'
                      )}>
-                      <div className="whitespace-pre-line">{message.text}</div>
+                      {message.sender === 'bot' ? (
+                        <div className="prose prose-sm dark:prose-invert max-w-none [&>p]:mb-1 [&>ul]:mb-1 [&>ol]:mb-1 [&>p:last-child]:mb-0">
+                          <ReactMarkdown>{message.text}</ReactMarkdown>
+                        </div>
+                      ) : (
+                        <div className="whitespace-pre-line">{message.text}</div>
+                      )}
+                      
+                      {/* Show reasoning badge */}
+                      {message.reasoning && (
+                        <div className="mt-2 flex items-center gap-1 text-xs opacity-60">
+                          <Brain className="w-3 h-3" />
+                          <span>{message.reasoning}</span>
+                        </div>
+                      )}
                       
                       {/* Show sources if available */}
                       {message.sources && message.sources.length > 0 && (
-                        <div className="mt-3 pt-3 border-t border-border/50">
-                          <p className="text-xs font-semibold mb-2 opacity-70">Sources:</p>
+                        <div className="mt-2 pt-2 border-t border-border/30">
+                          <p className="text-xs font-semibold mb-1 opacity-70 flex items-center gap-1">
+                            <ExternalLink className="w-3 h-3" /> Sources
+                          </p>
                           <div className="space-y-1">
                             {message.sources.map((source, idx) => (
-                              <div key={idx} className="text-xs opacity-60 flex items-start gap-1">
-                                <ExternalLink className="w-3 h-3 mt-0.5 flex-shrink-0" />
-                                <span className="line-clamp-2">{source.content}</span>
+                              <div key={idx} className="text-xs opacity-50 line-clamp-1">
+                                {source.content}
                               </div>
                             ))}
                           </div>
