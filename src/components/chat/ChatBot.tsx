@@ -34,6 +34,8 @@ const ChatBot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [isInitializing, setIsInitializing] = useState(false);
   const [agentName, setAgentName] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupName, setPopupName] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -45,6 +47,25 @@ const ChatBot = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Show welcome popup after 3 seconds
+  useEffect(() => {
+    const name = AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
+    setPopupName(name);
+    const timer = setTimeout(() => {
+      if (!isOpen) {
+        setShowPopup(true);
+      }
+    }, 3000);
+    // Auto-hide after 10 seconds
+    const hideTimer = setTimeout(() => {
+      setShowPopup(false);
+    }, 13000);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(hideTimer);
+    };
+  }, []);
 
   const addMessage = (text: string, sender: 'user' | 'bot', extra?: Partial<Message>) => {
     const newMessage: Message = {
@@ -165,8 +186,9 @@ const ChatBot = () => {
 
   const openChat = async () => {
     setIsOpen(true);
+    setShowPopup(false);
     if (messages.length === 0) {
-      const name = AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
+      const name = popupName || AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
       setAgentName(name);
       setTimeout(() => {
         addMessage(`👋 Hi! I'm ${name} from KN Soft Tech. I can help you with:\n\n• Information about our services\n• Details about our products\n• Career opportunities\n• General inquiries\n\nHow can I assist you today?`, 'bot');
@@ -366,6 +388,36 @@ const ChatBot = () => {
                 >
                   {isTyping ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 </Button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Welcome Popup Message */}
+      <AnimatePresence>
+        {showPopup && !isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.9 }}
+            transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
+            className="mb-3 bg-background border border-border rounded-xl shadow-lg p-3 max-w-[260px] cursor-pointer relative"
+            onClick={() => { setShowPopup(false); openChat(); }}
+          >
+            <button
+              onClick={(e) => { e.stopPropagation(); setShowPopup(false); }}
+              className="absolute top-1 right-1 text-muted-foreground hover:text-foreground p-1"
+            >
+              <X className="w-3 h-3" />
+            </button>
+            <div className="flex items-start gap-2">
+              <img src={chatbotAvatar} alt="Agent" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+              <div>
+                <p className="text-sm font-semibold text-foreground">{popupName}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  👋 Hi! I'm {popupName} from KN Soft Tech. How can I help you today?
+                </p>
               </div>
             </div>
           </motion.div>
