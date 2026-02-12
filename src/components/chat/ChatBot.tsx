@@ -25,12 +25,15 @@ interface Message {
   }>;
 }
 
+const AGENT_NAMES = ['Rajendra', 'Umadevi', 'Swapna', 'Aswini', 'Priya', 'Kavitha', 'Sravani', 'Mounika'];
+
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [isInitializing, setIsInitializing] = useState(false);
+  const [agentName, setAgentName] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -163,8 +166,10 @@ const ChatBot = () => {
   const openChat = async () => {
     setIsOpen(true);
     if (messages.length === 0) {
+      const name = AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
+      setAgentName(name);
       setTimeout(() => {
-        addMessage("👋 Hi! I'm the KN Soft Tech AI Assistant. I can help you with:\n\n• Information about our services\n• Details about our products\n• Career opportunities\n• General inquiries\n\nHow can I assist you today?", 'bot');
+        addMessage(`👋 Hi! I'm ${name} from KN Soft Tech. I can help you with:\n\n• Information about our services\n• Details about our products\n• Career opportunities\n• General inquiries\n\nHow can I assist you today?`, 'bot');
       }, 500);
       
       // Initialize knowledge base in background
@@ -207,8 +212,8 @@ const ChatBot = () => {
                   <Bot className="w-4 h-4" />
                 </motion.div>
                 <div>
-                  <h3 className="font-semibold flex items-center gap-2">
-                    KNSOFT Assistant
+                    <h3 className="font-semibold flex items-center gap-2">
+                      {agentName || 'KNSOFT'} Assistant
                     <motion.div
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
