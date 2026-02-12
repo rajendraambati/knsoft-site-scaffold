@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Bot, User, Sparkles, Zap, Loader2, ExternalLink } from 'lucide-react';
+import { X, Send, Bot, User, Sparkles, Zap, Loader2, ExternalLink, Headset } from 'lucide-react';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -410,7 +411,11 @@ const ChatBot = () => {
                 transition={{ duration: 0.2 }}
                 className="relative z-10 flex items-center justify-center"
               >
-                <MessageCircle className="w-6 h-6" />
+                <Avatar className="w-9 h-9 border-2 border-white/30">
+                  <AvatarFallback className="bg-white/20 text-white">
+                    <Headset className="w-5 h-5" />
+                  </AvatarFallback>
+                </Avatar>
                 <motion.div
                   className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full"
                   animate={{ scale: [1, 1.3, 1] }}
