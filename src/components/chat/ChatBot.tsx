@@ -379,21 +379,8 @@ const ChatBot = () => {
       >
         <Button
           onClick={isOpen ? () => setIsOpen(false) : openChat}
-          className="w-14 h-14 rounded-full bg-gradient-to-r from-primary via-primary-glow to-accent hover:from-accent hover:to-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+          className="w-14 h-14 rounded-full bg-transparent hover:bg-transparent text-white shadow-none hover:shadow-none transition-all duration-300 relative overflow-visible group p-0 border-0"
         >
-          {/* Animated background pulse */}
-          <motion.div
-            className="absolute inset-0 bg-white rounded-full"
-            animate={{ 
-              scale: [0, 1.5, 0],
-              opacity: [0.3, 0, 0]
-            }}
-            transition={{ 
-              duration: 2, 
-              repeat: Infinity,
-              repeatDelay: 1
-            }}
-          />
           
           <AnimatePresence mode="wait">
             {isOpen ? (
