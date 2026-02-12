@@ -48,6 +48,26 @@ const ChatBot = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Play notification sound
+  const playNotificationSound = () => {
+    try {
+      const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const oscillator = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      oscillator.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(880, audioCtx.currentTime);
+      oscillator.frequency.setValueAtTime(1100, audioCtx.currentTime + 0.1);
+      gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+      oscillator.start(audioCtx.currentTime);
+      oscillator.stop(audioCtx.currentTime + 0.4);
+    } catch (e) {
+      // Audio not supported or blocked
+    }
+  };
+
   // Show welcome popup after 3 seconds
   useEffect(() => {
     const name = AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
@@ -55,6 +75,7 @@ const ChatBot = () => {
     const timer = setTimeout(() => {
       if (!isOpen) {
         setShowPopup(true);
+        playNotificationSound();
       }
     }, 3000);
     // Auto-hide after 10 seconds
