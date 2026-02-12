@@ -403,7 +403,7 @@ const ChatBot = () => {
                 transition={{ duration: 0.2 }}
                 className="relative z-10 flex items-center justify-center"
               >
-                <img src={chatbotAvatar} alt="Chat assistant" className="w-9 h-9 rounded-full object-cover" />
+                <img src={chatbotAvatar} alt="Chat assistant" className="w-14 h-14 rounded-full object-cover" />
                 <motion.div
                   className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full"
                   animate={{ scale: [1, 1.3, 1] }}
