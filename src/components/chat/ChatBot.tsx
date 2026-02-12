@@ -249,18 +249,16 @@ const ChatBot = () => {
                       message.sender === 'user' ? 'ml-auto flex-row-reverse' : ''
                     )}
                   >
-                    <div className={cn(
-                      'w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0',
-                      message.sender === 'user' 
-                        ? 'bg-primary text-white' 
-                        : 'bg-muted text-muted-foreground'
-                    )}>
-                      {message.sender === 'user' ? (
+                    {message.sender === 'user' ? (
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-primary text-white">
                         <User className="w-4 h-4" />
-                      ) : (
-                        <Bot className="w-4 h-4" />
-                      )}
-                    </div>
+                      </div>
+                    ) : (
+                      <Avatar className="w-8 h-8 flex-shrink-0">
+                        <AvatarImage src={chatbotAvatar} alt="Bot" />
+                        <AvatarFallback><Bot className="w-4 h-4" /></AvatarFallback>
+                      </Avatar>
+                    )}
                     <div className={cn(
                       'rounded-2xl px-4 py-3 text-sm leading-relaxed',
                       message.sender === 'user'
@@ -303,9 +301,10 @@ const ChatBot = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="flex gap-3"
                   >
-                    <div className="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
-                      <Bot className="w-4 h-4 text-muted-foreground" />
-                    </div>
+                    <Avatar className="w-8 h-8">
+                      <AvatarImage src={chatbotAvatar} alt="Bot" />
+                      <AvatarFallback><Bot className="w-4 h-4" /></AvatarFallback>
+                    </Avatar>
                     <div className="bg-muted rounded-2xl px-4 py-3 relative">
                       <div className="flex gap-1">
                         <motion.div 
