@@ -137,7 +137,7 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <img 
-              src="/fun.png" 
+              src="/knsoft-logo.png" 
               alt="KNSOFT Technologies" 
               className={cn(
                 "w-auto transition-all duration-300 group-hover:opacity-90",
