@@ -141,10 +141,10 @@ export function Header() {
               alt="KNSOFT Technologies"
               className={cn(
                 "w-auto transition-all duration-300 group-hover:opacity-90",
-                isScrolled ? "h-11" : "h-12"
+                isScrolled ? "h-14" : "h-16"
               )}
-              width="120"
-              height="40"
+              width="180"
+              height="56"
               loading="eager" />
 
           </Link>
