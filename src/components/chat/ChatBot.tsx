@@ -27,7 +27,7 @@ interface Message {
   }>;
 }
 
-const AGENT_NAMES = ['Rajendra', 'Umadevi', 'Swapna', 'Aswini', 'Priya', 'Kavitha', 'Sravani', 'Mounika'];
+const AGENT_NAMES = ['Aria', 'Elara', 'Orion', 'Celeste', 'Aether', 'Lyra', 'Elysia'];
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
