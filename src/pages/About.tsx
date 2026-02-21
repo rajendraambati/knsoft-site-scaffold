@@ -88,7 +88,7 @@ const leadership = [
     image: cooImage,
     bio: "With over two decades of leadership at the intersection of technology and operations,  brings unmatched expertise in scaling systems, optimizing workflows, and driving digital transformation. From enterprise platforms to agile innovation, we architect solutions that deliver measurable impact, resilience, and growth.",
     experience: "20+ years",
-    email: "uday@knsofttech.com",
+    email: "udaykiran@knsofttech.com",
     linkedin: "https://www.linkedin.com/in/uday-kiran-m-c-a-m-b-a-171429172/",
   },
   {
