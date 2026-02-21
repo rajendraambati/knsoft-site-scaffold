@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Products", hasDropdown: true },
-  { name: "Solutions", hasDropdown: true },
+  { name: "Services", hasDropdown: true },
   { name: "Customers", href: "/success-stories" },
   { name: "Learn", hasDropdown: true },
   { name: "Company", hasDropdown: true },
@@ -213,10 +213,10 @@ export function Header() {
                   </AnimatePresence>
                 )}
 
-                {/* Dropdown for Solutions */}
-                {item.name === "Solutions" && (
+                {/* Dropdown for Services */}
+                {item.name === "Services" && (
                   <AnimatePresence>
-                    {activeDropdown === "Solutions" && (
+                    {activeDropdown === "Services" && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
