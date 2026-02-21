@@ -194,7 +194,7 @@ const officeLocations: OfficeLocation[] = [
     email: "info@knsofttech.com",
     /*phone: "+91 40 4012 3456",*/
     mapEmbed:
-      "https://www.google.com/maps/place/Nest+Vault+Coworking+space/@17.4353448,78.3988657,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb9177b8e748bf:0x65432d6fc2820c1e!8m2!3d17.4353397!4d78.4014406!16s%2Fg%2F11w4446209?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.5!2d78.3988657!3d17.4353448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9177b8e748bf%3A0x65432d6fc2820c1e!2sNest%20Vault%20Coworking%20space!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
   },
   {
     city: "Houston",
@@ -203,7 +203,7 @@ const officeLocations: OfficeLocation[] = [
     address: "6250, Westpark Dr., Houston, TX 77057",
     email: "info@knsofttech.com",
     /*phone: "+1 (713) 555-0123",*/
-    mapEmbed: "https://www.google.com/maps/place/6250+Westpark+Dr,+Houston,+TX+77057,+USA/@29.7240818,-95.4969785,17z/data=!3m1!4b1!4m6!3m5!1s0x8640c3cb76a2f049:0x4b00a840f21f76c1!8m2!3d29.7240772!4d-95.4944036!16s%2Fg%2F11b8v47hcp?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.5!2d-95.4969785!3d29.7240818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c3cb76a2f049%3A0x4b00a840f21f76c1!2s6250%20Westpark%20Dr%2C%20Houston%2C%20TX%2077057!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus",
   },
   {
     city: "Guntur",
@@ -212,7 +212,7 @@ const officeLocations: OfficeLocation[] = [
     address: "Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane, Gorantla, Guntur, Andhra Pradesh – 522034",
     email: "info@knsofttech.com",
     /*phone: "+91 863 4567 8901",*/
-    mapEmbed: "https://www.google.com/maps/search/Flat+No+-+TF-2,+Venkateswara+Arcade,+Annapurna+Nagar+6th+lane,+Gorantla,+Guntur,+Andhra+Pradesh+%E2%80%93+522034/@16.3216949,80.4102929,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15300.0!2d80.4102929!3d16.3216949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a754b518c5765%3A0x3a4a754b518c5765!2sGorantla%2C%20Guntur%2C%20Andhra%20Pradesh%20522034!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
   },
 ];
 
