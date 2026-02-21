@@ -126,9 +126,9 @@ export function Header() {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-500",
         isScrolled 
-          ? "py-3 glass shadow-lg" 
+          ? "py-4 glass shadow-lg" 
           : isHomePage 
-            ? "py-4 bg-transparent"
+            ? "py-5 bg-transparent"
             : "py-4 section-dark"
       )}
     >
@@ -141,7 +141,7 @@ export function Header() {
               alt="KNSOFT Technologies" 
               className={cn(
                 "w-auto transition-all duration-300 group-hover:opacity-90",
-                isScrolled ? "h-9" : "h-10"
+                isScrolled ? "h-11" : "h-12"
               )}
               width="120"
               height="40"
