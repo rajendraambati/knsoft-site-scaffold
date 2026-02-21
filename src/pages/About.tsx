@@ -80,7 +80,7 @@ const leadership = [
     bio: "With over 20 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years",
     email: "dasaradh@knsofttech.com",
-    linkedin: "https://www.linkedin.com/in/dasaradharamaiahkosana",
+    linkedin: "https://www.linkedin.com/in/dasaradh-kosana-9a189127/",
   },
   {
     name: "Uday Kiran Bandaru (India)",
@@ -89,7 +89,7 @@ const leadership = [
     bio: "With over two decades of leadership at the intersection of technology and operations,  brings unmatched expertise in scaling systems, optimizing workflows, and driving digital transformation. From enterprise platforms to agile innovation, we architect solutions that deliver measurable impact, resilience, and growth.",
     experience: "20+ years",
     email: "uday@knsofttech.com",
-    linkedin: "https://www.linkedin.com/in/udaykiranbandaru",
+    linkedin: "https://www.linkedin.com/in/uday-kiran-m-c-a-m-b-a-171429172/",
   },
   {
     name: "Rajesh Mora (USA)",
@@ -116,7 +116,7 @@ const leadership = [
     bio: "With over 16 years of sales leadership, our Vice President brings a proven track record of driving revenue growth, building high-performance teams, and expanding market share across competitive industries. Armed with strategic insight and deep customer understanding, we deliver scalable sales systems, trusted partnerships, and consistent top-line results.",
     experience: "16+ years",
     email: "swapna@knsofttech.com",
-    linkedin: "https://www.linkedin.com/in/swapnachowdary",
+    linkedin: "https://www.linkedin.com/in/swapna-k-1032a236b",
   },
   {
     name: "Vijaya Bhanu",
