@@ -436,7 +436,9 @@ export default function About() {
                           <div className="flex gap-3 justify-center sm:justify-start">
                             {leader.email && (
                               <a
-                                href={`mailto:${leader.email}`}
+                                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${leader.email}&su=Inquiry from KNSOFT Website`}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors"
                                 aria-label={`Email ${leader.name}`}
                               >
