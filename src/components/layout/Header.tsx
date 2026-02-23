@@ -28,7 +28,7 @@ const searchablePages = [
 { name: "SAP Modernization", href: "/services/sap-modernization", keywords: ["sap", "modernization", "enterprise"] },
 { name: "AI & Automation", href: "/services/ai-automation", keywords: ["ai", "automation", "artificial intelligence", "machine learning"] },
 { name: "IT Consulting", href: "/services/it-consulting", keywords: ["it", "consulting", "technology"] },
-{ name: "Workforce Upskilling", href: "/services/workforce-upskilling", keywords: ["training", "upskilling", "workforce", "learning"] },
+{ name: "Training", href: "/services/training", keywords: ["training", "upskilling", "workforce", "learning"] },
 { name: "Careers", href: "/careers", keywords: ["careers", "jobs", "hiring", "work", "employment"] },
 { name: "Contact", href: "/contact", keywords: ["contact", "reach", "email", "phone", "support"] },
 { name: "Success Stories", href: "/success-stories", keywords: ["customers", "success", "stories", "case studies", "testimonials"] },
@@ -41,7 +41,7 @@ const servicesDropdown = [
 { name: "eCommerce Portals", href: "/services/ecommerce-portals", description: "Online store development" },
 { name: "AI & Automation", href: "/services/ai-automation", description: "Smart automation solutions" },
 { name: "IT Consulting", href: "/services/it-consulting", description: "Strategic IT guidance" },
-{ name: "Workforce Upskilling", href: "/services/workforce-upskilling", description: "Training & development" }];
+{ name: "Training", href: "/services/training", description: "Training & development" }];
 
 
 const productsDropdown = [
