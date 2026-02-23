@@ -47,7 +47,7 @@ export default function Training() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Workforce Upskilling & Professional Development",
+    "name": "Training & Professional Development",
     "description": "Comprehensive IT training programs including software development courses, corporate training, certification programs, and hands-on technology workshops.",
     "provider": {
       "@type": "Organization",
@@ -61,10 +61,10 @@ export default function Training() {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Workforce Upskilling & Professional Development | KNSOFT Technologies"
+        title="Training & Professional Development | KNSOFT Technologies"
         description="Expert-led IT training programs with hands-on sessions. Software development courses, corporate training, certification programs, and technology workshops to advance your career."
-        keywords="IT training, software development courses, corporate training, certification programs, technology workshops, professional development, coding bootcamp, workforce upskilling"
-        canonical="https://knsoft.dev/services/workforce-upskilling"
+        keywords="IT training, software development courses, corporate training, certification programs, technology workshops, professional development, coding bootcamp, training"
+        canonical="https://knsoft.dev/services/training"
         structuredData={structuredData}
       />
       <Header />
@@ -80,7 +80,7 @@ export default function Training() {
               className="text-center max-w-4xl mx-auto"
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Workforce Upskilling & Professional Development
+                Training & Professional Development
               </h1>
               <p className="text-xl text-white/90 leading-relaxed">
                 Empower your team with cutting-edge technology skills through our comprehensive training programs. 
