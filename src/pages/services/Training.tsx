@@ -575,9 +575,9 @@ export default function Training() {
                       empowering you to make smarter career decisions.
                     </p>
                     <Button asChild variant="hero" size="lg" className="w-full">
-                      <Link to="/services/training/psychometric">
+                      <a href="/services/training/psychometric" target="_blank" rel="noopener noreferrer">
                         Take Psychometric Test <ArrowRight className="ml-2 h-5 w-5" />
-                      </Link>
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>
@@ -602,9 +602,9 @@ export default function Training() {
                       to accelerate your professional growth.
                     </p>
                     <Button asChild variant="hero" size="lg" className="w-full">
-                      <Link to="/services/training/learning-assessment">
+                      <a href="/services/training/learning-assessment" target="_blank" rel="noopener noreferrer">
                         Take Learning Assessment <ArrowRight className="ml-2 h-5 w-5" />
-                      </Link>
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>

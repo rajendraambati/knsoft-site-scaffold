@@ -1,4 +1,3 @@
-import { Header } from "@/components/layout/Header";
 import { SEOHead } from "@/components/SEO/SEOHead";
 
 export default function PsychometricTest() {
@@ -10,12 +9,11 @@ export default function PsychometricTest() {
         keywords="psychometric test, personality assessment, career assessment, behavioural traits"
         canonical="https://knsoft.dev/services/training/psychometric"
       />
-      <Header />
-      <main className="pt-20 h-screen">
+      <main className="h-screen">
         <iframe
           src="https://potential-plot.lovable.app"
           title="Psychometric Test"
-          className="w-full h-[calc(100vh-80px)] border-0"
+          className="w-full h-full border-0"
           allow="clipboard-write"
         />
       </main>
