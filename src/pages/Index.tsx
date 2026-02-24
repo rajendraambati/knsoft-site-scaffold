@@ -7,6 +7,7 @@ import { TrustSignalsSection } from "@/components/sections/TrustSignalsSection";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import ChatBot from "@/components/chat/ChatBot";
+import FloatingAssessmentButton from "@/components/FloatingAssessmentButton";
 import { SEOHead } from "@/components/SEO/SEOHead";
 
 const Index = () => {
@@ -48,6 +49,7 @@ const Index = () => {
       </main>
       <Footer />
       <ChatBot />
+      <FloatingAssessmentButton />
     </div>
   );
 };
