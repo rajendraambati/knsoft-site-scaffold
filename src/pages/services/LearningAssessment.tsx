@@ -1,4 +1,3 @@
-import { Header } from "@/components/layout/Header";
 import { SEOHead } from "@/components/SEO/SEOHead";
 
 export default function LearningAssessment() {
@@ -10,12 +9,11 @@ export default function LearningAssessment() {
         keywords="learning assessment, skill evaluation, knowledge test, learning path"
         canonical="https://knsoft.dev/services/training/learning-assessment"
       />
-      <Header />
-      <main className="pt-20 h-screen">
+      <main className="h-screen">
         <iframe
           src="https://know-your-learner.lovable.app"
           title="Learning Assessment"
-          className="w-full h-[calc(100vh-80px)] border-0"
+          className="w-full h-full border-0"
           allow="clipboard-write"
         />
       </main>
