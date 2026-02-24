@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, Bot, User, Sparkles, Zap, Loader2, ExternalLink, Headset, Brain } from 'lucide-react';
+import { X, Send, Bot, User, Sparkles, Zap, Loader2, ExternalLink, Headset, Brain, Bell } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import chatbotAvatar from '@/assets/chatbot-avatar.png';
@@ -20,6 +20,7 @@ interface Message {
   action?: 'job_application';
   reasoning?: string;
   jobTitle?: string;
+  agentLabel?: string;
   sources?: Array<{
     content: string;
     similarity: number;
@@ -27,7 +28,7 @@ interface Message {
   }>;
 }
 
-const AGENT_NAMES = ['Aria', 'Elara', 'Orion', 'Celeste', 'Aether', 'Lyra', 'Elysia'];
+const AGENT_NAMES = ['Sil', 'Aria', 'Elara', 'Celeste', 'Lyra'];
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,8 +37,8 @@ const ChatBot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [isInitializing, setIsInitializing] = useState(false);
   const [agentName, setAgentName] = useState('');
-  const [showPopup, setShowPopup] = useState(false);
-  const [popupName, setPopupName] = useState('');
+  const [showBellNotification, setShowBellNotification] = useState(false);
+  const [agentConnected, setAgentConnected] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -70,19 +71,15 @@ const ChatBot = () => {
     }
   };
 
-  // Show welcome popup after 3 seconds (stays until dismissed)
+  // Show bell notification after 3 seconds
   useEffect(() => {
-    const name = AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
-    setPopupName(name);
     const timer = setTimeout(() => {
       if (!isOpen) {
-        setShowPopup(true);
+        setShowBellNotification(true);
         playNotificationSound();
       }
     }, 3000);
-    return () => {
-      clearTimeout(timer);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   const addMessage = (text: string, sender: 'user' | 'bot', extra?: Partial<Message>) => {
@@ -99,13 +96,8 @@ const ChatBot = () => {
   const initializeKnowledgeBase = async () => {
     try {
       setIsInitializing(true);
-      console.log('Initializing knowledge base...');
-      
       const { data, error } = await supabase.functions.invoke('scrape-and-embed');
-      
       if (error) throw error;
-      
-      console.log('Knowledge base initialized:', data);
       return true;
     } catch (error) {
       console.error('Error initializing knowledge base:', error);
@@ -115,9 +107,14 @@ const ChatBot = () => {
     }
   };
 
+  const isGreeting = (msg: string): boolean => {
+    const greetings = ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening', 'howdy', 'hola', 'greetings', 'sup', 'whats up', "what's up"];
+    const lower = msg.toLowerCase().trim();
+    return greetings.some(g => lower === g || lower === g + '!' || lower === g + '.' || lower.startsWith(g + ' '));
+  };
+
   const generateBotResponse = async (userMessage: string): Promise<Message> => {
     try {
-      // Build conversation history
       const conversationHistory = messages
         .filter(m => m.sender === 'user' || m.sender === 'bot')
         .map(m => ({
@@ -128,7 +125,7 @@ const ChatBot = () => {
       const { data, error } = await supabase.functions.invoke('rag-chat', {
         body: {
           message: userMessage,
-          conversationHistory: conversationHistory.slice(-10) // Keep last 10 messages for context
+          conversationHistory: conversationHistory.slice(-10)
         }
       });
 
@@ -173,15 +170,35 @@ const ChatBot = () => {
     setInputValue('');
     setIsTyping(true);
 
+    // Handle greeting → transfer to agent flow
+    if (!agentConnected && isGreeting(userMessage)) {
+      const name = agentName || AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
+      if (!agentName) setAgentName(name);
+
+      setTimeout(() => {
+        addMessage(`Please wait while I connect you to an operator.\nYour chat has been transferred to **${name}**.`, 'bot');
+        
+        setTimeout(() => {
+          addMessage(`Hi, I am ${name}. Thank you for contacting Technical Support. How may I help you?`, 'bot', { agentLabel: name });
+          setAgentConnected(true);
+          setIsTyping(false);
+          playNotificationSound();
+        }, 1500);
+      }, 1000);
+      return;
+    }
+
     try {
       const botResponse = await generateBotResponse(userMessage);
       
       setTimeout(() => {
+        if (agentConnected && agentName) {
+          botResponse.agentLabel = agentName;
+        }
         setMessages(prev => [...prev, botResponse]);
         setIsTyping(false);
         playNotificationSound();
         
-        // Handle job application intent
         if (botResponse.action === 'job_application' && botResponse.jobTitle) {
           setTimeout(() => {
             handleJobApplication(botResponse.jobTitle!);
@@ -207,13 +224,11 @@ const ChatBot = () => {
 
   const openChat = async () => {
     setIsOpen(true);
-    setShowPopup(false);
+    setShowBellNotification(false);
     if (messages.length === 0) {
-      const name = popupName || AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
-      setAgentName(name);
       setTimeout(() => {
-        addMessage(`👋 Hi! I'm ${name} from KN Soft Tech. I can help you with:\n\n• Information about our services\n• Details about our products\n• Career opportunities\n• General inquiries\n\nHow can I assist you today?`, 'bot');
-      }, 500);
+        addMessage(`**We're Online!**\nHow may I help you today?`, 'bot');
+      }, 300);
       
       // Initialize knowledge base in background
       await initializeKnowledgeBase();
@@ -233,7 +248,6 @@ const ChatBot = () => {
           >
             {/* Chat Header */}
             <div className="flex items-center justify-between p-4 bg-gradient-to-r from-primary via-primary-glow to-accent text-white relative overflow-hidden">
-              {/* Animated background elements */}
               <motion.div
                 className="absolute inset-0 opacity-20"
                 animate={{
@@ -247,30 +261,17 @@ const ChatBot = () => {
               />
               
               <div className="flex items-center gap-3 relative z-10">
-                <motion.div 
-                  className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                >
-                  <Bot className="w-4 h-4" />
-                </motion.div>
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <Headset className="w-4 h-4" />
+                </div>
                 <div>
-                    <h3 className="font-semibold flex items-center gap-2">
-                      {agentName || 'KNSOFT'} Assistant
-                    <motion.div
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <Sparkles className="w-3 h-3" />
-                    </motion.div>
+                  <h3 className="font-semibold flex items-center gap-2">
+                    {agentConnected && agentName ? `${agentName}` : 'KNSOFT Support'}
+                    <span className="w-2 h-2 bg-green-400 rounded-full inline-block" />
                   </h3>
-                  <motion.p 
-                    className="text-sm opacity-90"
-                    animate={{ opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    AI-Powered • Always Learning
-                  </motion.p>
+                  <p className="text-xs opacity-90">
+                    {agentConnected ? 'Technical Support' : 'Online'}
+                  </p>
                 </div>
               </div>
               <Button
@@ -307,52 +308,56 @@ const ChatBot = () => {
                         <AvatarFallback><Bot className="w-4 h-4" /></AvatarFallback>
                       </Avatar>
                     )}
-                    <div className={cn(
-                      'rounded-2xl px-4 py-3 text-sm leading-relaxed',
-                      message.sender === 'user'
-                        ? 'bg-primary text-white'
-                        : 'bg-muted text-foreground'
-                     )}>
-                      {message.sender === 'bot' ? (
-                        <div className="prose prose-sm dark:prose-invert max-w-none [&>p]:mb-1 [&>ul]:mb-1 [&>ol]:mb-1 [&>p:last-child]:mb-0">
-                          <ReactMarkdown>{message.text}</ReactMarkdown>
-                        </div>
-                      ) : (
-                        <div className="whitespace-pre-line">{message.text}</div>
+                    <div>
+                      {/* Agent name label */}
+                      {message.sender === 'bot' && message.agentLabel && (
+                        <p className="text-xs font-semibold text-primary mb-1">{message.agentLabel}</p>
                       )}
-                      
-                      {/* Show reasoning badge */}
-                      {message.reasoning && (
-                        <div className="mt-2 flex items-center gap-1 text-xs opacity-60">
-                          <Brain className="w-3 h-3" />
-                          <span>{message.reasoning}</span>
-                        </div>
-                      )}
-                      
-                      {/* Show sources if available */}
-                      {message.sources && message.sources.length > 0 && (
-                        <div className="mt-2 pt-2 border-t border-border/30">
-                          <p className="text-xs font-semibold mb-1 opacity-70 flex items-center gap-1">
-                            <ExternalLink className="w-3 h-3" /> Sources
-                          </p>
-                          <div className="space-y-1">
-                            {message.sources.map((source, idx) => (
-                              <div key={idx} className="text-xs opacity-50 line-clamp-1">
-                                {source.content}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      
                       <div className={cn(
-                        'text-xs mt-2 opacity-70',
-                        message.sender === 'user' ? 'text-white/70' : 'text-muted-foreground'
+                        'rounded-2xl px-4 py-3 text-sm leading-relaxed',
+                        message.sender === 'user'
+                          ? 'bg-primary text-white'
+                          : 'bg-muted text-foreground'
                       )}>
-                        {message.timestamp.toLocaleTimeString([], { 
-                          hour: '2-digit', 
-                          minute: '2-digit' 
-                        })}
+                        {message.sender === 'bot' ? (
+                          <div className="prose prose-sm dark:prose-invert max-w-none [&>p]:mb-1 [&>ul]:mb-1 [&>ol]:mb-1 [&>p:last-child]:mb-0">
+                            <ReactMarkdown>{message.text}</ReactMarkdown>
+                          </div>
+                        ) : (
+                          <div className="whitespace-pre-line">{message.text}</div>
+                        )}
+                        
+                        {message.reasoning && (
+                          <div className="mt-2 flex items-center gap-1 text-xs opacity-60">
+                            <Brain className="w-3 h-3" />
+                            <span>{message.reasoning}</span>
+                          </div>
+                        )}
+                        
+                        {message.sources && message.sources.length > 0 && (
+                          <div className="mt-2 pt-2 border-t border-border/30">
+                            <p className="text-xs font-semibold mb-1 opacity-70 flex items-center gap-1">
+                              <ExternalLink className="w-3 h-3" /> Sources
+                            </p>
+                            <div className="space-y-1">
+                              {message.sources.map((source, idx) => (
+                                <div key={idx} className="text-xs opacity-50 line-clamp-1">
+                                  {source.content}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        
+                        <div className={cn(
+                          'text-xs mt-2 opacity-70',
+                          message.sender === 'user' ? 'text-white/70' : 'text-muted-foreground'
+                        )}>
+                          {message.timestamp.toLocaleTimeString([], { 
+                            hour: '2-digit', 
+                            minute: '2-digit' 
+                          })}
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -368,7 +373,7 @@ const ChatBot = () => {
                       <AvatarImage src={chatbotAvatar} alt="Bot" />
                       <AvatarFallback><Bot className="w-4 h-4" /></AvatarFallback>
                     </Avatar>
-                    <div className="bg-muted rounded-2xl px-4 py-3 relative">
+                    <div className="bg-muted rounded-2xl px-4 py-3">
                       <div className="flex gap-1">
                         <motion.div 
                           className="w-2 h-2 bg-primary rounded-full"
@@ -386,13 +391,6 @@ const ChatBot = () => {
                           transition={{ duration: 0.8, repeat: Infinity, delay: 0.4 }}
                         />
                       </div>
-                      <motion.div
-                        className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                      >
-                        <Sparkles className="w-2 h-2 text-white" />
-                      </motion.div>
                     </div>
                   </motion.div>
                 )}
@@ -405,7 +403,7 @@ const ChatBot = () => {
               {isInitializing && (
                 <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">
                   <Loader2 className="w-3 h-3 animate-spin" />
-                  <span>Initializing knowledge base...</span>
+                  <span>Connecting...</span>
                 </div>
               )}
               <div className="flex gap-2">
@@ -430,31 +428,25 @@ const ChatBot = () => {
         )}
       </AnimatePresence>
 
-      {/* Welcome Popup Message */}
+      {/* Bell Notification Icon */}
       <AnimatePresence>
-        {showPopup && !isOpen && (
+        {showBellNotification && !isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.9 }}
-            transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
-            className="mb-3 bg-background border border-border rounded-xl shadow-lg p-3 max-w-[260px] cursor-pointer relative"
-            onClick={() => { setShowPopup(false); openChat(); }}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+            className="absolute -top-2 -right-1 cursor-pointer"
+            onClick={() => { setShowBellNotification(false); openChat(); }}
           >
-            <button
-              onClick={(e) => { e.stopPropagation(); setShowPopup(false); }}
-              className="absolute top-1 right-1 text-muted-foreground hover:text-foreground p-1"
-            >
-              <X className="w-3 h-3" />
-            </button>
-            <div className="flex items-start gap-2">
-              <img src={chatbotAvatar} alt="Agent" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
-              <div>
-                <p className="text-sm font-semibold text-foreground">{popupName}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  👋 Hi! I'm {popupName} from KN Soft Tech. How can I help you today?
-                </p>
-              </div>
+            <div className="relative">
+              <motion.div
+                animate={{ rotate: [0, 15, -15, 10, -10, 0] }}
+                transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 3 }}
+              >
+                <Bell className="w-5 h-5 text-accent fill-accent" />
+              </motion.div>
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border border-background" />
             </div>
           </motion.div>
         )}
@@ -469,7 +461,6 @@ const ChatBot = () => {
           onClick={isOpen ? () => setIsOpen(false) : openChat}
           className="w-14 h-14 rounded-full bg-transparent hover:bg-transparent text-white shadow-none hover:shadow-none transition-all duration-300 relative overflow-visible group p-0 border-0"
         >
-          
           <AnimatePresence mode="wait">
             {isOpen ? (
               <motion.div
@@ -493,12 +484,8 @@ const ChatBot = () => {
               >
                 <img src={chatbotAvatar} alt="Chat assistant" className="w-14 h-14 rounded-full object-cover" />
                 <motion.div
-                  className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full"
-                  animate={{ scale: [1, 1.3, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  <Zap className="w-2 h-2 text-white" />
-                </motion.div>
+                  className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-background"
+                />
               </motion.div>
             )}
           </AnimatePresence>
