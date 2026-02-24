@@ -432,33 +432,6 @@ export default function About() {
                           <p className="text-primary font-medium mb-3">{leader.title}</p>
                           <p className="text-muted-foreground text-sm leading-relaxed mb-4">{leader.bio}</p>
                           
-                          {/* Contact Links */}
-                          <div className="flex gap-3 justify-center sm:justify-start">
-                            {leader.email && (
-                              <a
-                                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${leader.email}&su=Inquiry from KNSOFT Website`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors"
-                                aria-label={`Email ${leader.name}`}
-                              >
-                                <Mail className="h-4 w-4" />
-                                <span>Email</span>
-                              </a>
-                            )}
-                            {leader.linkedin && (
-                              <a
-                                href={leader.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors"
-                                aria-label={`${leader.name}'s LinkedIn profile`}
-                              >
-                                <Linkedin className="h-4 w-4" />
-                                <span>LinkedIn</span>
-                              </a>
-                            )}
-                          </div>
                         </div>
                       </div>
                     </CardContent>
