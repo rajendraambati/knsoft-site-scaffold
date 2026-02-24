@@ -54,6 +54,7 @@ export function HeroSection() {
           muted
           loop
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={heroBgVideo} type="video/mp4" />
@@ -67,9 +68,9 @@ export function HeroSection() {
           <div className="max-w-5xl mx-auto text-center">
             {/* Pre-title Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
+              transition={{ duration: 0.2, delay: 0 }}
               className="inline-flex items-center gap-3 glass rounded-full px-5 py-2.5 mb-10"
             >
               <span className="relative flex h-2 w-2">
@@ -83,9 +84,9 @@ export function HeroSection() {
 
             {/* Main Headline with Sliding Text */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
+              transition={{ duration: 0.25, delay: 0.05 }}
               className="h-[120px] sm:h-[140px] md:h-[160px] lg:h-[180px] xl:h-[200px] flex items-center justify-center mb-8 overflow-hidden"
             >
               <AnimatePresence mode="wait">
@@ -94,7 +95,7 @@ export function HeroSection() {
                   initial={{ y: 60, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -60, opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold tracking-tight leading-[1.05] text-white drop-shadow-lg [text-shadow:_0_2px_20px_rgb(255_255_255_/_30%)]"
                 >
                   {slidingTexts[currentTextIndex]}
@@ -104,9 +105,9 @@ export function HeroSection() {
 
             {/* Subtitle */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
               className="text-lg sm:text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md"
             >
               Cutting-edge technology solutions that propel your business into the future. 
@@ -115,9 +116,9 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.25 }}
+              transition={{ duration: 0.2, delay: 0.15 }}
               className="flex flex-col sm:flex-row gap-3 justify-center items-center"
             >
               <Button 
@@ -148,7 +149,7 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ delay: 0.15, duration: 0.25 }}
           className="relative z-10 py-16"
         >
           <div className="text-center mb-8">
@@ -176,7 +177,7 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.2 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         >
           <motion.div
