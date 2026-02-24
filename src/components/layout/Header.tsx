@@ -118,16 +118,16 @@ export function Header() {
     dropdownTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
   };
 
-  const textColorClass = "text-white/90 hover:text-white";
-  const iconColorClass = "text-white/70 hover:text-white";
+  const textColorClass = "text-secondary hover:text-accent";
+  const iconColorClass = "text-secondary/60 hover:text-accent";
 
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500",
+        "fixed top-0 w-full z-50 transition-all duration-500 bg-white border-b border-border",
         isScrolled ?
-        "py-3 bg-[hsl(189_65%_32%)] shadow-lg" :
-        "py-4 bg-[hsl(189_65%_35%)]"
+        "py-2 shadow-md" :
+        "py-3"
       )}>
 
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -315,7 +315,7 @@ export function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:bg-white/10">
+              className="text-secondary hover:bg-muted">
 
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -330,29 +330,29 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-[hsl(189_65%_32%)] rounded-2xl mt-4 shadow-lg">
+            className="lg:hidden overflow-hidden bg-white rounded-2xl mt-4 shadow-lg border border-border">
 
               <div className="flex flex-col p-4 space-y-1">
-                <Link to="/" className="px-4 py-3 rounded-xl font-medium text-white hover:bg-white/10" onClick={() => setIsOpen(false)}>
+                <Link to="/" className="px-4 py-3 rounded-xl font-medium text-secondary hover:bg-muted" onClick={() => setIsOpen(false)}>
                   Home
                 </Link>
-                <Link to="/about" className="px-4 py-3 rounded-xl font-medium text-white hover:bg-white/10" onClick={() => setIsOpen(false)}>
+                <Link to="/about" className="px-4 py-3 rounded-xl font-medium text-secondary hover:bg-muted" onClick={() => setIsOpen(false)}>
                   About
                 </Link>
-                <Link to="/services" className="px-4 py-3 rounded-xl font-medium text-white hover:bg-white/10" onClick={() => setIsOpen(false)}>
+                <Link to="/services" className="px-4 py-3 rounded-xl font-medium text-secondary hover:bg-muted" onClick={() => setIsOpen(false)}>
                   Services
                 </Link>
-                <Link to="/products" className="px-4 py-3 rounded-xl font-medium text-white hover:bg-white/10" onClick={() => setIsOpen(false)}>
+                <Link to="/products" className="px-4 py-3 rounded-xl font-medium text-secondary hover:bg-muted" onClick={() => setIsOpen(false)}>
                   Products
                 </Link>
-                <Link to="/success-stories" className="px-4 py-3 rounded-xl font-medium text-white hover:bg-white/10" onClick={() => setIsOpen(false)}>
+                <Link to="/success-stories" className="px-4 py-3 rounded-xl font-medium text-secondary hover:bg-muted" onClick={() => setIsOpen(false)}>
                   Success Stories
                 </Link>
-                <Link to="/careers" className="px-4 py-3 rounded-xl font-medium text-white hover:bg-white/10" onClick={() => setIsOpen(false)}>
+                <Link to="/careers" className="px-4 py-3 rounded-xl font-medium text-secondary hover:bg-muted" onClick={() => setIsOpen(false)}>
                   Careers
                 </Link>
                 
-                <div className="pt-4 border-t border-white/20 mt-2">
+                <div className="pt-4 border-t border-border mt-2">
                   <Button asChild className="w-full btn-gradient rounded-xl">
                     <Link to="/contact" onClick={() => setIsOpen(false)}>
                       Contact Us
