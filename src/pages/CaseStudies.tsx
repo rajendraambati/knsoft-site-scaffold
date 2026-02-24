@@ -177,16 +177,16 @@ const caseStudies = [
 
 const breadcrumbItems = [
   { label: "Home", href: "/" },
-  { label: "Case Studies", href: "/case-studies" }
+  { label: "Success Stories", href: "/success-stories" }
 ];
 
 export default function CaseStudies() {
   return (
     <div className="min-h-screen">
       <SEOHead 
-        title="Case Studies - KNSOFT Technologies Success Stories"
-        description="Explore our successful IT projects and digital transformations. Real client results, detailed case studies showing our expertise in web development, AI automation, and digital solutions."
-        keywords="case studies, IT projects, digital transformation, web development success stories, client results, KNSOFT portfolio"
+        title="Success Stories - KNSOFT Technologies"
+        description="Explore our successful IT projects and digital transformations. Real client results showing our expertise in web development, AI automation, and digital solutions."
+        keywords="success stories, IT projects, digital transformation, web development, client results, KNSOFT portfolio"
       />
       
       <Header />
@@ -209,7 +209,7 @@ export default function CaseStudies() {
               className="text-center max-w-4xl mx-auto"
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Client Success Stories
+                Success Stories
               </h1>
               <p className="text-xl text-white/90 leading-relaxed mb-8">
                 Discover how we've helped businesses across industries achieve digital transformation success. 
