@@ -39,6 +39,8 @@ const ChatBot = () => {
   const [agentName, setAgentName] = useState('');
   const [showBellNotification, setShowBellNotification] = useState(false);
   const [agentConnected, setAgentConnected] = useState(false);
+  const agentConnectedRef = useRef(false);
+  const agentNameRef = useRef('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -171,9 +173,12 @@ const ChatBot = () => {
     setIsTyping(true);
 
     // Handle greeting → transfer to agent flow
-    if (!agentConnected && isGreeting(userMessage)) {
-      const name = agentName || AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
-      if (!agentName) setAgentName(name);
+    if (!agentConnectedRef.current && isGreeting(userMessage)) {
+      const name = agentNameRef.current || AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
+      if (!agentNameRef.current) {
+        setAgentName(name);
+        agentNameRef.current = name;
+      }
 
       setTimeout(() => {
         addMessage(`Please wait while I connect you to an operator.\nYour chat has been transferred to **${name}**.`, 'bot');
@@ -181,6 +186,7 @@ const ChatBot = () => {
         setTimeout(() => {
           addMessage(`Hi, I am ${name}. Thank you for contacting Technical Support. How may I help you?`, 'bot', { agentLabel: name });
           setAgentConnected(true);
+          agentConnectedRef.current = true;
           setIsTyping(false);
           playNotificationSound();
         }, 1500);
@@ -192,8 +198,8 @@ const ChatBot = () => {
       const botResponse = await generateBotResponse(userMessage);
       
       setTimeout(() => {
-        if (agentConnected && agentName) {
-          botResponse.agentLabel = agentName;
+        if (agentConnectedRef.current && agentNameRef.current) {
+          botResponse.agentLabel = agentNameRef.current;
         }
         setMessages(prev => [...prev, botResponse]);
         setIsTyping(false);
