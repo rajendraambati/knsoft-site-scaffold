@@ -35,13 +35,15 @@ const searchablePages = [
 { name: "About Us", href: "/about", keywords: ["about", "company", "team", "who we are"] }];
 
 
-const servicesDropdown = [
+const servicesDropdown: { name: string; href: string; description: string; external?: boolean }[] = [
 { name: "Web & Mobile Development", href: "/services/web-mobile-development", description: "Custom apps for web & mobile" },
 { name: "SAP Modernization", href: "/services/sap-modernization", description: "Enterprise SAP solutions" },
 { name: "eCommerce Portals", href: "/services/ecommerce-portals", description: "Online store development" },
 { name: "AI & Automation", href: "/services/ai-automation", description: "Smart automation solutions" },
 { name: "IT Consulting", href: "/services/it-consulting", description: "Strategic IT guidance" },
-{ name: "Training", href: "/services/training", description: "Training & development" }];
+  { name: "Training", href: "/services/training", description: "Training & development" },
+  { name: "Psychometric Test", href: "https://potential-plot.lovable.app", description: "Assess your potential", external: true },
+  { name: "Learning Assessment", href: "https://know-your-learner.lovable.app", description: "Test your knowledge", external: true }];
 
 
 const productsDropdown = [
@@ -226,16 +228,29 @@ export function Header() {
 
                         <div className="p-2">
                           {servicesDropdown.map((service) =>
+                    service.external ? (
+                      <a
+                        key={service.name}
+                        href={service.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col px-4 py-3 rounded-xl hover:bg-gray-50 transition-colors group">
+                              <span className="font-medium text-gray-700 group-hover:text-primary transition-colors">
+                                {service.name}
+                              </span>
+                              <span className="text-xs text-gray-500">{service.description}</span>
+                      </a>
+                    ) : (
                     <Link
                       key={service.name}
                       to={service.href}
                       className="flex flex-col px-4 py-3 rounded-xl hover:bg-gray-50 transition-colors group">
-
                               <span className="font-medium text-gray-700 group-hover:text-primary transition-colors">
                                 {service.name}
                               </span>
                               <span className="text-xs text-gray-500">{service.description}</span>
                             </Link>
+                    )
                     )}
                           <div className="border-t border-gray-100 mt-2 pt-2">
                             <Link
