@@ -124,7 +124,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500 bg-[#9cd3d0]",
+        "fixed top-0 w-full z-50 transition-all duration-500 bg-[#cef1f0]",
         isScrolled ?
         "py-2 shadow-md" :
         "py-3"
