@@ -10,11 +10,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navigation = [
 { name: "Home", href: "/" },
-{ name: "Products", hasDropdown: true },
+{ name: "About", href: "/about" },
 { name: "Services", hasDropdown: true },
-{ name: "Customers", href: "/success-stories" },
-{ name: "Learn", hasDropdown: true },
-{ name: "Company", hasDropdown: true }];
+{ name: "Products", hasDropdown: true },
+{ name: "Success Stories", href: "/success-stories" },
+{ name: "Careers", href: "/careers" },
+{ name: "Contact", href: "/contact" }];
 
 
 // Searchable pages data
@@ -251,56 +252,6 @@ export function Header() {
                   </AnimatePresence>
               }
 
-                {/* Dropdown for Company */}
-                {item.name === "Company" &&
-              <AnimatePresence>
-                    {activeDropdown === "Company" &&
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-
-                        <div className="p-2">
-                          <Link to="/about" className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
-                            About Us
-                          </Link>
-                          <Link to="/careers" className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
-                            Careers
-                          </Link>
-                          <Link to="/contact" className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
-                            Contact
-                          </Link>
-                        </div>
-                      </motion.div>
-                }
-                  </AnimatePresence>
-              }
-
-                {/* Dropdown for Learn */}
-                {item.name === "Learn" &&
-              <AnimatePresence>
-                    {activeDropdown === "Learn" &&
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-
-                        <div className="p-2">
-                          <Link to="/success-stories" className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
-                            Case Studies
-                          </Link>
-                          <Link to="/services/workforce-upskilling" className="block px-4 py-3 rounded-xl text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
-                            Training
-                          </Link>
-                        </div>
-                      </motion.div>
-                }
-                  </AnimatePresence>
-              }
               </div>
             )}
           </div>
