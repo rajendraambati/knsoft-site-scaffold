@@ -32,7 +32,7 @@ interface Message {
 const AGENT_NAMES = ['Sil', 'Aria', 'Elara', 'Celeste', 'Lyra'];
 
 const ChatBot = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -74,15 +74,16 @@ const ChatBot = () => {
     }
   };
 
-  // Show bell notification after 3 seconds
+  // Auto-open chat and show welcome message on mount
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!isOpen) {
-        setShowBellNotification(true);
+    if (messages.length === 0) {
+      setTimeout(() => {
+        addMessage(`**We're Online!**\nHow may I help you today?`, 'bot');
         playNotificationSound();
-      }
-    }, 3000);
-    return () => clearTimeout(timer);
+      }, 300);
+      // Initialize knowledge base in background
+      initializeKnowledgeBase();
+    }
   }, []);
 
   const addMessage = (text: string, sender: 'user' | 'bot', extra?: Partial<Message>) => {
@@ -248,17 +249,9 @@ const ChatBot = () => {
     }
   };
 
-  const openChat = async () => {
+  const openChat = () => {
     setIsOpen(true);
     setShowBellNotification(false);
-    if (messages.length === 0) {
-      setTimeout(() => {
-        addMessage(`**We're Online!**\nHow may I help you today?`, 'bot');
-      }, 300);
-      
-      // Initialize knowledge base in background
-      await initializeKnowledgeBase();
-    }
   };
 
   return (
