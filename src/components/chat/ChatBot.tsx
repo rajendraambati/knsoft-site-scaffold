@@ -185,8 +185,8 @@ const ChatBot = () => {
     setInputValue('');
     setIsTyping(true);
 
-    // Handle greeting → transfer to agent flow
-    if (!agentConnectedRef.current && isGreeting(userMessage)) {
+    // First message from user → always trigger transfer to agent flow
+    if (!agentConnectedRef.current) {
       const name = agentNameRef.current || AGENT_NAMES[Math.floor(Math.random() * AGENT_NAMES.length)];
       if (!agentNameRef.current) {
         setAgentName(name);
