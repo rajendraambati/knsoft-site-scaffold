@@ -44,37 +44,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <>
-      {/* Background Arc Layer - animates left and fades out on load */}
-      <motion.div 
-        className="fixed inset-0 pointer-events-none z-0"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-      >
-        {/* Video Background for intro */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={heroBgVideo} type="video/mp4" />
-        </video>
-        {/* Teal Gradient Overlay */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, hsl(189 65% 30% / 0.7) 0%, hsl(189 70% 38% / 0.6) 50%, hsl(189 60% 45% / 0.5) 100%)' }} />
-        
-        {/* Animated Arc/Sphere that moves left and disappears */}
-        <motion.div 
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[800px] h-[800px] md:w-[1200px] md:h-[1200px] rounded-full sphere-3d"
-          initial={{ x: 0, scale: 1, opacity: 1 }}
-          animate={{ x: -600, scale: 0.5, opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeInOut" }}
-        />
-      </motion.div>
-
-      <motion.section 
+      <motion.section
         ref={sectionRef}
         className="relative min-h-screen flex flex-col overflow-hidden"
       >
@@ -219,6 +189,5 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
       </motion.section>
-    </>
   );
 }
