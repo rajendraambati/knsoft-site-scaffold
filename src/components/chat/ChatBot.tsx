@@ -21,6 +21,7 @@ interface Message {
   reasoning?: string;
   jobTitle?: string;
   agentLabel?: string;
+  isTransferNotice?: boolean;
   sources?: Array<{
     content: string;
     similarity: number;
@@ -110,9 +111,21 @@ const ChatBot = () => {
   };
 
   const isGreeting = (msg: string): boolean => {
-    const greetings = ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening', 'howdy', 'hola', 'greetings', 'sup', 'whats up', "what's up"];
-    const lower = msg.toLowerCase().trim();
-    return greetings.some(g => lower === g || lower === g + '!' || lower === g + '.' || lower.startsWith(g + ' '));
+    const lower = msg.toLowerCase().trim().replace(/[!.,?]+$/g, '');
+    // Match common greetings including typos like "hii", "hiii", "helloo", etc.
+    const greetingPatterns = [
+      /^h+i+$/,           // hi, hii, hiii, hhii
+      /^h+e+l+o+$/,       // hello, helloo, helo
+      /^h+e+y+$/,         // hey, heyy
+      /^good\s*(morning|afternoon|evening|day)$/,
+      /^howdy$/,
+      /^hola$/,
+      /^greetings?$/,
+      /^sup$/,
+      /^wh?at'?s?\s*up$/,
+      /^yo+$/,
+    ];
+    return greetingPatterns.some(p => p.test(lower));
   };
 
   const generateBotResponse = async (userMessage: string): Promise<Message> => {
@@ -181,16 +194,23 @@ const ChatBot = () => {
       }
 
       setTimeout(() => {
-        addMessage(`Please wait while I connect you to an operator.\nYour chat has been transferred to **${name}**.`, 'bot');
+        // First message: "Please wait..." as a regular bot message
+        addMessage(`Please wait while I connect you to an operator.`, 'bot');
         
         setTimeout(() => {
-          addMessage(`Hi, I am ${name}. Thank you for contacting Technical Support. How may I help you?`, 'bot', { agentLabel: name });
-          setAgentConnected(true);
-          agentConnectedRef.current = true;
-          setIsTyping(false);
-          playNotificationSound();
-        }, 1500);
-      }, 1000);
+          // Transfer notice (system-style message)
+          addMessage(`Your chat has been transferred to ${name}`, 'bot', { isTransferNotice: true } as any);
+          
+          setTimeout(() => {
+            // Agent introduction
+            addMessage(`Hi, I am ${name}. Thank you for contacting Technical Support. How may I help you?`, 'bot', { agentLabel: name });
+            setAgentConnected(true);
+            agentConnectedRef.current = true;
+            setIsTyping(false);
+            playNotificationSound();
+          }, 1000);
+        }, 1200);
+      }, 800);
       return;
     }
 
@@ -293,7 +313,23 @@ const ChatBot = () => {
             {/* Messages Area */}
             <ScrollArea className="flex-1 h-[360px] p-4">
               <div className="space-y-4">
-                {messages.map((message) => (
+                {messages.map((message) => {
+                  // Transfer notice: centered, italic, no avatar
+                  if (message.isTransferNotice) {
+                    return (
+                      <motion.div
+                        key={message.id}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-center py-2"
+                      >
+                        <p className="text-xs italic text-muted-foreground">{message.text}</p>
+                      </motion.div>
+                    );
+                  }
+
+                  return (
                   <motion.div
                     key={message.id}
                     initial={{ opacity: 0, y: 10 }}
@@ -305,7 +341,7 @@ const ChatBot = () => {
                     )}
                   >
                     {message.sender === 'user' ? (
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-primary text-white">
+                      <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-primary text-primary-foreground">
                         <User className="w-4 h-4" />
                       </div>
                     ) : (
@@ -322,7 +358,7 @@ const ChatBot = () => {
                       <div className={cn(
                         'rounded-2xl px-4 py-3 text-sm leading-relaxed',
                         message.sender === 'user'
-                          ? 'bg-primary text-white'
+                          ? 'bg-primary text-primary-foreground'
                           : 'bg-muted text-foreground'
                       )}>
                         {message.sender === 'bot' ? (
@@ -357,7 +393,7 @@ const ChatBot = () => {
                         
                         <div className={cn(
                           'text-xs mt-2 opacity-70',
-                          message.sender === 'user' ? 'text-white/70' : 'text-muted-foreground'
+                          message.sender === 'user' ? 'text-primary-foreground/70' : 'text-muted-foreground'
                         )}>
                           {message.timestamp.toLocaleTimeString([], { 
                             hour: '2-digit', 
@@ -367,7 +403,8 @@ const ChatBot = () => {
                       </div>
                     </div>
                   </motion.div>
-                ))}
+                  );
+                })}
                 
                 {isTyping && (
                   <motion.div
