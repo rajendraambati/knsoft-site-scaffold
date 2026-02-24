@@ -536,6 +536,83 @@ export default function Training() {
           </div>
         </section>
 
+        {/* Assessments Section */}
+        <section className="py-20 bg-gradient-hero text-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Discover Your <span className="text-white/90">True Potential</span>
+              </h2>
+              <p className="text-lg text-white/80 max-w-2xl mx-auto">
+                Before you begin your learning journey, take our expertly crafted assessments to understand your strengths, 
+                identify growth areas, and chart a personalized development path.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Psychometric Test Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <Card className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/15 transition-all duration-300 h-full">
+                  <CardContent className="p-8 flex flex-col items-center text-center h-full">
+                    <div className="h-16 w-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                      <Target className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-3">Psychometric Test</h3>
+                    <p className="text-white/80 mb-6 leading-relaxed flex-grow">
+                      Uncover your behavioural traits, cognitive abilities, and personality profile. 
+                      This assessment helps you understand how you think, work, and collaborate — 
+                      empowering you to make smarter career decisions.
+                    </p>
+                    <Button asChild variant="hero" size="lg" className="w-full">
+                      <Link to="/services/training/psychometric">
+                        Take Psychometric Test <ArrowRight className="ml-2 h-5 w-5" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* Learning Assessment Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                viewport={{ once: true }}
+              >
+                <Card className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/15 transition-all duration-300 h-full">
+                  <CardContent className="p-8 flex flex-col items-center text-center h-full">
+                    <div className="h-16 w-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                      <BookOpen className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-3">Learning Assessment</h3>
+                    <p className="text-white/80 mb-6 leading-relaxed flex-grow">
+                      Evaluate your current knowledge and skill levels across key domains. 
+                      This assessment identifies gaps and recommends tailored learning paths 
+                      to accelerate your professional growth.
+                    </p>
+                    <Button asChild variant="hero" size="lg" className="w-full">
+                      <Link to="/services/training/learning-assessment">
+                        Take Learning Assessment <ArrowRight className="ml-2 h-5 w-5" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Key Benefits */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
