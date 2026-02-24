@@ -118,8 +118,8 @@ export function Header() {
     dropdownTimeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
   };
 
-  const textColorClass = "text-secondary hover:text-accent";
-  const iconColorClass = "text-secondary/60 hover:text-accent";
+  const textColorClass = "text-muted-foreground hover:text-foreground";
+  const iconColorClass = "text-muted-foreground/60 hover:text-foreground";
 
   return (
     <header
