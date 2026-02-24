@@ -126,8 +126,8 @@ export function Header() {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-500 bg-[#cef1f0]",
         isScrolled ?
-        "py-1 shadow-md" :
-        "py-2"
+        "py-1.5 shadow-md" :
+        "py-2.5"
       )}>
 
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,7 +139,7 @@ export function Header() {
               alt="KNSOFT Technologies"
               className={cn(
                 "w-auto transition-all duration-300 group-hover:opacity-90",
-                isScrolled ? "h-10" : "h-12"
+                isScrolled ? "h-12" : "h-14"
               )}
               width="180"
               height="56"
