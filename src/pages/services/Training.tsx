@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, GraduationCap, Users, BookOpen, CheckCircle, Award, Target, TrendingUp, Code, Star, Globe } from "lucide-react";
+import { ArrowRight, GraduationCap, Users, BookOpen, CheckCircle, Award, Target, TrendingUp, Code, Star, Globe, ShieldCheck } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
@@ -555,7 +555,7 @@ export default function Training() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Psychometric Test Card */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -604,6 +604,32 @@ export default function Training() {
                     <Button asChild variant="hero" size="lg" className="w-full">
                       <a href="/services/training/learning-assessment" target="_blank" rel="noopener noreferrer">
                         Take Learning Assessment <ArrowRight className="ml-2 h-5 w-5" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+              {/* Admin Results Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <Card className="bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/15 transition-all duration-300 h-full">
+                  <CardContent className="p-8 flex flex-col items-center text-center h-full">
+                    <div className="h-16 w-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                      <ShieldCheck className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-3">Admin Results</h3>
+                    <p className="text-white/80 mb-6 leading-relaxed flex-grow">
+                      Access the admin dashboard to view and manage all assessment results. 
+                      Login to review psychometric and learning assessment scores 
+                      for informed decision-making.
+                    </p>
+                    <Button asChild variant="hero" size="lg" className="w-full">
+                      <a href="/services/training/admin-results" target="_blank" rel="noopener noreferrer">
+                        View Results <ArrowRight className="ml-2 h-5 w-5" />
                       </a>
                     </Button>
                   </CardContent>
