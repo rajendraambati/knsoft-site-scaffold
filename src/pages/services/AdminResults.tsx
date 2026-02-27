@@ -1,22 +1,13 @@
-import { SEOHead } from "@/components/SEO/SEOHead";
+import { useEffect } from "react";
 
 export default function AdminResults() {
+  useEffect(() => {
+    window.location.href = "https://snug-settings.lovable.app";
+  }, []);
+
   return (
-    <div className="min-h-screen">
-      <SEOHead
-        title="Admin Results | KNSOFT Technologies"
-        description="Login to the admin dashboard to view and manage psychometric and learning assessment results."
-        keywords="admin results, assessment results, psychometric results, learning assessment results"
-        canonical="https://knsoft.dev/services/training/admin-results"
-      />
-      <main className="h-screen">
-        <iframe
-          src="https://snug-settings.lovable.app"
-          title="Admin Results Dashboard"
-          className="w-full h-full border-0"
-          allow="clipboard-write"
-        />
-      </main>
+    <div className="min-h-screen flex items-center justify-center">
+      <p className="text-lg">Redirecting to Admin Dashboard...</p>
     </div>
   );
 }
