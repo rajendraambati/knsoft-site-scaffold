@@ -21,7 +21,7 @@ const contactSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
   service: z.string().optional(),
-  subject: z.string().optional(),
+  
   message: z.string().min(10, "Message must be at least 10 characters"),
   consent: z.boolean().refine(val => val === true, "You must agree to the privacy policy"),
   // Honeypot field for spam protection
