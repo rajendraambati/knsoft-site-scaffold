@@ -64,7 +64,7 @@ export function ContactForm() {
           name: data.name,
           email: data.email,
           phone: data.phone || null,
-          subject: data.subject || null,
+          subject: data.service ? `[${data.service}] ${data.subject || ''}`.trim() : (data.subject || null),
           message: data.message,
         });
 
