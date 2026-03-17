@@ -21,7 +21,7 @@ const contactSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
   service: z.string().optional(),
-  subject: z.string().optional(),
+  
   message: z.string().min(10, "Message must be at least 10 characters"),
   consent: z.boolean().refine(val => val === true, "You must agree to the privacy policy"),
   // Honeypot field for spam protection
@@ -41,7 +41,7 @@ export function ContactForm() {
       email: "",
       phone: "",
       service: "",
-      subject: "",
+      
       message: "",
       consent: false,
       website: "", // Honeypot field
@@ -64,7 +64,7 @@ export function ContactForm() {
           name: data.name,
           email: data.email,
           phone: data.phone || null,
-          subject: data.service ? `[${data.service}] ${data.subject || ''}`.trim() : (data.subject || null),
+          subject: data.service || null,
           message: data.message,
         });
 
@@ -188,19 +188,6 @@ export function ContactForm() {
               />
             </div>
 
-            <FormField
-              control={form.control}
-              name="subject"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Subject</FormLabel>
-                  <FormControl>
-                    <Input placeholder="What's this about?" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
 
 
             <FormField
