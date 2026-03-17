@@ -72,6 +72,21 @@ export function ContactForm() {
         throw error;
       }
 
+      // Send email notifications (admin + auto-reply)
+      try {
+        await supabase.functions.invoke('send-contact-notification', {
+          body: {
+            name: data.name,
+            email: data.email,
+            phone: data.phone || undefined,
+            service: data.service || undefined,
+            message: data.message,
+          },
+        });
+      } catch (emailError) {
+        console.warn('Email notification failed, but form was saved:', emailError);
+      }
+
       toast({
         title: "Message sent successfully!",
         description: "We'll get back to you within 24 hours.",
