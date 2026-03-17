@@ -40,6 +40,7 @@ export function ContactForm() {
       name: "",
       email: "",
       phone: "",
+      service: "",
       subject: "",
       message: "",
       consent: false,
