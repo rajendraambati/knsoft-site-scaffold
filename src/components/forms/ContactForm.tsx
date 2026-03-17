@@ -41,7 +41,7 @@ export function ContactForm() {
       email: "",
       phone: "",
       service: "",
-      subject: "",
+      
       message: "",
       consent: false,
       website: "", // Honeypot field
