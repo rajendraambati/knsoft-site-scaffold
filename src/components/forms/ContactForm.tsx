@@ -12,6 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 
@@ -19,6 +20,7 @@ const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
+  service: z.string().optional(),
   subject: z.string().optional(),
   message: z.string().min(10, "Message must be at least 10 characters"),
   consent: z.boolean().refine(val => val === true, "You must agree to the privacy policy"),
@@ -38,6 +40,7 @@ export function ContactForm() {
       name: "",
       email: "",
       phone: "",
+      service: "",
       subject: "",
       message: "",
       consent: false,
@@ -61,7 +64,7 @@ export function ContactForm() {
           name: data.name,
           email: data.email,
           phone: data.phone || null,
-          subject: data.subject || null,
+          subject: data.service ? `[${data.service}] ${data.subject || ''}`.trim() : (data.subject || null),
           message: data.message,
         });
 
@@ -161,18 +164,43 @@ export function ContactForm() {
 
               <FormField
                 control={form.control}
-                name="subject"
+                name="service"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Subject</FormLabel>
-                    <FormControl>
-                      <Input placeholder="What's this about?" {...field} />
-                    </FormControl>
+                    <FormLabel>Service Interested In</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a service" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="Web Development">Web Development</SelectItem>
+                        <SelectItem value="App Development">App Development</SelectItem>
+                        <SelectItem value="Digital Marketing">Digital Marketing</SelectItem>
+                        <SelectItem value="AI Solutions">AI Solutions</SelectItem>
+                        <SelectItem value="Other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}
               />
             </div>
+
+            <FormField
+              control={form.control}
+              name="subject"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Subject</FormLabel>
+                  <FormControl>
+                    <Input placeholder="What's this about?" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
 
             <FormField
