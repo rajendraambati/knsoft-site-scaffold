@@ -87,6 +87,20 @@ export function ContactForm() {
         console.warn('Email notification failed, but form was saved:', emailError);
       }
 
+      // Send WhatsApp notifications
+      try {
+        await supabase.functions.invoke('send-whatsapp-notification', {
+          body: {
+            name: data.name,
+            phone: data.phone || undefined,
+            message: data.message,
+            userPhone: data.phone || undefined,
+          },
+        });
+      } catch (whatsappError) {
+        console.warn('WhatsApp notification failed, but form was saved:', whatsappError);
+      }
+
       toast({
         title: "Message sent successfully!",
         description: "We'll get back to you within 24 hours.",
