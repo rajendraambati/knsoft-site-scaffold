@@ -59,7 +59,7 @@ const handler = async (req: Request): Promise<Response> => {
     // 2. Optional: Send confirmation to user if phone provided
     let userData = null;
     if (userPhone) {
-      const userMessage = `Hi ${name}! 👋\n\nThank you for contacting *KNSOFT Technologies*. Our team has received your message and will get back to you shortly.\n\n- KNSOFT Team`;
+      const userMessage = `Hi ${name} 👋\n\nThanks for contacting *KNSOFT Technologies!*\n\nWe received your request regarding "${message}".\n\nOur team will contact you shortly.\n\n- Team KNSOFT 🚀`;
 
       const userResponse = await fetch(`${GATEWAY_URL}/Messages.json`, {
         method: 'POST',
