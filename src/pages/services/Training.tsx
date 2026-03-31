@@ -175,7 +175,7 @@ export default function Training() {
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <h3 className="text-2xl font-bold text-center mb-2">Vijaya Bhanu</h3>
+                      <h3 className="text-2xl font-bold text-center mb-2">Harish Balne. (B.Tech)- AUSTRALIA</h3>
                       <p className="text-sm text-muted-foreground text-center mb-4">
                         Certified Soft Skills & Business Communication Trainer
                       </p>
@@ -199,11 +199,11 @@ export default function Training() {
                     >
                       <div>
                         <p className="text-base leading-relaxed text-muted-foreground mb-4">
-                          With a rich career spanning over two decades, Vijaya Bhanu stands out as a highly accomplished trainer who has transformed thousands of careers through her impactful training style. Having conducted <strong>5000+ training sessions</strong> across India, she brings unmatched expertise, energy, and practical insights to every program.
+                          Specializing in international education and migration strategy, digital transformation and IT consulting, cross-border market entry and expansion, and strategic partnerships and alliances.
                         </p>
-                        <p className="text-base leading-relaxed text-muted-foreground">
-                          Vijaya Bhanu has collaborated with leading corporate giants such as <strong>Infosys, Amazon, ICICI, L'Oréal</strong>, and numerous retail and service brands. Her training sessions are known for being interactive, engaging, and tailor-made to meet the unique needs of diverse audiences.
-                        </p>
+                        {/* <p className="text-base leading-relaxed text-muted-foreground">
+                          Vijaya u has collaborated with leading corporate giants such as <strong>Infosys, Amazon, ICICI, L'Oréal</strong>, and numerous retail and service brands. Her training sessions are known for being interactive, engaging, and tailor-made to meet the unique needs of diverse audiences.
+                        </p> */}
                       </div>
 
                       {/* Core Expertise */}
@@ -241,8 +241,7 @@ export default function Training() {
                       <div className="bg-secondary/50 p-6 rounded-lg">
                         <h4 className="text-lg font-bold mb-3">What Makes Her Training Unique?</h4>
                         <p className="text-sm text-muted-foreground leading-relaxed">
-                          Vijaya Bhanu's approach blends real-world experience, behavioral insights, and learner-centric methods to ensure measurable outcomes. Every session is designed to build confidence, enhance communication, and elevate professional performance with practical tools that can be applied immediately at work.
-                        </p>
+                          Managing Director of HS Group, driving strategic growth across international education, global migration advisory, and cross-border business expansion. Expertise includes leading digital transformation initiatives, delivering innovative IT consulting solutions, and enabling organizations to scale in competitive global markets. Proven ability to build and nurture strategic partnerships and alliances, facilitating seamless market entry and sustainable international operations. </p>
                       </div>
                     </motion.div>
                   </div>
