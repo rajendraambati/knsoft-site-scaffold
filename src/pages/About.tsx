@@ -107,6 +107,33 @@ const leadership = [
     email: "swapna@knsofttech.com",
     linkedin: "https://www.linkedin.com/in/swapna-k-1032a236b",
   },
+  {
+    name: "Dr. Harsha Guntapalli (Australia)",
+    title: "Director of Test Preparation",
+    image: "/images/leadership/harsha.jpg",
+    bio: "Director at KN Soft Technologies Pvt Ltd and a qualified Veterinary Doctor (DVM MPH) with experience in global education and business. Successfully helped 500+ students study abroad through partnerships with 11+ Australian universities. Skilled in educational consulting, business analysis, veterinary medicine, pharmaceuticals, and sales. Also involved in IT staffing and digital transformation across different industries.",
+    experience: "15+ years",
+    email: "harsha@knsofttech.com",
+    linkedin: "",
+  },
+  {
+    name: "Divesh Kumar (Russia)",
+    title: "University Partnerships Lead",
+    image: "/images/leadership/divesh.jpg",
+    bio: "Empowering Indian pharmaceutical companies to expand into global markets with over 17 years of experience in sales, training, and marketing within the veterinary pharmaceutical industry. Expertise in product negotiation, market research, international business development, and veterinary medicine. Focused on driving sustainable growth and building strong international business presence.",
+    experience: "17+ years",
+    email: "divesh@knsofttech.com",
+    linkedin: "",
+  },
+  {
+    name: "Harish Balne (Australia)",
+    title: "Career Counselor & Psychometrician",
+    image: "/images/leadership/harish.jpg",
+    bio: "Managing Director of HS Group, specializing in international education and migration strategy, digital transformation and IT consulting, cross-border market entry and expansion, and strategic partnerships and alliances.",
+    experience: "15+ years",
+    email: "harish@knsofttech.com",
+    linkedin: "",
+  },
 ];
 
 const testimonials = [
