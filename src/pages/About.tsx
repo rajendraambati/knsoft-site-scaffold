@@ -90,15 +90,6 @@ const leadership = [
     linkedin: "https://www.linkedin.com/in/uday-kiran-m-c-a-m-b-a-171429172/",
   },
   {
-    name: "Rajesh Mora (USA)",
-    title: "Head of HR Operations",
-    image: rajeshMoraImage,
-    bio: "Rajesh Mora oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
-    experience: "18+ years",
-    email: "rajesh@knsofttech.com",
-    linkedin: "https://www.linkedin.com/in/rajeshmora",
-  },
-  {
     name: "Karuna Sree (USA)",
     title: "Director-Business Development",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
