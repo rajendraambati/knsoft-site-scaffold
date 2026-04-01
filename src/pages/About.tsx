@@ -41,9 +41,7 @@ import iso9001Logo from "@/assets/iso-9001-new.png";
 import cmmiLevel3Logo from "@/assets/cmmi-level3-new.png";
 import ceoImage from "@/assets/ceo-dasaradha-ramaiah.png";
 import cooImage from "@/assets/coo.png";
-import rajeshMoraImage from "@/assets/rajesh-mora.png";
 import swapnaChowdaryImage from "@/assets/swapna-chowdary.png";
-import vijayaBhanuImage from "@/assets/vijaya-bhanu.jpg";
 
 const cultureValues = [
   {
