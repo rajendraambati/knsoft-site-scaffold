@@ -41,9 +41,7 @@ import iso9001Logo from "@/assets/iso-9001-new.png";
 import cmmiLevel3Logo from "@/assets/cmmi-level3-new.png";
 import ceoImage from "@/assets/ceo-dasaradha-ramaiah.png";
 import cooImage from "@/assets/coo.png";
-import rajeshMoraImage from "@/assets/rajesh-mora.png";
 import swapnaChowdaryImage from "@/assets/swapna-chowdary.png";
-import vijayaBhanuImage from "@/assets/vijaya-bhanu.jpg";
 
 const cultureValues = [
   {
@@ -92,15 +90,6 @@ const leadership = [
     linkedin: "https://www.linkedin.com/in/uday-kiran-m-c-a-m-b-a-171429172/",
   },
   {
-    name: "Rajesh Mora (USA)",
-    title: "Head of HR Operations",
-    image: rajeshMoraImage,
-    bio: "Rajesh Mora oversees project delivery and client relationships. His expertise in agile methodologies and quality assurance ensures our solutions meet the highest standards of excellence.",
-    experience: "18+ years",
-    email: "rajesh@knsofttech.com",
-    linkedin: "https://www.linkedin.com/in/rajeshmora",
-  },
-  {
     name: "Karuna Sree (USA)",
     title: "Director-Business Development",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
@@ -117,15 +106,6 @@ const leadership = [
     experience: "16+ years",
     email: "swapna@knsofttech.com",
     linkedin: "https://www.linkedin.com/in/swapna-k-1032a236b",
-  },
-  {
-    name: "Vijaya Bhanu",
-    title: "Director",
-    image: vijayaBhanuImage,
-    bio: "With over 20 years of training excellence, Vijaya Bhanu delivers impactful learning experiences that elevate communication, customer service, and leadership capabilities across diverse industries. Backed by 5000+ sessions for brands like Infosys, Amazon, ICICI, and L'Oréal, she brings a proven ability to engage teams, build skills, and drive professional growth through customized, results-focused programs.",
-    experience: "20+ years",
-    email: "vijaya@knsofttech.com",
-    linkedin: "https://www.linkedin.com/in/vijayabhanu",
   },
 ];
 
