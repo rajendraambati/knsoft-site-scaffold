@@ -61,8 +61,8 @@ export default function Contact() {
               </p>
             </motion.div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Hyderabad - Headquarters */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* India - Hyderabad */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -72,23 +72,27 @@ export default function Contact() {
               >
                 <div className="flex items-center gap-2 mb-3">
                   <MapPin className="h-5 w-5 text-primary" />
-                  <h3 className="text-xl font-bold">Hyderabad, India</h3>
+                  <h3 className="text-xl font-bold">🇮🇳 Hyderabad, India</h3>
                 </div>
                 <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
                   Headquarters
                 </div>
                 <p className="text-foreground leading-relaxed mb-4">
-                  H.No 8, Apurupa Turbo Tower, No:36 Pillar No:1680, 2-293/82/a/787, Road, Jubilee Hills, Hyderabad, Telangana 500033
+                  H.No 8, Apurupa Turbo Tower, Pillar No. 1680, Jubilee Hills, Hyderabad, Telangana 500033
                 </p>
+                <div className="flex items-center gap-2 text-primary mb-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:+917842802507" className="hover:underline">+91 78428-02507</a>
+                  <span className="text-muted-foreground">/</span>
+                  <a href="tel:+918309666377" className="hover:underline">+91 83096-66377</a>
+                </div>
                 <div className="flex items-center gap-2 text-primary">
                   <Mail className="h-4 w-4" />
-                  <a href="mailto:info@knsofttech.com" className="hover:underline">
-                    info@knsofttech.com
-                  </a>
+                  <a href="mailto:info@knsofttech.com" className="hover:underline">info@knsofttech.com</a>
                 </div>
               </motion.div>
 
-              {/* Houston - Branch Office */}
+              {/* USA - Houston */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -98,23 +102,25 @@ export default function Contact() {
               >
                 <div className="flex items-center gap-2 mb-3">
                   <MapPin className="h-5 w-5 text-primary" />
-                  <h3 className="text-xl font-bold">Houston, USA</h3>
+                  <h3 className="text-xl font-bold">🇺🇸 Houston, TX</h3>
                 </div>
                 <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
                   Branch Office
                 </div>
                 <p className="text-foreground leading-relaxed mb-4">
-                  6250, Westpark Dr., Houston, TX 77057
+                  6250 Westpark Dr, Houston, TX 77057
                 </p>
+                <div className="flex items-center gap-2 text-primary mb-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:+19136878772" className="hover:underline">+1 (913) 687-8772</a>
+                </div>
                 <div className="flex items-center gap-2 text-primary">
                   <Mail className="h-4 w-4" />
-                  <a href="mailto:info@knsofttech.com" className="hover:underline">
-                    info@knsofttech.com
-                  </a>
+                  <a href="mailto:info@knsofttech.com" className="hover:underline">info@knsofttech.com</a>
                 </div>
               </motion.div>
 
-              {/* Guntur - Development Center */}
+              {/* USA - Pearland */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -124,23 +130,25 @@ export default function Contact() {
               >
                 <div className="flex items-center gap-2 mb-3">
                   <MapPin className="h-5 w-5 text-primary" />
-                  <h3 className="text-xl font-bold">Guntur, India</h3>
+                  <h3 className="text-xl font-bold">🇺🇸 Pearland, TX</h3>
                 </div>
                 <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
-                  Development Center
+                  Office
                 </div>
                 <p className="text-foreground leading-relaxed mb-4">
-                  Flat No - TF-2, Venkateswara Arcade, Annapurna Nagar 6th lane, Gorantla, Guntur, Andhra Pradesh – 522034
+                  1812 High Falls Ln, Pearland, TX 77581
                 </p>
+                <div className="flex items-center gap-2 text-primary mb-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:+12015035449" className="hover:underline">+1 (201) 503-5449</a>
+                </div>
                 <div className="flex items-center gap-2 text-primary">
                   <Mail className="h-4 w-4" />
-                  <a href="mailto:info@knsofttech.com" className="hover:underline">
-                    info@knsofttech.com
-                  </a>
+                  <a href="mailto:info@knsofttech.com" className="hover:underline">info@knsofttech.com</a>
                 </div>
               </motion.div>
 
-              {/* Pearland - Office */}
+              {/* Russia - Moscow */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -150,19 +158,77 @@ export default function Contact() {
               >
                 <div className="flex items-center gap-2 mb-3">
                   <MapPin className="h-5 w-5 text-primary" />
-                  <h3 className="text-xl font-bold">Pearland, USA</h3>
+                  <h3 className="text-xl font-bold">🇷🇺 Moscow, Russia</h3>
                 </div>
                 <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
                   Office
                 </div>
                 <p className="text-foreground leading-relaxed mb-4">
-                  1812 High Falls Lane, Pearland, Texas 77581, USA
+                  Kutuzovsky Prospekt, Bldg. 14, Apt. 81, Moscow 121248
                 </p>
+                <div className="flex items-center gap-2 text-primary mb-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:+79151533191" className="hover:underline">+7 (915) 153-3191</a>
+                </div>
                 <div className="flex items-center gap-2 text-primary">
                   <Mail className="h-4 w-4" />
-                  <a href="mailto:info@knsofttech.com" className="hover:underline">
-                    info@knsofttech.com
-                  </a>
+                  <a href="mailto:info@knsofttech.com" className="hover:underline">info@knsofttech.com</a>
+                </div>
+              </motion.div>
+
+              {/* Australia - Homebush West */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="card-elegant p-6"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <h3 className="text-xl font-bold">🇦🇺 Sydney (Homebush West)</h3>
+                </div>
+                <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
+                  Office
+                </div>
+                <p className="text-foreground leading-relaxed mb-4">
+                  Unit 6, 18–20 Courallie Ave, Homebush West, NSW 2140
+                </p>
+                <div className="flex items-center gap-2 text-primary mb-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:+61492945339" className="hover:underline">+61 4 9294 5339</a>
+                </div>
+                <div className="flex items-center gap-2 text-primary">
+                  <Mail className="h-4 w-4" />
+                  <a href="mailto:info@knsofttech.com" className="hover:underline">info@knsofttech.com</a>
+                </div>
+              </motion.div>
+
+              {/* Australia - Concord West */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="card-elegant p-6"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <h3 className="text-xl font-bold">🇦🇺 Sydney (Concord West)</h3>
+                </div>
+                <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm mb-4">
+                  Office
+                </div>
+                <p className="text-foreground leading-relaxed mb-4">
+                  73 Victoria Ave, Concord West, NSW 2138
+                </p>
+                <div className="flex items-center gap-2 text-primary mb-2">
+                  <Phone className="h-4 w-4" />
+                  <a href="tel:+61492945339" className="hover:underline">+61 4 9294 5339</a>
+                </div>
+                <div className="flex items-center gap-2 text-primary">
+                  <Mail className="h-4 w-4" />
+                  <a href="mailto:info@knsofttech.com" className="hover:underline">info@knsofttech.com</a>
                 </div>
               </motion.div>
             </div>
