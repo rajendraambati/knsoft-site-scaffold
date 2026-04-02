@@ -72,8 +72,8 @@ const cultureValues = [
 
 const leadership = [
   {
-    name: "D K Ram (USA)",
-    title: "CEO",
+    name: "Dasaradha Ramaiah Kosana (B.Tech)",
+    title: "Founder & Managing Director (USA)",
     image: ceoImage,
     bio: "With over 20 years in enterprise software development, Dasaradh Ramaiah Kosana founded KNSOFT Technologies with a vision to deliver world-class IT solutions. He specializes in SAP integration and digital transformation strategies.",
     experience: "25+ years",
@@ -81,8 +81,8 @@ const leadership = [
     linkedin: "https://www.linkedin.com/in/dasaradh-kosana-9a189127/",
   },
   {
-    name: "Uday Kiran Bandaru (India)",
-    title: "COO / CTO",
+    name: "Uday Kiran B (MCA MBA)",
+    title: "Chief Operating Officer - COO (INDIA)",
     image: cooImage,
     bio: "With over two decades of leadership at the intersection of technology and operations,  brings unmatched expertise in scaling systems, optimizing workflows, and driving digital transformation. From enterprise platforms to agile innovation, we architect solutions that deliver measurable impact, resilience, and growth.",
     experience: "20+ years",
@@ -90,8 +90,8 @@ const leadership = [
     linkedin: "https://www.linkedin.com/in/uday-kiran-m-c-a-m-b-a-171429172/",
   },
   {
-    name: "Karuna Sree (USA)",
-    title: "Director-Business Development",
+    name: "Karuna Sree (B.Tech)",
+    title: "Director-Business Development (USA)",
     image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
     bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
     experience: "15+ years",
@@ -100,7 +100,7 @@ const leadership = [
   },
   {
     name: "Swapna Chowdary (India)",
-    title: "Vice President",
+    title: "Vice Precident (INDIA)",
     image: swapnaChowdaryImage,
     bio: "With over 16 years of sales leadership, our Vice President brings a proven track record of driving revenue growth, building high-performance teams, and expanding market share across competitive industries. Armed with strategic insight and deep customer understanding, we deliver scalable sales systems, trusted partnerships, and consistent top-line results.",
     experience: "16+ years",
@@ -108,8 +108,8 @@ const leadership = [
     linkedin: "https://www.linkedin.com/in/swapna-k-1032a236b",
   },
   {
-    name: "Dr. Harsha Guntapalli (Australia)",
-    title: "Director of Test Preparation",
+    name: "Dr. Harsha Guntapalli (DVM MPH)",
+    title: "Director - Business Operations (AUSTRALIA)",
     image: "/images/leadership/harsha.jpg",
     bio: "Director at KN Soft Technologies Pvt Ltd and a qualified Veterinary Doctor (DVM MPH) with experience in global education and business. Successfully helped 500+ students study abroad through partnerships with 11+ Australian universities. Skilled in educational consulting, business analysis, veterinary medicine, pharmaceuticals, and sales. Also involved in IT staffing and digital transformation across different industries.",
     experience: "15+ years",
@@ -117,8 +117,8 @@ const leadership = [
     linkedin: "",
   },
   {
-    name: "Divesh Kumar (Russia)",
-    title: "University Partnerships Lead",
+    name: "Divesh Kumar (BVS MBA)",
+    title: "Managing Director (RUSSIA)",
     image: "/images/leadership/divesh.jpg",
     bio: "Empowering Indian pharmaceutical companies to expand into global markets with over 17 years of experience in sales, training, and marketing within the veterinary pharmaceutical industry. Expertise in product negotiation, market research, international business development, and veterinary medicine. Focused on driving sustainable growth and building strong international business presence.",
     experience: "17+ years",
@@ -126,8 +126,8 @@ const leadership = [
     linkedin: "",
   },
   {
-    name: "Harish Balne (Australia)",
-    title: "Career Counselor & Psychometrician",
+    name: "Harish Balne. (B.Tech)",
+    title: "Managing Director (AUSTRALIA)",
     image: "/images/leadership/harish.jpg",
     bio: "Managing Director of HS Group, specializing in international education and migration strategy, digital transformation and IT consulting, cross-border market entry and expansion, and strategic partnerships and alliances.",
     experience: "15+ years",
