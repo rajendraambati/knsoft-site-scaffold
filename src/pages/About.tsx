@@ -119,7 +119,7 @@ const leadership = [
   {
     name: "Divesh Kumar (BVS MBA)",
     title: "Managing Director (RUSSIA)",
-    image: "/images/leadership/divesh.jpg",
+    image: "/images/leadership/divesh.png",
     bio: "Empowering Indian pharmaceutical companies to expand into global markets with over 17 years of experience in sales, training, and marketing within the veterinary pharmaceutical industry. Expertise in product negotiation, market research, international business development, and veterinary medicine. Focused on driving sustainable growth and building strong international business presence.",
     experience: "17+ years",
     email: "divesh@knsofttech.com",
