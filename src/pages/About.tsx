@@ -128,7 +128,7 @@ const leadership = [
   {
     name: "Harish Balne. (B.Tech)",
     title: "Managing Director (AUSTRALIA)",
-    image: "/images/leadership/harish.jpg",
+    image: "/images/leadership/harish.png",
     bio: "Managing Director of HS Group, specializing in international education and migration strategy, digital transformation and IT consulting, cross-border market entry and expansion, and strategic partnerships and alliances.",
     experience: "15+ years",
     email: "harish@knsofttech.com",
