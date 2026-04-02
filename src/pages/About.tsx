@@ -92,7 +92,7 @@ const leadership = [
   {
     name: "Karuna Sree (B.Tech)",
     title: "Director-Business Development (USA)",
-    image: "/images/leadership/bd.jpg", // Placeholder - replace with actual images
+    image: "/images/leadership/karuna-sree.png",
     bio: "Karuna Sree drives our growth strategy and partnerships. She has a proven track record in building long-term client relationships and identifying new business opportunities in emerging markets.",
     experience: "15+ years",
     email: "karuna@knsofttech.com",
