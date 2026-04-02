@@ -413,16 +413,21 @@ export default function About() {
                               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                             }}
                           >
-                            {typeof leader.image === "string" && leader.image.includes("/images/leadership/") ? (
-                              <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
-                                <Users className="h-16 w-16 text-white" />
-                              </div>
-                            ) : (
+                            {leader.image ? (
                               <img
                                 src={leader.image}
                                 alt={`${leader.name} - ${leader.title}`}
                                 className="w-full h-full object-cover"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = 'none';
+                                  target.parentElement!.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>';
+                                }}
                               />
+                            ) : (
+                              <div className="w-full h-full bg-gradient-primary flex items-center justify-center">
+                                <Users className="h-16 w-16 text-white" />
+                              </div>
                             )}
                           </div>
                           <div className="flex justify-center sm:justify-start mt-3">
