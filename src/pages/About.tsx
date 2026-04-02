@@ -110,7 +110,7 @@ const leadership = [
   {
     name: "Dr. Harsha Guntapalli (DVM MPH)",
     title: "Director - Business Operations (AUSTRALIA)",
-    image: "/images/leadership/harsha.jpg",
+    image: "/images/leadership/harsha.png",
     bio: "Director at KN Soft Technologies Pvt Ltd and a qualified Veterinary Doctor (DVM MPH) with experience in global education and business. Successfully helped 500+ students study abroad through partnerships with 11+ Australian universities. Skilled in educational consulting, business analysis, veterinary medicine, pharmaceuticals, and sales. Also involved in IT staffing and digital transformation across different industries.",
     experience: "15+ years",
     email: "harsha@knsofttech.com",
