@@ -1,0 +1,19 @@
+project_id = "bzppoobpjqvzecahihze"
+
+[functions.send-contact-notification]
+verify_jwt = false
+
+[functions.send-whatsapp-notification]
+verify_jwt = false
+
+[functions.send-application-notification]
+verify_jwt = false
+
+[functions.send-training-notification]
+verify_jwt = false
+
+[functions.scrape-and-embed]
+verify_jwt = false
+
+[functions.rag-chat]
+verify_jwt = false
